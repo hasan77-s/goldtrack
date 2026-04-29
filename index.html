@@ -1,259 +1,457 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مؤشر الذهب | الأسعار اللحظية والعملات العالمية</title>
-  <meta name="description" content="منصة احترافية لمتابعة أسعار الذهب بالجرام والأونصة، وأسعار الصرف العالمية. تحديث تلقائي وموثوق.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: { extend: { colors: { brand: { 50:'#fffbeb', 100:'#fef3c7', 400:'#fbbf24', 500:'#d97706', 600:'#b45309' } } } }
-    }
-  </script>
+  <title>Altın ve Döviz Piyasası</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
-    body { font-family: 'Tajawal', system-ui, sans-serif; }
-    .glass { background: rgba(255,255,255,0.88); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.6); }
-    .dark .glass { background: rgba(15,23,42,0.92); border-color: rgba(255,255,255,0.08); }
-    .pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
-    .fade-in { animation: fadeIn .5s ease-out; }
-    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-    ::-webkit-scrollbar { width:6px; height:6px; }
-    ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:4px; }
-    .dark ::-webkit-scrollbar-thumb { background:#334155; }
-    .row-hover:hover { background: rgba(217,119,6,0.06); }
-    .dark .row-hover:hover { background: rgba(251,191,36,0.08); }
+    :root {
+      --bg: #080b13;
+      --panel: #111827;
+      --panel-2: #151f32;
+      --line: #29354d;
+      --text: #edf2ff;
+      --muted: #9aa8bf;
+      --gold: #f2a51a;
+      --green: #20c997;
+      --red: #fb7185;
+      --blue: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero {
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(rgba(8, 11, 19, 0.44), rgba(8, 11, 19, 0.9)),
+        url("https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      padding: 28px 18px 72px;
+    }
+
+    .wrap {
+      width: min(1240px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #de8a0a;
+      color: #fff7ed;
+      font-size: 22px;
+      box-shadow: 0 12px 32px rgba(222, 138, 10, 0.28);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 54px);
+      letter-spacing: 0;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .brand-title span,
+    h1 span { color: var(--gold); }
+
+    .hero-copy {
+      width: min(760px, 100%);
+      margin-top: 54px;
+    }
+
+    .hero-copy p {
+      margin: 14px 0 0;
+      max-width: 690px;
+      color: #d7deea;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button, select, input {
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: rgba(17, 24, 39, 0.92);
+      color: var(--text);
+      padding: 0 12px;
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      background: #de8a0a;
+      border-color: #de8a0a;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    button.secondary {
+      background: rgba(17, 24, 39, 0.85);
+      border-color: var(--line);
+    }
+
+    main {
+      margin-top: -42px;
+      padding-bottom: 34px;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      color: var(--muted);
+    }
+
+    .status strong { color: var(--text); }
+
+    .status.error {
+      border-color: #be123c;
+      background: #2a0715;
+      color: #fecdd3;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .card {
+      padding: 17px;
+      min-height: 124px;
+    }
+
+    .card .label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .card .value {
+      font-size: 28px;
+      font-weight: 900;
+      word-break: break-word;
+    }
+
+    .card .sub {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .panel-head {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--panel-2);
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .tools {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 13px;
+      background: #121b2c;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .up {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .down {
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .converter {
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .converter-row {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 10px;
+    }
+
+    .result-box {
+      padding: 15px;
+      border-radius: 8px;
+      background: #0c1220;
+      border: 1px solid var(--line);
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--blue);
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+    }
+
+    .note {
+      padding: 14px 16px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .cards, .layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .cards, .layout, .converter-row { grid-template-columns: 1fr; }
+      table { display: block; overflow-x: auto; }
+      .hero { padding-bottom: 58px; }
+    }
   </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 min-h-screen flex flex-col antialiased selection:bg-brand-400 selection:text-white">
-
-  <header class="glass sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="relative">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-lg shadow-md">₺</div>
-          <span class="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-950 pulse"></span>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-icon"><i class="fa-solid fa-coins"></i></div>
+          <p class="brand-title">Altın <span>Piyasa</span></p>
         </div>
-        <div>
-          <h1 class="text-lg sm:text-xl font-bold tracking-tight">مؤشر<span class="text-brand-500"> الذهب</span></h1>
-          <p class="text-xs text-slate-500 dark:text-slate-400">بيانات مالية استرشادية • تحديث كل دقيقة</p>
+        <div class="actions">
+          <select id="mainCurrency">
+            <option value="TRY">TRY</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="SAR">SAR</option>
+            <option value="AED">AED</option>
+            <option value="EGP">EGP</option>
+            <option value="SYP">SYP</option>
+          </select>
+          <button id="refreshBtn"><i class="fa-solid fa-rotate"></i> Yenile</button>
         </div>
       </div>
-      <div class="flex items-center gap-3 w-full sm:w-auto">
-        <select id="country" class="w-full sm:w-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-brand-400 outline-none"></select>
-        <button id="theme-btn" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">🌙</button>
+
+      <div class="hero-copy">
+        <h1>Canlı <span>altın</span> ve döviz ekranı</h1>
+        <p>Ons altın, gram altın, ayar fiyatları, alış-satış hesapları, Euro ve dolar karşılıkları tek ekranda.</p>
       </div>
     </div>
   </header>
 
-  <div class="bg-brand-50 dark:bg-slate-900/60 border-b border-brand-100 dark:border-slate-800 py-2 px-4">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm text-brand-700 dark:text-brand-300">
-      <div class="flex items-center gap-3">
-        <span class="inline-block w-2 h-2 bg-emerald-500 rounded-full"></span>
-        <span>آخر مزامنة: <strong id="sync-time">جاري الاتصال...</strong></span>
-        <span class="hidden sm:inline opacity-70">• التالي: <strong id="countdown">60</strong>ث</span>
-      </div>
-      <button id="refresh-btn" class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-slate-800 border border-brand-200 dark:border-slate-700 hover:bg-brand-50 dark:hover:bg-slate-700 transition font-medium">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-        مزامنة الآن
-      </button>
-    </div>
-  </div>
-
-  <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full space-y-6 fade-in">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="dashboard-cards">
-      <!-- Loading State -->
-      <div class="col-span-full text-center py-8 text-slate-400">⏳ جاري جلب البيانات من الخادم...</div>
+  <main class="wrap">
+    <div id="status" class="status">
+      <span>API bağlanıyor...</span>
+      <strong id="clock">-</strong>
     </div>
 
-    <div class="glass rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-      <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-        <h2 class="font-semibold text-slate-800 dark:text-slate-200">أسعار الذهب حسب العيار</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Ons Altın</div>
+        <div id="goldUsd" class="value">-</div>
+        <div class="sub">XAU/USD</div>
       </div>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-right">
-          <thead class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/50">
-            <tr><th class="px-5 py-3">العيار</th><th class="px-5 py-3">النقاء</th><th class="px-5 py-3 text-left">الجرام</th><th class="px-5 py-3 text-left">الكيلوغرام</th></tr>
-          </thead>
-          <tbody id="karat-table" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
-        </table>
+      <div class="card">
+        <div class="label">Gram 24 Ayar</div>
+        <div id="gram24" class="value">-</div>
+        <div class="sub">Seçili para birimi</div>
+      </div>
+      <div class="card">
+        <div class="label">Dolar Kuru</div>
+        <div id="usdRate" class="value">-</div>
+        <div class="sub">1 USD karşılığı</div>
+      </div>
+      <div class="card">
+        <div class="label">Euro Kuru</div>
+        <div id="eurRate" class="value">-</div>
+        <div class="sub">1 EUR karşılığı</div>
       </div>
     </div>
 
-    <div class="glass rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-      <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-        <h2 class="font-semibold text-slate-800 dark:text-slate-200">القطع والسبائك المعيارية</h2>
-      </div>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-right">
-          <thead class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/50">
-            <tr><th class="px-5 py-3">الاسم</th><th class="px-5 py-3">الوزن</th><th class="px-5 py-3">العيار</th><th class="px-5 py-3 text-left">السعر</th></tr>
-          </thead>
-          <tbody id="coins-table" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
-        </table>
-      </div>
-    </div>
+    <div class="layout">
+      <div>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Altın Fiyatları</h2>
+            <div class="tools">
+              <select id="goldCurrency">
+                <option value="TRY">TRY</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="SAR">SAR</option>
+                <option value="AED">AED</option>
+                <option value="EGP">EGP</option>
+                <option value="SYP">SYP</option>
+              </select>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Ayar</th>
+                <th>Saflık</th>
+                <th>Gram</th>
+                <th>Alış</th>
+                <th>Satış</th>
+                <th>Kilo</th>
+              </tr>
+            </thead>
+            <tbody id="goldRows"></tbody>
+          </table>
+        </section>
 
-    <div class="glass rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-      <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-        <h2 class="font-semibold text-slate-800 dark:text-slate-200">أسعار الصرف (1 دولار أمريكي)</h2>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Standart Altınlar</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Ürün</th>
+                <th>Ayar</th>
+                <th>Ağırlık</th>
+                <th>USD</th>
+                <th>EUR</th>
+                <th>Seçili</th>
+              </tr>
+            </thead>
+            <tbody id="pieceRows"></tbody>
+          </table>
+        </section>
       </div>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-right">
-          <thead class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/50">
-            <tr><th class="px-5 py-3">العملة</th><th class="px-5 py-3 text-left">السعر</th></tr>
-          </thead>
-          <tbody id="fx-table" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
-        </table>
+
+      <div>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Döviz Çevirici</h2>
+          </div>
+          <div class="converter">
+            <div class="converter-row">
+              <input id="convertAmount" type="number" value="100" min="0" step="0.01">
+              <select id="fromCurrency"></select>
+            </div>
+            <div class="converter-row">
+              <input id="convertResult" type="text" readonly>
+              <select id="toCurrency"></select>
+            </div>
+            <button id="swapBtn" class="secondary"><i class="fa-solid fa-right-left"></i> Değiştir</button>
+            <div id="converterText" class="result-box">-</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Dolar Karşılığı</h2>
+            <input id="currencySearch" placeholder="Para birimi ara">
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>1 USD</th>
+                <th>1 Birim USD</th>
+              </tr>
+            </thead>
+            <tbody id="currencyRows"></tbody>
+          </table>
+        </section>
+
+        <section class="panel">
+          <div class="note">
+            Veriler API kaynağından gelir. Kuyumcu fiyatları; makas, işçilik, vergi ve yerel piyasa farkı nedeniyle değişebilir.
+          </div>
+        </section>
       </div>
-    </div>
-
-    <div id="error-banner" class="hidden bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-xl p-4 text-sm text-rose-700 dark:text-rose-300 text-center"></div>
-
-    <div class="bg-slate-100 dark:bg-slate-900 rounded-xl p-5 text-xs text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-800">
-      <p class="font-medium text-slate-700 dark:text-slate-300 mb-1">⚠️ تنويه:</p>
-      الأسعار مستوردة آلياً من خوادم السوق العالمية. قد تختلف الأسعار الفعلية في المحلات المحلية حسب المصنعية والضرائب.
     </div>
   </main>
 
-  <footer class="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500">
-    © <span id="year"></span> مؤشر الذهب • جميع الحقوق محفوظة
-  </footer>
-
-  <script>
-    // 🔗 رابط الـ API الخاص بك حصراً
-    const API_URL = 'https://gold-api.hsnalwsf05.workers.dev/';
-    
-    const COUNTRIES = [
-      { code:'TR', name:'تركيا', cur:'TRY', sym:'', prem:0.065 },
-      { code:'SA', name:'السعودية', cur:'SAR', sym:'ر.س', prem:0.015 },
-      { code:'AE', name:'الإمارات', cur:'AED', sym:'د.إ', prem:0.02 },
-      { code:'EG', name:'مصر', cur:'EGP', sym:'ج.م', prem:0.04 },
-      { code:'US', name:'الولايات المتحدة', cur:'USD', sym:'$', prem:0.01 },
-      { code:'DE', name:'ألمانيا', cur:'EUR', sym:'€', prem:0.025 },
-      { code:'GB', name:'المملكة المتحدة', cur:'GBP', sym:'£', prem:0.02 }
-    ];
-
-    const KARATS = [24, 22, 21, 18, 14];
-    const COINS = [
-      { name:'ليرة ذهبية كاملة', w:7.0, k:22 },
-      { name:'نصف ليرة', w:3.5, k:22 },
-      { name:'ربع ليرة', w:1.75, k:22 },
-      { name:'سبيكة أونصة', w:31.1035, k:24 },
-      { name:'سبيكة 100 غرام', w:100, k:24 },
-      { name:'سبيكة 10 غرام', w:10, k:24 }
-    ];
-
-    let refreshTimer;
-    let countdown = 60;
-
-    function calculate(ounceUSD, fxRate, country) {
-      const baseGram = ounceUSD / 31.1035;
-      return {
-        karats: KARATS.map(k => {
-          const p = k/24;
-          const g = baseGram * p * fxRate * (1 + country.prem);
-          return { k, purity: (p*100).toFixed(1)+'%', gram: g.toFixed(2), kilo: (g*1000).toFixed(2) };
-        }),
-        coins: COINS.map(c => {
-          const p = c.k/24;
-          const price = baseGram * p * c.w * fxRate * (1 + country.prem);
-          return { name: c.name, weight: c.w+'غ', k: c.k, price: price.toFixed(2) };
-        })
-      };
-    }
-
-    function render(data, country) {
-      document.getElementById('sync-time').textContent = new Date(data.updated).toLocaleTimeString('ar-EG');
-      document.getElementById('error-banner').classList.add('hidden');
-      
-      const prices = calculate(data.goldUSD, data.rates[country.cur], country);
-      const fx = data.rates[country.cur];
-
-      document.getElementById('dashboard-cards').innerHTML = `
-        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
-          <div class="text-xs text-slate-500 mb-1">الأونصة العالمية</div>
-          <div class="text-xl font-bold text-brand-600">${data.goldUSD.toFixed(2)} $</div>
-        </div>
-        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
-          <div class="text-xs text-slate-500 mb-1">سعر الصرف (1$)</div>
-          <div class="text-xl font-bold">${fx.toFixed(4)} ${country.sym}</div>
-        </div>
-        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
-          <div class="text-xs text-slate-500 mb-1">جرام عيار 24</div>
-          <div class="text-xl font-bold">${prices.karats[0].gram} ${country.sym}</div>
-        </div>
-        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
-          <div class="text-xs text-slate-500 mb-1">ليرة كاملة</div>
-          <div class="text-xl font-bold">${prices.coins[0].price} ${country.sym}</div>
-        </div>
-      `;
-
-      document.getElementById('karat-table').innerHTML = prices.karats.map(r => `
-        <tr class="row-hover"><td class="px-5 py-3 font-medium">${r.k} قيراط</td><td class="px-5 py-3 text-slate-500">${r.purity}</td>
-        <td class="px-5 py-3 text-left font-mono font-medium">${r.gram} ${country.sym}</td><td class="px-5 py-3 text-left font-mono text-slate-500">${r.kilo} ${country.sym}</td></tr>
-      `).join('');
-
-      document.getElementById('coins-table').innerHTML = prices.coins.map(c => `
-        <tr class="row-hover"><td class="px-5 py-3 font-medium">${c.name}</td><td class="px-5 py-3 text-slate-500">${c.weight}</td>
-        <td class="px-5 py-3 text-slate-500">${c.k} قيراط</td><td class="px-5 py-3 text-left font-mono font-medium">${c.price} ${country.sym}</td></tr>
-      `).join('');
-
-      document.getElementById('fx-table').innerHTML = Object.entries(data.rates).slice(0,6).map(([c,r]) => `
-        <tr class="row-hover"><td class="px-5 py-3 font-medium">${c}</td><td class="px-5 py-3 text-left font-mono">${r.toFixed(c==='USD'||c==='EUR'||c==='GBP'?4:2)}</td></tr>
-      `).join('');
-    }
-
-    async function sync() {
-      try {
-        const res = await fetch(API_URL, { cache: 'no-cache' });
-        if(!res.ok) throw new Error('HTTP '+res.status);
-        const data = await res.json();
-        if(!data.goldUSD || !data.rates) throw new Error('Invalid data structure');
-        render(data, getCountry());
-      } catch(err) {
-        document.getElementById('dashboard-cards').innerHTML = '';
-        document.getElementById('karat-table').innerHTML = '';
-        document.getElementById('coins-table').innerHTML = '';
-        document.getElementById('fx-table').innerHTML = '';
-        const errDiv = document.getElementById('error-banner');
-        errDiv.classList.remove('hidden');
-        errDiv.textContent = `⚠️ تعذر الاتصال بالخادم: ${err.message}. تأكد من أن الـ Worker يعمل على Cloudflare.`;
-      }
-      
-      clearInterval(refreshTimer);
-      countdown = 60;
-      document.getElementById('countdown').textContent = countdown;
-      refreshTimer = setInterval(() => {
-        countdown--;
-        document.getElementById('countdown').textContent = countdown;
-        if(countdown <= 0) sync();
-      }, 1000);
-    }
-
-    function getCountry() {
-      return COUNTRIES.find(c => c.code === document.getElementById('country').value) || COUNTRIES[0];
-    }
-
-    document.getElementById('country').innerHTML = COUNTRIES.map(c => `<option value="${c.code}">${c.name}</option>`).join('');
-    document.getElementById('country').addEventListener('change', () => sync());
-    document.getElementById('refresh-btn').addEventListener('click', sync);
-    document.getElementById('theme-btn').addEventListener('click', () => {
-      const d = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', d ? 'dark' : 'light');
-      document.getElementById('theme-btn').textContent = d ? '☀️' : '🌙';
-    });
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    if(localStorage.getItem('theme')==='dark' || (!localStorage.getItem('theme') && matchMedia('(prefers-color-scheme:dark)').matches)){
-      document.documentElement.classList.add('dark');
-      document.getElementById('theme-btn').textContent = '☀️';
-    }
-    
-    sync();
-  </script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
