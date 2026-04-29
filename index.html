@@ -498,11 +498,216 @@
   </main>
 
   <script>
-    window.GOLD_API_URL = "https://gold-api.hsnalwsf05.workers.dev/";
+    const API_URL = "https://gold-api.hsnalwsf05.workers.dev/";
+    const OUNCE = 31.1034768;
+    const KARATS = [24, 22, 21, 18, 14, 10];
+
+    let data = null;
+
+    document.getElementById("refreshBtn").onclick = loadData;
+
+    document.getElementById("mainCurrency").onchange = function () {
+      document.getElementById("goldCurrency").value = this.value;
+      render();
+    };
+
+    document.getElementById("goldCurrency").onchange = render;
+    document.getElementById("currencySearch").oninput = renderCurrencies;
+
+    loadData();
+    setInterval(loadData, 60000);
+
+    async function loadData() {
+      try {
+        setStatus("API bağlanıyor...", false);
+
+        const res = await fetch(API_URL, { cache: "no-store" });
+        data = await res.json();
+
+        if (!data.goldUSD || !data.rates) {
+          throw new Error("API verisi eksik");
+        }
+
+        fillConverter();
+        render();
+
+        setStatus("Canlı veri alındı", false);
+      } catch (e) {
+        setStatus("Hata: " + e.message, true);
+      }
+    }
+
+    function render() {
+      if (!data) return;
+
+      const currency = document.getElementById("mainCurrency").value;
+      const goldCurrency = document.getElementById("goldCurrency").value;
+
+      document.getElementById("goldUsd").textContent = money(data.goldUSD, "USD");
+      document.getElementById("gram24").textContent = money(gramPrice(24, currency), currency);
+      document.getElementById("usdRate").textContent = money(data.rates[currency] || 1, currency);
+      document.getElementById("eurRate").textContent = money(convert(1, "EUR", currency), currency);
+
+      document.getElementById("goldRows").innerHTML = KARATS.map(function (karat) {
+        const gram = gramPrice(karat, goldCurrency);
+
+        return `
+          <tr>
+            <td>${karat}</td>
+            <td>${Math.round(karat / 24 * 1000)}</td>
+            <td>${money(gram, goldCurrency)}</td>
+            <td class="down">${money(gram * 0.992, goldCurrency)}</td>
+            <td class="up">${money(gram * 1.015, goldCurrency)}</td>
+            <td>${money(gram * 1000, goldCurrency)}</td>
+          </tr>
+        `;
+      }).join("");
+
+      renderPieces();
+      renderCurrencies();
+      renderConverter();
+    }
+
+    function renderPieces() {
+      const currency = document.getElementById("goldCurrency").value;
+
+      const pieces = [
+        { name: "Çeyrek Altın", weight: 1.75, karat: 22 },
+        { name: "Yarım Altın", weight: 3.5, karat: 22 },
+        { name: "Tam Altın", weight: 7, karat: 22 },
+        { name: "Cumhuriyet Altını", weight: 7.216, karat: 22 },
+        { name: "Reşat Altın", weight: 7.2, karat: 22 },
+        { name: "Ons Altın", weight: OUNCE, karat: 24 },
+        { name: "1 KG Altın", weight: 1000, karat: 24 }
+      ];
+
+      document.getElementById("pieceRows").innerHTML = pieces.map(function (item) {
+        const selected = gramPrice(item.karat, currency) * item.weight;
+        const usd = gramPrice(item.karat, "USD") * item.weight;
+        const eur = gramPrice(item.karat, "EUR") * item.weight;
+
+        return `
+          <tr>
+            <td>${item.name}</td>
+            <td>${item.karat}</td>
+            <td>${format(item.weight)} gr</td>
+            <td>${money(usd, "USD")}</td>
+            <td>${money(eur, "EUR")}</td>
+            <td>${money(selected, currency)}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function renderCurrencies() {
+      const search = document.getElementById("currencySearch").value.toLowerCase();
+
+      document.getElementById("currencyRows").innerHTML =
+        Object.entries(data.rates)
+          .filter(function ([code]) {
+            return code.toLowerCase().includes(search);
+          })
+          .sort(function (a, b) {
+            return a[0].localeCompare(b[0]);
+          })
+          .map(function ([code, rate]) {
+            return `
+              <tr>
+                <td><strong>${code}</strong></td>
+                <td>${format(rate)}</td>
+                <td>${money(1 / rate, "USD")}</td>
+              </tr>
+            `;
+          }).join("");
+    }
+
+    function fillConverter() {
+      const codes = Object.keys(data.rates).sort();
+
+      fillSelect("fromCurrency", codes, "USD");
+      fillSelect("toCurrency", codes, "TRY");
+
+      document.getElementById("convertAmount").oninput = renderConverter;
+      document.getElementById("fromCurrency").onchange = renderConverter;
+      document.getElementById("toCurrency").onchange = renderConverter;
+
+      document.getElementById("swapBtn").onclick = function () {
+        const from = document.getElementById("fromCurrency");
+        const to = document.getElementById("toCurrency");
+        const old = from.value;
+
+        from.value = to.value;
+        to.value = old;
+
+        renderConverter();
+      };
+    }
+
+    function fillSelect(id, codes, selected) {
+      const select = document.getElementById(id);
+      const oldValue = select.value || selected;
+
+      if (select.options.length) return;
+
+      select.innerHTML = codes.map(function (code) {
+        return `<option value="${code}">${code}</option>`;
+      }).join("");
+
+      select.value = codes.includes(oldValue) ? oldValue : selected;
+    }
+
+    function renderConverter() {
+      if (!data) return;
+
+      const amount = Number(document.getElementById("convertAmount").value || 0);
+      const from = document.getElementById("fromCurrency").value;
+      const to = document.getElementById("toCurrency").value;
+      const result = convert(amount, from, to);
+
+      document.getElementById("convertResult").value = format(result);
+      document.getElementById("converterText").textContent =
+        format(amount) + " " + from + " = " + format(result) + " " + to;
+    }
+
+    function gramPrice(karat, currency) {
+      const gramUSD = data.goldUSD / OUNCE * karat / 24;
+      return convert(gramUSD, "USD", currency);
+    }
+
+    function convert(amount, from, to) {
+      const fromRate = data.rates[from] || 1;
+      const toRate = data.rates[to] || 1;
+
+      return amount / fromRate * toRate;
+    }
+
+    function money(value, currency) {
+      return new Intl.NumberFormat("tr-TR", {
+        style: "currency",
+        currency,
+        maximumFractionDigits: 2
+      }).format(value || 0);
+    }
+
+    function format(value) {
+      return new Intl.NumberFormat("tr-TR", {
+        maximumFractionDigits: 4
+      }).format(value || 0);
+    }
+
+    function setStatus(text, error) {
+      const box = document.getElementById("status");
+
+      box.className = error ? "status error" : "status";
+      box.querySelector("span").textContent = text;
+
+      document.getElementById("clock").textContent =
+        new Date().toLocaleTimeString("tr-TR");
+    }
   </script>
-  <script src="app.js?v=4"></script>
 </body>
 </html>
+
 
 
 
