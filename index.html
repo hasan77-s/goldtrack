@@ -94,13 +94,13 @@
 
   <script>
     const COUNTRIES = [
-      { code:'TR', name:'تركيا 🇹🇷', cur:'TRY', sym:'₺', prem:0.06 },
+      { code:'TR', name:'تركيا 🇹', cur:'TRY', sym:'₺', prem:0.06 },
       { code:'SA', name:'السعودية 🇸🇦', cur:'SAR', sym:'ر.س', prem:0.015 },
       { code:'AE', name:'الإمارات 🇦', cur:'AED', sym:'د.إ', prem:0.02 },
       { code:'EG', name:'مصر 🇪🇬', cur:'EGP', sym:'ج.م', prem:0.04 },
       { code:'US', name:'الولايات المتحدة 🇺🇸', cur:'USD', sym:'$', prem:0.01 },
       { code:'DE', name:'ألمانيا 🇩', cur:'EUR', sym:'€', prem:0.025 },
-      { code:'GB', name:'بريطانيا 🇬🇧', cur:'GBP', sym:'£', prem:0.02 }
+      { code:'GB', name:'بريطانيا 🇬', cur:'GBP', sym:'£', prem:0.02 }
     ];
 
     const CARATS = [24, 22, 21, 18, 14];
@@ -160,6 +160,7 @@
       `).join('');
     }
 
+    // ✅ رابط الـ API الخاص بك
     const API_URL = 'https://gold-api.hsnalwsf05.workers.dev/';
     let refreshTimer;
 
@@ -167,13 +168,26 @@
       try {
         const res = await fetch(API_URL);
         const data = await res.json();
-        if(data.error) return;
+        if(data.error) {
+          console.error('API Error:', data.error);
+          return;
+        }
         data.rates = calcAll(data.goldUSD, data.rates[getCountry().cur], getCountry());
         render(data, getCountry());
         clearInterval(refreshTimer);
         let sec = 60;
-        refreshTimer = setInterval(() => { sec--; if(sec<=0) fetchLive(); }, 1000);
-      } catch(e) { console.error('Fetch error', e); }
+        document.getElementById('countdown') ? document.getElementById('countdown').textContent = sec : null;
+        refreshTimer = setInterval(() => { 
+          sec--; 
+          if(sec<=0) {
+            fetchLive();
+            sec = 60;
+          }
+          document.getElementById('countdown') ? document.getElementById('countdown').textContent = sec : null;
+        }, 1000);
+      } catch(e) { 
+        console.error('Fetch error', e); 
+      }
     }
 
     function getCountry() {
@@ -189,7 +203,8 @@
       localStorage.setItem('theme', dark ? 'dark' : 'light');
     };
     if(localStorage.getItem('theme')==='dark' || (!localStorage.getItem('theme') && matchMedia('(prefers-color-scheme:dark)').matches)){
-      document.documentElement.classList.add('dark'); document.getElementById('theme-btn').textContent='☀️';
+      document.documentElement.classList.add('dark'); 
+      document.getElementById('theme-btn').textContent='☀️';
     }
     fetchLive();
   </script>
