@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Altın ve Döviz Piyasası</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <style>
     :root {
       --bg: #080b13;
@@ -19,7 +20,9 @@
       --blue: #38bdf8;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -67,7 +70,6 @@
       background: #de8a0a;
       color: #fff7ed;
       font-size: 22px;
-      box-shadow: 0 12px 32px rgba(222, 138, 10, 0.28);
     }
 
     h1 {
@@ -83,7 +85,9 @@
     }
 
     .brand-title span,
-    h1 span { color: var(--gold); }
+    h1 span {
+      color: var(--gold);
+    }
 
     .hero-copy {
       width: min(760px, 100%);
@@ -105,7 +109,9 @@
       flex-wrap: wrap;
     }
 
-    button, select, input {
+    button,
+    select,
+    input {
       height: 42px;
       border: 1px solid var(--line);
       border-radius: 7px;
@@ -119,7 +125,7 @@
       cursor: pointer;
       background: #de8a0a;
       border-color: #de8a0a;
-      color: #fff;
+      color: white;
       font-weight: 800;
     }
 
@@ -146,7 +152,9 @@
       color: var(--muted);
     }
 
-    .status strong { color: var(--text); }
+    .status strong {
+      color: var(--text);
+    }
 
     .status.error {
       border-color: #be123c;
@@ -161,7 +169,8 @@
       margin-bottom: 18px;
     }
 
-    .card, .panel {
+    .card,
+    .panel {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -229,7 +238,8 @@
       border-collapse: collapse;
     }
 
-    th, td {
+    th,
+    td {
       padding: 13px 16px;
       border-bottom: 1px solid var(--line);
       text-align: left;
@@ -242,7 +252,9 @@
       background: #121b2c;
     }
 
-    tr:last-child td { border-bottom: 0; }
+    tr:last-child td {
+      border-bottom: 0;
+    }
 
     .up {
       color: var(--green);
@@ -287,16 +299,31 @@
     }
 
     @media (max-width: 980px) {
-      .cards, .layout { grid-template-columns: 1fr 1fr; }
+      .cards,
+      .layout {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 720px) {
-      .cards, .layout, .converter-row { grid-template-columns: 1fr; }
-      table { display: block; overflow-x: auto; }
-      .hero { padding-bottom: 58px; }
+      .cards,
+      .layout,
+      .converter-row {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .hero {
+        padding-bottom: 58px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="hero">
     <div class="wrap">
@@ -305,6 +332,7 @@
           <div class="brand-icon"><i class="fa-solid fa-coins"></i></div>
           <p class="brand-title">Altın <span>Piyasa</span></p>
         </div>
+
         <div class="actions">
           <select id="mainCurrency">
             <option value="TRY">TRY</option>
@@ -315,7 +343,11 @@
             <option value="EGP">EGP</option>
             <option value="SYP">SYP</option>
           </select>
-          <button id="refreshBtn"><i class="fa-solid fa-rotate"></i> Yenile</button>
+
+          <button id="refreshBtn">
+            <i class="fa-solid fa-rotate"></i>
+            Yenile
+          </button>
         </div>
       </div>
 
@@ -338,16 +370,19 @@
         <div id="goldUsd" class="value">-</div>
         <div class="sub">XAU/USD</div>
       </div>
+
       <div class="card">
         <div class="label">Gram 24 Ayar</div>
         <div id="gram24" class="value">-</div>
         <div class="sub">Seçili para birimi</div>
       </div>
+
       <div class="card">
         <div class="label">Dolar Kuru</div>
         <div id="usdRate" class="value">-</div>
         <div class="sub">1 USD karşılığı</div>
       </div>
+
       <div class="card">
         <div class="label">Euro Kuru</div>
         <div id="eurRate" class="value">-</div>
@@ -372,6 +407,7 @@
               </select>
             </div>
           </div>
+
           <table>
             <thead>
               <tr>
@@ -391,6 +427,7 @@
           <div class="panel-head">
             <h2>Standart Altınlar</h2>
           </div>
+
           <table>
             <thead>
               <tr>
@@ -412,16 +449,23 @@
           <div class="panel-head">
             <h2>Döviz Çevirici</h2>
           </div>
+
           <div class="converter">
             <div class="converter-row">
               <input id="convertAmount" type="number" value="100" min="0" step="0.01">
               <select id="fromCurrency"></select>
             </div>
+
             <div class="converter-row">
               <input id="convertResult" type="text" readonly>
               <select id="toCurrency"></select>
             </div>
-            <button id="swapBtn" class="secondary"><i class="fa-solid fa-right-left"></i> Değiştir</button>
+
+            <button id="swapBtn" class="secondary">
+              <i class="fa-solid fa-right-left"></i>
+              Değiştir
+            </button>
+
             <div id="converterText" class="result-box">-</div>
           </div>
         </section>
@@ -431,6 +475,7 @@
             <h2>Dolar Karşılığı</h2>
             <input id="currencySearch" placeholder="Para birimi ara">
           </div>
+
           <table>
             <thead>
               <tr>
@@ -452,6 +497,10 @@
     </div>
   </main>
 
-  <script src="app.js?v=3"></script>
+  <script>
+    window.GOLD_API_URL = "https://gold-api.hsnalwsf05.workers.dev/";
+  </script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
+
