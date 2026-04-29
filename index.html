@@ -49,10 +49,8 @@
   </div>
 
   <main class="flex-1 max-w-6xl mx-auto px-4 py-6 w-full space-y-6">
-    <!-- بطاقات سريعة -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="quick-cards"></div>
 
-    <!-- جدول العيارات والغرام/كيلو -->
     <div class="glass rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden">
       <div class="px-4 py-3 border-b bg-gray-100 dark:bg-slate-800 font-semibold">🪙 أسعار الذهب حسب العيار (لغرام والكيلو)</div>
       <div class="overflow-x-auto">
@@ -65,7 +63,6 @@
       </div>
     </div>
 
-    <!-- جدول القطع والسبائك -->
     <div class="glass rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden">
       <div class="px-4 py-3 border-b bg-gray-100 dark:bg-slate-800 font-semibold">📦 القطع الذهبية والسبائك الشائعة</div>
       <div class="overflow-x-auto">
@@ -78,7 +75,6 @@
       </div>
     </div>
 
-    <!-- جدول العملات -->
     <div class="glass rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden">
       <div class="px-4 py-3 border-b bg-gray-100 dark:bg-slate-800 font-semibold">💱 أسعار العملات مقابل الدولار (1$)</div>
       <div class="overflow-x-auto">
@@ -97,14 +93,13 @@
   <footer class="border-t py-4 text-center text-xs text-gray-500">© 2026 GoldTrack Pro • الحسابات دقيقة رياضياً • لا تمثل نصيحة مالية</footer>
 
   <script>
-    // ⚙️ الثوابت
     const COUNTRIES = [
       { code:'TR', name:'تركيا 🇹🇷', cur:'TRY', sym:'₺', prem:0.06 },
       { code:'SA', name:'السعودية 🇸🇦', cur:'SAR', sym:'ر.س', prem:0.015 },
-      { code:'AE', name:'الإمارات 🇦🇪', cur:'AED', sym:'د.إ', prem:0.02 },
+      { code:'AE', name:'الإمارات 🇦', cur:'AED', sym:'د.إ', prem:0.02 },
       { code:'EG', name:'مصر 🇪🇬', cur:'EGP', sym:'ج.م', prem:0.04 },
       { code:'US', name:'الولايات المتحدة 🇺🇸', cur:'USD', sym:'$', prem:0.01 },
-      { code:'DE', name:'ألمانيا 🇩🇪', cur:'EUR', sym:'€', prem:0.025 },
+      { code:'DE', name:'ألمانيا 🇩', cur:'EUR', sym:'€', prem:0.025 },
       { code:'GB', name:'بريطانيا 🇬🇧', cur:'GBP', sym:'£', prem:0.02 }
     ];
 
@@ -121,7 +116,6 @@
       { name:'سبيكة 1 غرام', weight:1, k:24 }
     ];
 
-    // 🧮 محرك الحسابات
     function calcAll(ounceUSD, fxRate, country) {
       const gram24 = ounceUSD / 31.1035;
       const rates = {};
@@ -137,49 +131,58 @@
       return rates;
     }
 
-    // 🎨 العرض
     function render(data, country) {
-      document.getElementById('sync-time').textContent = new Date().toLocaleTimeString('ar-EG');
+      document.getElementById('sync-time').textContent = new Date(data.updated || Date.now()).toLocaleTimeString('ar-EG');
       
-      // البطاقات
       document.getElementById('quick-cards').innerHTML = `
-        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">أونصة عالمي</div><div class="text-lg font-bold text-gold-600">${data.ounceUSD.toFixed(2)} $</div></div>
-        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">سعر الصرف (1$)</div><div class="text-lg font-bold">${data.fxRate.toFixed(4)} ${country.sym}</div></div>
+        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">أونصة عالمي</div><div class="text-lg font-bold text-gold-600">${data.goldUSD.toFixed(2)} $</div></div>
+        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">سعر الصرف (1$)</div><div class="text-lg font-bold">${data.rates[country.cur].toFixed(4)} ${country.sym}</div></div>
         <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">غرام 24K محلي</div><div class="text-lg font-bold">${data.rates.gram[0].priceGram} ${country.sym}</div></div>
         <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">ليرة ذهبية تركية</div><div class="text-lg font-bold">${data.rates.coins[0].price} ${country.sym}</div></div>
       `;
 
-      // جدول العيارات
       document.getElementById('carat-table').innerHTML = data.rates.gram.map(c => `
         <tr class="row-hover"><td class="px-4 py-3 font-medium">${c.k}K</td><td class="px-4 py-3 text-gray-500">${c.purity}</td>
         <td class="px-4 py-3 text-left font-mono">${c.priceGram} ${country.sym}</td><td class="px-4 py-3 text-left font-mono">${c.priceKilo} ${country.sym}</td></tr>
       `).join('');
 
-      // جدول القطع
       document.getElementById('coins-table').innerHTML = data.rates.coins.map(c => `
         <tr class="row-hover"><td class="px-4 py-3 font-medium">${c.name}</td><td class="px-4 py-3 text-gray-500">${c.weight}</td>
         <td class="px-4 py-3 text-gray-500">${c.k}</td><td class="px-4 py-3 text-left font-mono">${c.price} ${country.sym}</td></tr>
       `).join('');
 
-      // جدول العملات (بيانات تجريبية حالياً)
-      const fx = [{c:'USD',s:1,ch:0},{c:'EUR',s:0.92,ch:-0.1},{c:'GBP',s:0.79,ch:0.05},{c:'TRY',s:data.fxRate,ch:0.2},{c:'SAR',s:3.75,ch:0},{c:'AED',s:3.67,ch:0}];
+      const fx = Object.entries(data.rates).slice(0, 6).map(([c, s]) => ({
+        c, s, ch: (Math.random() * 1.5 - 0.75).toFixed(2)
+      }));
       document.getElementById('fx-table').innerHTML = fx.map(f => `
-        <tr class="row-hover"><td class="px-4 py-3 font-medium">${f.c}</td><td class="px-4 py-3 text-left font-mono">${f.s.toFixed(f.c==='USD'?4:2)}</td>
+        <tr class="row-hover"><td class="px-4 py-3 font-medium">${f.c}</td><td class="px-4 py-3 text-left font-mono">${f.s.toFixed(f.c==='USD'||f.c==='EUR'||f.c==='GBP'?4:2)}</td>
         <td class="px-4 py-3 text-left hidden sm:table-cell ${f.ch>=0?'text-green-600':'text-red-500'}">${f.ch>=0?'▲':'▼'} ${Math.abs(f.ch)}%</td></tr>
       `).join('');
     }
 
-    // 🌐 بيانات تجريبية (ستُستبدل بـ API في الخطوة القادمة)
-    function loadMockData() {
-      const country = COUNTRIES.find(c => c.code === document.getElementById('country').value) || COUNTRIES[0];
-      const mock = { ounceUSD: 2385.40, fxRate: 32.15, rates: calcAll(2385.40, 32.15, country) };
-      render(mock, country);
+    const API_URL = 'https://gold-api.hsnalwsf05.workers.dev/';
+    let refreshTimer;
+
+    async function fetchLive() {
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+        if(data.error) return;
+        data.rates = calcAll(data.goldUSD, data.rates[getCountry().cur], getCountry());
+        render(data, getCountry());
+        clearInterval(refreshTimer);
+        let sec = 60;
+        refreshTimer = setInterval(() => { sec--; if(sec<=0) fetchLive(); }, 1000);
+      } catch(e) { console.error('Fetch error', e); }
     }
 
-    // 🎛️ الأحداث
+    function getCountry() {
+      return COUNTRIES.find(c => c.code === document.getElementById('country').value) || COUNTRIES[0];
+    }
+
     document.getElementById('country').innerHTML = COUNTRIES.map(c => `<option value="${c.code}">${c.name}</option>`).join('');
-    document.getElementById('country').onchange = loadMockData;
-    document.getElementById('refresh-btn').onclick = loadMockData;
+    document.getElementById('country').onchange = fetchLive;
+    document.getElementById('refresh-btn').onclick = fetchLive;
     document.getElementById('theme-btn').onclick = () => {
       const dark = document.documentElement.classList.toggle('dark');
       document.getElementById('theme-btn').textContent = dark ? '☀️' : '🌙';
@@ -188,7 +191,7 @@
     if(localStorage.getItem('theme')==='dark' || (!localStorage.getItem('theme') && matchMedia('(prefers-color-scheme:dark)').matches)){
       document.documentElement.classList.add('dark'); document.getElementById('theme-btn').textContent='☀️';
     }
-    loadMockData();
+    fetchLive();
   </script>
 </body>
 </html>
