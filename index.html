@@ -3,190 +3,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GoldTrack Pro | أسعار الذهب الشاملة والعملات</title>
+  <title>مؤشر الذهب | الأسعار اللحظية والعملات العالمية</title>
+  <meta name="description" content="منصة احترافية لمتابعة أسعار الذهب بالجرام والأونصة، وأسعار الصرف العالمية. تحديث تلقائي وموثوق.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: { extend: { colors: { gold: { 50:'#fffbeb',100:'#fef3c7',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309' } } } }
+      theme: { extend: { colors: { brand: { 50:'#fffbeb', 100:'#fef3c7', 400:'#fbbf24', 500:'#d97706', 600:'#b45309' } } } }
     }
   </script>
   <style>
-    .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); }
-    .dark .glass { background: rgba(15,23,42,0.88); }
-    .pulse { animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-    .row-hover:hover { background: rgba(245,158,11,0.06); }
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+    body { font-family: 'Tajawal', system-ui, sans-serif; }
+    .glass { background: rgba(255,255,255,0.88); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.6); }
+    .dark .glass { background: rgba(15,23,42,0.92); border-color: rgba(255,255,255,0.08); }
+    .pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .fade-in { animation: fadeIn .5s ease-out; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    ::-webkit-scrollbar { width:6px; height:6px; }
+    ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:4px; }
+    .dark ::-webkit-scrollbar-thumb { background:#334155; }
+    .row-hover:hover { background: rgba(217,119,6,0.06); }
+    .dark .row-hover:hover { background: rgba(251,191,36,0.08); }
   </style>
 </head>
-<body class="bg-gray-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 min-h-screen flex flex-col font-sans">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 min-h-screen flex flex-col antialiased selection:bg-brand-400 selection:text-white">
 
-  <header class="glass sticky top-0 z-40 border-b border-gray-200 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+  <header class="glass sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-white font-bold shadow">💰</div>
+        <div class="relative">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-lg shadow-md">₺</div>
+          <span class="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-950 pulse"></span>
+        </div>
         <div>
-          <h1 class="text-xl font-bold tracking-tight">GoldTrack<span class="text-gold-500">Pro</span></h1>
-          <p class="text-xs text-gray-500 dark:text-gray-400">كل العيارات • الغرام • الكيلو • السبائك • العملات</p>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight">مؤشر<span class="text-brand-500"> الذهب</span></h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">بيانات مالية استرشادية • تحديث كل دقيقة</p>
         </div>
       </div>
-      <div class="flex items-center gap-3">
-        <select id="country" class="bg-white dark:bg-slate-800 border rounded px-3 py-1.5 text-sm outline-none"></select>
-        <button id="theme-btn" class="p-2 rounded border hover:bg-gray-100 dark:hover:bg-slate-800">🌙</button>
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <select id="country" class="w-full sm:w-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-brand-400 outline-none"></select>
+        <button id="theme-btn" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition">🌙</button>
       </div>
     </div>
   </header>
 
-  <div class="bg-gold-50 dark:bg-slate-800/50 border-b border-gold-100 py-2 px-4">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs text-gold-800 dark:text-gold-200">
-      <span>آخر تحديث: <strong id="sync-time">--:--:--</strong></span>
-      <button id="refresh-btn" class="hover:underline font-medium">🔄 تحديث</button>
+  <div class="bg-brand-50 dark:bg-slate-900/60 border-b border-brand-100 dark:border-slate-800 py-2 px-4">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm text-brand-700 dark:text-brand-300">
+      <div class="flex items-center gap-3">
+        <span class="inline-block w-2 h-2 bg-emerald-500 rounded-full"></span>
+        <span>آخر مزامنة: <strong id="sync-time">جاري الاتصال...</strong></span>
+        <span class="hidden sm:inline opacity-70">• التالي: <strong id="countdown">60</strong>ث</span>
+      </div>
+      <button id="refresh-btn" class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-slate-800 border border-brand-200 dark:border-slate-700 hover:bg-brand-50 dark:hover:bg-slate-700 transition font-medium">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        مزامنة الآن
+      </button>
     </div>
   </div>
 
-  <main class="flex-1 max-w-6xl mx-auto px-4 py-6 w-full space-y-6">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="quick-cards"></div>
+  <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full space-y-6 fade-in">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="dashboard-cards">
+      <!-- Loading State -->
+      <div class="col-span-full text-center py-8 text-slate-400">⏳ جاري جلب البيانات من الخادم...</div>
+    </div>
 
-    <div class="glass rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden">
-      <div class="px-4 py-3 border-b bg-gray-100 dark:bg-slate-800 font-semibold">🪙 أسعار الذهب حسب العيار (لغرام والكيلو)</div>
+    <div class="glass rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+      <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+        <h2 class="font-semibold text-slate-800 dark:text-slate-200">أسعار الذهب حسب العيار</h2>
+      </div>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="text-xs text-gray-500 dark:text-gray-400 uppercase">
-            <tr><th class="px-4 py-3 text-right">العيار</th><th class="px-4 py-3 text-right">النقاء</th><th class="px-4 py-3 text-left">الغرام</th><th class="px-4 py-3 text-left">الكيلو</th></tr>
+        <table class="w-full text-sm text-right">
+          <thead class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/50">
+            <tr><th class="px-5 py-3">العيار</th><th class="px-5 py-3">النقاء</th><th class="px-5 py-3 text-left">الجرام</th><th class="px-5 py-3 text-left">الكيلوغرام</th></tr>
           </thead>
-          <tbody id="carat-table"></tbody>
+          <tbody id="karat-table" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
         </table>
       </div>
     </div>
 
-    <div class="glass rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden">
-      <div class="px-4 py-3 border-b bg-gray-100 dark:bg-slate-800 font-semibold">📦 القطع الذهبية والسبائك</div>
+    <div class="glass rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+      <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+        <h2 class="font-semibold text-slate-800 dark:text-slate-200">القطع والسبائك المعيارية</h2>
+      </div>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="text-xs text-gray-500 dark:text-gray-400 uppercase">
-            <tr><th class="px-4 py-3 text-right">الاسم</th><th class="px-4 py-3 text-right">الوزن</th><th class="px-4 py-3 text-right">العيار</th><th class="px-4 py-3 text-left">السعر المحلي</th></tr>
+        <table class="w-full text-sm text-right">
+          <thead class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/50">
+            <tr><th class="px-5 py-3">الاسم</th><th class="px-5 py-3">الوزن</th><th class="px-5 py-3">العيار</th><th class="px-5 py-3 text-left">السعر</th></tr>
           </thead>
-          <tbody id="coins-table"></tbody>
+          <tbody id="coins-table" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
         </table>
       </div>
     </div>
 
-    <div class="glass rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden">
-      <div class="px-4 py-3 border-b bg-gray-100 dark:bg-slate-800 font-semibold">💱 أسعار العملات</div>
+    <div class="glass rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+      <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+        <h2 class="font-semibold text-slate-800 dark:text-slate-200">أسعار الصرف (1 دولار أمريكي)</h2>
+      </div>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="text-xs text-gray-500 dark:text-gray-400 uppercase">
-            <tr><th class="px-4 py-3 text-right">العملة</th><th class="px-4 py-3 text-left">السعر</th></tr>
+        <table class="w-full text-sm text-right">
+          <thead class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-50 dark:bg-slate-900/50">
+            <tr><th class="px-5 py-3">العملة</th><th class="px-5 py-3 text-left">السعر</th></tr>
           </thead>
-          <tbody id="fx-table"></tbody>
+          <tbody id="fx-table" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
         </table>
       </div>
+    </div>
+
+    <div id="error-banner" class="hidden bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-xl p-4 text-sm text-rose-700 dark:text-rose-300 text-center"></div>
+
+    <div class="bg-slate-100 dark:bg-slate-900 rounded-xl p-5 text-xs text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-800">
+      <p class="font-medium text-slate-700 dark:text-slate-300 mb-1">⚠️ تنويه:</p>
+      الأسعار مستوردة آلياً من خوادم السوق العالمية. قد تختلف الأسعار الفعلية في المحلات المحلية حسب المصنعية والضرائب.
     </div>
   </main>
 
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500">
+    © <span id="year"></span> مؤشر الذهب • جميع الحقوق محفوظة
+  </footer>
+
   <script>
+    // 🔗 رابط الـ API الخاص بك حصراً
+    const API_URL = 'https://gold-api.hsnalwsf05.workers.dev/';
+    
     const COUNTRIES = [
-      { code:'TR', name:'تركيا 🇹', cur:'TRY', sym:'₺', prem:0.06 },
-      { code:'SA', name:'السعودية 🇸🇦', cur:'SAR', sym:'ر.س', prem:0.015 },
-      { code:'AE', name:'الإمارات 🇦', cur:'AED', sym:'د.إ', prem:0.02 },
-      { code:'EG', name:'مصر 🇪🇬', cur:'EGP', sym:'ج.م', prem:0.04 },
-      { code:'US', name:'الولايات المتحدة 🇺🇸', cur:'USD', sym:'$', prem:0.01 }
+      { code:'TR', name:'تركيا', cur:'TRY', sym:'', prem:0.065 },
+      { code:'SA', name:'السعودية', cur:'SAR', sym:'ر.س', prem:0.015 },
+      { code:'AE', name:'الإمارات', cur:'AED', sym:'د.إ', prem:0.02 },
+      { code:'EG', name:'مصر', cur:'EGP', sym:'ج.م', prem:0.04 },
+      { code:'US', name:'الولايات المتحدة', cur:'USD', sym:'$', prem:0.01 },
+      { code:'DE', name:'ألمانيا', cur:'EUR', sym:'€', prem:0.025 },
+      { code:'GB', name:'المملكة المتحدة', cur:'GBP', sym:'£', prem:0.02 }
     ];
 
-    const CARATS = [24, 22, 21, 18, 14];
+    const KARATS = [24, 22, 21, 18, 14];
     const COINS = [
-      { name:'ليرة ذهبية تركية', weight:7.0, k:22 },
-      { name:'نصف ليرة', weight:3.5, k:22 },
-      { name:'ربع ليرة', weight:1.75, k:22 },
-      { name:'سبيكة 1 أونصة', weight:31.1035, k:24 },
-      { name:'سبيكة 100 غرام', weight:100, k:24 }
+      { name:'ليرة ذهبية كاملة', w:7.0, k:22 },
+      { name:'نصف ليرة', w:3.5, k:22 },
+      { name:'ربع ليرة', w:1.75, k:22 },
+      { name:'سبيكة أونصة', w:31.1035, k:24 },
+      { name:'سبيكة 100 غرام', w:100, k:24 },
+      { name:'سبيكة 10 غرام', w:10, k:24 }
     ];
 
-    // بيانات افتراضية (تظهر دائماً)
-    let mockData = {
-      goldUSD: 2385.50,
-      rates: { TRY: 32.15, SAR: 3.75, AED: 3.67, EGP: 47.50, USD: 1, EUR: 0.92, GBP: 0.79 },
-      updated: Date.now()
-    };
+    let refreshTimer;
+    let countdown = 60;
 
-    function calcAll(ounceUSD, fxRate, country) {
-      const gram24 = ounceUSD / 31.1035;
+    function calculate(ounceUSD, fxRate, country) {
+      const baseGram = ounceUSD / 31.1035;
       return {
-        gram: CARATS.map(k => ({
-          k, purity: (k/24*100).toFixed(1)+'%',
-          priceGram: (gram24 * (k/24) * fxRate * (1+country.prem)).toFixed(2),
-          priceKilo: ((gram24 * (k/24) * 1000) * fxRate * (1+country.prem)).toFixed(2)
-        })),
-        coins: COINS.map(c => ({
-          name: c.name, weight: c.weight+'غ', k: c.k+'K',
-          price: ((gram24 * (c.k/24) * c.weight) * fxRate * (1+country.prem)).toFixed(2)
-        }))
+        karats: KARATS.map(k => {
+          const p = k/24;
+          const g = baseGram * p * fxRate * (1 + country.prem);
+          return { k, purity: (p*100).toFixed(1)+'%', gram: g.toFixed(2), kilo: (g*1000).toFixed(2) };
+        }),
+        coins: COINS.map(c => {
+          const p = c.k/24;
+          const price = baseGram * p * c.w * fxRate * (1 + country.prem);
+          return { name: c.name, weight: c.w+'غ', k: c.k, price: price.toFixed(2) };
+        })
       };
     }
 
     function render(data, country) {
-      document.getElementById('sync-time').textContent = new Date(data.updated || Date.now()).toLocaleTimeString('ar-EG');
+      document.getElementById('sync-time').textContent = new Date(data.updated).toLocaleTimeString('ar-EG');
+      document.getElementById('error-banner').classList.add('hidden');
       
-      const rates = calcAll(data.goldUSD, data.rates[country.cur], country);
-      
-      document.getElementById('quick-cards').innerHTML = `
-        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">أونصة عالمي</div><div class="text-lg font-bold text-gold-600">${data.goldUSD.toFixed(2)} $</div></div>
-        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">سعر الصرف (1$)</div><div class="text-lg font-bold">${data.rates[country.cur].toFixed(4)} ${country.sym}</div></div>
-        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">غرام 24K</div><div class="text-lg font-bold">${rates.gram[0].priceGram} ${country.sym}</div></div>
-        <div class="glass rounded p-4 border"><div class="text-xs text-gray-500">ليرة ذهبية</div><div class="text-lg font-bold">${rates.coins[0].price} ${country.sym}</div></div>
+      const prices = calculate(data.goldUSD, data.rates[country.cur], country);
+      const fx = data.rates[country.cur];
+
+      document.getElementById('dashboard-cards').innerHTML = `
+        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+          <div class="text-xs text-slate-500 mb-1">الأونصة العالمية</div>
+          <div class="text-xl font-bold text-brand-600">${data.goldUSD.toFixed(2)} $</div>
+        </div>
+        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+          <div class="text-xs text-slate-500 mb-1">سعر الصرف (1$)</div>
+          <div class="text-xl font-bold">${fx.toFixed(4)} ${country.sym}</div>
+        </div>
+        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+          <div class="text-xs text-slate-500 mb-1">جرام عيار 24</div>
+          <div class="text-xl font-bold">${prices.karats[0].gram} ${country.sym}</div>
+        </div>
+        <div class="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+          <div class="text-xs text-slate-500 mb-1">ليرة كاملة</div>
+          <div class="text-xl font-bold">${prices.coins[0].price} ${country.sym}</div>
+        </div>
       `;
 
-      document.getElementById('carat-table').innerHTML = rates.gram.map(c => `
-        <tr class="row-hover"><td class="px-4 py-3 font-medium">${c.k}K</td><td class="px-4 py-3 text-gray-500">${c.purity}</td>
-        <td class="px-4 py-3 text-left font-mono">${c.priceGram} ${country.sym}</td><td class="px-4 py-3 text-left font-mono">${c.priceKilo} ${country.sym}</td></tr>
+      document.getElementById('karat-table').innerHTML = prices.karats.map(r => `
+        <tr class="row-hover"><td class="px-5 py-3 font-medium">${r.k} قيراط</td><td class="px-5 py-3 text-slate-500">${r.purity}</td>
+        <td class="px-5 py-3 text-left font-mono font-medium">${r.gram} ${country.sym}</td><td class="px-5 py-3 text-left font-mono text-slate-500">${r.kilo} ${country.sym}</td></tr>
       `).join('');
 
-      document.getElementById('coins-table').innerHTML = rates.coins.map(c => `
-        <tr class="row-hover"><td class="px-4 py-3 font-medium">${c.name}</td><td class="px-4 py-3 text-gray-500">${c.weight}</td>
-        <td class="px-4 py-3 text-gray-500">${c.k}</td><td class="px-4 py-3 text-left font-mono">${c.price} ${country.sym}</td></tr>
+      document.getElementById('coins-table').innerHTML = prices.coins.map(c => `
+        <tr class="row-hover"><td class="px-5 py-3 font-medium">${c.name}</td><td class="px-5 py-3 text-slate-500">${c.weight}</td>
+        <td class="px-5 py-3 text-slate-500">${c.k} قيراط</td><td class="px-5 py-3 text-left font-mono font-medium">${c.price} ${country.sym}</td></tr>
       `).join('');
 
-      const fxList = Object.entries(data.rates).slice(0, 6);
-      document.getElementById('fx-table').innerHTML = fxList.map(([c, s]) => `
-        <tr class="row-hover"><td class="px-4 py-3 font-medium">${c}</td><td class="px-4 py-3 text-left font-mono">${s.toFixed(c==='USD'||c==='EUR'||c==='GBP'?4:2)}</td></tr>
+      document.getElementById('fx-table').innerHTML = Object.entries(data.rates).slice(0,6).map(([c,r]) => `
+        <tr class="row-hover"><td class="px-5 py-3 font-medium">${c}</td><td class="px-5 py-3 text-left font-mono">${r.toFixed(c==='USD'||c==='EUR'||c==='GBP'?4:2)}</td></tr>
       `).join('');
+    }
+
+    async function sync() {
+      try {
+        const res = await fetch(API_URL, { cache: 'no-cache' });
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        const data = await res.json();
+        if(!data.goldUSD || !data.rates) throw new Error('Invalid data structure');
+        render(data, getCountry());
+      } catch(err) {
+        document.getElementById('dashboard-cards').innerHTML = '';
+        document.getElementById('karat-table').innerHTML = '';
+        document.getElementById('coins-table').innerHTML = '';
+        document.getElementById('fx-table').innerHTML = '';
+        const errDiv = document.getElementById('error-banner');
+        errDiv.classList.remove('hidden');
+        errDiv.textContent = `⚠️ تعذر الاتصال بالخادم: ${err.message}. تأكد من أن الـ Worker يعمل على Cloudflare.`;
+      }
+      
+      clearInterval(refreshTimer);
+      countdown = 60;
+      document.getElementById('countdown').textContent = countdown;
+      refreshTimer = setInterval(() => {
+        countdown--;
+        document.getElementById('countdown').textContent = countdown;
+        if(countdown <= 0) sync();
+      }, 1000);
     }
 
     function getCountry() {
       return COUNTRIES.find(c => c.code === document.getElementById('country').value) || COUNTRIES[0];
     }
 
-    // محاولة جلب من API، وإذا فشل نستخدم البيانات الافتراضية
-    async function loadData() {
-      try {
-        const res = await fetch('https://gold-api.hsnalwsf05.workers.dev/');
-        const data = await res.json();
-        if(data.goldUSD && data.rates) {
-          mockData = data; // تحديث البيانات
-        }
-      } catch(e) {
-        console.log('Using mock data');
-      }
-      render(mockData, getCountry());
-    }
-
     document.getElementById('country').innerHTML = COUNTRIES.map(c => `<option value="${c.code}">${c.name}</option>`).join('');
-    document.getElementById('country').onchange = () => loadData();
-    document.getElementById('refresh-btn').onclick = () => loadData();
-    document.getElementById('theme-btn').onclick = () => {
-      const dark = document.documentElement.classList.toggle('dark');
-      document.getElementById('theme-btn').textContent = dark ? '☀️' : '🌙';
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    };
+    document.getElementById('country').addEventListener('change', () => sync());
+    document.getElementById('refresh-btn').addEventListener('click', sync);
+    document.getElementById('theme-btn').addEventListener('click', () => {
+      const d = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', d ? 'dark' : 'light');
+      document.getElementById('theme-btn').textContent = d ? '☀️' : '🌙';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
     if(localStorage.getItem('theme')==='dark' || (!localStorage.getItem('theme') && matchMedia('(prefers-color-scheme:dark)').matches)){
-      document.documentElement.classList.add('dark'); 
-      document.getElementById('theme-btn').textContent='☀️';
+      document.documentElement.classList.add('dark');
+      document.getElementById('theme-btn').textContent = '☀️';
     }
     
-    // تحميل أولي
-    loadData();
-    // تحديث كل 60 ثانية
-    setInterval(loadData, 60000);
+    sync();
   </script>
 </body>
 </html>
