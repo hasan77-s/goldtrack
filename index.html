@@ -9,14 +9,14 @@
   <meta name="author" content="Altın Piyasa">
   <meta name="robots" content="index, follow">
   
-  <!-- Open Graph / Sosyal Medya -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Altın Piyasa - Canlı Altın ve Döviz Takibi">
   <meta property="og:description" content="Anlık altın fiyatları, döviz kurları ve yatırım araçları tek ekranda.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://siteniz.com">
   
-  <!-- Google AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+  <!-- Google AdSense (Şimdilik Yorumda) -->
+  <!-- <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> -->
   
   <title>Altın Piyasa - Canlı Altın ve Döviz Takibi</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -34,8 +34,6 @@
       --red: #fb7185;
       --blue: #38bdf8;
       --footer-bg: #0a0f1a;
-      --ad-bg: #1a2332;
-      --ad-border: #334155;
     }
 
     * { box-sizing: border-box; }
@@ -52,9 +50,7 @@
     /* Cookie Banner */
     #cookieBanner {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       background: var(--panel-2);
       border-top: 1px solid var(--line);
       padding: 16px 20px;
@@ -79,20 +75,15 @@
       border: none;
       font-weight: 600;
       cursor: pointer;
-      transition: opacity 0.2s;
     }
-    #cookieBanner button.accept {
-      background: var(--gold);
-      color: #fff;
-    }
+    #cookieBanner button.accept { background: var(--gold); color: #fff; }
     #cookieBanner button.decline {
       background: transparent;
       border: 1px solid var(--line);
       color: var(--text);
     }
-    #cookieBanner button:hover { opacity: 0.9; }
 
-    /* Header & Hero */
+    /* Header */
     .hero {
       border-bottom: 1px solid var(--line);
       background:
@@ -125,38 +116,22 @@
     }
 
     .brand-icon {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
+      width: 46px; height: 46px;
+      display: grid; place-items: center;
       border-radius: 8px;
       background: #de8a0a;
       color: #fff7ed;
       font-size: 22px;
     }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(28px, 4vw, 54px);
-      letter-spacing: 0;
-    }
-
-    .brand-title {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 800;
-    }
-
-    .brand-title span,
-    h1 span {
-      color: var(--gold);
-    }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 54px); }
+    .brand-title { margin: 0; font-size: 24px; font-weight: 800; }
+    .brand-title span, h1 span { color: var(--gold); }
 
     .hero-copy {
       width: min(760px, 100%);
       margin-top: 54px;
     }
-
     .hero-copy p {
       margin: 14px 0 0;
       max-width: 690px;
@@ -172,9 +147,7 @@
       flex-wrap: wrap;
     }
 
-    button,
-    select,
-    input {
+    button, select, input {
       height: 42px;
       border: 1px solid var(--line);
       border-radius: 7px;
@@ -191,17 +164,13 @@
       color: white;
       font-weight: 800;
     }
-
     button.secondary {
       background: rgba(17, 24, 39, 0.85);
       border-color: var(--line);
     }
 
-    /* Main Content */
-    main {
-      margin-top: -42px;
-      padding-bottom: 34px;
-    }
+    /* Main */
+    main { margin-top: -42px; padding-bottom: 34px; }
 
     .status {
       display: flex;
@@ -215,7 +184,6 @@
       margin-bottom: 16px;
       color: var(--muted);
     }
-
     .status strong { color: var(--text); }
     .status.error {
       border-color: #be123c;
@@ -230,35 +198,15 @@
       margin-bottom: 18px;
     }
 
-    .card,
-    .panel {
+    .card, .panel {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
     }
-
-    .card {
-      padding: 17px;
-      min-height: 124px;
-    }
-
-    .card .label {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    .card .value {
-      font-size: 28px;
-      font-weight: 900;
-      word-break: break-word;
-    }
-
-    .card .sub {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .card { padding: 17px; min-height: 124px; }
+    .card .label { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    .card .value { font-size: 28px; font-weight: 900; word-break: break-word; }
+    .card .sub { margin-top: 10px; color: var(--muted); font-size: 13px; }
 
     .layout {
       display: grid;
@@ -267,11 +215,7 @@
       align-items: start;
     }
 
-    .panel {
-      overflow: hidden;
-      margin-bottom: 18px;
-    }
-
+    .panel { overflow: hidden; margin-bottom: 18px; }
     .panel-head {
       padding: 16px;
       border-bottom: 1px solid var(--line);
@@ -282,54 +226,24 @@
       flex-wrap: wrap;
       background: var(--panel-2);
     }
+    .panel-head h2 { margin: 0; font-size: 20px; }
+    .tools { display: flex; gap: 10px; flex-wrap: wrap; }
 
-    .panel-head h2 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    .tools {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
       padding: 13px 16px;
       border-bottom: 1px solid var(--line);
       text-align: left;
       white-space: nowrap;
     }
-
-    th {
-      color: var(--muted);
-      font-size: 13px;
-      background: #121b2c;
-    }
-
+    th { color: var(--muted); font-size: 13px; background: #121b2c; }
     tr:last-child td { border-bottom: 0; }
     .up { color: var(--green); font-weight: 800; }
     .down { color: var(--red); font-weight: 800; }
 
     /* Converter */
-    .converter {
-      padding: 16px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .converter-row {
-      display: grid;
-      grid-template-columns: 1fr 120px;
-      gap: 10px;
-    }
-
+    .converter { padding: 16px; display: grid; gap: 12px; }
+    .converter-row { display: grid; grid-template-columns: 1fr 120px; gap: 10px; }
     .result-box {
       padding: 15px;
       border-radius: 8px;
@@ -342,7 +256,6 @@
       display: flex;
       align-items: center;
     }
-
     .note {
       padding: 14px 16px;
       color: var(--muted);
@@ -350,10 +263,11 @@
       font-size: 14px;
     }
 
-    /* Ad Units - AdSense Uyumlu */
+    /* AD UNITS - Varsayılan olarak GİZLİ */
     .ad-unit {
-      background: var(--ad-bg);
-      border: 1px dashed var(--ad-border);
+      display: none;
+      background: var(--panel-2);
+      border: 1px dashed var(--line);
       border-radius: 8px;
       padding: 20px;
       text-align: center;
@@ -361,19 +275,13 @@
       font-size: 13px;
       margin: 16px 0;
       min-height: 90px;
-      display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       gap: 8px;
     }
-    .ad-unit::before {
-      content: "REKLAM ALANI";
-      font-weight: 700;
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .ad-unit.ads-active {
+      display: flex !important;
     }
     .ad-horizontal { min-height: 280px; }
     .ad-square { min-height: 250px; }
@@ -386,40 +294,29 @@
       padding: 32px 18px 24px;
       margin-top: 24px;
     }
-
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 24px;
       margin-bottom: 24px;
     }
-
     .footer-section h3 {
       margin: 0 0 16px;
       font-size: 18px;
       color: var(--gold);
     }
-
     .footer-section ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
+      padding: 0; margin: 0;
     }
-
-    .footer-section li {
-      margin-bottom: 10px;
-    }
-
+    .footer-section li { margin-bottom: 10px; }
     .footer-section a {
       color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
       font-size: 15px;
     }
-
-    .footer-section a:hover {
-      color: var(--text);
-    }
+    .footer-section a:hover { color: var(--text); }
 
     .footer-bottom {
       text-align: center;
@@ -428,28 +325,19 @@
       color: var(--muted);
       font-size: 14px;
     }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
 
-    .footer-bottom a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    /* Modal / Sayfa İçeriği */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.85);
       z-index: 2000;
       padding: 20px;
       overflow-y: auto;
     }
-
     .modal.active { display: block; }
-
     .modal-content {
       background: var(--panel);
       border: 1px solid var(--line);
@@ -459,56 +347,24 @@
       padding: 24px;
       position: relative;
     }
-
     .modal-close {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      background: none;
-      border: none;
+      top: 16px; right: 16px;
+      background: none; border: none;
       color: var(--muted);
       font-size: 24px;
       cursor: pointer;
-      width: 32px;
-      height: 32px;
-      display: grid;
-      place-items: center;
+      width: 32px; height: 32px;
+      display: grid; place-items: center;
       border-radius: 6px;
     }
+    .modal-close:hover { background: var(--panel-2); color: var(--text); }
+    .modal h2 { margin: 0 0 20px; color: var(--gold); font-size: 24px; }
+    .modal p { margin: 0 0 16px; color: #d7deea; line-height: 1.7; }
+    .modal ul { padding-left: 20px; margin: 12px 0; }
+    .modal li { margin-bottom: 8px; color: #d7deea; }
 
-    .modal-close:hover {
-      background: var(--panel-2);
-      color: var(--text);
-    }
-
-    .modal h2 {
-      margin: 0 0 20px;
-      color: var(--gold);
-      font-size: 24px;
-    }
-
-    .modal p {
-      margin: 0 0 16px;
-      color: #d7deea;
-      line-height: 1.7;
-    }
-
-    .modal ul {
-      padding-left: 20px;
-      margin: 12px 0;
-    }
-
-    .modal li {
-      margin-bottom: 8px;
-      color: #d7deea;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
+    .contact-form { display: grid; gap: 14px; margin-top: 16px; }
     .contact-form input,
     .contact-form textarea {
       width: 100%;
@@ -519,16 +375,8 @@
       color: var(--text);
       font: inherit;
     }
-
-    .contact-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .contact-form button {
-      align-self: start;
-      padding: 0 24px;
-    }
+    .contact-form textarea { min-height: 120px; resize: vertical; }
+    .contact-form button { align-self: start; padding: 0 24px; }
 
     /* Dil Seçici */
     .lang-switcher {
@@ -539,64 +387,33 @@
       border-radius: 6px;
       padding: 4px;
     }
-
     .lang-btn {
-      background: none;
-      border: none;
+      background: none; border: none;
       color: var(--muted);
       padding: 6px 12px;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 13px; font-weight: 500;
     }
-
-    .lang-btn.active,
-    .lang-btn:hover {
-      background: var(--gold);
-      color: #fff;
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--gold); color: #fff;
     }
 
     /* Responsive */
     @media (max-width: 980px) {
-      .cards,
-      .layout {
-        grid-template-columns: 1fr 1fr;
-      }
+      .cards, .layout { grid-template-columns: 1fr 1fr; }
     }
-
     @media (max-width: 720px) {
-      .cards,
-      .layout,
-      .converter-row {
-        grid-template-columns: 1fr;
-      }
-      table {
-        display: block;
-        overflow-x: auto;
-      }
-      .hero {
-        padding-bottom: 58px;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
+      .cards, .layout, .converter-row { grid-template-columns: 1fr; }
+      table { display: block; overflow-x: auto; }
+      .hero { padding-bottom: 58px; }
+      .footer-grid { grid-template-columns: 1fr; }
     }
 
     /* Erişilebilirlik */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* Skip Link */
     .skip-link {
       position: absolute;
-      top: -40px;
-      left: 0;
+      top: -40px; left: 0;
       background: var(--gold);
       color: #fff;
       padding: 8px 16px;
@@ -605,19 +422,16 @@
       text-decoration: none;
       font-weight: 600;
     }
-    .skip-link:focus {
-      top: 0;
-    }
+    .skip-link:focus { top: 0; }
   </style>
 </head>
 
 <body>
-  <!-- Erişilebilirlik: Atlama Linki -->
   <a href="#main-content" class="skip-link">İçeriğe atla</a>
 
-  <!-- Cookie Consent Banner -->
+  <!-- Cookie Banner -->
   <div id="cookieBanner">
-    <p>🍪 Bu site, deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href="#" onclick="openModal('privacy')" style="color:var(--gold);text-decoration:none">Gizlilik Politikası</a>'nı inceleyebilirsiniz.</p>
+    <p>🍪 Bu site deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href="#" onclick="openModal('privacy')" style="color:var(--gold);text-decoration:none">Gizlilik Politikası</a>'nı inceleyebilirsiniz.</p>
     <button class="accept" onclick="acceptCookies()">Kabul Et</button>
     <button class="decline" onclick="declineCookies()">Reddet</button>
   </div>
@@ -631,7 +445,6 @@
         </a>
 
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-          <!-- Dil Seçici -->
           <div class="lang-switcher" role="group" aria-label="Dil seçimi">
             <button class="lang-btn active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
             <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
@@ -657,7 +470,7 @@
 
       <div class="hero-copy">
         <h1>Canlı <span>altın</span> ve döviz ekranı</h1>
-        <p>Ons altın, gram altın, ayar fiyatları, alış-satış hesapları, Euro ve dolar karşılıkları tek ekranda. Yatırım kararlarınızı güvenilir ve anlık verilerle destekleyin.</p>
+        <p>Ons altın, gram altın, ayar fiyatları, alış-satış hesapları, Euro ve dolar karşılıkları tek ekranda.</p>
       </div>
     </div>
   </header>
@@ -668,11 +481,9 @@
       <strong id="clock">-</strong>
     </div>
 
-    <!-- Üst Reklam Alanı (AdSense) -->
+    <!-- Üst Reklam Alanı (ADS_ENABLED=true olunca aktif olur) -->
     <div class="ad-unit ad-horizontal" aria-label="Reklam">
-      <!-- Google AdSense kodunuz buraya -->
-      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto"></ins> -->
-      <span>728x90 Reklam Alanı</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
 
     <div class="cards">
@@ -730,10 +541,9 @@
           </table>
         </section>
 
-        <!-- Orta Reklam Alanı -->
+        <!-- Orta Reklam -->
         <div class="ad-unit ad-square" aria-label="Reklam">
-          <!-- <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins> -->
-          <span>300x250 Reklam Alanı</span>
+          <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px"></ins>
         </div>
 
         <section class="panel">
@@ -755,35 +565,30 @@
           </table>
         </section>
 
-        <!-- İçerik: SEO ve AdSense için Özgün Metin -->
+        <!-- SEO İçerik -->
         <section class="panel">
-          <div class="panel-head">
-            <h2>Altın Yatırımı Hakkında</h2>
-          </div>
+          <div class="panel-head"><h2>Altın Yatırımı Hakkında</h2></div>
           <div class="note" style="font-size:15px;line-height:1.8">
-            <p><strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan, küresel piyasalarda işlem gören kıymetli bir madendir. Özellikle ekonomik belirsizlik dönemlerinde yatırımcılar tarafından güvenli liman olarak tercih edilir.</p>
-            <p><strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir ve Türkiye'de en yaygın işlem gören altın türüdür. Fiyatı, uluslararası ons altın fiyatı ve döviz kurlarına bağlı olarak anlık değişir.</p>
-            <p><strong>Çeyrek, yarım, tam altın</strong> gibi geleneksel altınlar, genellikle 22 ayar olup takı ve yatırım amaçlı kullanılır. Alış-satış arasındaki fark (makas), kuyumcudan kuyumcuya değişiklik gösterebilir.</p>
-            <p style="margin-top:16px;font-size:13px;color:var(--muted)">⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım kararlarınızı yalnızca bu verilere dayandırmayınız. Finansal danışmanınıza başvurunuz.</em></p>
+            <p><strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir. Ekonomik belirsizlik dönemlerinde güvenli liman olarak tercih edilir.</p>
+            <p><strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir. Fiyatı, uluslararası ons altın fiyatı ve döviz kurlarına bağlı olarak anlık değişir.</p>
+            <p style="margin-top:16px;font-size:13px;color:var(--muted)">⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em></p>
           </div>
         </section>
       </div>
 
       <div>
         <section class="panel">
-          <div class="panel-head">
-            <h2>Döviz Çevirici</h2>
-          </div>
+          <div class="panel-head"><h2>Döviz Çevirici</h2></div>
           <div class="converter">
             <div class="converter-row">
-              <input id="convertAmount" type="number" value="100" min="0" step="0.01" aria-label="Dönüştürülecek miktar">
-              <select id="fromCurrency" aria-label="Kaynak para birimi"></select>
+              <input id="convertAmount" type="number" value="100" min="0" step="0.01" aria-label="Miktar">
+              <select id="fromCurrency" aria-label="Kaynak para"></select>
             </div>
             <div class="converter-row">
               <input id="convertResult" type="text" readonly aria-label="Sonuç">
-              <select id="toCurrency" aria-label="Hedef para birimi"></select>
+              <select id="toCurrency" aria-label="Hedef para"></select>
             </div>
-            <button id="swapBtn" class="secondary" aria-label="Para birimlerini değiştir">
+            <button id="swapBtn" class="secondary" aria-label="Değiştir">
               <i class="fa-solid fa-right-left"></i>
               <span class="btn-text">Değiştir</span>
             </button>
@@ -791,16 +596,15 @@
           </div>
         </section>
 
-        <!-- Yan Reklam Alanı -->
+        <!-- Yan Reklam -->
         <div class="ad-unit ad-rectangle" aria-label="Reklam">
-          <!-- <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins> -->
-          <span>160x600 Reklam Alanı</span>
+          <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"></ins>
         </div>
 
         <section class="panel">
           <div class="panel-head">
             <h2>Dolar Karşılığı</h2>
-            <input id="currencySearch" placeholder="Para birimi ara" aria-label="Para birimi arama">
+            <input id="currencySearch" placeholder="Para birimi ara" aria-label="Ara">
           </div>
           <table>
             <thead>
@@ -816,24 +620,23 @@
 
         <section class="panel">
           <div class="note">
-            <strong>Yasal Uyarı:</strong> Veriler API kaynağından otomatik olarak alınır. Kuyumcu fiyatları; makas, işçilik, vergi ve yerel piyasa farkı nedeniyle değişiklik gösterebilir. Yatırım tavsiyesi değildir.
+            <strong>Yasal Uyarı:</strong> Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.
           </div>
         </section>
       </div>
     </div>
   </main>
 
-  <!-- Footer: Yasal Sayfalar -->
+  <!-- Footer -->
   <footer>
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-section">
           <h3>Altın Piyasa</h3>
           <p style="color:var(--muted);font-size:14px;line-height:1.7">
-            Canlı altın ve döviz verileri ile yatırım kararlarınızı destekliyoruz. Güvenilir, şeffaf ve kullanıcı dostu finansal araçlar.
+            Canlı altın ve döviz verileri ile yatırım kararlarınızı destekliyoruz.
           </p>
         </div>
-        
         <div class="footer-section">
           <h3>Yasal</h3>
           <ul>
@@ -843,453 +646,318 @@
             <li><a href="#" onclick="openModal('disclaimer')">⚠️ Yasal Uyarı</a></li>
           </ul>
         </div>
-        
         <div class="footer-section">
           <h3>Hakkımızda</h3>
           <ul>
             <li><a href="#" onclick="openModal('about')">ℹ️ Biz Kimiz?</a></li>
             <li><a href="#" onclick="openModal('contact')">📬 İletişim</a></li>
-            <li><a href="#">📰 Blog / Rehberler</a></li>
-            <li><a href="#">❓ SSS</a></li>
           </ul>
         </div>
-        
         <div class="footer-section">
           <h3>Takip Edin</h3>
           <div style="display:flex;gap:12px;margin-top:8px">
             <a href="#" aria-label="Twitter" style="color:var(--muted);font-size:20px"><i class="fa-brands fa-twitter"></i></a>
             <a href="#" aria-label="Instagram" style="color:var(--muted);font-size:20px"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="YouTube" style="color:var(--muted);font-size:20px"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" aria-label="RSS" style="color:var(--muted);font-size:20px"><i class="fa-solid fa-rss"></i></a>
           </div>
-          <p style="color:var(--muted);font-size:13px;margin-top:16px">
-            <i class="fa-solid fa-shield-halved"></i> SSL ile korunur<br>
-            <i class="fa-solid fa-clock"></i> 7/24 Canlı Veri
-          </p>
         </div>
       </div>
-      
       <div class="footer-bottom">
         <p>© <span id="year"></span> <strong>Altın Piyasa</strong>. Tüm hakları saklıdır. | 
         <a href="#" onclick="openModal('privacy')">Gizlilik</a> | 
-        <a href="#" onclick="openModal('terms')">Şartlar</a> | 
         <a href="#" onclick="openModal('contact')">İletişim</a></p>
-        <p style="margin-top:8px;font-size:13px">
-          Bu site, Google AdSense politikalarına uygun olarak hazırlanmıştır. 
-          Reklamlar, Google tarafından yönetilir.
-        </p>
       </div>
     </div>
   </footer>
 
-  <!-- MODALS: Yasal Sayfalar -->
+  <!-- ===== MODALS ===== -->
   
-  <!-- Privacy Policy Modal -->
-  <div id="privacy-modal" class="modal" role="dialog" aria-labelledby="privacy-title" aria-modal="true">
+  <!-- Privacy Policy -->
+  <div id="privacy-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('privacy')" aria-label="Kapat">&times;</button>
-      <h2 id="privacy-title">🔒 Gizlilik Politikası</h2>
+      <h2>🔒 Gizlilik Politikası</h2>
       <p><strong>Son Güncelleme:</strong> <span id="privacy-date"></span></p>
-      
       <h3>1. Toplanan Veriler</h3>
-      <p>Altın Piyasa olarak, hizmet kalitemizi artırmak amacıyla aşağıdaki verileri toplayabiliriz:</p>
       <ul>
-        <li><strong>Çerezler:</strong> Site deneyiminizi iyileştirmek için teknik çerezler kullanılır.</li>
-        <li><strong>IP Adresi:</strong> Güvenlik ve istatistik amaçlı anonim olarak kaydedilir.</li>
-        <li><strong>Kullanım Verileri:</strong> Hangi sayfaların ziyaret edildiği, cihaz türü gibi anonim istatistikler.</li>
+        <li><strong>Çerezler:</strong> Site deneyimini iyileştirmek için teknik çerezler.</li>
+        <li><strong>IP Adresi:</strong> Güvenlik amaçlı anonim kayıtlar.</li>
+        <li><strong>Kullanım Verileri:</strong> Anonim istatistikler.</li>
       </ul>
-      
       <h3>2. Verilerin Kullanımı</h3>
-      <p>Toplanan veriler:</p>
-      <ul>
-        <li>Site performansını analiz etmek,</li>
-        <li>Kullanıcı deneyimini kişiselleştirmek,</li>
-        <li>Güvenlik tehditlerini önlemek,</li>
-        <li>Google AdSense gibi reklam ortaklarıyla (anonim şekilde) paylaşmak amacıyla kullanılır.</li>
-      </ul>
-      
+      <p>Veriler; site performans analizi, kullanıcı deneyimi ve güvenlik amacıyla kullanılır.</p>
       <h3>3. Üçüncü Taraf Hizmetler</h3>
-      <p>Bu site aşağıdaki hizmetleri kullanabilir:</p>
       <ul>
-        <li><strong>Google AdSense:</strong> İlgi alanınıza uygun reklamlar göstermek için çerezler kullanır. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener" style="color:var(--gold)">Google Reklam Politikaları</a></li>
-        <li><strong>Google Analytics:</strong> Anonim kullanım istatistikleri toplar.</li>
+        <li><strong>Google AdSense:</strong> Reklam kişiselleştirme için çerez kullanır.</li>
+        <li><strong>Google Analytics:</strong> Anonim kullanım istatistikleri.</li>
       </ul>
-      
       <h3>4. Haklarınız</h3>
-      <p>GDPR ve KVKK kapsamında:</p>
-      <ul>
-        <li>Verilerinize erişim talep etme,</li>
-        <li>Düzeltme veya silinmesini isteme,</li>
-        <li>Çerez tercihlerinizi değiştirme hakkınız bulunmaktadır.</li>
-      </ul>
-      
+      <p>GDPR/KVKK kapsamında verilerinize erişim, düzeltme ve silme talep etme hakkınız vardır.</p>
       <p style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
-        <strong>İletişim:</strong> Gizlilik ile ilgili sorularınız için <a href="#" onclick="openModal('contact');closeModal('privacy')" style="color:var(--gold)">İletişim</a> sayfamızı kullanabilirsiniz.
+        <strong>İletişim:</strong> <a href="#" onclick="openModal('contact');closeModal('privacy')" style="color:var(--gold)">İletişim sayfası</a>
       </p>
     </div>
   </div>
 
-  <!-- About Us Modal -->
-  <div id="about-modal" class="modal" role="dialog" aria-labelledby="about-title" aria-modal="true">
+  <!-- About Us -->
+  <div id="about-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('about')" aria-label="Kapat">&times;</button>
-      <h2 id="about-title">ℹ️ Hakkımızda</h2>
-      
-      <p><strong>Altın Piyasa</strong>, 2024 yılında kurulmuş, kullanıcılarına anlık altın ve döviz verileri sunmayı amaçlayan bağımsız bir finansal bilgi platformudur.</p>
-      
+      <h2>ℹ️ Hakkımızda</h2>
+      <p><strong>Altın Piyasa</strong>, kullanıcılarına anlık altın ve döviz verileri sunan bağımsız bir finansal bilgi platformudur.</p>
       <h3>Misyonumuz</h3>
-      <p>Yatırımcıların güvenilir, şeffaf ve kolay erişilebilir piyasa verilerine ulaşmasını sağlamak. Karmaşık finansal verileri, herkesin anlayabileceği basit bir arayüzde sunmak.</p>
-      
+      <p>Yatırımcıların güvenilir, şeffaf ve kolay erişilebilir piyasa verilerine ulaşmasını sağlamak.</p>
       <h3>Değerlerimiz</h3>
       <ul>
         <li>✅ <strong>Şeffaflık:</strong> Veri kaynaklarımızı açıkça belirtiriz.</li>
         <li>✅ <strong>Güvenilirlik:</strong> API sağlayıcılarımız düzenli denetlenir.</li>
-        <li>✅ <strong>Kullanıcı Odaklılık:</strong> Tasarımımız mobil uyumlu ve erişilebilirdir.</li>
         <li>✅ <strong>Bağımsızlık:</strong> Hiçbir banka veya kuyumcu ile ticari bağımız yoktur.</li>
       </ul>
-      
-      <h3>Teknoloji</h3>
-      <p>Site, modern web standartlarına uygun olarak geliştirilmiştir:</p>
-      <ul>
-        <li>🔐 HTTPS ve güvenlik başlıkları</li>
-        <li>♿ WCAG 2.1 AA erişilebilirlik standartları</li>
-        <li>📱 Tam responsive tasarım</li>
-        <li>⚡ Performans odaklı kod yapısı</li>
-      </ul>
-      
-      <p style="margin-top:20px">
-        <strong>Ekip:</strong> Finans, teknoloji ve tasarım alanlarında deneyimli profesyonellerden oluşan küçük bir ekibiz. Sorularınız için <a href="#" onclick="openModal('contact');closeModal('about')" style="color:var(--gold)">iletişim</a> sayfamızdan bize ulaşabilirsiniz.
-      </p>
     </div>
   </div>
 
-  <!-- Contact Us Modal -->
-  <div id="contact-modal" class="modal" role="dialog" aria-labelledby="contact-title" aria-modal="true">
+  <!-- Contact -->
+  <div id="contact-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('contact')" aria-label="Kapat">&times;</button>
-      <h2 id="contact-title">📬 İletişim</h2>
-      
-      <p>Altın Piyasa ekibi olarak geri bildirimlerinize açığız. Soru, öneri veya iş birliği talepleriniz için aşağıdaki formu kullanabilirsiniz.</p>
-      
+      <h2>📬 İletişim</h2>
+      <p>Soru, öneri veya iş birliği talepleriniz için aşağıdaki formu kullanabilirsiniz.</p>
       <form class="contact-form" onsubmit="submitContact(event)">
-        <input type="text" id="contact-name" placeholder="Adınız *" required aria-required="true">
-        <input type="email" id="contact-email" placeholder="E-posta *" required aria-required="true">
+        <input type="text" id="contact-name" placeholder="Adınız *" required>
+        <input type="email" id="contact-email" placeholder="E-posta *" required>
         <input type="text" id="contact-subject" placeholder="Konu">
-        <textarea id="contact-message" placeholder="Mesajınız *" required aria-required="true"></textarea>
+        <textarea id="contact-message" placeholder="Mesajınız *" required></textarea>
         <button type="submit">📤 Gönder</button>
       </form>
-      
       <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line)">
-        <h3 style="margin:0 0 12px;color:var(--gold)">Diğer İletişim Yolları</h3>
+        <h3 style="margin:0 0 12px;color:var(--gold)">Diğer Yollar</h3>
         <ul style="margin:0;padding-left:20px">
           <li>📧 E-posta: <a href="mailto:info@altinpiyasa.com" style="color:var(--gold)">info@altinpiyasa.com</a></li>
-          <li>🌐 Web: <a href="https://altinpiyasa.com" style="color:var(--gold)">altinpiyasa.com</a></li>
-          <li>📍 Adres: İstanbul, Türkiye</li>
+          <li>📍 Konum: İstanbul, Türkiye</li>
         </ul>
       </div>
-      
-      <p style="margin-top:16px;font-size:14px;color:var(--muted)">
-        <em>Not: Form gönderimi demo amaçlıdır. Gerçek bir e-posta servisi entegre edilmemiştir. Lütfen doğrudan e-posta ile iletişime geçiniz.</em>
+      <p style="margin-top:16px;font-size:13px;color:var(--muted)">
+        <em>Not: Form demo amaçlıdır. Lütfen doğrudan e-posta ile iletişime geçiniz.</em>
       </p>
     </div>
   </div>
 
-  <!-- Terms Modal -->
-  <div id="terms-modal" class="modal" role="dialog" aria-labelledby="terms-title" aria-modal="true">
+  <!-- Terms -->
+  <div id="terms-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('terms')" aria-label="Kapat">&times;</button>
-      <h2 id="terms-title">📜 Kullanım Şartları</h2>
-      
+      <h2>📜 Kullanım Şartları</h2>
       <p>Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz:</p>
-      
       <h3>1. Hizmetin Niteliği</h3>
-      <p>Altın Piyasa, finansal veri sağlayıcı API'lerden alınan bilgileri görselleştiren bir bilgi platformudur. Sunulan veriler:</p>
       <ul>
-        <li>Yalnızca bilgilendirme amaçlıdır,</li>
-        <li>Yatırım tavsiyesi değildir,</li>
-        <li>Gecikmeli veya hatalı olabilir,</li>
-        <li>Kesin işlem fiyatı olarak kabul edilemez.</li>
+        <li>Veriler yalnızca bilgilendirme amaçlıdır.</li>
+        <li>Yatırım tavsiyesi değildir.</li>
+        <li>Gecikmeli veya hatalı olabilir.</li>
       </ul>
-      
       <h3>2. Sorumluluk Reddi</h3>
-      <p>Altın Piyasa, site içeriğinin doğruluğu, güncelliği veya eksiksizliği konusunda garanti vermez. Kullanıcıların yatırım kararlarından doğacak zararlardan sorumlu değildir.</p>
-      
+      <p>Altın Piyasa, site içeriğinin doğruluğu konusunda garanti vermez. Yatırım kararlarından doğacak zararlardan sorumlu değildir.</p>
       <h3>3. Fikri Mülkiyet</h3>
-      <p>Site tasarımı, kod yapısı ve özgün içerikler Altın Piyasa'ya aittir. İzinsiz kopyalanamaz veya ticari amaçla kullanılamaz.</p>
-      
-      <h3>4. Değişiklik Hakkı</h3>
-      <p>Şartlar, önceden bildirilmeksizin güncellenebilir. Güncel şartlar sitede yayınlandığı anda yürürlüğe girer.</p>
+      <p>Site tasarımı ve içerikler Altın Piyasa'ya aittir. İzinsiz kullanılamaz.</p>
     </div>
   </div>
 
-  <!-- Cookies Modal -->
-  <div id="cookies-modal" class="modal" role="dialog" aria-labelledby="cookies-title" aria-modal="true">
+  <!-- Cookies Policy -->
+  <div id="cookies-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('cookies')" aria-label="Kapat">&times;</button>
-      <h2 id="cookies-title">🍪 Çerez Politikası</h2>
-      
+      <h2>🍪 Çerez Politikası</h2>
       <h3>Kullandığımız Çerez Türleri</h3>
-      <table style="margin:16px 0">
-        <thead>
-          <tr>
-            <th>Tür</th>
-            <th>Amaç</th>
-            <th>Süre</th>
-          </tr>
-        </thead>
+      <table style="margin:16px 0;width:100%">
+        <thead><tr><th style="text-align:left">Tür</th><th style="text-align:left">Amaç</th><th style="text-align:left">Süre</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Teknik Çerezler</strong></td>
-            <td>Oturum yönetimi, güvenlik</td>
-            <td>Oturum boyunca</td>
-          </tr>
-          <tr>
-            <td><strong>Tercih Çerezleri</strong></td>
-            <td>Dil, para birimi ayarları</td>
-            <td>30 gün</td>
-          </tr>
-          <tr>
-            <td><strong>Analitik Çerezler</strong></td>
-            <td>Kullanım istatistikleri (anonim)</td>
-            <td>2 yıl</td>
-          </tr>
-          <tr>
-            <td><strong>Reklam Çerezleri</strong></td>
-            <td>Google AdSense kişiselleştirme</td>
-            <td>13 ay</td>
-          </tr>
+          <tr><td>Teknik Çerezler</td><td>Oturum yönetimi</td><td>Oturum</td></tr>
+          <tr><td>Tercih Çerezleri</td><td>Dil, para birimi</td><td>30 gün</td></tr>
+          <tr><td>Analitik Çerezler</td><td>İstatistikler (anonim)</td><td>2 yıl</td></tr>
         </tbody>
       </table>
-      
       <h3>Çerez Tercihlerinizi Yönetin</h3>
-      <p>Tarayıcınızın ayarlarından çerezleri engelleyebilir veya silebilirsiniz. Ancak bu, site işlevselliğini etkileyebilir.</p>
-      <ul>
-        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" style="color:var(--gold)">Chrome Çerez Ayarları</a></li>
-        <li><a href="https://support.mozilla.org/kb/enable-and-disable-cookies-website-preferences" target="_blank" rel="noopener" style="color:var(--gold)">Firefox Çerez Ayarları</a></li>
-        <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" rel="noopener" style="color:var(--gold)">Safari Çerez Ayarları</a></li>
-      </ul>
+      <p>Tarayıcınızın ayarlarından çerezleri engelleyebilirsiniz.</p>
     </div>
   </div>
 
-  <!-- Disclaimer Modal -->
-  <div id="disclaimer-modal" class="modal" role="dialog" aria-labelledby="disclaimer-title" aria-modal="true">
+  <!-- Disclaimer -->
+  <div id="disclaimer-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('disclaimer')" aria-label="Kapat">&times;</button>
-      <h2 id="disclaimer-title">⚠️ Yasal Uyarı</h2>
-      
+      <h2>⚠️ Yasal Uyarı</h2>
       <p style="background:#2a0715;border:1px solid #be123c;border-radius:8px;padding:16px;margin:16px 0">
-        <strong>ÖNEMLİ:</strong> Bu sitede yer alan hiçbir bilgi, finansal danışmanlık veya yatırım tavsiyesi olarak değerlendirilmemelidir.
+        <strong>ÖNEMLİ:</strong> Bu sitede yer alan hiçbir bilgi yatırım tavsiyesi değildir.
       </p>
-      
       <h3>Finansal Risk Uyarısı</h3>
       <ul>
         <li>Altın ve döviz piyasaları yüksek volatilite içerir.</li>
-        <li>Geçmiş performans, gelecekteki sonuçların garantisi değildir.</li>
-        <li>Yatırım kararlarınızı kendi araştırmanız ve lisanslı bir danışman ile veriniz.</li>
+        <li>Geçmiş performans gelecek sonuç garantisi değildir.</li>
         <li>Kaybetmeyi göze alabileceğiniz tutarlarla işlem yapınız.</li>
       </ul>
-      
-      <h3>Veri Kaynağı ve Güncellik</h3>
-      <p>Veriler, üçüncü parti API sağlayıcılarından otomatik olarak çekilir. Gecikmeler, teknik hatalar veya kaynak değişiklikleri nedeniyle veriler güncel olmayabilir. İşlem yapmadan önce resmi piyasa verilerini teyit ediniz.</p>
-      
-      <h3>Sorumluluk Sınırı</h3>
-      <p>Altın Piyasa, site kullanımından doğacak doğrudan veya dolaylı zararlardan sorumlu tutulamaz. Kullanıcı, siteyi kendi sorumluluğunda kullanır.</p>
+      <h3>Veri Kaynağı</h3>
+      <p>Veriler üçüncü parti API'lerden otomatik çekilir. Gecikmeler olabilir. İşlem yapmadan önce resmi verileri teyit ediniz.</p>
     </div>
   </div>
 
   <script>
-    // ===== ADSENSE & COOKIE MANAGEMENT =====
+    // ===== 🔧 REKLAM AYARI - BURAYI DEĞİŞTİRİN =====
+    // Şu an: false (reklamlar gizli)
+    // AdSense onayı sonrası: true yapın
+    const ADS_ENABLED = false;
+    // ==============================================
+
+    // ===== COOKIE MANAGEMENT =====
     function acceptCookies() {
       localStorage.setItem('cookiesAccepted', 'true');
       document.getElementById('cookieBanner').style.display = 'none';
-      // Google AdSense başlatma
-      if(typeof adsbygoogle === 'undefined') {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      }
+      if (ADS_ENABLED) initAdSense();
     }
     
     function declineCookies() {
       localStorage.setItem('cookiesAccepted', 'false');
       document.getElementById('cookieBanner').style.display = 'none';
-      // Analytics/AdSense çerezlerini engelle (demo)
-      console.log('Çerezler reddedildi - reklam takibi devre dışı');
     }
-    
-    // Cookie banner'ı göster/kontrol et
-    document.addEventListener('DOMContentLoaded', function() {
-      const cookieAccepted = localStorage.getItem('cookiesAccepted');
-      if(cookieAccepted === 'true') {
-        document.getElementById('cookieBanner').style.display = 'none';
-        if(typeof adsbygoogle !== 'undefined') {
+
+    // ===== ADSENSE INIT =====
+    function initAdSense() {
+      if (!ADS_ENABLED) return;
+      
+      // Reklam alanlarını göster
+      document.querySelectorAll('.ad-unit').forEach(ad => {
+        ad.classList.add('ads-active');
+      });
+      
+      // AdSense script'ini yükle
+      if (document.getElementById('adsense-script')) return;
+      
+      const script = document.createElement('script');
+      script.id = 'adsense-script';
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      // ⚠️ BURAYA KENDİ ADSENSE KODUNUZU YAZIN
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX';
+      document.head.appendChild(script);
+      
+      // Reklamları render et
+      script.onload = function() {
+        setTimeout(() => {
           (adsbygoogle = window.adsbygoogle || []).push({});
-        }
-      }
-      
-      // Yıl güncelleme
-      document.getElementById('year').textContent = new Date().getFullYear();
-      document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('tr-TR');
-      
-      // Clock update
-      updateClock();
-      setInterval(updateClock, 1000);
-    });
-    
-    function updateClock() {
-      const clock = document.getElementById('clock');
-      if(clock) {
-        clock.textContent = new Date().toLocaleTimeString('tr-TR');
-      }
+        }, 1000);
+      };
     }
-    
-    // ===== MODAL MANAGEMENT =====
+
+    // ===== MODAL FUNCTIONS =====
     function openModal(name) {
-      // Önce tüm modalları kapat
       document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
-      // Hedef modalı aç
       const modal = document.getElementById(name + '-modal');
-      if(modal) {
+      if (modal) {
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Arka plan scroll engelle
+        document.body.style.overflow = 'hidden';
       }
     }
     
     function closeModal(name) {
       const modal = document.getElementById(name + '-modal');
-      if(modal) {
+      if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
       }
     }
     
-    // Modal dışına tıklayınca kapat
     document.querySelectorAll('.modal').forEach(modal => {
       modal.addEventListener('click', function(e) {
-        if(e.target === this) {
+        if (e.target === this) {
           this.classList.remove('active');
           document.body.style.overflow = '';
         }
       });
     });
     
-    // ESC tuşu ile modal kapatma
     document.addEventListener('keydown', function(e) {
-      if(e.key === 'Escape') {
-        document.querySelectorAll('.modal.active').forEach(modal => {
-          modal.classList.remove('active');
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal.active').forEach(m => {
+          m.classList.remove('active');
         });
         document.body.style.overflow = '';
       }
     });
-    
+
     // ===== CONTACT FORM =====
     function submitContact(e) {
       e.preventDefault();
-      const name = document.getElementById('contact-name').value;
-      const email = document.getElementById('contact-email').value;
-      const message = document.getElementById('contact-message').value;
-      
-      // Demo: Konsola yazdır
-      console.log('İletişim Formu:', { name, email, message });
-      
-      // Kullanıcıya geri bildirim
-      alert('✅ Mesajınız alındı! (Demo modu - Gerçek e-posta gönderilmedi)\n\nLütfen doğrudan info@altinpiyasa.com adresine yazınız.');
-      
-      // Formu sıfırla
+      alert('✅ Mesajınız alındı! (Demo modu)\nLütfen info@altinpiyasa.com adresine yazınız.');
       e.target.reset();
       closeModal('contact');
     }
-    
-    // ===== LANGUAGE SUPPORT (Basic) =====
+
+    // ===== LANGUAGE SUPPORT =====
     const translations = {
-      tr: {
-        refresh: 'Yenile',
-        swap: 'Değiştir',
-        statusConnecting: 'API bağlanıyor...',
-        statusLive: 'Canlı veri alındı',
-        goldLabel: 'Ons Altın',
-        gramLabel: 'Gram 24 Ayar',
-        usdLabel: 'Dolar Kuru',
-        eurLabel: 'Euro Kuru'
-      },
-      en: {
-        refresh: 'Refresh',
-        swap: 'Swap',
-        statusConnecting: 'Connecting to API...',
-        statusLive: 'Live data received',
-        goldLabel: 'Gold Ounce',
-        gramLabel: '24K Gram',
-        usdLabel: 'USD Rate',
-        eurLabel: 'EUR Rate'
-      },
-      ar: {
-        refresh: 'تحديث',
-        swap: 'تبديل',
-        statusConnecting: 'جاري الاتصال بـ API...',
-        statusLive: 'تم استلام البيانات المباشرة',
-        goldLabel: 'أونصة الذهب',
-        gramLabel: 'جرام 24 قيراط',
-        usdLabel: 'سعر الدولار',
-        eurLabel: 'سعر اليورو'
-      }
+      tr: { refresh: 'Yenile', swap: 'Değiştir', statusConnecting: 'API bağlanıyor...', statusLive: 'Canlı veri alındı' },
+      en: { refresh: 'Refresh', swap: 'Swap', statusConnecting: 'Connecting...', statusLive: 'Live data received' },
+      ar: { refresh: 'تحديث', swap: 'تبديل', statusConnecting: 'جاري الاتصال...', statusLive: 'تم استلام البيانات' }
     };
     
     function setLanguage(lang) {
-      // Buton aktiflik
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
-      
-      // Basit çeviri (demo)
       const t = translations[lang] || translations.tr;
       document.querySelector('#refreshBtn .btn-text').textContent = t.refresh;
       document.querySelector('#swapBtn .btn-text').textContent = t.swap;
-      
-      // RTL desteği Arapça için
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
-      
-      // localStorage'a kaydet
       localStorage.setItem('siteLang', lang);
     }
-    
-    // Dil tercihi yükle
+
+    // ===== CLOCK & DATE =====
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      if (clock) clock.textContent = new Date().toLocaleTimeString('tr-TR');
+    }
+
+    // ===== DOM READY =====
     document.addEventListener('DOMContentLoaded', function() {
+      // Cookie kontrol
+      const cookieAccepted = localStorage.getItem('cookiesAccepted');
+      if (cookieAccepted === 'true') {
+        document.getElementById('cookieBanner').style.display = 'none';
+        if (ADS_ENABLED) initAdSense();
+      }
+      
+      // Tarih ve saat
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('tr-TR');
+      updateClock();
+      setInterval(updateClock, 1000);
+      
+      // Dil tercihi
       const savedLang = localStorage.getItem('siteLang') || 'tr';
       setLanguage(savedLang);
+      
+      // API verilerini yükle
+      loadData();
+      setInterval(loadData, 60000);
     });
-    
-    // ===== API & DATA LOGIC (Original Code Enhanced) =====
+
+    // ===== API & DATA LOGIC =====
     const API_URL = "https://gold-api.hsnalwsf05.workers.dev/";
     const OUNCE = 31.1034768;
     const KARATS = [24, 22, 21, 18, 14, 10];
     let data = null;
 
     document.getElementById("refreshBtn").onclick = loadData;
-
     document.getElementById("mainCurrency").onchange = function () {
       document.getElementById("goldCurrency").value = this.value;
       render();
     };
-
     document.getElementById("goldCurrency").onchange = render;
     document.getElementById("currencySearch").oninput = renderCurrencies;
-
-    // İlk yükleme
-    loadData();
-    // 60 saniyede bir otomatik yenile
-    setInterval(loadData, 60000);
 
     async function loadData() {
       try {
         setStatus("API bağlanıyor...", false);
-
         const res = await fetch(API_URL, { cache: "no-store" });
         data = await res.json();
-
-        if (!data.goldUSD || !data.rates) {
-          throw new Error("API verisi eksik");
-        }
-
+        if (!data.goldUSD || !data.rates) throw new Error("API verisi eksik");
         fillConverter();
         render();
         setStatus("Canlı veri alındı", false);
@@ -1301,7 +969,6 @@
 
     function render() {
       if (!data) return;
-
       const currency = document.getElementById("mainCurrency").value;
       const goldCurrency = document.getElementById("goldCurrency").value;
 
@@ -1312,16 +979,14 @@
 
       document.getElementById("goldRows").innerHTML = KARATS.map(function (karat) {
         const gram = gramPrice(karat, goldCurrency);
-        return `
-          <tr>
-            <td>${karat}</td>
-            <td>${Math.round(karat / 24 * 1000)}‰</td>
-            <td>${money(gram, goldCurrency)}</td>
-            <td class="down">${money(gram * 0.992, goldCurrency)}</td>
-            <td class="up">${money(gram * 1.015, goldCurrency)}</td>
-            <td>${money(gram * 1000, goldCurrency)}</td>
-          </tr>
-        `;
+        return `<tr>
+          <td>${karat}</td>
+          <td>${Math.round(karat / 24 * 1000)}‰</td>
+          <td>${money(gram, goldCurrency)}</td>
+          <td class="down">${money(gram * 0.992, goldCurrency)}</td>
+          <td class="up">${money(gram * 1.015, goldCurrency)}</td>
+          <td>${money(gram * 1000, goldCurrency)}</td>
+        </tr>`;
       }).join("");
 
       renderPieces();
@@ -1340,21 +1005,18 @@
         { name: "Ons Altın", weight: OUNCE, karat: 24 },
         { name: "1 KG Altın", weight: 1000, karat: 24 }
       ];
-
       document.getElementById("pieceRows").innerHTML = pieces.map(function (item) {
         const selected = gramPrice(item.karat, currency) * item.weight;
         const usd = gramPrice(item.karat, "USD") * item.weight;
         const eur = gramPrice(item.karat, "EUR") * item.weight;
-        return `
-          <tr>
-            <td>${item.name}</td>
-            <td>${item.karat}</td>
-            <td>${format(item.weight)} gr</td>
-            <td>${money(usd, "USD")}</td>
-            <td>${money(eur, "EUR")}</td>
-            <td>${money(selected, currency)}</td>
-          </tr>
-        `;
+        return `<tr>
+          <td>${item.name}</td>
+          <td>${item.karat}</td>
+          <td>${format(item.weight)} gr</td>
+          <td>${money(usd, "USD")}</td>
+          <td>${money(eur, "EUR")}</td>
+          <td>${money(selected, currency)}</td>
+        </tr>`;
       }).join("");
     }
 
@@ -1362,17 +1024,13 @@
       const search = document.getElementById("currencySearch").value.toLowerCase();
       document.getElementById("currencyRows").innerHTML =
         Object.entries(data.rates)
-          .filter(function ([code]) { return code.toLowerCase().includes(search); })
-          .sort(function (a, b) { return a[0].localeCompare(b[0]); })
-          .map(function ([code, rate]) {
-            return `
-              <tr>
-                <td><strong>${code}</strong></td>
-                <td>${format(rate)}</td>
-                <td>${money(1 / rate, "USD")}</td>
-              </tr>
-            `;
-          }).join("");
+          .filter(([code]) => code.toLowerCase().includes(search))
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([code, rate]) => `<tr>
+            <td><strong>${code}</strong></td>
+            <td>${format(rate)}</td>
+            <td>${money(1 / rate, "USD")}</td>
+          </tr>`).join("");
     }
 
     function fillConverter() {
@@ -1392,7 +1050,7 @@
 
     function fillSelect(id, codes, selected) {
       const select = document.getElementById(id);
-      if(select.options.length) return;
+      if (select.options.length) return;
       select.innerHTML = codes.map(code => `<option value="${code}">${code}</option>`).join("");
       select.value = codes.includes(selected) ? selected : codes[0];
     }
@@ -1404,8 +1062,7 @@
       const to = document.getElementById("toCurrency").value;
       const result = convert(amount, from, to);
       document.getElementById("convertResult").value = format(result);
-      document.getElementById("converterText").textContent =
-        format(amount) + " " + from + " = " + format(result) + " " + to;
+      document.getElementById("converterText").textContent = format(amount) + " " + from + " = " + format(result) + " " + to;
     }
 
     function gramPrice(karat, currency) {
@@ -1422,9 +1079,7 @@
     function money(value, currency) {
       try {
         return new Intl.NumberFormat("tr-TR", {
-          style: "currency",
-          currency: currency,
-          maximumFractionDigits: 2
+          style: "currency", currency: currency, maximumFractionDigits: 2
         }).format(value || 0);
       } catch(e) {
         return (value || 0).toFixed(2) + " " + currency;
@@ -1432,9 +1087,7 @@
     }
 
     function format(value) {
-      return new Intl.NumberFormat("tr-TR", {
-        maximumFractionDigits: 4
-      }).format(value || 0);
+      return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 4 }).format(value || 0);
     }
 
     function setStatus(text, error) {
@@ -1444,10 +1097,5 @@
       document.getElementById("clock").textContent = new Date().toLocaleTimeString("tr-TR");
     }
   </script>
-  
-  <!-- Google AdSense Script (Yorumda - Siz Aktifleştirin) -->
-  <!-- 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-  -->
 </body>
 </html>
