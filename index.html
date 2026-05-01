@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-RZCNFWVH1E');
 </script>
   
@@ -25,9 +24,6 @@
   <meta property="og:description" content="Anlık altın fiyatları, döviz kurları ve yatırım araçları tek ekranda.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://siteniz.com">
-  
-  <!-- Google AdSense (Şimdilik Yorumda) -->
-  <!-- <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> -->
   
   <title>Altın Piyasa - Canlı Altın ve Döviz Takibi</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -274,7 +270,7 @@
       font-size: 14px;
     }
 
-    /* AD UNITS - Varsayılan olarak GİZLİ */
+    /* AD UNITS */
     .ad-unit {
       display: none;
       background: var(--panel-2);
@@ -434,17 +430,22 @@
       font-weight: 600;
     }
     .skip-link:focus { top: 0; }
+    
+    /* RTL Support */
+    [dir="rtl"] { text-align: right; }
+    [dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+    [dir="rtl"] .modal ul { padding-right: 20px; padding-left: 0; }
   </style>
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">İçeriğe atla</a>
+  <a href="#main-content" class="skip-link" data-i18n="skip">İçeriğe atla</a>
 
   <!-- Cookie Banner -->
   <div id="cookieBanner">
-    <p>🍪 Bu site deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href="#" onclick="openModal('privacy')" style="color:var(--gold);text-decoration:none">Gizlilik Politikası</a>'nı inceleyebilirsiniz.</p>
-    <button class="accept" onclick="acceptCookies()">Kabul Et</button>
-    <button class="decline" onclick="declineCookies()">Reddet</button>
+    <p data-i18n="cookieText">🍪 Bu site deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href="#" onclick="openModal('privacy')" style="color:var(--gold);text-decoration:none">Gizlilik Politikası</a>'nı inceleyebilirsiniz.</p>
+    <button class="accept" onclick="acceptCookies()" data-i18n="cookieAccept">Kabul Et</button>
+    <button class="decline" onclick="declineCookies()" data-i18n="cookieDecline">Reddet</button>
   </div>
 
   <header class="hero">
@@ -460,6 +461,10 @@
             <button class="lang-btn active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
             <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
             <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">عربي</button>
+            <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
           </div>
 
           <select id="mainCurrency" aria-label="Ana para birimi">
@@ -474,49 +479,49 @@
 
           <button id="refreshBtn" aria-label="Verileri yenile">
             <i class="fa-solid fa-rotate"></i>
-            <span class="btn-text">Yenile</span>
+            <span class="btn-text" data-i18n="refresh">Yenile</span>
           </button>
         </div>
       </div>
 
       <div class="hero-copy">
-        <h1>Canlı <span>altın</span> ve döviz ekranı</h1>
-        <p>Ons altın, gram altın, ayar fiyatları, alış-satış hesapları, Euro ve dolar karşılıkları tek ekranda.</p>
+        <h1><span data-i18n="heroTitle1">Canlı</span> <span>altın</span> <span data-i18n="heroTitle2">ve döviz ekranı</span></h1>
+        <p data-i18n="heroDesc">Ons altın, gram altın, ayar fiyatları, alış-satış hesapları, Euro ve dolar karşılıkları tek ekranda.</p>
       </div>
     </div>
   </header>
 
   <main class="wrap" id="main-content">
     <div id="status" class="status" role="status" aria-live="polite">
-      <span>API bağlanıyor...</span>
+      <span data-i18n="statusConnecting">API bağlanıyor...</span>
       <strong id="clock">-</strong>
     </div>
 
-    <!-- Üst Reklam Alanı (ADS_ENABLED=true olunca aktif olur) -->
+    <!-- Üst Reklam Alanı -->
     <div class="ad-unit ad-horizontal" aria-label="Reklam">
       <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
 
     <div class="cards">
       <div class="card">
-        <div class="label">Ons Altın</div>
+        <div class="label" data-i18n="cardOunce">Ons Altın</div>
         <div id="goldUsd" class="value">-</div>
         <div class="sub">XAU/USD</div>
       </div>
       <div class="card">
-        <div class="label">Gram 24 Ayar</div>
+        <div class="label" data-i18n="cardGram24">Gram 24 Ayar</div>
         <div id="gram24" class="value">-</div>
-        <div class="sub">Seçili para birimi</div>
+        <div class="sub" data-i18n="cardSubCurrency">Seçili para birimi</div>
       </div>
       <div class="card">
-        <div class="label">Dolar Kuru</div>
+        <div class="label" data-i18n="cardUSD">Dolar Kuru</div>
         <div id="usdRate" class="value">-</div>
-        <div class="sub">1 USD karşılığı</div>
+        <div class="sub" data-i18n="cardSubUSD">1 USD karşılığı</div>
       </div>
       <div class="card">
-        <div class="label">Euro Kuru</div>
+        <div class="label" data-i18n="cardEUR">Euro Kuru</div>
         <div id="eurRate" class="value">-</div>
-        <div class="sub">1 EUR karşılığı</div>
+        <div class="sub" data-i18n="cardSubEUR">1 EUR karşılığı</div>
       </div>
     </div>
 
@@ -524,7 +529,7 @@
       <div>
         <section class="panel">
           <div class="panel-head">
-            <h2>Altın Fiyatları</h2>
+            <h2 data-i18n="panelGoldPrices">Altın Fiyatları</h2>
             <div class="tools">
               <select id="goldCurrency" aria-label="Altın fiyatları para birimi">
                 <option value="TRY">TRY</option>
@@ -540,12 +545,12 @@
           <table>
             <thead>
               <tr>
-                <th scope="col">Ayar</th>
-                <th scope="col">Saflık</th>
-                <th scope="col">Gram</th>
-                <th scope="col">Alış</th>
-                <th scope="col">Satış</th>
-                <th scope="col">Kilo</th>
+                <th scope="col" data-i18n="tableHeaderKarat">Ayar</th>
+                <th scope="col" data-i18n="tableHeaderPurity">Saflık</th>
+                <th scope="col" data-i18n="tableHeaderGram">Gram</th>
+                <th scope="col" data-i18n="tableHeaderBuy">Alış</th>
+                <th scope="col" data-i18n="tableHeaderSell">Satış</th>
+                <th scope="col" data-i18n="tableHeaderKilo">Kilo</th>
               </tr>
             </thead>
             <tbody id="goldRows"></tbody>
@@ -559,17 +564,17 @@
 
         <section class="panel">
           <div class="panel-head">
-            <h2>Standart Altınlar</h2>
+            <h2 data-i18n="panelStandardGold">Standart Altınlar</h2>
           </div>
           <table>
             <thead>
               <tr>
-                <th scope="col">Ürün</th>
-                <th scope="col">Ayar</th>
-                <th scope="col">Ağırlık</th>
+                <th scope="col" data-i18n="tableHeaderProduct">Ürün</th>
+                <th scope="col" data-i18n="tableHeaderKarat">Ayar</th>
+                <th scope="col" data-i18n="tableHeaderWeight">Ağırlık</th>
                 <th scope="col">USD</th>
                 <th scope="col">EUR</th>
-                <th scope="col">Seçili</th>
+                <th scope="col" data-i18n="tableHeaderSelected">Seçili</th>
               </tr>
             </thead>
             <tbody id="pieceRows"></tbody>
@@ -578,18 +583,18 @@
 
         <!-- SEO İçerik -->
         <section class="panel">
-          <div class="panel-head"><h2>Altın Yatırımı Hakkında</h2></div>
+          <div class="panel-head"><h2 data-i18n="panelAboutGold">Altın Yatırımı Hakkında</h2></div>
           <div class="note" style="font-size:15px;line-height:1.8">
-            <p><strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir. Ekonomik belirsizlik dönemlerinde güvenli liman olarak tercih edilir.</p>
-            <p><strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir. Fiyatı, uluslararası ons altın fiyatı ve döviz kurlarına bağlı olarak anlık değişir.</p>
-            <p style="margin-top:16px;font-size:13px;color:var(--muted)">⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em></p>
+            <p data-i18n="goldInfo1"><strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir. Ekonomik belirsizlik dönemlerinde güvenli liman olarak tercih edilir.</p>
+            <p data-i18n="goldInfo2"><strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir. Fiyatı, uluslararası ons altın fiyatı ve döviz kurlarına bağlı olarak anlık değişir.</p>
+            <p style="margin-top:16px;font-size:13px;color:var(--muted)" data-i18n="goldWarning">⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em></p>
           </div>
         </section>
       </div>
 
       <div>
         <section class="panel">
-          <div class="panel-head"><h2>Döviz Çevirici</h2></div>
+          <div class="panel-head"><h2 data-i18n="panelConverter">Döviz Çevirici</h2></div>
           <div class="converter">
             <div class="converter-row">
               <input id="convertAmount" type="number" value="100" min="0" step="0.01" aria-label="Miktar">
@@ -601,7 +606,7 @@
             </div>
             <button id="swapBtn" class="secondary" aria-label="Değiştir">
               <i class="fa-solid fa-right-left"></i>
-              <span class="btn-text">Değiştir</span>
+              <span class="btn-text" data-i18n="swap">Değiştir</span>
             </button>
             <div id="converterText" class="result-box" aria-live="polite">-</div>
           </div>
@@ -614,15 +619,15 @@
 
         <section class="panel">
           <div class="panel-head">
-            <h2>Dolar Karşılığı</h2>
-            <input id="currencySearch" placeholder="Para birimi ara" aria-label="Ara">
+            <h2 data-i18n="panelUSDValue">Dolar Karşılığı</h2>
+            <input id="currencySearch" data-i18n-placeholder="searchCurrency" placeholder="Para birimi ara" aria-label="Ara">
           </div>
           <table>
             <thead>
               <tr>
-                <th scope="col">Kod</th>
+                <th scope="col" data-i18n="tableHeaderCode">Kod</th>
                 <th scope="col">1 USD</th>
-                <th scope="col">1 Birim USD</th>
+                <th scope="col" data-i18n="tableHeader1UnitUSD">1 Birim USD</th>
               </tr>
             </thead>
             <tbody id="currencyRows"></tbody>
@@ -631,7 +636,7 @@
 
         <section class="panel">
           <div class="note">
-            <strong>Yasal Uyarı:</strong> Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.
+            <strong data-i18n="legalDisclaimerTitle">Yasal Uyarı:</strong> <span data-i18n="legalDisclaimerText">Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.</span>
           </div>
         </section>
       </div>
@@ -644,28 +649,28 @@
       <div class="footer-grid">
         <div class="footer-section">
           <h3>Altın Piyasa</h3>
-          <p style="color:var(--muted);font-size:14px;line-height:1.7">
+          <p style="color:var(--muted);font-size:14px;line-height:1.7" data-i18n="footerDesc">
             Canlı altın ve döviz verileri ile yatırım kararlarınızı destekliyoruz.
           </p>
         </div>
         <div class="footer-section">
-          <h3>Yasal</h3>
+          <h3 data-i18n="footerLegal">Yasal</h3>
           <ul>
-            <li><a href="#" onclick="openModal('privacy')">🔒 Gizlilik Politikası</a></li>
-            <li><a href="#" onclick="openModal('terms')">📜 Kullanım Şartları</a></li>
-            <li><a href="#" onclick="openModal('cookies')">🍪 Çerez Politikası</a></li>
-            <li><a href="#" onclick="openModal('disclaimer')">⚠️ Yasal Uyarı</a></li>
+            <li><a href="#" onclick="openModal('privacy')">🔒 <span data-i18n="linkPrivacy">Gizlilik Politikası</span></a></li>
+            <li><a href="#" onclick="openModal('terms')">📜 <span data-i18n="linkTerms">Kullanım Şartları</span></a></li>
+            <li><a href="#" onclick="openModal('cookies')">🍪 <span data-i18n="linkCookies">Çerez Politikası</span></a></li>
+            <li><a href="#" onclick="openModal('disclaimer')">⚠️ <span data-i18n="linkDisclaimer">Yasal Uyarı</span></a></li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3>Hakkımızda</h3>
+          <h3 data-i18n="footerAbout">Hakkımızda</h3>
           <ul>
-            <li><a href="#" onclick="openModal('about')">ℹ️ Biz Kimiz?</a></li>
-            <li><a href="#" onclick="openModal('contact')">📬 İletişim</a></li>
+            <li><a href="#" onclick="openModal('about')">ℹ️ <span data-i18n="linkAbout">Biz Kimiz?</span></a></li>
+            <li><a href="#" onclick="openModal('contact')">📬 <span data-i18n="linkContact">İletişim</span></a></li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3>Takip Edin</h3>
+          <h3 data-i18n="footerFollow">Takip Edin</h3>
           <div style="display:flex;gap:12px;margin-top:8px">
             <a href="#" aria-label="Twitter" style="color:var(--muted);font-size:20px"><i class="fa-brands fa-twitter"></i></a>
             <a href="#" aria-label="Instagram" style="color:var(--muted);font-size:20px"><i class="fa-brands fa-instagram"></i></a>
@@ -673,9 +678,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="year"></span> <strong>Altın Piyasa</strong>. Tüm hakları saklıdır. | 
-        <a href="#" onclick="openModal('privacy')">Gizlilik</a> | 
-        <a href="#" onclick="openModal('contact')">İletişim</a></p>
+        <p>© <span id="year"></span> <strong>Altın Piyasa</strong>. <span data-i18n="footerRights">Tüm hakları saklıdır.</span> | 
+        <a href="#" onclick="openModal('privacy')" data-i18n="linkPrivacyShort">Gizlilik</a> | 
+        <a href="#" onclick="openModal('contact')" data-i18n="linkContactShort">İletişim</a></p>
       </div>
     </div>
   </footer>
@@ -686,25 +691,25 @@
   <div id="privacy-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('privacy')" aria-label="Kapat">&times;</button>
-      <h2>🔒 Gizlilik Politikası</h2>
-      <p><strong>Son Güncelleme:</strong> <span id="privacy-date"></span></p>
-      <h3>1. Toplanan Veriler</h3>
+      <h2 data-i18n="modalPrivacyTitle">🔒 Gizlilik Politikası</h2>
+      <p><strong data-i18n="modalLastUpdate">Son Güncelleme:</strong> <span id="privacy-date"></span></p>
+      <h3 data-i18n="modalPrivacy1Title">1. Toplanan Veriler</h3>
       <ul>
-        <li><strong>Çerezler:</strong> Site deneyimini iyileştirmek için teknik çerezler.</li>
-        <li><strong>IP Adresi:</strong> Güvenlik amaçlı anonim kayıtlar.</li>
-        <li><strong>Kullanım Verileri:</strong> Anonim istatistikler.</li>
+        <li><strong data-i18n="modalPrivacyCookies">Çerezler:</strong> <span data-i18n="modalPrivacyCookiesDesc">Site deneyimini iyileştirmek için teknik çerezler.</span></li>
+        <li><strong data-i18n="modalPrivacyIP">IP Adresi:</strong> <span data-i18n="modalPrivacyIPDesc">Güvenlik amaçlı anonim kayıtlar.</span></li>
+        <li><strong data-i18n="modalPrivacyUsage">Kullanım Verileri:</strong> <span data-i18n="modalPrivacyUsageDesc">Anonim istatistikler.</span></li>
       </ul>
-      <h3>2. Verilerin Kullanımı</h3>
-      <p>Veriler; site performans analizi, kullanıcı deneyimi ve güvenlik amacıyla kullanılır.</p>
-      <h3>3. Üçüncü Taraf Hizmetler</h3>
+      <h3 data-i18n="modalPrivacy2Title">2. Verilerin Kullanımı</h3>
+      <p data-i18n="modalPrivacy2Desc">Veriler; site performans analizi, kullanıcı deneyimi ve güvenlik amacıyla kullanılır.</p>
+      <h3 data-i18n="modalPrivacy3Title">3. Üçüncü Taraf Hizmetler</h3>
       <ul>
-        <li><strong>Google AdSense:</strong> Reklam kişiselleştirme için çerez kullanır.</li>
-        <li><strong>Google Analytics:</strong> Anonim kullanım istatistikleri.</li>
+        <li><strong>Google AdSense:</strong> <span data-i18n="modalPrivacyAdSense">Reklam kişiselleştirme için çerez kullanır.</span></li>
+        <li><strong>Google Analytics:</strong> <span data-i18n="modalPrivacyAnalytics">Anonim kullanım istatistikleri.</span></li>
       </ul>
-      <h3>4. Haklarınız</h3>
-      <p>GDPR/KVKK kapsamında verilerinize erişim, düzeltme ve silme talep etme hakkınız vardır.</p>
+      <h3 data-i18n="modalPrivacy4Title">4. Haklarınız</h3>
+      <p data-i18n="modalPrivacy4Desc">GDPR/KVKK kapsamında verilerinize erişim, düzeltme ve silme talep etme hakkınız vardır.</p>
       <p style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
-        <strong>İletişim:</strong> <a href="#" onclick="openModal('contact');closeModal('privacy')" style="color:var(--gold)">İletişim sayfası</a>
+        <strong data-i18n="modalPrivacyContact">İletişim:</strong> <a href="#" onclick="openModal('contact');closeModal('privacy')" style="color:var(--gold)" data-i18n="modalPrivacyContactLink">İletişim sayfası</a>
       </p>
     </div>
   </div>
@@ -713,15 +718,15 @@
   <div id="about-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('about')" aria-label="Kapat">&times;</button>
-      <h2>ℹ️ Hakkımızda</h2>
-      <p><strong>Altın Piyasa</strong>, kullanıcılarına anlık altın ve döviz verileri sunan bağımsız bir finansal bilgi platformudur.</p>
-      <h3>Misyonumuz</h3>
-      <p>Yatırımcıların güvenilir, şeffaf ve kolay erişilebilir piyasa verilerine ulaşmasını sağlamak.</p>
-      <h3>Değerlerimiz</h3>
+      <h2 data-i18n="modalAboutTitle">ℹ️ Hakkımızda</h2>
+      <p data-i18n="modalAboutDesc"><strong>Altın Piyasa</strong>, kullanıcılarına anlık altın ve döviz verileri sunan bağımsız bir finansal bilgi platformudur.</p>
+      <h3 data-i18n="modalAboutMission">Misyonumuz</h3>
+      <p data-i18n="modalAboutMissionDesc">Yatırımcıların güvenilir, şeffaf ve kolay erişilebilir piyasa verilerine ulaşmasını sağlamak.</p>
+      <h3 data-i18n="modalAboutValues">Değerlerimiz</h3>
       <ul>
-        <li>✅ <strong>Şeffaflık:</strong> Veri kaynaklarımızı açıkça belirtiriz.</li>
-        <li>✅ <strong>Güvenilirlik:</strong> API sağlayıcılarımız düzenli denetlenir.</li>
-        <li>✅ <strong>Bağımsızlık:</strong> Hiçbir banka veya kuyumcu ile ticari bağımız yoktur.</li>
+        <li>✅ <strong data-i18n="modalAboutTransparency">Şeffaflık:</strong> <span data-i18n="modalAboutTransparencyDesc">Veri kaynaklarımızı açıkça belirtiriz.</span></li>
+        <li>✅ <strong data-i18n="modalAboutReliability">Güvenilirlik:</strong> <span data-i18n="modalAboutReliabilityDesc">API sağlayıcılarımız düzenli denetlenir.</span></li>
+        <li>✅ <strong data-i18n="modalAboutIndependence">Bağımsızlık:</strong> <span data-i18n="modalAboutIndependenceDesc">Hiçbir banka veya kuyumcu ile ticari bağımız yoktur.</span></li>
       </ul>
     </div>
   </div>
@@ -730,24 +735,24 @@
   <div id="contact-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('contact')" aria-label="Kapat">&times;</button>
-      <h2>📬 İletişim</h2>
-      <p>Soru, öneri veya iş birliği talepleriniz için aşağıdaki formu kullanabilirsiniz.</p>
+      <h2 data-i18n="modalContactTitle">📬 İletişim</h2>
+      <p data-i18n="modalContactDesc">Soru, öneri veya iş birliği talepleriniz için aşağıdaki formu kullanabilirsiniz.</p>
       <form class="contact-form" onsubmit="submitContact(event)">
-        <input type="text" id="contact-name" placeholder="Adınız *" required>
-        <input type="email" id="contact-email" placeholder="E-posta *" required>
-        <input type="text" id="contact-subject" placeholder="Konu">
-        <textarea id="contact-message" placeholder="Mesajınız *" required></textarea>
-        <button type="submit">📤 Gönder</button>
+        <input type="text" id="contact-name" data-i18n-placeholder="formName" placeholder="Adınız *" required>
+        <input type="email" id="contact-email" data-i18n-placeholder="formEmail" placeholder="E-posta *" required>
+        <input type="text" id="contact-subject" data-i18n-placeholder="formSubject" placeholder="Konu">
+        <textarea id="contact-message" data-i18n-placeholder="formMessage" placeholder="Mesajınız *" required></textarea>
+        <button type="submit" data-i18n="formSend">📤 Gönder</button>
       </form>
       <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line)">
-        <h3 style="margin:0 0 12px;color:var(--gold)">Diğer Yollar</h3>
+        <h3 style="margin:0 0 12px;color:var(--gold)" data-i18n="modalContactOther">Diğer Yollar</h3>
         <ul style="margin:0;padding-left:20px">
           <li>📧 E-posta: <a href="mailto:info@altinpiyasa.com" style="color:var(--gold)">info@altinpiyasa.com</a></li>
-          <li>📍 Konum: İstanbul, Türkiye</li>
+          <li>📍 <span data-i18n="modalContactLocation">Konum:</span> İstanbul, Türkiye</li>
         </ul>
       </div>
       <p style="margin-top:16px;font-size:13px;color:var(--muted)">
-        <em>Not: Form demo amaçlıdır. Lütfen doğrudan e-posta ile iletişime geçiniz.</em>
+        <em data-i18n="modalContactNote">Not: Form demo amaçlıdır. Lütfen doğrudan e-posta ile iletişime geçiniz.</em>
       </p>
     </div>
   </div>
@@ -756,18 +761,18 @@
   <div id="terms-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('terms')" aria-label="Kapat">&times;</button>
-      <h2>📜 Kullanım Şartları</h2>
-      <p>Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz:</p>
-      <h3>1. Hizmetin Niteliği</h3>
+      <h2 data-i18n="modalTermsTitle">📜 Kullanım Şartları</h2>
+      <p data-i18n="modalTermsIntro">Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz:</p>
+      <h3 data-i18n="modalTerms1Title">1. Hizmetin Niteliği</h3>
       <ul>
-        <li>Veriler yalnızca bilgilendirme amaçlıdır.</li>
-        <li>Yatırım tavsiyesi değildir.</li>
-        <li>Gecikmeli veya hatalı olabilir.</li>
+        <li data-i18n="modalTerms1Item1">Veriler yalnızca bilgilendirme amaçlıdır.</li>
+        <li data-i18n="modalTerms1Item2">Yatırım tavsiyesi değildir.</li>
+        <li data-i18n="modalTerms1Item3">Gecikmeli veya hatalı olabilir.</li>
       </ul>
-      <h3>2. Sorumluluk Reddi</h3>
-      <p>Altın Piyasa, site içeriğinin doğruluğu konusunda garanti vermez. Yatırım kararlarından doğacak zararlardan sorumlu değildir.</p>
-      <h3>3. Fikri Mülkiyet</h3>
-      <p>Site tasarımı ve içerikler Altın Piyasa'ya aittir. İzinsiz kullanılamaz.</p>
+      <h3 data-i18n="modalTerms2Title">2. Sorumluluk Reddi</h3>
+      <p data-i18n="modalTerms2Desc">Altın Piyasa, site içeriğinin doğruluğu konusunda garanti vermez. Yatırım kararlarından doğacak zararlardan sorumlu değildir.</p>
+      <h3 data-i18n="modalTerms3Title">3. Fikri Mülkiyet</h3>
+      <p data-i18n="modalTerms3Desc">Site tasarımı ve içerikler Altın Piyasa'ya aittir. İzinsiz kullanılamaz.</p>
     </div>
   </div>
 
@@ -775,18 +780,18 @@
   <div id="cookies-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('cookies')" aria-label="Kapat">&times;</button>
-      <h2>🍪 Çerez Politikası</h2>
-      <h3>Kullandığımız Çerez Türleri</h3>
+      <h2 data-i18n="modalCookiesTitle">🍪 Çerez Politikası</h2>
+      <h3 data-i18n="modalCookiesTypes">Kullandığımız Çerez Türleri</h3>
       <table style="margin:16px 0;width:100%">
-        <thead><tr><th style="text-align:left">Tür</th><th style="text-align:left">Amaç</th><th style="text-align:left">Süre</th></tr></thead>
+        <thead><tr><th style="text-align:left" data-i18n="modalCookiesType">Tür</th><th style="text-align:left" data-i18n="modalCookiesPurpose">Amaç</th><th style="text-align:left" data-i18n="modalCookiesDuration">Süre</th></tr></thead>
         <tbody>
-          <tr><td>Teknik Çerezler</td><td>Oturum yönetimi</td><td>Oturum</td></tr>
-          <tr><td>Tercih Çerezleri</td><td>Dil, para birimi</td><td>30 gün</td></tr>
-          <tr><td>Analitik Çerezler</td><td>İstatistikler (anonim)</td><td>2 yıl</td></tr>
+          <tr><td data-i18n="modalCookiesTech">Teknik Çerezler</td><td data-i18n="modalCookiesTechDesc">Oturum yönetimi</td><td data-i18n="modalCookiesSession">Oturum</td></tr>
+          <tr><td data-i18n="modalCookiesPref">Tercih Çerezleri</td><td data-i18n="modalCookiesPrefDesc">Dil, para birimi</td><td>30 <span data-i18n="modalCookiesDays">gün</span></td></tr>
+          <tr><td data-i18n="modalCookiesAnalytics">Analitik Çerezler</td><td data-i18n="modalCookiesAnalyticsDesc">İstatistikler (anonim)</td><td>2 <span data-i18n="modalCookiesYears">yıl</span></td></tr>
         </tbody>
       </table>
-      <h3>Çerez Tercihlerinizi Yönetin</h3>
-      <p>Tarayıcınızın ayarlarından çerezleri engelleyebilirsiniz.</p>
+      <h3 data-i18n="modalCookiesManage">Çerez Tercihlerinizi Yönetin</h3>
+      <p data-i18n="modalCookiesManageDesc">Tarayıcınızın ayarlarından çerezleri engelleyebilirsiniz.</p>
     </div>
   </div>
 
@@ -794,27 +799,931 @@
   <div id="disclaimer-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('disclaimer')" aria-label="Kapat">&times;</button>
-      <h2>⚠️ Yasal Uyarı</h2>
+      <h2 data-i18n="modalDisclaimerTitle">⚠️ Yasal Uyarı</h2>
       <p style="background:#2a0715;border:1px solid #be123c;border-radius:8px;padding:16px;margin:16px 0">
-        <strong>ÖNEMLİ:</strong> Bu sitede yer alan hiçbir bilgi yatırım tavsiyesi değildir.
+        <strong data-i18n="modalDisclaimerImportant">ÖNEMLİ:</strong> <span data-i18n="modalDisclaimerText">Bu sitede yer alan hiçbir bilgi yatırım tavsiyesi değildir.</span>
       </p>
-      <h3>Finansal Risk Uyarısı</h3>
+      <h3 data-i18n="modalDisclaimerRiskTitle">Finansal Risk Uyarısı</h3>
       <ul>
-        <li>Altın ve döviz piyasaları yüksek volatilite içerir.</li>
-        <li>Geçmiş performans gelecek sonuç garantisi değildir.</li>
-        <li>Kaybetmeyi göze alabileceğiniz tutarlarla işlem yapınız.</li>
+        <li data-i18n="modalDisclaimerRisk1">Altın ve döviz piyasaları yüksek volatilite içerir.</li>
+        <li data-i18n="modalDisclaimerRisk2">Geçmiş performans gelecek sonuç garantisi değildir.</li>
+        <li data-i18n="modalDisclaimerRisk3">Kaybetmeyi göze alabileceğiniz tutarlarla işlem yapınız.</li>
       </ul>
-      <h3>Veri Kaynağı</h3>
-      <p>Veriler üçüncü parti API'lerden otomatik çekilir. Gecikmeler olabilir. İşlem yapmadan önce resmi verileri teyit ediniz.</p>
+      <h3 data-i18n="modalDisclaimerDataSource">Veri Kaynağı</h3>
+      <p data-i18n="modalDisclaimerDataDesc">Veriler üçüncü parti API'lerden otomatik çekilir. Gecikmeler olabilir. İşlem yapmadan önce resmi verileri teyit ediniz.</p>
     </div>
   </div>
 
   <script>
-    // ===== 🔧 REKLAM AYARI - BURAYI DEĞİŞTİRİN =====
-    // Şu an: false (reklamlar gizli)
-    // AdSense onayı sonrası: true yapın
+    // ===== 🔧 REKLAM AYARI =====
     const ADS_ENABLED = false;
-    // ==============================================
+
+    // ===== ÇOK DİLLİ ÇEVİRİLER =====
+    const translations = {
+      tr: {
+        skip: "İçeriğe atla",
+        cookieText: "🍪 Bu site deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href=\"#\" onclick=\"openModal('privacy')\" style=\"color:var(--gold);text-decoration:none\">Gizlilik Politikası</a>'nı inceleyebilirsiniz.",
+        cookieAccept: "Kabul Et",
+        cookieDecline: "Reddet",
+        refresh: "Yenile",
+        swap: "Değiştir",
+        heroTitle1: "Canlı",
+        heroTitle2: "ve döviz ekranı",
+        heroDesc: "Ons altın, gram altın, ayar fiyatları, alış-satış hesapları, Euro ve dolar karşılıkları tek ekranda.",
+        statusConnecting: "API bağlanıyor...",
+        statusLive: "Canlı veri alındı",
+        cardOunce: "Ons Altın",
+        cardGram24: "Gram 24 Ayar",
+        cardUSD: "Dolar Kuru",
+        cardEUR: "Euro Kuru",
+        cardSubCurrency: "Seçili para birimi",
+        cardSubUSD: "1 USD karşılığı",
+        cardSubEUR: "1 EUR karşılığı",
+        panelGoldPrices: "Altın Fiyatları",
+        panelStandardGold: "Standart Altınlar",
+        panelAboutGold: "Altın Yatırımı Hakkında",
+        panelConverter: "Döviz Çevirici",
+        panelUSDValue: "Dolar Karşılığı",
+        tableHeaderKarat: "Ayar",
+        tableHeaderPurity: "Saflık",
+        tableHeaderGram: "Gram",
+        tableHeaderBuy: "Alış",
+        tableHeaderSell: "Satış",
+        tableHeaderKilo: "Kilo",
+        tableHeaderProduct: "Ürün",
+        tableHeaderWeight: "Ağırlık",
+        tableHeaderSelected: "Seçili",
+        tableHeaderCode: "Kod",
+        tableHeader1UnitUSD: "1 Birim USD",
+        goldInfo1: "<strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir. Ekonomik belirsizlik dönemlerinde güvenli liman olarak tercih edilir.",
+        goldInfo2: "<strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir. Fiyatı, uluslararası ons altın fiyatı ve döviz kurlarına bağlı olarak anlık değişir.",
+        goldWarning: "⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em>",
+        searchCurrency: "Para birimi ara",
+        legalDisclaimerTitle: "Yasal Uyarı:",
+        legalDisclaimerText: "Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.",
+        footerDesc: "Canlı altın ve döviz verileri ile yatırım kararlarınızı destekliyoruz.",
+        footerLegal: "Yasal",
+        footerAbout: "Hakkımızda",
+        footerFollow: "Takip Edin",
+        footerRights: "Tüm hakları saklıdır.",
+        linkPrivacy: "Gizlilik Politikası",
+        linkTerms: "Kullanım Şartları",
+        linkCookies: "Çerez Politikası",
+        linkDisclaimer: "Yasal Uyarı",
+        linkAbout: "Biz Kimiz?",
+        linkContact: "İletişim",
+        linkPrivacyShort: "Gizlilik",
+        linkContactShort: "İletişim",
+        modalPrivacyTitle: "🔒 Gizlilik Politikası",
+        modalLastUpdate: "Son Güncelleme:",
+        modalPrivacy1Title: "1. Toplanan Veriler",
+        modalPrivacyCookies: "Çerezler:",
+        modalPrivacyCookiesDesc: "Site deneyimini iyileştirmek için teknik çerezler.",
+        modalPrivacyIP: "IP Adresi:",
+        modalPrivacyIPDesc: "Güvenlik amaçlı anonim kayıtlar.",
+        modalPrivacyUsage: "Kullanım Verileri:",
+        modalPrivacyUsageDesc: "Anonim istatistikler.",
+        modalPrivacy2Title: "2. Verilerin Kullanımı",
+        modalPrivacy2Desc: "Veriler; site performans analizi, kullanıcı deneyimi ve güvenlik amacıyla kullanılır.",
+        modalPrivacy3Title: "3. Üçüncü Taraf Hizmetler",
+        modalPrivacyAdSense: "Reklam kişiselleştirme için çerez kullanır.",
+        modalPrivacyAnalytics: "Anonim kullanım istatistikleri.",
+        modalPrivacy4Title: "4. Haklarınız",
+        modalPrivacy4Desc: "GDPR/KVKK kapsamında verilerinize erişim, düzeltme ve silme talep etme hakkınız vardır.",
+        modalPrivacyContact: "İletişim:",
+        modalPrivacyContactLink: "İletişim sayfası",
+        modalAboutTitle: "ℹ️ Hakkımızda",
+        modalAboutDesc: "<strong>Altın Piyasa</strong>, kullanıcılarına anlık altın ve döviz verileri sunan bağımsız bir finansal bilgi platformudur.",
+        modalAboutMission: "Misyonumuz",
+        modalAboutMissionDesc: "Yatırımcıların güvenilir, şeffaf ve kolay erişilebilir piyasa verilerine ulaşmasını sağlamak.",
+        modalAboutValues: "Değerlerimiz",
+        modalAboutTransparency: "Şeffaflık:",
+        modalAboutTransparencyDesc: "Veri kaynaklarımızı açıkça belirtiriz.",
+        modalAboutReliability: "Güvenilirlik:",
+        modalAboutReliabilityDesc: "API sağlayıcılarımız düzenli denetlenir.",
+        modalAboutIndependence: "Bağımsızlık:",
+        modalAboutIndependenceDesc: "Hiçbir banka veya kuyumcu ile ticari bağımız yoktur.",
+        modalContactTitle: "📬 İletişim",
+        modalContactDesc: "Soru, öneri veya iş birliği talepleriniz için aşağıdaki formu kullanabilirsiniz.",
+        formName: "Adınız *",
+        formEmail: "E-posta *",
+        formSubject: "Konu",
+        formMessage: "Mesajınız *",
+        formSend: "📤 Gönder",
+        modalContactOther: "Diğer Yollar",
+        modalContactLocation: "Konum:",
+        modalContactNote: "Not: Form demo amaçlıdır. Lütfen doğrudan e-posta ile iletişime geçiniz.",
+        modalTermsTitle: "📜 Kullanım Şartları",
+        modalTermsIntro: "Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz:",
+        modalTerms1Title: "1. Hizmetin Niteliği",
+        modalTerms1Item1: "Veriler yalnızca bilgilendirme amaçlıdır.",
+        modalTerms1Item2: "Yatırım tavsiyesi değildir.",
+        modalTerms1Item3: "Gecikmeli veya hatalı olabilir.",
+        modalTerms2Title: "2. Sorumluluk Reddi",
+        modalTerms2Desc: "Altın Piyasa, site içeriğinin doğruluğu konusunda garanti vermez. Yatırım kararlarından doğacak zararlardan sorumlu değildir.",
+        modalTerms3Title: "3. Fikri Mülkiyet",
+        modalTerms3Desc: "Site tasarımı ve içerikler Altın Piyasa'ya aittir. İzinsiz kullanılamaz.",
+        modalCookiesTitle: "🍪 Çerez Politikası",
+        modalCookiesTypes: "Kullandığımız Çerez Türleri",
+        modalCookiesType: "Tür",
+        modalCookiesPurpose: "Amaç",
+        modalCookiesDuration: "Süre",
+        modalCookiesTech: "Teknik Çerezler",
+        modalCookiesTechDesc: "Oturum yönetimi",
+        modalCookiesPref: "Tercih Çerezleri",
+        modalCookiesPrefDesc: "Dil, para birimi",
+        modalCookiesAnalytics: "Analitik Çerezler",
+        modalCookiesAnalyticsDesc: "İstatistikler (anonim)",
+        modalCookiesSession: "Oturum",
+        modalCookiesDays: "gün",
+        modalCookiesYears: "yıl",
+        modalCookiesManage: "Çerez Tercihlerinizi Yönetin",
+        modalCookiesManageDesc: "Tarayıcınızın ayarlarından çerezleri engelleyebilirsiniz.",
+        modalDisclaimerTitle: "⚠️ Yasal Uyarı",
+        modalDisclaimerImportant: "ÖNEMLİ:",
+        modalDisclaimerText: "Bu sitede yer alan hiçbir bilgi yatırım tavsiyesi değildir.",
+        modalDisclaimerRiskTitle: "Finansal Risk Uyarısı",
+        modalDisclaimerRisk1: "Altın ve döviz piyasaları yüksek volatilite içerir.",
+        modalDisclaimerRisk2: "Geçmiş performans gelecek sonuç garantisi değildir.",
+        modalDisclaimerRisk3: "Kaybetmeyi göze alabileceğiniz tutarlarla işlem yapınız.",
+        modalDisclaimerDataSource: "Veri Kaynağı",
+        modalDisclaimerDataDesc: "Veriler üçüncü parti API'lerden otomatik çekilir. Gecikmeler olabilir. İşlem yapmadan önce resmi verileri teyit ediniz."
+      },
+      en: {
+        skip: "Skip to content",
+        cookieText: "🍪 This site uses cookies to improve your experience. See our <a href=\"#\" onclick=\"openModal('privacy')\" style=\"color:var(--gold);text-decoration:none\">Privacy Policy</a> for details.",
+        cookieAccept: "Accept",
+        cookieDecline: "Decline",
+        refresh: "Refresh",
+        swap: "Swap",
+        heroTitle1: "Live",
+        heroTitle2: "gold & forex tracker",
+        heroDesc: "Ounce gold, gram gold, karat prices, buy-sell calculations, Euro and Dollar equivalents all in one screen.",
+        statusConnecting: "Connecting to API...",
+        statusLive: "Live data received",
+        cardOunce: "Gold Ounce",
+        cardGram24: "Gram 24K",
+        cardUSD: "USD Rate",
+        cardEUR: "EUR Rate",
+        cardSubCurrency: "Selected currency",
+        cardSubUSD: "1 USD equivalent",
+        cardSubEUR: "1 EUR equivalent",
+        panelGoldPrices: "Gold Prices",
+        panelStandardGold: "Standard Gold",
+        panelAboutGold: "About Gold Investment",
+        panelConverter: "Currency Converter",
+        panelUSDValue: "USD Equivalent",
+        tableHeaderKarat: "Karat",
+        tableHeaderPurity: "Purity",
+        tableHeaderGram: "Gram",
+        tableHeaderBuy: "Buy",
+        tableHeaderSell: "Sell",
+        tableHeaderKilo: "Kilo",
+        tableHeaderProduct: "Product",
+        tableHeaderWeight: "Weight",
+        tableHeaderSelected: "Selected",
+        tableHeaderCode: "Code",
+        tableHeader1UnitUSD: "1 Unit in USD",
+        goldInfo1: "<strong>Gold</strong> has been used as a store of value for thousands of years. It is preferred as a safe haven during economic uncertainty.",
+        goldInfo2: "<strong>Gram gold</strong> is the 1-gram unit of 24-karat pure gold. Its price changes instantly based on international ounce gold price and exchange rates.",
+        goldWarning: "⚠️ <em>Warning: The data on this site is for informational purposes only. Not investment advice.</em>",
+        searchCurrency: "Search currency",
+        legalDisclaimerTitle: "Legal Notice:",
+        legalDisclaimerText: "Data is automatically fetched from API source. Not investment advice.",
+        footerDesc: "We support your investment decisions with live gold and forex data.",
+        footerLegal: "Legal",
+        footerAbout: "About",
+        footerFollow: "Follow Us",
+        footerRights: "All rights reserved.",
+        linkPrivacy: "Privacy Policy",
+        linkTerms: "Terms of Use",
+        linkCookies: "Cookie Policy",
+        linkDisclaimer: "Legal Notice",
+        linkAbout: "Who Are We?",
+        linkContact: "Contact",
+        linkPrivacyShort: "Privacy",
+        linkContactShort: "Contact",
+        modalPrivacyTitle: "🔒 Privacy Policy",
+        modalLastUpdate: "Last Updated:",
+        modalPrivacy1Title: "1. Collected Data",
+        modalPrivacyCookies: "Cookies:",
+        modalPrivacyCookiesDesc: "Technical cookies to improve site experience.",
+        modalPrivacyIP: "IP Address:",
+        modalPrivacyIPDesc: "Anonymous records for security purposes.",
+        modalPrivacyUsage: "Usage Data:",
+        modalPrivacyUsageDesc: "Anonymous statistics.",
+        modalPrivacy2Title: "2. Data Usage",
+        modalPrivacy2Desc: "Data is used for site performance analysis, user experience, and security purposes.",
+        modalPrivacy3Title: "3. Third-Party Services",
+        modalPrivacyAdSense: "Uses cookies for ad personalization.",
+        modalPrivacyAnalytics: "Anonymous usage statistics.",
+        modalPrivacy4Title: "4. Your Rights",
+        modalPrivacy4Desc: "Under GDPR/KVKK, you have the right to access, correct, and delete your data.",
+        modalPrivacyContact: "Contact:",
+        modalPrivacyContactLink: "Contact page",
+        modalAboutTitle: "ℹ️ About Us",
+        modalAboutDesc: "<strong>Altın Piyasa</strong> is an independent financial information platform providing real-time gold and forex data to its users.",
+        modalAboutMission: "Our Mission",
+        modalAboutMissionDesc: "To enable investors to access reliable, transparent, and easily accessible market data.",
+        modalAboutValues: "Our Values",
+        modalAboutTransparency: "Transparency:",
+        modalAboutTransparencyDesc: "We clearly state our data sources.",
+        modalAboutReliability: "Reliability:",
+        modalAboutReliabilityDesc: "Our API providers are regularly audited.",
+        modalAboutIndependence: "Independence:",
+        modalAboutIndependenceDesc: "We have no commercial ties with any bank or jeweler.",
+        modalContactTitle: "📬 Contact",
+        modalContactDesc: "You can use the form below for questions, suggestions, or partnership requests.",
+        formName: "Your Name *",
+        formEmail: "Email *",
+        formSubject: "Subject",
+        formMessage: "Your Message *",
+        formSend: "📤 Send",
+        modalContactOther: "Other Ways",
+        modalContactLocation: "Location:",
+        modalContactNote: "Note: Form is for demo purposes. Please contact us directly via email.",
+        modalTermsTitle: "📜 Terms of Use",
+        modalTermsIntro: "By using this site, you agree to the following terms:",
+        modalTerms1Title: "1. Nature of Service",
+        modalTerms1Item1: "Data is for informational purposes only.",
+        modalTerms1Item2: "Not investment advice.",
+        modalTerms1Item3: "May be delayed or contain errors.",
+        modalTerms2Title: "2. Disclaimer",
+        modalTerms2Desc: "Altın Piyasa does not guarantee the accuracy of site content. Not responsible for losses from investment decisions.",
+        modalTerms3Title: "3. Intellectual Property",
+        modalTerms3Desc: "Site design and content belong to Altın Piyasa. Cannot be used without permission.",
+        modalCookiesTitle: "🍪 Cookie Policy",
+        modalCookiesTypes: "Cookie Types We Use",
+        modalCookiesType: "Type",
+        modalCookiesPurpose: "Purpose",
+        modalCookiesDuration: "Duration",
+        modalCookiesTech: "Technical Cookies",
+        modalCookiesTechDesc: "Session management",
+        modalCookiesPref: "Preference Cookies",
+        modalCookiesPrefDesc: "Language, currency",
+        modalCookiesAnalytics: "Analytics Cookies",
+        modalCookiesAnalyticsDesc: "Statistics (anonymous)",
+        modalCookiesSession: "Session",
+        modalCookiesDays: "days",
+        modalCookiesYears: "years",
+        modalCookiesManage: "Manage Your Cookie Preferences",
+        modalCookiesManageDesc: "You can block cookies from your browser settings.",
+        modalDisclaimerTitle: "⚠️ Legal Notice",
+        modalDisclaimerImportant: "IMPORTANT:",
+        modalDisclaimerText: "No information on this site constitutes investment advice.",
+        modalDisclaimerRiskTitle: "Financial Risk Warning",
+        modalDisclaimerRisk1: "Gold and forex markets contain high volatility.",
+        modalDisclaimerRisk2: "Past performance is not a guarantee of future results.",
+        modalDisclaimerRisk3: "Trade only with amounts you can afford to lose.",
+        modalDisclaimerDataSource: "Data Source",
+        modalDisclaimerDataDesc: "Data is automatically fetched from third-party APIs. Delays may occur. Verify official data before trading."
+      },
+      ar: {
+        skip: "الانتقال إلى المحتوى",
+        cookieText: "🍪 يستخدم هذا الموقع ملفات تعريف الارتباط لتحسين تجربتك. راجع <a href=\"#\" onclick=\"openModal('privacy')\" style=\"color:var(--gold);text-decoration:none\">سياسة الخصوصية</a> للتفاصيل.",
+        cookieAccept: "قبول",
+        cookieDecline: "رفض",
+        refresh: "تحديث",
+        swap: "تبديل",
+        heroTitle1: "مباشر",
+        heroTitle2: "أسعار الذهب والعملات",
+        heroDesc: "أونصة الذهب، جرام الذهب، أسعار العيار، حسابات الشراء والبيع، مكافئات اليورو والدولار في شاشة واحدة.",
+        statusConnecting: "جاري الاتصال بـ API...",
+        statusLive: "تم استلام البيانات المباشرة",
+        cardOunce: "أونصة الذهب",
+        cardGram24: "جرام 24 قيراط",
+        cardUSD: "سعر الدولار",
+        cardEUR: "سعر اليورو",
+        cardSubCurrency: "العملة المحددة",
+        cardSubUSD: "مكافئ 1 دولار",
+        cardSubEUR: "مكافئ 1 يورو",
+        panelGoldPrices: "أسعار الذهب",
+        panelStandardGold: "الذهب القياسي",
+        panelAboutGold: "حول استثمار الذهب",
+        panelConverter: "محول العملات",
+        panelUSDValue: "مكافئ الدولار",
+        tableHeaderKarat: "عيار",
+        tableHeaderPurity: "نقاء",
+        tableHeaderGram: "جرام",
+        tableHeaderBuy: "شراء",
+        tableHeaderSell: "بيع",
+        tableHeaderKilo: "كيلو",
+        tableHeaderProduct: "منتج",
+        tableHeaderWeight: "وزن",
+        tableHeaderSelected: "محدد",
+        tableHeaderCode: "رمز",
+        tableHeader1UnitUSD: "1 وحدة بالدولار",
+        goldInfo1: "<strong>الذهب</strong> معدن ثمين يُستخدم كوسيلة لحفظ القيمة منذ آلاف السنين. يُفضل كملاذ آمن خلال فترات عدم اليقين الاقتصادي.",
+        goldInfo2: "<strong>جرام الذهب</strong> هو وحدة جرام واحدة من الذهب النقي عيار 24. يتغير سعره فورياً بناءً على سعر أونصة الذهب العالمية وأسعار الصرف.",
+        goldWarning: "⚠️ <em>تحذير: البيانات في هذا الموقع لأغراض إعلامية فقط. ليست نصيحة استثمارية.</em>",
+        searchCurrency: "ابحث عن عملة",
+        legalDisclaimerTitle: "إشعار قانوني:",
+        legalDisclaimerText: "يتم جلب البيانات تلقائياً من مصدر API. ليست نصيحة استثمارية.",
+        footerDesc: "ندعم قراراتك الاستثمارية ببيانات مباشرة للذهب والعملات.",
+        footerLegal: "قانوني",
+        footerAbout: "من نحن",
+        footerFollow: "تابعنا",
+        footerRights: "جميع الحقوق محفوظة.",
+        linkPrivacy: "سياسة الخصوصية",
+        linkTerms: "شروط الاستخدام",
+        linkCookies: "سياسة ملفات الارتباط",
+        linkDisclaimer: "إشعار قانوني",
+        linkAbout: "من نكون؟",
+        linkContact: "اتصل بنا",
+        linkPrivacyShort: "خصوصية",
+        linkContactShort: "اتصال",
+        modalPrivacyTitle: "🔒 سياسة الخصوصية",
+        modalLastUpdate: "آخر تحديث:",
+        modalPrivacy1Title: "1. البيانات المجمعة",
+        modalPrivacyCookies: "ملفات الارتباط:",
+        modalPrivacyCookiesDesc: "ملفات ارتباط تقنية لتحسين تجربة الموقع.",
+        modalPrivacyIP: "عنوان IP:",
+        modalPrivacyIPDesc: "سجلات مجهولة لأغراض الأمان.",
+        modalPrivacyUsage: "بيانات الاستخدام:",
+        modalPrivacyUsageDesc: "إحصائيات مجهولة.",
+        modalPrivacy2Title: "2. استخدام البيانات",
+        modalPrivacy2Desc: "تُستخدم البيانات لتحليل أداء الموقع، وتجربة المستخدم، وأغراض الأمان.",
+        modalPrivacy3Title: "3. خدمات الطرف الثالث",
+        modalPrivacyAdSense: "يستخدم ملفات الارتباط لتخصيص الإعلانات.",
+        modalPrivacyAnalytics: "إحصائيات استخدام مجهولة.",
+        modalPrivacy4Title: "4. حقوقك",
+        modalPrivacy4Desc: "بموجب GDPR/KVKK، لديك الحق في الوصول إلى بياناتك وتصحيحها وحذفها.",
+        modalPrivacyContact: "اتصل:",
+        modalPrivacyContactLink: "صفحة الاتصال",
+        modalAboutTitle: "ℹ️ من نحن",
+        modalAboutDesc: "<strong>ألتن بياضا</strong> منصة معلومات مالية مستقلة توفر بيانات الذهب والعملات الفورية لمستخدميها.",
+        modalAboutMission: "مهمتنا",
+        modalAboutMissionDesc: "تمكين المستثمرين من الوصول إلى بيانات السوق الموثوقة والشفافة وسهلة الوصول.",
+        modalAboutValues: "قيمنا",
+        modalAboutTransparency: "الشفافية:",
+        modalAboutTransparencyDesc: "نصرح بوضوح عن مصادر بياناتنا.",
+        modalAboutReliability: "الموثوقية:",
+        modalAboutReliabilityDesc: "يتم تدقيق مزودي API لدينا بانتظام.",
+        modalAboutIndependence: "الاستقلالية:",
+        modalAboutIndependenceDesc: "ليس لدينا أي روابط تجارية مع أي بنك أو صائغ.",
+        modalContactTitle: "📬 اتصل بنا",
+        modalContactDesc: "يمكنك استخدام النموذج أدناه للأسئلة أو الاقتراحات أو طلبات الشراكة.",
+        formName: "اسمك *",
+        formEmail: "البريد الإلكتروني *",
+        formSubject: "الموضوع",
+        formMessage: "رسالتك *",
+        formSend: "📤 إرسال",
+        modalContactOther: "طرق أخرى",
+        modalContactLocation: "الموقع:",
+        modalContactNote: "ملاحظة: النموذج لأغراض تجريبية. يرجى الاتصال بنا مباشرة عبر البريد الإلكتروني.",
+        modalTermsTitle: "📜 شروط الاستخدام",
+        modalTermsIntro: "باستخدامك لهذا الموقع، فإنك توافق على الشروط التالية:",
+        modalTerms1Title: "1. طبيعة الخدمة",
+        modalTerms1Item1: "البيانات لأغراض إعلامية فقط.",
+        modalTerms1Item2: "ليست نصيحة استثمارية.",
+        modalTerms1Item3: "قد تكون متأخرة أو تحتوي على أخطاء.",
+        modalTerms2Title: "2. إخلاء المسؤولية",
+        modalTerms2Desc: "لا تضمن ألتن بياضا دقة محتوى الموقع. غير مسؤولة عن الخسائر الناتجة عن قرارات الاستثمار.",
+        modalTerms3Title: "3. الملكية الفكرية",
+        modalTerms3Desc: "تصميم الموقع ومحتواه مملوك لألتن بياضا. لا يمكن استخدامه بدون إذن.",
+        modalCookiesTitle: "🍪 سياسة ملفات الارتباط",
+        modalCookiesTypes: "أنواع ملفات الارتباط التي نستخدمها",
+        modalCookiesType: "النوع",
+        modalCookiesPurpose: "الغرض",
+        modalCookiesDuration: "المدة",
+        modalCookiesTech: "ملفات ارتباط تقنية",
+        modalCookiesTechDesc: "إدارة الجلسة",
+        modalCookiesPref: "ملفات ارتباط التفضيلات",
+        modalCookiesPrefDesc: "اللغة، العملة",
+        modalCookiesAnalytics: "ملفات ارتباط تحليلية",
+        modalCookiesAnalyticsDesc: "إحصائيات (مجهولة)",
+        modalCookiesSession: "الجلسة",
+        modalCookiesDays: "يوم",
+        modalCookiesYears: "سنة",
+        modalCookiesManage: "إدارة تفضيلات ملفات الارتباط",
+        modalCookiesManageDesc: "يمكنك حظر ملفات الارتباط من إعدادات متصفحك.",
+        modalDisclaimerTitle: "⚠️ إشعار قانوني",
+        modalDisclaimerImportant: "مهم:",
+        modalDisclaimerText: "لا تشكل أي معلومات في هذا الموقع نصيحة استثمارية.",
+        modalDisclaimerRiskTitle: "تحذير المخاطر المالية",
+        modalDisclaimerRisk1: "تحتوي أسواق الذهب والعملات على تقلبات عالية.",
+        modalDisclaimerRisk2: "الأداء السابق ليس ضماناً للنتائج المستقبلية.",
+        modalDisclaimerRisk3: "تداول فقط بالمبالغ التي يمكنك تحمل خسارتها.",
+        modalDisclaimerDataSource: "مصدر البيانات",
+        modalDisclaimerDataDesc: "يتم جلب البيانات تلقائياً من واجهات برمجة تطبيقات الطرف الثالث. قد تحدث تأخيرات. تحقق من البيانات الرسمية قبل التداول."
+      },
+      de: {
+        skip: "Zum Inhalt springen",
+        cookieText: "🍪 Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Details finden Sie in unserer <a href=\"#\" onclick=\"openModal('privacy')\" style=\"color:var(--gold);text-decoration:none\">Datenschutzrichtlinie</a>.",
+        cookieAccept: "Akzeptieren",
+        cookieDecline: "Ablehnen",
+        refresh: "Aktualisieren",
+        swap: "Tauschen",
+        heroTitle1: "Live",
+        heroTitle2: "Gold & Devisen",
+        heroDesc: "Unze Gold, Gramm Gold, Karat-Preise, Kauf-Verkauf-Rechner, Euro- und Dollar-Äquivalente auf einem Bildschirm.",
+        statusConnecting: "API-Verbindung wird hergestellt...",
+        statusLive: "Live-Daten empfangen",
+        cardOunce: "Goldunze",
+        cardGram24: "Gramm 24K",
+        cardUSD: "USD-Kurs",
+        cardEUR: "EUR-Kurs",
+        cardSubCurrency: "Ausgewählte Währung",
+        cardSubUSD: "1 USD entspricht",
+        cardSubEUR: "1 EUR entspricht",
+        panelGoldPrices: "Goldpreise",
+        panelStandardGold: "Standardgold",
+        panelAboutGold: "Über Goldinvestitionen",
+        panelConverter: "Währungsrechner",
+        panelUSDValue: "USD-Äquivalent",
+        tableHeaderKarat: "Karat",
+        tableHeaderPurity: "Reinheit",
+        tableHeaderGram: "Gramm",
+        tableHeaderBuy: "Kauf",
+        tableHeaderSell: "Verkauf",
+        tableHeaderKilo: "Kilo",
+        tableHeaderProduct: "Produkt",
+        tableHeaderWeight: "Gewicht",
+        tableHeaderSelected: "Ausgewählt",
+        tableHeaderCode: "Code",
+        tableHeader1UnitUSD: "1 Einheit in USD",
+        goldInfo1: "<strong>Gold</strong> wird seit Tausenden von Jahren als Wertaufbewahrungsmittel verwendet. Es wird in Zeiten wirtschaftlicher Unsicherheit als sicherer Hafen bevorzugt.",
+        goldInfo2: "<strong>Gramm Gold</strong> ist die 1-Gramm-Einheit von 24-karätigem reinem Gold. Der Preis ändert sich sofort basierend auf dem internationalen Unzen-Goldpreis und den Wechselkursen.",
+        goldWarning: "⚠️ <em>Warnung: Die Daten auf dieser Website dienen nur zu Informationszwecken. Keine Anlageberatung.</em>",
+        searchCurrency: "Währung suchen",
+        legalDisclaimerTitle: "Rechtlicher Hinweis:",
+        legalDisclaimerText: "Daten werden automatisch von API-Quelle abgerufen. Keine Anlageberatung.",
+        footerDesc: "Wir unterstützen Ihre Investitionsentscheidungen mit Live-Gold- und Devisendaten.",
+        footerLegal: "Rechtliches",
+        footerAbout: "Über uns",
+        footerFollow: "Folgen Sie uns",
+        footerRights: "Alle Rechte vorbehalten.",
+        linkPrivacy: "Datenschutzrichtlinie",
+        linkTerms: "Nutzungsbedingungen",
+        linkCookies: "Cookie-Richtlinie",
+        linkDisclaimer: "Rechtlicher Hinweis",
+        linkAbout: "Wer sind wir?",
+        linkContact: "Kontakt",
+        linkPrivacyShort: "Datenschutz",
+        linkContactShort: "Kontakt",
+        modalPrivacyTitle: "🔒 Datenschutzrichtlinie",
+        modalLastUpdate: "Zuletzt aktualisiert:",
+        modalPrivacy1Title: "1. Gesammelte Daten",
+        modalPrivacyCookies: "Cookies:",
+        modalPrivacyCookiesDesc: "Technische Cookies zur Verbesserung der Website-Erfahrung.",
+        modalPrivacyIP: "IP-Adresse:",
+        modalPrivacyIPDesc: "Anonyme Aufzeichnungen für Sicherheitszwecke.",
+        modalPrivacyUsage: "Nutzungsdaten:",
+        modalPrivacyUsageDesc: "Anonyme Statistiken.",
+        modalPrivacy2Title: "2. Datenverwendung",
+        modalPrivacy2Desc: "Daten werden für Website-Leistungsanalyse, Benutzererfahrung und Sicherheitszwecke verwendet.",
+        modalPrivacy3Title: "3. Dienste Dritter",
+        modalPrivacyAdSense: "Verwendet Cookies zur Anzeigenpersonalisierung.",
+        modalPrivacyAnalytics: "Anonyme Nutzungsstatistiken.",
+        modalPrivacy4Title: "4. Ihre Rechte",
+        modalPrivacy4Desc: "Gemäß DSGVO haben Sie das Recht, auf Ihre Daten zuzugreifen, sie zu korrigieren und zu löschen.",
+        modalPrivacyContact: "Kontakt:",
+        modalPrivacyContactLink: "Kontaktseite",
+        modalAboutTitle: "ℹ️ Über uns",
+        modalAboutDesc: "<strong>Altın Piyasa</strong> ist eine unabhängige Finanzinformationsplattform, die ihren Benutzern Echtzeit-Gold- und Devisendaten bereitstellt.",
+        modalAboutMission: "Unsere Mission",
+        modalAboutMissionDesc: "Anlegern den Zugang zu zuverlässigen, transparenten und leicht zugänglichen Marktdaten zu ermöglichen.",
+        modalAboutValues: "Unsere Werte",
+        modalAboutTransparency: "Transparenz:",
+        modalAboutTransparencyDesc: "Wir geben unsere Datenquellen klar an.",
+        modalAboutReliability: "Zuverlässigkeit:",
+        modalAboutReliabilityDesc: "Unsere API-Anbieter werden regelmäßig geprüft.",
+        modalAboutIndependence: "Unabhängigkeit:",
+        modalAboutIndependenceDesc: "Wir haben keine geschäftlichen Verbindungen zu Banken oder Juwelieren.",
+        modalContactTitle: "📬 Kontakt",
+        modalContactDesc: "Sie können das untenstehende Formular für Fragen, Vorschläge oder Partnerschaftsanfragen verwenden.",
+        formName: "Ihr Name *",
+        formEmail: "E-Mail *",
+        formSubject: "Betreff",
+        formMessage: "Ihre Nachricht *",
+        formSend: "📤 Senden",
+        modalContactOther: "Andere Wege",
+        modalContactLocation: "Standort:",
+        modalContactNote: "Hinweis: Formular ist zu Demozwecken. Bitte kontaktieren Sie uns direkt per E-Mail.",
+        modalTermsTitle: "📜 Nutzungsbedingungen",
+        modalTermsIntro: "Durch die Nutzung dieser Website stimmen Sie den folgenden Bedingungen zu:",
+        modalTerms1Title: "1. Art des Dienstes",
+        modalTerms1Item1: "Daten dienen nur zu Informationszwecken.",
+        modalTerms1Item2: "Keine Anlageberatung.",
+        modalTerms1Item3: "Kann verzögert sein oder Fehler enthalten.",
+        modalTerms2Title: "2. Haftungsausschluss",
+        modalTerms2Desc: "Altın Piyasa garantiert nicht die Richtigkeit der Website-Inhalte. Nicht verantwortlich für Verluste aus Investitionsentscheidungen.",
+        modalTerms3Title: "3. Geistiges Eigentum",
+        modalTerms3Desc: "Website-Design und Inhalte gehören Altın Piyasa. Dürfen nicht ohne Genehmigung verwendet werden.",
+        modalCookiesTitle: "🍪 Cookie-Richtlinie",
+        modalCookiesTypes: "Von uns verwendete Cookie-Typen",
+        modalCookiesType: "Typ",
+        modalCookiesPurpose: "Zweck",
+        modalCookiesDuration: "Dauer",
+        modalCookiesTech: "Technische Cookies",
+        modalCookiesTechDesc: "Sitzungsverwaltung",
+        modalCookiesPref: "Präferenz-Cookies",
+        modalCookiesPrefDesc: "Sprache, Währung",
+        modalCookiesAnalytics: "Analytik-Cookies",
+        modalCookiesAnalyticsDesc: "Statistiken (anonym)",
+        modalCookiesSession: "Sitzung",
+        modalCookiesDays: "Tage",
+        modalCookiesYears: "Jahre",
+        modalCookiesManage: "Verwalten Sie Ihre Cookie-Einstellungen",
+        modalCookiesManageDesc: "Sie können Cookies in Ihren Browsereinstellungen blockieren.",
+        modalDisclaimerTitle: "⚠️ Rechtlicher Hinweis",
+        modalDisclaimerImportant: "WICHTIG:",
+        modalDisclaimerText: "Keine Informationen auf dieser Website stellen eine Anlageberatung dar.",
+        modalDisclaimerRiskTitle: "Finanzielle Risikowarnung",
+        modalDisclaimerRisk1: "Gold- und Devisenmärkte weisen hohe Volatilität auf.",
+        modalDisclaimerRisk2: "Vergangene Performance ist keine Garantie für zukünftige Ergebnisse.",
+        modalDisclaimerRisk3: "Handeln Sie nur mit Beträgen, deren Verlust Sie verkraften können.",
+        modalDisclaimerDataSource: "Datenquelle",
+        modalDisclaimerDataDesc: "Daten werden automatisch von Drittanbieter-APIs abgerufen. Verzögerungen können auftreten. Überprüfen Sie offizielle Daten vor dem Handel."
+      },
+      fr: {
+        skip: "Aller au contenu",
+        cookieText: "🍪 Ce site utilise des cookies pour améliorer votre expérience. Consultez notre <a href=\"#\" onclick=\"openModal('privacy')\" style=\"color:var(--gold);text-decoration:none\">Politique de confidentialité</a> pour plus de détails.",
+        cookieAccept: "Accepter",
+        cookieDecline: "Refuser",
+        refresh: "Actualiser",
+        swap: "Échanger",
+        heroTitle1: "En direct",
+        heroTitle2: "or et devises",
+        heroDesc: "Once d'or, gramme d'or, prix par carat, calculs d'achat-vente, équivalents Euro et Dollar sur un seul écran.",
+        statusConnecting: "Connexion à l'API...",
+        statusLive: "Données en direct reçues",
+        cardOunce: "Once d'Or",
+        cardGram24: "Gramme 24K",
+        cardUSD: "Taux USD",
+        cardEUR: "Taux EUR",
+        cardSubCurrency: "Devise sélectionnée",
+        cardSubUSD: "Équivalent 1 USD",
+        cardSubEUR: "Équivalent 1 EUR",
+        panelGoldPrices: "Prix de l'Or",
+        panelStandardGold: "Or Standard",
+        panelAboutGold: "À propos de l'Investissement en Or",
+        panelConverter: "Convertisseur de Devises",
+        panelUSDValue: "Équivalent USD",
+        tableHeaderKarat: "Carat",
+        tableHeaderPurity: "Pureté",
+        tableHeaderGram: "Gramme",
+        tableHeaderBuy: "Achat",
+        tableHeaderSell: "Vente",
+        tableHeaderKilo: "Kilo",
+        tableHeaderProduct: "Produit",
+        tableHeaderWeight: "Poids",
+        tableHeaderSelected: "Sélectionné",
+        tableHeaderCode: "Code",
+        tableHeader1UnitUSD: "1 Unité en USD",
+        goldInfo1: "<strong>L'or</strong> est utilisé comme réserve de valeur depuis des milliers d'années. Il est préféré comme valeur refuge en période d'incertitude économique.",
+        goldInfo2: "<strong>Le gramme d'or</strong> est l'unité de 1 gramme d'or pur 24 carats. Son prix change instantanément en fonction du prix international de l'once d'or et des taux de change.",
+        goldWarning: "⚠️ <em>Avertissement : Les données sur ce site sont à titre informatif uniquement. Pas de conseil en investissement.</em>",
+        searchCurrency: "Rechercher une devise",
+        legalDisclaimerTitle: "Avertissement légal :",
+        legalDisclaimerText: "Les données sont récupérées automatiquement depuis une source API. Pas de conseil en investissement.",
+        footerDesc: "Nous soutenons vos décisions d'investissement avec des données en direct sur l'or et les devises.",
+        footerLegal: "Légal",
+        footerAbout: "À propos",
+        footerFollow: "Suivez-nous",
+        footerRights: "Tous droits réservés.",
+        linkPrivacy: "Politique de confidentialité",
+        linkTerms: "Conditions d'utilisation",
+        linkCookies: "Politique des cookies",
+        linkDisclaimer: "Avertissement légal",
+        linkAbout: "Qui sommes-nous ?",
+        linkContact: "Contact",
+        linkPrivacyShort: "Confidentialité",
+        linkContactShort: "Contact",
+        modalPrivacyTitle: "🔒 Politique de confidentialité",
+        modalLastUpdate: "Dernière mise à jour :",
+        modalPrivacy1Title: "1. Données collectées",
+        modalPrivacyCookies: "Cookies :",
+        modalPrivacyCookiesDesc: "Cookies techniques pour améliorer l'expérience du site.",
+        modalPrivacyIP: "Adresse IP :",
+        modalPrivacyIPDesc: "Enregistrements anonymes à des fins de sécurité.",
+        modalPrivacyUsage: "Données d'utilisation :",
+        modalPrivacyUsageDesc: "Statistiques anonymes.",
+        modalPrivacy2Title: "2. Utilisation des données",
+        modalPrivacy2Desc: "Les données sont utilisées pour l'analyse des performances du site, l'expérience utilisateur et la sécurité.",
+        modalPrivacy3Title: "3. Services tiers",
+        modalPrivacyAdSense: "Utilise des cookies pour la personnalisation des annonces.",
+        modalPrivacyAnalytics: "Statistiques d'utilisation anonymes.",
+        modalPrivacy4Title: "4. Vos droits",
+        modalPrivacy4Desc: "Conformément au RGPD, vous avez le droit d'accéder, de corriger et de supprimer vos données.",
+        modalPrivacyContact: "Contact :",
+        modalPrivacyContactLink: "Page de contact",
+        modalAboutTitle: "ℹ️ À propos de nous",
+        modalAboutDesc: "<strong>Altın Piyasa</strong> est une plateforme d'information financière indépendante fournissant des données en temps réel sur l'or et les devises à ses utilisateurs.",
+        modalAboutMission: "Notre Mission",
+        modalAboutMissionDesc: "Permettre aux investisseurs d'accéder à des données de marché fiables, transparentes et facilement accessibles.",
+        modalAboutValues: "Nos Valeurs",
+        modalAboutTransparency: "Transparence :",
+        modalAboutTransparencyDesc: "Nous indiquons clairement nos sources de données.",
+        modalAboutReliability: "Fiabilité :",
+        modalAboutReliabilityDesc: "Nos fournisseurs API sont régulièrement audités.",
+        modalAboutIndependence: "Indépendance :",
+        modalAboutIndependenceDesc: "Nous n'avons aucun lien commercial avec une banque ou un bijoutier.",
+        modalContactTitle: "📬 Contact",
+        modalContactDesc: "Vous pouvez utiliser le formulaire ci-dessous pour des questions, suggestions ou demandes de partenariat.",
+        formName: "Votre nom *",
+        formEmail: "E-mail *",
+        formSubject: "Sujet",
+        formMessage: "Votre message *",
+        formSend: "📤 Envoyer",
+        modalContactOther: "Autres moyens",
+        modalContactLocation: "Localisation :",
+        modalContactNote: "Note : Le formulaire est à titre de démonstration. Veuillez nous contacter directement par e-mail.",
+        modalTermsTitle: "📜 Conditions d'utilisation",
+        modalTermsIntro: "En utilisant ce site, vous acceptez les conditions suivantes :",
+        modalTerms1Title: "1. Nature du service",
+        modalTerms1Item1: "Les données sont à titre informatif uniquement.",
+        modalTerms1Item2: "Pas de conseil en investissement.",
+        modalTerms1Item3: "Peut être retardé ou contenir des erreurs.",
+        modalTerms2Title: "2. Clause de non-responsabilité",
+        modalTerms2Desc: "Altın Piyasa ne garantit pas l'exactitude du contenu du site. Non responsable des pertes résultant de décisions d'investissement.",
+        modalTerms3Title: "3. Propriété intellectuelle",
+        modalTerms3Desc: "La conception et le contenu du site appartiennent à Altın Piyasa. Ne peuvent pas être utilisés sans autorisation.",
+        modalCookiesTitle: "🍪 Politique des cookies",
+        modalCookiesTypes: "Types de cookies que nous utilisons",
+        modalCookiesType: "Type",
+        modalCookiesPurpose: "Objectif",
+        modalCookiesDuration: "Durée",
+        modalCookiesTech: "Cookies techniques",
+        modalCookiesTechDesc: "Gestion de session",
+        modalCookiesPref: "Cookies de préférence",
+        modalCookiesPrefDesc: "Langue, devise",
+        modalCookiesAnalytics: "Cookies d'analyse",
+        modalCookiesAnalyticsDesc: "Statistiques (anonymes)",
+        modalCookiesSession: "Session",
+        modalCookiesDays: "jours",
+        modalCookiesYears: "années",
+        modalCookiesManage: "Gérez vos préférences de cookies",
+        modalCookiesManageDesc: "Vous pouvez bloquer les cookies dans les paramètres de votre navigateur.",
+        modalDisclaimerTitle: "⚠️ Avertissement légal",
+        modalDisclaimerImportant: "IMPORTANT :",
+        modalDisclaimerText: "Aucune information sur ce site ne constitue un conseil en investissement.",
+        modalDisclaimerRiskTitle: "Avertissement sur les risques financiers",
+        modalDisclaimerRisk1: "Les marchés de l'or et des devises présentent une volatilité élevée.",
+        modalDisclaimerRisk2: "Les performances passées ne garantissent pas les résultats futurs.",
+        modalDisclaimerRisk3: "Négociez uniquement avec des montants que vous pouvez vous permettre de perdre.",
+        modalDisclaimerDataSource: "Source des données",
+        modalDisclaimerDataDesc: "Les données sont récupérées automatiquement depuis des API tierces. Des retards peuvent survenir. Vérifiez les données officielles avant de trader."
+      },
+      es: {
+        skip: "Saltar al contenido",
+        cookieText: "🍪 Este sitio utiliza cookies para mejorar su experiencia. Consulte nuestra <a href=\"#\" onclick=\"openModal('privacy')\" style=\"color:var(--gold);text-decoration:none\">Política de privacidad</a> para más detalles.",
+        cookieAccept: "Aceptar",
+        cookieDecline: "Rechazar",
+        refresh: "Actualizar",
+        swap: "Intercambiar",
+        heroTitle1: "En vivo",
+        heroTitle2: "oro y divisas",
+        heroDesc: "Onza de oro, gramo de oro, precios por quilate, cálculos de compra-venta, equivalentes en Euro y Dólar en una sola pantalla.",
+        statusConnecting: "Conectando a la API...",
+        statusLive: "Datos en vivo recibidos",
+        cardOunce: "Onza de Oro",
+        cardGram24: "Gramo 24K",
+        cardUSD: "Tasa USD",
+        cardEUR: "Tasa EUR",
+        cardSubCurrency: "Moneda seleccionada",
+        cardSubUSD: "Equivalente 1 USD",
+        cardSubEUR: "Equivalente 1 EUR",
+        panelGoldPrices: "Precios del Oro",
+        panelStandardGold: "Oro Estándar",
+        panelAboutGold: "Sobre la Inversión en Oro",
+        panelConverter: "Conversor de Divisas",
+        panelUSDValue: "Equivalente USD",
+        tableHeaderKarat: "Quilate",
+        tableHeaderPurity: "Pureza",
+        tableHeaderGram: "Gramo",
+        tableHeaderBuy: "Compra",
+        tableHeaderSell: "Venta",
+        tableHeaderKilo: "Kilo",
+        tableHeaderProduct: "Producto",
+        tableHeaderWeight: "Peso",
+        tableHeaderSelected: "Seleccionado",
+        tableHeaderCode: "Código",
+        tableHeader1UnitUSD: "1 Unidad en USD",
+        goldInfo1: "<strong>El oro</strong> se ha utilizado como reserva de valor durante miles de años. Se prefiere como refugio seguro en períodos de incertidumbre económica.",
+        goldInfo2: "<strong>El gramo de oro</strong> es la unidad de 1 gramo de oro puro de 24 quilates. Su precio cambia instantáneamente según el precio internacional de la onza de oro y los tipos de cambio.",
+        goldWarning: "⚠️ <em>Advertencia: Los datos en este sitio son solo para fines informativos. No es asesoramiento de inversión.</em>",
+        searchCurrency: "Buscar moneda",
+        legalDisclaimerTitle: "Aviso legal:",
+        legalDisclaimerText: "Los datos se obtienen automáticamente de una fuente API. No es asesoramiento de inversión.",
+        footerDesc: "Apoyamos sus decisiones de inversión con datos en vivo de oro y divisas.",
+        footerLegal: "Legal",
+        footerAbout: "Acerca de",
+        footerFollow: "Síguenos",
+        footerRights: "Todos los derechos reservados.",
+        linkPrivacy: "Política de privacidad",
+        linkTerms: "Términos de uso",
+        linkCookies: "Política de cookies",
+        linkDisclaimer: "Aviso legal",
+        linkAbout: "¿Quiénes somos?",
+        linkContact: "Contacto",
+        linkPrivacyShort: "Privacidad",
+        linkContactShort: "Contacto",
+        modalPrivacyTitle: "🔒 Política de privacidad",
+        modalLastUpdate: "Última actualización:",
+        modalPrivacy1Title: "1. Datos recopilados",
+        modalPrivacyCookies: "Cookies:",
+        modalPrivacyCookiesDesc: "Cookies técnicas para mejorar la experiencia del sitio.",
+        modalPrivacyIP: "Dirección IP:",
+        modalPrivacyIPDesc: "Registros anónimos con fines de seguridad.",
+        modalPrivacyUsage: "Datos de uso:",
+        modalPrivacyUsageDesc: "Estadísticas anónimas.",
+        modalPrivacy2Title: "2. Uso de datos",
+        modalPrivacy2Desc: "Los datos se utilizan para análisis de rendimiento del sitio, experiencia de usuario y fines de seguridad.",
+        modalPrivacy3Title: "3. Servicios de terceros",
+        modalPrivacyAdSense: "Utiliza cookies para personalización de anuncios.",
+        modalPrivacyAnalytics: "Estadísticas de uso anónimas.",
+        modalPrivacy4Title: "4. Sus derechos",
+        modalPrivacy4Desc: "Bajo GDPR/KVKK, tiene derecho a acceder, corregir y eliminar sus datos.",
+        modalPrivacyContact: "Contacto:",
+        modalPrivacyContactLink: "Página de contacto",
+        modalAboutTitle: "ℹ️ Acerca de nosotros",
+        modalAboutDesc: "<strong>Altın Piyasa</strong> es una plataforma de información financiera independiente que proporciona datos en tiempo real sobre oro y divisas a sus usuarios.",
+        modalAboutMission: "Nuestra Misión",
+        modalAboutMissionDesc: "Permitir a los inversores acceder a datos de mercado confiables, transparentes y de fácil acceso.",
+        modalAboutValues: "Nuestros Valores",
+        modalAboutTransparency: "Transparencia:",
+        modalAboutTransparencyDesc: "Indicamos claramente nuestras fuentes de datos.",
+        modalAboutReliability: "Confiabilidad:",
+        modalAboutReliabilityDesc: "Nuestros proveedores de API son auditados regularmente.",
+        modalAboutIndependence: "Independencia:",
+        modalAboutIndependenceDesc: "No tenemos vínculos comerciales con ningún banco o joyero.",
+        modalContactTitle: "📬 Contacto",
+        modalContactDesc: "Puede usar el formulario a continuación para preguntas, sugerencias o solicitudes de asociación.",
+        formName: "Su nombre *",
+        formEmail: "Correo electrónico *",
+        formSubject: "Asunto",
+        formMessage: "Su mensaje *",
+        formSend: "📤 Enviar",
+        modalContactOther: "Otras formas",
+        modalContactLocation: "Ubicación:",
+        modalContactNote: "Nota: El formulario es para fines de demostración. Por favor contáctenos directamente por correo electrónico.",
+        modalTermsTitle: "📜 Términos de uso",
+        modalTermsIntro: "Al usar este sitio, acepta los siguientes términos:",
+        modalTerms1Title: "1. Naturaleza del servicio",
+        modalTerms1Item1: "Los datos son solo para fines informativos.",
+        modalTerms1Item2: "No es asesoramiento de inversión.",
+        modalTerms1Item3: "Puede estar retrasado o contener errores.",
+        modalTerms2Title: "2. Descargo de responsabilidad",
+        modalTerms2Desc: "Altın Piyasa no garantiza la exactitud del contenido del sitio. No es responsable de las pérdidas derivadas de decisiones de inversión.",
+        modalTerms3Title: "3. Propiedad intelectual",
+        modalTerms3Desc: "El diseño y contenido del sitio pertenecen a Altın Piyasa. No se pueden usar sin permiso.",
+        modalCookiesTitle: "🍪 Política de cookies",
+        modalCookiesTypes: "Tipos de cookies que utilizamos",
+        modalCookiesType: "Tipo",
+        modalCookiesPurpose: "Propósito",
+        modalCookiesDuration: "Duración",
+        modalCookiesTech: "Cookies técnicas",
+        modalCookiesTechDesc: "Gestión de sesión",
+        modalCookiesPref: "Cookies de preferencia",
+        modalCookiesPrefDesc: "Idioma, moneda",
+        modalCookiesAnalytics: "Cookies de análisis",
+        modalCookiesAnalyticsDesc: "Estadísticas (anónimas)",
+        modalCookiesSession: "Sesión",
+        modalCookiesDays: "días",
+        modalCookiesYears: "años",
+        modalCookiesManage: "Gestione sus preferencias de cookies",
+        modalCookiesManageDesc: "Puede bloquear cookies desde la configuración de su navegador.",
+        modalDisclaimerTitle: "⚠️ Aviso legal",
+        modalDisclaimerImportant: "IMPORTANTE:",
+        modalDisclaimerText: "Ninguna información en este sitio constituye asesoramiento de inversión.",
+        modalDisclaimerRiskTitle: "Advertencia de riesgo financiero",
+        modalDisclaimerRisk1: "Los mercados de oro y divisas contienen alta volatilidad.",
+        modalDisclaimerRisk2: "El rendimiento pasado no es garantía de resultados futuros.",
+        modalDisclaimerRisk3: "Opere solo con cantidades que pueda permitirse perder.",
+        modalDisclaimerDataSource: "Fuente de datos",
+        modalDisclaimerDataDesc: "Los datos se obtienen automáticamente de APIs de terceros. Pueden producirse retrasos. Verifique los datos oficiales antes de operar."
+      },
+      ru: {
+        skip: "Перейти к содержанию",
+        cookieText: "🍪 Этот сайт использует файлы cookie для улучшения вашего опыта. Подробности см. в нашей <a href=\"#\" onclick=\"openModal('privacy')\" style=\"color:var(--gold);text-decoration:none\">Политике конфиденциальности</a>.",
+        cookieAccept: "Принять",
+        cookieDecline: "Отклонить",
+        refresh: "Обновить",
+        swap: "Поменять",
+        heroTitle1: "Онлайн",
+        heroTitle2: "золото и валюта",
+        heroDesc: "Унция золота, грамм золота, цены по пробам, расчеты покупки-продажи, эквиваленты в евро и долларах на одном экране.",
+        statusConnecting: "Подключение к API...",
+        statusLive: "Получены актуальные данные",
+        cardOunce: "Унция золота",
+        cardGram24: "Грамм 24K",
+        cardUSD: "Курс USD",
+        cardEUR: "Курс EUR",
+        cardSubCurrency: "Выбранная валюта",
+        cardSubUSD: "Эквивалент 1 USD",
+        cardSubEUR: "Эквивалент 1 EUR",
+        panelGoldPrices: "Цены на золото",
+        panelStandardGold: "Стандартное золото",
+        panelAboutGold: "Об инвестициях в золото",
+        panelConverter: "Конвертер валют",
+        panelUSDValue: "Эквивалент в USD",
+        tableHeaderKarat: "Проба",
+        tableHeaderPurity: "Чистота",
+        tableHeaderGram: "Грамм",
+        tableHeaderBuy: "Покупка",
+        tableHeaderSell: "Продажа",
+        tableHeaderKilo: "Кило",
+        tableHeaderProduct: "Продукт",
+        tableHeaderWeight: "Вес",
+        tableHeaderSelected: "Выбрано",
+        tableHeaderCode: "Код",
+        tableHeader1UnitUSD: "1 Единица в USD",
+        goldInfo1: "<strong>Золото</strong> используется как средство сохранения стоимости на протяжении тысячелетий. Предпочитается как безопасная гавань в периоды экономической неопределенности.",
+        goldInfo2: "<strong>Грамм золота</strong> — это единица в 1 грамм чистого золота 24 пробы. Его цена мгновенно изменяется в зависимости от международной цены унции золота и валютных курсов.",
+        goldWarning: "⚠️ <em>Предупреждение: Данные на этом сайте предназначены только для информационных целей. Не является инвестиционной рекомендацией.</em>",
+        searchCurrency: "Поиск валюты",
+        legalDisclaimerTitle: "Юридическое уведомление:",
+        legalDisclaimerText: "Данные автоматически получаются из источника API. Не является инвестиционной рекомендацией.",
+        footerDesc: "Мы поддерживаем ваши инвестиционные решения актуальными данными о золоте и валюте.",
+        footerLegal: "Юридическая информация",
+        footerAbout: "О нас",
+        footerFollow: "Подписаться",
+        footerRights: "Все права защищены.",
+        linkPrivacy: "Политика конфиденциальности",
+        linkTerms: "Условия использования",
+        linkCookies: "Политика cookie",
+        linkDisclaimer: "Юридическое уведомление",
+        linkAbout: "Кто мы?",
+        linkContact: "Контакты",
+        linkPrivacyShort: "Конфиденциальность",
+        linkContactShort: "Контакт",
+        modalPrivacyTitle: "🔒 Политика конфиденциальности",
+        modalLastUpdate: "Последнее обновление:",
+        modalPrivacy1Title: "1. Собираемые данные",
+        modalPrivacyCookies: "Файлы cookie:",
+        modalPrivacyCookiesDesc: "Технические cookie для улучшения работы сайта.",
+        modalPrivacyIP: "IP-адрес:",
+        modalPrivacyIPDesc: "Анонимные записи в целях безопасности.",
+        modalPrivacyUsage: "Данные об использовании:",
+        modalPrivacyUsageDesc: "Анонимная статистика.",
+        modalPrivacy2Title: "2. Использование данных",
+        modalPrivacy2Desc: "Данные используются для анализа производительности сайта, пользовательского опыта и целей безопасности.",
+        modalPrivacy3Title: "3. Сторонние сервисы",
+        modalPrivacyAdSense: "Использует cookie для персонализации рекламы.",
+        modalPrivacyAnalytics: "Анонимная статистика использования.",
+        modalPrivacy4Title: "4. Ваши права",
+        modalPrivacy4Desc: "В соответствии с GDPR/KVKK вы имеете право на доступ, исправление и удаление ваших данных.",
+        modalPrivacyContact: "Контакт:",
+        modalPrivacyContactLink: "Страница контактов",
+        modalAboutTitle: "ℹ️ О нас",
+        modalAboutDesc: "<strong>Altın Piyasa</strong> — это независимая финансовая информационная платформа, предоставляющая пользователям актуальные данные о золоте и валюте.",
+        modalAboutMission: "Наша миссия",
+        modalAboutMissionDesc: "Обеспечить инвесторам доступ к надежным, прозрачным и легко доступным рыночным данным.",
+        modalAboutValues: "Наши ценности",
+        modalAboutTransparency: "Прозрачность:",
+        modalAboutTransparencyDesc: "Мы четко указываем источники наших данных.",
+        modalAboutReliability: "Надежность:",
+        modalAboutReliabilityDesc: "Наши поставщики API регулярно проходят аудит.",
+        modalAboutIndependence: "Независимость:",
+        modalAboutIndependenceDesc: "У нас нет коммерческих связей с банками или ювелирами.",
+        modalContactTitle: "📬 Контакты",
+        modalContactDesc: "Вы можете использовать форму ниже для вопросов, предложений или запросов о сотрудничестве.",
+        formName: "Ваше имя *",
+        formEmail: "Электронная почта *",
+        formSubject: "Тема",
+        formMessage: "Ваше сообщение *",
+        formSend: "📤 Отправить",
+        modalContactOther: "Другие способы",
+        modalContactLocation: "Местоположение:",
+        modalContactNote: "Примечание: Форма предназначена для демонстрационных целей. Пожалуйста, свяжитесь с нами напрямую по электронной почте.",
+        modalTermsTitle: "📜 Условия использования",
+        modalTermsIntro: "Используя этот сайт, вы соглашаетесь со следующими условиями:",
+        modalTerms1Title: "1. Характер услуги",
+        modalTerms1Item1: "Данные предназначены только для информационных целей.",
+        modalTerms1Item2: "Не является инвестиционной рекомендацией.",
+        modalTerms1Item3: "Может быть задержано или содержать ошибки.",
+        modalTerms2Title: "2. Отказ от ответственности",
+        modalTerms2Desc: "Altın Piyasa не гарантирует точность контента сайта. Не несет ответственности за убытки, возникшие в результате инвестиционных решений.",
+        modalTerms3Title: "3. Интеллектуальная собственность",
+        modalTerms3Desc: "Дизайн и контент сайта принадлежат Altın Piyasa. Не могут использоваться без разрешения.",
+        modalCookiesTitle: "🍪 Политика cookie",
+        modalCookiesTypes: "Типы cookie, которые мы используем",
+        modalCookiesType: "Тип",
+        modalCookiesPurpose: "Цель",
+        modalCookiesDuration: "Срок",
+        modalCookiesTech: "Технические cookie",
+        modalCookiesTechDesc: "Управление сессией",
+        modalCookiesPref: "Cookie предпочтений",
+        modalCookiesPrefDesc: "Язык, валюта",
+        modalCookiesAnalytics: "Аналитические cookie",
+        modalCookiesAnalyticsDesc: "Статистика (анонимная)",
+        modalCookiesSession: "Сессия",
+        modalCookiesDays: "дней",
+        modalCookiesYears: "лет",
+        modalCookiesManage: "Управление предпочтениями cookie",
+        modalCookiesManageDesc: "Вы можете блокировать cookie в настройках вашего браузера.",
+        modalDisclaimerTitle: "⚠️ Юридическое уведомление",
+        modalDisclaimerImportant: "ВАЖНО:",
+        modalDisclaimerText: "Никакая информация на этом сайте не является инвестиционной рекомендацией.",
+        modalDisclaimerRiskTitle: "Предупреждение о финансовых рисках",
+        modalDisclaimerRisk1: "Рынки золота и валют характеризуются высокой волатильностью.",
+        modalDisclaimerRisk2: "Прошлые результаты не гарантируют будущих.",
+        modalDisclaimerRisk3: "Торгуйте только суммами, которые вы можете позволить себе потерять.",
+        modalDisclaimerDataSource: "Источник данных",
+        modalDisclaimerDataDesc: "Данные автоматически получаются из сторонних API. Возможны задержки. Проверяйте официальные данные перед торговлей."
+      }
+    };
 
     // ===== COOKIE MANAGEMENT =====
     function acceptCookies() {
@@ -831,28 +1740,18 @@
     // ===== ADSENSE INIT =====
     function initAdSense() {
       if (!ADS_ENABLED) return;
-      
-      // Reklam alanlarını göster
       document.querySelectorAll('.ad-unit').forEach(ad => {
         ad.classList.add('ads-active');
       });
-      
-      // AdSense script'ini yükle
       if (document.getElementById('adsense-script')) return;
-      
       const script = document.createElement('script');
       script.id = 'adsense-script';
       script.async = true;
       script.crossOrigin = 'anonymous';
-      // ⚠️ BURAYA KENDİ ADSENSE KODUNUZU YAZIN
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX';
       document.head.appendChild(script);
-      
-      // Reklamları render et
       script.onload = function() {
-        setTimeout(() => {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        }, 1000);
+        setTimeout(() => { (adsbygoogle = window.adsbygoogle || []).push({}); }, 1000);
       };
     }
 
@@ -865,7 +1764,6 @@
         document.body.style.overflow = 'hidden';
       }
     }
-    
     function closeModal(name) {
       const modal = document.getElementById(name + '-modal');
       if (modal) {
@@ -873,7 +1771,6 @@
         document.body.style.overflow = '';
       }
     }
-    
     document.querySelectorAll('.modal').forEach(modal => {
       modal.addEventListener('click', function(e) {
         if (e.target === this) {
@@ -882,7 +1779,6 @@
         }
       });
     });
-    
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         document.querySelectorAll('.modal.active').forEach(m => {
@@ -895,28 +1791,63 @@
     // ===== CONTACT FORM =====
     function submitContact(e) {
       e.preventDefault();
-      alert('✅ Mesajınız alındı! (Demo modu)\nLütfen info@altinpiyasa.com adresine yazınız.');
+      const lang = localStorage.getItem('siteLang') || 'tr';
+      const msg = lang === 'tr' ? '✅ Mesajınız alındı! (Demo modu)\nLütfen info@altinpiyasa.com adresine yazınız.' :
+                  lang === 'en' ? '✅ Message received! (Demo mode)\nPlease email info@altinpiyasa.com directly.' :
+                  lang === 'ar' ? '✅ تم استلام رسالتك! (وضع تجريبي)\nيرجى مراسلتنا مباشرة على info@altinpiyasa.com' :
+                  lang === 'de' ? '✅ Nachricht erhalten! (Demo-Modus)\nBitte senden Sie eine E-Mail an info@altinpiyasa.com.' :
+                  lang === 'fr' ? '✅ Message reçu ! (Mode démo)\nVeuillez nous contacter directement à info@altinpiyasa.com.' :
+                  lang === 'es' ? '✅ ¡Mensaje recibido! (Modo demo)\nPor favor envíe un correo a info@altinpiyasa.com.' :
+                  '✅ Сообщение получено! (Демо-режим)\nПожалуйста, напишите на info@altinpiyasa.com';
+      alert(msg);
       e.target.reset();
       closeModal('contact');
     }
 
-    // ===== LANGUAGE SUPPORT =====
-    const translations = {
-      tr: { refresh: 'Yenile', swap: 'Değiştir', statusConnecting: 'API bağlanıyor...', statusLive: 'Canlı veri alındı' },
-      en: { refresh: 'Refresh', swap: 'Swap', statusConnecting: 'Connecting...', statusLive: 'Live data received' },
-      ar: { refresh: 'تحديث', swap: 'تبديل', statusConnecting: 'جاري الاتصال...', statusLive: 'تم استلام البيانات' }
-    };
-    
+    // ===== LANGUAGE SUPPORT - CORE =====
     function setLanguage(lang) {
+      // Update button states
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
+      
+      // Get translations
       const t = translations[lang] || translations.tr;
-      document.querySelector('#refreshBtn .btn-text').textContent = t.refresh;
-      document.querySelector('#swapBtn .btn-text').textContent = t.swap;
+      
+      // Update text content for elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          // Allow HTML in translations
+          if (key.includes('Info') || key.includes('Desc') || key.includes('Text')) {
+            el.innerHTML = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+      
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.placeholder = t[key];
+      });
+      
+      // Update aria-labels for accessibility
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.getAttribute('data-i18n-aria');
+        if (t[key]) el.setAttribute('aria-label', t[key]);
+      });
+      
+      // Set direction for RTL languages
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
+      
+      // Save preference
       localStorage.setItem('siteLang', lang);
+      
+      // Re-render dynamic content
+      if (data) render();
     }
 
     // ===== CLOCK & DATE =====
@@ -927,24 +1858,24 @@
 
     // ===== DOM READY =====
     document.addEventListener('DOMContentLoaded', function() {
-      // Cookie kontrol
+      // Cookie check
       const cookieAccepted = localStorage.getItem('cookiesAccepted');
       if (cookieAccepted === 'true') {
         document.getElementById('cookieBanner').style.display = 'none';
         if (ADS_ENABLED) initAdSense();
       }
       
-      // Tarih ve saat
+      // Date and time
       document.getElementById('year').textContent = new Date().getFullYear();
       document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('tr-TR');
       updateClock();
       setInterval(updateClock, 1000);
       
-      // Dil tercihi
+      // Language preference
       const savedLang = localStorage.getItem('siteLang') || 'tr';
       setLanguage(savedLang);
       
-      // API verilerini yükle
+      // Load API data
       loadData();
       setInterval(loadData, 60000);
     });
@@ -965,13 +1896,14 @@
 
     async function loadData() {
       try {
-        setStatus("API bağlanıyor...", false);
+        const t = translations[localStorage.getItem('siteLang') || 'tr'] || translations.tr;
+        setStatus(t.statusConnecting, false);
         const res = await fetch(API_URL, { cache: "no-store" });
         data = await res.json();
         if (!data.goldUSD || !data.rates) throw new Error("API verisi eksik");
         fillConverter();
         render();
-        setStatus("Canlı veri alındı", false);
+        setStatus(t.statusLive, false);
       } catch (e) {
         console.error('API Hatası:', e);
         setStatus("Hata: " + e.message, true);
