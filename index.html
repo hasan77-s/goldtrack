@@ -1722,80 +1722,6 @@
         modalDisclaimerRisk3: "Торгуйте только суммами, которые вы можете позволить себе потерять.",
         modalDisclaimerDataSource: "Источник данных",
         modalDisclaimerDataDesc: "Данные автоматически получаются из сторонних API. Возможны задержки. Проверяйте официальные данные перед торговлей."
-        // ===== TRANSLATIONS İÇİNE EKLENECEK =====
-
-goldPieces: {
-  // TR
-  tr: {
-    quarter: "Çeyrek Altın",
-    half: "Yarım Altın",
-    full: "Tam Altın", 
-    cumhuriyet: "Cumhuriyet Altını",
-    resat: "Reşat Altın",
-    ounce: "Ons Altın",
-    kg: "1 KG Altın"
-  },
-  // EN
-  en: {
-    quarter: "Quarter Gold",
-    half: "Half Gold",
-    full: "Full Gold",
-    cumhuriyet: "Republic Gold", 
-    resat: "Reşat Gold",
-    ounce: "Gold Ounce",
-    kg: "1 KG Gold"
-  },
-  // AR - GELENEKSEL TERİMLER ✅
-  ar: {
-    quarter: "ربع ليرة",
-    half: "نصف ليرة", 
-    full: "ليرة كاملة",
-    cumhuriyet: "ليرة الجمهورية",
-    resat: "ليرة رشاد",
-    ounce: "أونصة ذهب",
-    kg: "كيلو ذهب"
-  },
-  // DE
-  de: {
-    quarter: "Viertel-Gold",
-    half: "Halb-Gold",
-    full: "Ganz-Gold",
-    cumhuriyet: "Republik-Gold",
-    resat: "Reşat-Gold", 
-    ounce: "Goldunze",
-    kg: "1 KG Gold"
-  },
-  // FR
-  fr: {
-    quarter: "Quart d'Or",
-    half: "Demi-Or",
-    full: "Or Complet",
-    cumhuriyet: "Or République",
-    resat: "Or Reşat",
-    ounce: "Once d'Or",
-    kg: "1 KG Or"
-  },
-  // ES
-  es: {
-    quarter: "Cuarto de Oro",
-    half: "Medio Oro", 
-    full: "Oro Completo",
-    cumhuriyet: "Oro República",
-    resat: "Oro Reşat",
-    ounce: "Onza de Oro",
-    kg: "1 KG Oro"
-  },
-  // RU
-  ru: {
-    quarter: "Четверть золота",
-    half: "Половина золота",
-    full: "Полное золото", 
-    cumhuriyet: "Золото Республики",
-    resat: "Золото Решат",
-    ounce: "Унция золота",
-    kg: "1 кг золота"
-  }
-}
       }
     };
 
@@ -2021,41 +1947,6 @@ goldPieces: {
         { name: "Reşat Altın", weight: 7.2, karat: 22 },
         { name: "Ons Altın", weight: OUNCE, karat: 24 },
         { name: "1 KG Altın", weight: 1000, karat: 24 }
-        function renderPieces() {
-  const currency = document.getElementById("goldCurrency").value;
-  const lang = localStorage.getItem('siteLang') || 'tr';
-  const t = translations[lang] || translations.tr;
-  
-  const pieces = [
-    { nameKey: 'quarter', weight: 1.75, karat: 22 },
-    { nameKey: 'half', weight: 3.5, karat: 22 },
-    { nameKey: 'full', weight: 7, karat: 22 },
-    { nameKey: 'cumhuriyet', weight: 7.216, karat: 22 },
-    { nameKey: 'resat', weight: 7.2, karat: 22 },
-    { nameKey: 'ounce', weight: OUNCE, karat: 24 },
-    { nameKey: 'kg', weight: 1000, karat: 24 }
-  ];
-  
-  document.getElementById("pieceRows").innerHTML = pieces.map(function (item) {
-    // ✅ Dil bazlı ürün ismi çekme
-    const name = t.goldPieces?.[lang]?.[item.nameKey] || 
-                 t.goldPieces?.tr?.[item.nameKey] || 
-                 item.nameKey;
-                 
-    const selected = gramPrice(item.karat, currency) * item.weight;
-    const usd = gramPrice(item.karat, "USD") * item.weight;
-    const eur = gramPrice(item.karat, "EUR") * item.weight;
-    
-    return `<tr>
-      <td>${name}</td>
-      <td>${item.karat}</td>
-      <td>${format(item.weight)} gr</td>
-      <td>${money(usd, "USD")}</td>
-      <td>${money(eur, "EUR")}</td>
-      <td>${money(selected, currency)}</td>
-    </tr>`;
-  }).join("");
-}
       ];
       document.getElementById("pieceRows").innerHTML = pieces.map(function (item) {
         const selected = gramPrice(item.karat, currency) * item.weight;
