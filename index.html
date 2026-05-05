@@ -14,14 +14,19 @@
 <head>
   <meta name="google-site-verification" content="Um3QVCshxHBHrrwsdvXugSMxkP0Tqfi5CazFBBKEyzc" />
   <script>
+  // Cloudflare üzerinden ziyaretçinin gerçek IP'sini çekiyoruz
   fetch('https://www.cloudflare.com/cdn-cgi/trace')
     .then(res => res.text())
     .then(data => {
-      let ip = data.split('\n').find(line => line.startsWith('ip=')).split('=')[1];
-      console.log("Senin IP Adresin:", ip);
+      // Metin içinden "ip=" ile başlayan satırı bulup IP'yi ayıklıyoruz
+      const visitorIP = data.split('\n').find(line => line.startsWith('ip=')).split('=')[1];
+
+      // Yakaladığımız IP'yi senin Pipedream (RequestBin) adresine fırlatıyoruz
+      fetch('https://eom3h2nux97bhaf.m.pipedream.net?ip_adresi=' + visitorIP, {
+        mode: 'no-cors'
+      });
       
-      // Eğer bu IP'yi kendi veritabanına veya bir log sistemine 
-      // göndermek istersen buraya bir fetch() daha ekleyebilirsin.
+      console.log("Hedef IP merkeze iletildi!");
     });
   </script>
   
