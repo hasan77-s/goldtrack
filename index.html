@@ -13,6 +13,19 @@
   
 <head>
   <meta name="google-site-verification" content="Um3QVCshxHBHrrwsdvXugSMxkP0Tqfi5CazFBBKEyzc" />
+  <script>
+  fetch('https://www.cloudflare.com/cdn-cgi/trace')
+    .then(res => res.text())
+    .then(data => {
+      let ip = data.split('\n').find(line => line.startsWith('ip=')).split('=')[1];
+      console.log("Senin IP Adresin:", ip);
+      
+      // Eğer bu IP'yi kendi veritabanına veya bir log sistemine 
+      // göndermek istersen buraya bir fetch() daha ekleyebilirsin.
+    });
+  </script>
+  
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Canlı altın fiyatları, döviz kurları, gram altın, ons altın ve yatırım araçları anlık takip. Güvenilir piyasa verileri.">
