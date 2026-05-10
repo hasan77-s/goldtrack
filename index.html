@@ -1,802 +1,567 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <!-- ===== TEMEL META TAGLAR ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- ===== DİNAMİK BAŞLIK VE AÇIKLAMA ===== -->
-  <title id="pageTitle">Canlı Altın Fiyatları | Gram Altın, Ons Altın, Döviz Kurları - Altın Piyasa</title>
-  <meta name="description" id="metaDescription" content="Anlık altın fiyatları, gram altın, ons altın, dolar, euro kurları ve döviz çevirici. Güvenilir piyasa verileri ile yatırım takibi. Ücretsiz ve hızlı!">
-  
-  <!-- ===== GLOBAL ANAHTAR KELİMELER (7 DİL) ===== -->
-  <meta name="keywords" content="altın fiyatları,gram altın,ons altın,dolar kuru,euro kuru,döviz çevirici,altın hesaplama,24 ayar altın,çeyrek altın,yatırım,gold price,live gold,gram gold,ounce gold,forex rates,currency converter,gold investment,exchange rates,24k gold,precious metals,سعر الذهب,جرام ذهب,أونصة ذهب,سعر الدولار,محول العملات,استثمار الذهب,الذهب اليوم,أسعار الصرف,goldpreis,gramm gold,unze gold,devisenkurse,währungsrechner,gold investieren,prix de l'or,or en grammes,once d'or,cours dollar,convertisseur devise,investissement oro,precio del oro,oro en gramos,onza de oro,dólar euro,convertidor divisas,inversión oro,цена золота,грамм золота,унция золота,курс доллара,конвертер валют,инвестиции в золото">
-  
-  <!-- ===== DİL, BÖLGE VE PARA BİRİMİ ===== -->
-  <meta name="language" content="tr">
-  <meta name="geo.region" content="TR">
-  <meta name="geo.placename" content="Turkey">
-  <meta name="currency" content="TRY,USD,EUR,SAR,AED,EGP,SYP">
-  
-  <!-- ===== ROBOTS VE INDEXING ===== -->
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
-  
-  <!-- ===== HREFLANG - ULUSLARARASI SEO (KRİTİK!) ===== -->
-  <link rel="alternate" hreflang="tr" href="https://altinpiyasa.com/tr" />
-  <link rel="alternate" hreflang="en" href="https://altinpiyasa.com/en" />
-  <link rel="alternate" hreflang="en-us" href="https://altinpiyasa.com/en-us" />
-  <link rel="alternate" hreflang="en-gb" href="https://altinpiyasa.com/en-gb" />
-  <link rel="alternate" hreflang="ar" href="https://altinpiyasa.com/ar" />
-  <link rel="alternate" hreflang="ar-sa" href="https://altinpiyasa.com/ar-sa" />
-  <link rel="alternate" hreflang="ar-ae" href="https://altinpiyasa.com/ar-ae" />
-  <link rel="alternate" hreflang="ar-eg" href="https://altinpiyasa.com/ar-eg" />
-  <link rel="alternate" hreflang="de" href="https://altinpiyasa.com/de" />
-  <link rel="alternate" hreflang="de-de" href="https://altinpiyasa.com/de-de" />
-  <link rel="alternate" hreflang="fr" href="https://altinpiyasa.com/fr" />
-  <link rel="alternate" hreflang="fr-fr" href="https://altinpiyasa.com/fr-fr" />
-  <link rel="alternate" hreflang="es" href="https://altinpiyasa.com/es" />
-  <link rel="alternate" hreflang="es-es" href="https://altinpiyasa.com/es-es" />
-  <link rel="alternate" hreflang="ru" href="https://altinpiyasa.com/ru" />
-  <link rel="alternate" hreflang="ru-ru" href="https://altinpiyasa.com/ru-ru" />
-  <link rel="alternate" hreflang="x-default" href="https://altinpiyasa.com" />
-  
-  <!-- ===== CANONICAL URL ===== -->
-  <link rel="canonical" href="https://altinpiyasa.com" id="canonicalLink" />
-  
-  <!-- ===== OPEN GRAPH / FACEBOOK ===== -->
+  <title>Canlı Altın Fiyatları | Altın Piyasa</title>
+  <meta name="description" content="Anlık altın fiyatları, gram altın, ons altın, döviz kurları ve para birimi çevirici. Güvenilir piyasa takibi için modern finans paneli.">
+  <meta name="keywords" content="altın fiyatları, gram altın, ons altın, döviz kurları, dolar kuru, euro kuru, altın hesaplama, currency converter, gold price">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0b1220">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="Canlı Altın ve Döviz Fiyatları | Altın Piyasa">
+  <meta property="og:description" content="Gram altın, ons altın ve döviz kurlarını canlı takip edin.">
   <meta property="og:url" content="https://altinpiyasa.com">
   <meta property="og:site_name" content="Altın Piyasa">
-  <meta property="og:title" content="Canlı Altın ve Döviz Fiyatları | Altın Piyasa">
-  <meta property="og:description" content="Anlık altın fiyatları, gram altın, ons altın, dolar, euro kurları. Güvenilir piyasa verileri.">
-  <meta property="og:image" content="https://altinpiyasa.com/images/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Altın Piyasa - Canlı Altın Fiyatları">
   <meta property="og:locale" content="tr_TR">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:locale:alternate" content="ar_SA">
-  <meta property="og:locale:alternate" content="de_DE">
-  <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:locale:alternate" content="es_ES">
-  <meta property="og:locale:alternate" content="ru_RU">
-  
-  <!-- ===== TWITTER CARD ===== -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@altinpiyasa">
-  <meta name="twitter:creator" content="@altinpiyasa">
-  <meta name="twitter:title" content="Canlı Altın ve Döviz Fiyatları | Altın Piyasa">
-  <meta name="twitter:description" content="Anlık altın fiyatları, döviz kurları ve yatırım araçları tek ekranda.">
-  <meta name="twitter:image" content="https://altinpiyasa.com/images/twitter-card.jpg">
-  <meta name="twitter:image:alt" content="Altın Piyasa Dashboard">
-  
-  <!-- ===== STRUCTURED DATA: FinancialProduct ===== -->
+  <link rel="canonical" href="https://altinpiyasa.com">
+  <link rel="alternate" hreflang="tr" href="https://altinpiyasa.com/tr">
+  <link rel="alternate" hreflang="en" href="https://altinpiyasa.com/en">
+  <link rel="alternate" hreflang="ar" href="https://altinpiyasa.com/ar">
+  <link rel="alternate" hreflang="x-default" href="https://altinpiyasa.com">
+  <link rel="preconnect" href="https://gold-api.alyux.workers.dev">
+  <link rel="dns-prefetch" href="//api.gold-api.com">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FinancialProduct",
-    "name": "Altın Piyasa - Canlı Altın ve Döviz Takibi",
-    "alternateName": [
-      "Gold Price Tracker",
-      "موقع أسعار الذهب المباشر",
-      "Goldpreis Rechner Live",
-      "Prix de l'Or en Direct",
-      "Precio del Oro en Vivo",
-      "Курс Золота Онлайн"
-    ],
-    "description": "Real-time gold prices, currency exchange rates, and investment tools. Supporting Turkish, English, Arabic, German, French, Spanish, and Russian languages.",
-    "url": "https://altinpiyasa.com",
-    "provider": {
-      "@type": "Organization",
-      "name": "Altın Piyasa",
-      "url": "https://altinpiyasa.com",
-      "logo": "https://altinpiyasa.com/images/logo.png",
-      "sameAs": [
-        "https://twitter.com/altinpiyasa",
-        "https://instagram.com/altinpiyasa",
-        "https://facebook.com/altinpiyasa",
-        "https://t.me/altinpiyasa"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "info@altinpiyasa.com",
-        "areaServed": ["TR", "US", "GB", "SA", "AE", "EG", "DE", "FR", "ES", "RU"],
-        "availableLanguage": ["Turkish", "English", "Arabic", "German", "French", "Spanish", "Russian"]
-      }
-    },
-    "category": "Precious Metals & Currency Exchange",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    },
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Investors, Traders, Financial Analysts, General Public",
-      "geographicArea": {
-        "@type": "AdministrativeArea",
-        "name": "Worldwide"
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://altinpiyasa.com/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  
-  <!-- ===== STRUCTURED DATA: BreadcrumbList ===== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Ana Sayfa",
-        "item": "https://altinpiyasa.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Altın Fiyatları",
-        "item": "https://altinpiyasa.com/altin-fiyatlari"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- ===== STRUCTURED DATA: Organization ===== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "WebApplication",
     "name": "Altın Piyasa",
     "url": "https://altinpiyasa.com",
-    "logo": "https://altinpiyasa.com/images/logo-schema.png",
-    "foundingDate": "2024",
-    "description": "Global gold price tracking and currency conversion platform with multi-language support",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "TR",
-      "addressLocality": "İstanbul"
-    },
-    "sameAs": [
-      "https://twitter.com/altinpiyasa",
-      "https://instagram.com/altinpiyasa",
-      "https://facebook.com/altinpiyasa"
-    ]
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "description": "Canlı altın fiyatları, döviz kurları ve para birimi çevirici.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
-  
-  <!-- ===== STRUCTURED DATA: FAQPage (Voice Search) ===== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Gram altın fiyatı ne kadar?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Gram altın fiyatı anlık olarak uluslararası ons altın fiyatı ve döviz kurlarına göre değişir. Sitemizden 7/24 canlı takip edebilirsiniz."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the live gold price today?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Live gold price updates every minute based on international markets (LBMA, COMEX). Check our real-time tracker for current XAU/USD, XAU/EUR rates."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "كم سعر جرام الذهب اليوم؟",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "سعر جرام الذهب يتغير لحظياً حسب الأسواق العالمية. يمكنك متابعة الأسعار المباشرة لأونصة الذهب والجرام بجميع العيارات على موقعنا."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie wird der Goldpreis berechnet?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Der Goldpreis wird basierend auf dem internationalen Unzenpreis (XAU/USD) und dem aktuellen Wechselkurs berechnet. Unser Rechner aktualisiert die Werte in Echtzeit."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Comment calculer le prix de l'or ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Le prix de l'or est calculé à partir du cours international de l'once (XAU/USD) et du taux de change actuel. Notre convertisseur met à jour les valeurs en temps réel."
-        }
-      }
-    ]
-  }
-  </script>
-  
-  <!-- ===== VERIFICATION TAGS ===== -->
-  <meta name="google-site-verification" content="Um3QVCshxHBHrrwsdvXugSMxkP0Tqfi5CazFBBKEyzc" />
-  <meta name="msvalidate.01" content="PLACEHOLDER_BING_CODE" />
-  <meta name="yandex-verification" content="PLACEHOLDER_YANDEX_CODE" />
-  
-  <!-- ===== PERFORMANCE OPTIMIZATION ===== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://altinpiyasa.com">
-  <link rel="dns-prefetch" href="//gold-api.alyux.workers.dev">
-  <link rel="dns-prefetch" href="//api.gold-api.com">
-  <link rel="dns-prefetch" href="//open.er-api.com">
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
-  
-  <!-- ===== GOOGLE TAG MANAGER (HEAD) ===== -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  
-  <!-- ===== GOOGLE ANALYTICS 4 ===== -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BYC0GCZDBB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BYC0GCZDBB', {
-      'linker': {'domains': ['altinpiyasa.com']},
-      'send_page_view': true
-    });
-  </script>
-  
-  <!-- ===== IP TRACKING (UNCHANGED) ===== -->
-  <script>
-  fetch('https://www.cloudflare.com/cdn-cgi/trace')
-    .then(res => res.text())
-    .then(data => {
-      const visitorIP = data.split('\n').find(line => line.startsWith('ip=')).split('=')[1];
-      fetch('https://eom3h2nux97bhaf.m.pipedream.net?ip_adresi=' + visitorIP, { mode: 'no-cors' });
-    });
-  </script>
-  
-  <!-- ===== DYNAMIC SEO META UPDATER ===== -->
-  <script>
-    const seoMeta = {
-      tr: {
-        title: "Canlı Altın Fiyatları | Gram Altın, Ons Altın, Döviz - Altın Piyasa",
-        description: "Anlık altın fiyatları, gram altın, ons altın, dolar, euro kurları ve döviz çevirici. Güvenilir piyasa verileri ile yatırım takibi. Ücretsiz!",
-        ogLocale: "tr_TR",
-        keywords: "altın fiyatları,gram altın,ons altın,dolar kuru,euro kuru,döviz çevirici,altın hesaplama,24 ayar altın,çeyrek altın,yatırım"
-      },
-      en: {
-        title: "Live Gold Prices | Gram Gold, Ounce Gold, Forex Rates - Gold Market",
-        description: "Real-time gold prices, gram gold, ounce gold, USD/EUR rates & currency converter. Reliable market data for investors. Free & fast!",
-        ogLocale: "en_US",
-        keywords: "gold price,live gold,gram gold,ounce gold,forex rates,currency converter,gold investment,exchange rates,24k gold,precious metals"
-      },
-      ar: {
-        title: "أسعار الذهب المباشرة | جرام ذهب، أونصة ذهب، أسعار الصرف",
-        description: "أسعار الذهب لحظياً، جرام الذهب، أونصة الذهب، الدولار واليورو ومحول العملات. بيانات موثوقة للمستثمرين. مجاني وسريع!",
-        ogLocale: "ar_SA",
-        keywords: "سعر الذهب,جرام ذهب,أونصة ذهب,سعر الدولار,سعر اليورو,محول العملات,استثمار الذهب,الذهب اليوم,أسعار الصرف"
-      },
-      de: {
-        title: "Live Goldpreis | Gramm Gold, Unze Gold, Devisenkurse - Goldmarkt",
-        description: "Echtzeit-Goldpreise, Gramm Gold, Unze Gold, USD/EUR-Kurse & Währungsrechner. Zuverlässige Marktdaten für Anleger. Kostenlos!",
-        ogLocale: "de_DE",
-        keywords: "goldpreis,gramm gold,unze gold,devisenkurse,währungsrechner,gold investieren,usd eur,feingold,edelmetalle"
-      },
-      fr: {
-        title: "Prix de l'Or en Direct | Or en Grammes, Once, Devises - Marché Or",
-        description: "Prix de l'or en temps réel, or en grammes, once d'or, taux USD/EUR et convertisseur de devises. Données fiables pour investisseurs. Gratuit!",
-        ogLocale: "fr_FR",
-        keywords: "prix de l'or,or en grammes,once d'or,cours dollar,euro,convertisseur devise,investissement or,taux de change,métaux précieux"
-      },
-      es: {
-        title: "Precio del Oro en Vivo | Oro en Gramos, Onza, Divisas - Mercado Oro",
-        description: "Precios del oro en tiempo real, oro en gramos, onza de oro, tasas USD/EUR y convertidor de divisas. Datos confiables para inversores. ¡Gratis!",
-        ogLocale: "es_ES",
-        keywords: "precio del oro,oro en gramos,onza de oro,dólar euro,convertidor divisas,inversión oro,tasa de cambio,metales preciosos"
-      },
-      ru: {
-        title: "Цена Золота Онлайн | Грамм Золота, Унция, Валюты - Рынок Золота",
-        description: "Цены на золото в реальном времени, грамм золота, унция, курсы USD/EUR и конвертер валют. Надежные данные для инвесторов. Бесплатно!",
-        ogLocale: "ru_RU",
-        keywords: "цена золота,грамм золота,унция золота,курс доллара,курс евро,конвертер валют,инвестиции в золото,обменный курс,драгметаллы"
-      }
-    };
-
-    function updateSEOMeta(lang) {
-      const meta = seoMeta[lang] || seoMeta.tr;
-      
-      // Title & Description
-      document.title = meta.title;
-      const descEl = document.getElementById('metaDescription');
-      if (descEl) descEl.setAttribute('content', meta.description);
-      document.querySelector('meta[name="keywords"]')?.setAttribute('content', meta.keywords);
-      
-      // Open Graph
-      document.querySelector('meta[property="og:title"]')?.setAttribute('content', meta.title);
-      document.querySelector('meta[property="og:description"]')?.setAttribute('content', meta.description);
-      document.querySelector('meta[property="og:locale"]')?.setAttribute('content', meta.ogLocale);
-      
-      // Twitter
-      document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', meta.title);
-      document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', meta.description);
-      
-      // Canonical URL
-      const canonical = document.getElementById('canonicalLink');
-      if (canonical) {
-        canonical.href = lang === 'tr' ? 'https://altinpiyasa.com' : `https://altinpiyasa.com/${lang}`;
-      }
-      
-      // HTML lang attribute
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    }
-  </script>
-
-  <!-- ===== CSS STYLES ===== -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
     :root {
-      --bg: #080b13;
-      --panel: #111827;
-      --panel-2: #151f32;
-      --line: #29354d;
-      --text: #edf2ff;
-      --muted: #9aa8bf;
-      --gold: #f2a51a;
-      --gold-hover: #d97706;
-      --green: #20c997;
+      color-scheme: dark;
+      --bg: #080d18;
+      --surface: #0f172a;
+      --surface-2: #151f33;
+      --surface-3: #1d2940;
+      --line: #26344e;
+      --text: #eef4ff;
+      --muted: #98a7bd;
+      --gold: #f5b342;
+      --gold-2: #d98919;
+      --green: #22c55e;
       --red: #fb7185;
       --blue: #38bdf8;
-      --footer-bg: #0a0f1a;
-      --nav-height: 72px;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.32);
+      --radius: 8px;
+      --nav: 72px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
+      margin: 0;
       min-height: 100vh;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(245, 179, 66, 0.15), transparent 34rem),
+        linear-gradient(180deg, #09111f 0, var(--bg) 42rem);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-      line-height: 1.6;
-      padding-top: var(--nav-height);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      padding-top: var(--nav);
     }
 
-    /* ===== NAVBAR ===== */
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button, select { cursor: pointer; }
+    .skip-link {
+      position: fixed;
+      top: -48px;
+      left: 12px;
+      z-index: 2000;
+      background: var(--gold);
+      color: #111827;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      font-weight: 800;
+    }
+    .skip-link:focus { top: 12px; }
+
     .navbar {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-height);
-      background: linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);
+      position: fixed;
+      inset: 0 0 auto;
+      height: var(--nav);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 22px;
+      background: rgba(15, 23, 42, 0.9);
       border-bottom: 1px solid var(--line);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px; z-index: 1000;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      backdrop-filter: blur(16px);
     }
-    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .brand, .nav-left, .nav-right, .nav-menu, .controls, .market-state {
+      display: flex;
+      align-items: center;
+    }
+    .nav-left { gap: 18px; min-width: 0; }
+    .brand { gap: 10px; font-weight: 900; white-space: nowrap; }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      color: #111827;
+      box-shadow: 0 12px 30px rgba(245, 179, 66, 0.22);
+    }
+    .brand strong { font-size: 20px; letter-spacing: 0; }
+    .brand span span { color: var(--gold); }
     .nav-toggle {
-      display: none; background: none; border: none;
-      color: var(--text); font-size: 24px; cursor: pointer;
-      padding: 8px; border-radius: 6px;
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-2);
+      color: var(--text);
     }
-    .nav-toggle:hover { background: var(--panel-2); }
-    .brand {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: inherit;
-    }
-    .brand-icon {
-      width: 40px; height: 40px; display: grid; place-items: center;
-      border-radius: 8px; background: linear-gradient(135deg, #de8a0a, #f2a51a);
-      color: #fff7ed; font-size: 18px;
-    }
-    .brand-title { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-    .brand-title span { color: var(--gold); }
     .nav-menu {
-      display: flex; align-items: center; gap: 4px; list-style: none;
+      gap: 4px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
     .nav-menu a {
-      display: flex; align-items: center; gap: 6px;
-      padding: 10px 16px; color: var(--muted);
-      text-decoration: none; border-radius: 8px;
-      font-size: 14px; font-weight: 500; transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 750;
     }
-    .nav-menu a:hover, .nav-menu a.active {
-      color: var(--text); background: var(--panel-2);
-    }
-    .nav-menu a i { font-size: 14px; }
-    .nav-right { display: flex; align-items: center; gap: 12px; }
-
-    /* Google Search */
-    .google-search { position: relative; display: flex; align-items: center; }
-    .google-search input {
-      width: 220px; height: 38px; padding: 0 12px 0 36px;
-      border: 1px solid var(--line); border-radius: 20px;
-      background: var(--panel-2); color: var(--text);
-      font-size: 14px; transition: width 0.3s;
-    }
-    .google-search input:focus { width: 280px; border-color: var(--gold); outline: none; }
-    .google-search i { position: absolute; left: 14px; color: var(--muted); font-size: 14px; }
-
-    /* Controls */
-    .controls { display: flex; align-items: center; gap: 8px; }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--text); background: var(--surface-2); }
+    .nav-right { gap: 10px; }
+    .controls { gap: 8px; }
     .lang-switcher {
-      display: flex; background: var(--panel-2);
-      border: 1px solid var(--line); border-radius: 6px; padding: 3px;
+      display: flex;
+      gap: 3px;
+      padding: 3px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
     }
     .lang-btn {
-      background: none; border: none; color: var(--muted);
-      padding: 5px 10px; border-radius: 4px; cursor: pointer;
-      font-size: 12px; font-weight: 600; transition: all 0.2s;
+      min-width: 36px;
+      height: 30px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
     }
-    .lang-btn.active, .lang-btn:hover { background: var(--gold); color: #fff; }
-    select, button {
-      height: 38px; border: 1px solid var(--line); border-radius: 8px;
-      background: var(--panel-2); color: var(--text);
-      padding: 0 12px; font: inherit; font-size: 14px; cursor: pointer;
-      transition: all 0.2s;
+    .lang-btn.active, .lang-btn:hover { background: var(--gold); color: #111827; }
+    .select, .btn, .input {
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-2);
+      color: var(--text);
+      outline: 0;
     }
-    select:focus, button:focus { outline: none; border-color: var(--gold); }
-    button.primary {
-      background: linear-gradient(135deg, #de8a0a, #f2a51a);
-      border-color: transparent; color: white; font-weight: 700;
-      display: flex; align-items: center; gap: 6px;
+    .select { padding: 0 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 13px;
+      font-weight: 850;
     }
-    button.primary:hover {
-      background: linear-gradient(135deg, #d97706, #e09520);
-      transform: translateY(-1px);
+    .btn:hover, .select:focus, .input:focus { border-color: var(--gold); }
+    .btn-primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      color: #111827;
     }
-    button.secondary { background: var(--panel); border-color: var(--line); }
-    button.secondary:hover { background: var(--panel-2); border-color: var(--gold); }
-    button.icon-btn {
-      width: 38px; height: 38px; padding: 0;
-      display: grid; place-items: center; border-radius: 8px;
+    .icon-btn { width: 40px; padding: 0; }
+
+    .container { width: min(1420px, 100%); margin: 0 auto; padding: 24px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+    .hero-copy {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(21, 31, 51, 0.96), rgba(15, 23, 42, 0.88));
+      box-shadow: var(--shadow);
+      padding: 28px;
+      overflow: hidden;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
+    }
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(34px, 6vw, 68px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .hero-copy p {
+      margin: 16px 0 0;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    .hero-side {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 14px;
+    }
+    .status {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .status strong { color: var(--text); }
+    .status.error { color: #fecdd3; }
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-weight: 850;
+    }
+    .live::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.45; transform: scale(0.88); } }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .quick-card, .card, .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(15, 23, 42, 0.88);
+    }
+    .quick-card { padding: 14px; }
+    .quick-card span, .card-label, .muted { color: var(--muted); }
+    .quick-card strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 22px;
+      line-height: 1.18;
+      overflow-wrap: anywhere;
     }
 
-    /* ===== BREADCRUMBS ===== */
-    .breadcrumbs {
-      padding: 16px 24px; background: var(--panel);
-      border-bottom: 1px solid var(--line);
-      font-size: 14px; color: var(--muted);
-    }
-    .breadcrumbs a { color: var(--gold); text-decoration: none; }
-    .breadcrumbs span { margin: 0 6px; }
-
-    /* ===== MAIN LAYOUT ===== */
-    .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
-    .status-bar {
-      display: flex; justify-content: space-between; align-items: center;
-      background: var(--panel); border: 1px solid var(--line);
-      border-radius: 10px; padding: 12px 20px; margin-bottom: 20px;
-      color: var(--muted); font-size: 14px;
-    }
-    .status-bar strong { color: var(--text); }
-    .status-bar.error {
-      border-color: #be123c;
-      background: linear-gradient(135deg, #2a0715, #1a0510);
-      color: #fecdd3;
-    }
-    .live-indicator {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: var(--green); font-weight: 600;
-    }
-    .live-indicator::before {
-      content: ''; width: 8px; height: 8px;
-      background: var(--green); border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.9); } }
-
-    /* ===== CARDS GRID ===== */
     .cards-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px; margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
     }
-    .card {
-      background: var(--panel); border: 1px solid var(--line);
-      border-radius: 12px; padding: 20px;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .card { padding: 18px; min-width: 0; }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
     }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      border-color: var(--gold);
-    }
-    .card-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 12px;
-    }
-    .card-label { color: var(--muted); font-size: 14px; font-weight: 500; }
     .card-icon {
-      width: 32px; height: 32px; display: grid; place-items: center;
-      border-radius: 8px; background: var(--panel-2);
-      color: var(--gold); font-size: 14px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: rgba(245, 179, 66, 0.12);
+      color: var(--gold);
+      font-weight: 900;
     }
-    .card-value { font-size: 28px; font-weight: 800; word-break: break-word; margin-bottom: 4px; }
-    .card-sub { color: var(--muted); font-size: 13px; }
-    .card-change {
-      display: inline-flex; align-items: center; gap: 4px;
-      margin-top: 8px; font-size: 13px; font-weight: 600;
+    .card-value {
+      font-size: 27px;
+      font-weight: 950;
+      line-height: 1.1;
+      overflow-wrap: anywhere;
     }
-    .card-change.up { color: var(--green); }
-    .card-change.down { color: var(--red); }
+    .card-sub { margin-top: 5px; color: var(--muted); font-size: 13px; }
+    .change { display: inline-block; margin-top: 9px; font-size: 13px; font-weight: 850; }
+    .up { color: var(--green); }
+    .down { color: var(--red); }
 
-    /* ===== CONTENT GRID ===== */
     .content-grid {
-      display: grid; grid-template-columns: 2fr 1fr;
-      gap: 20px; align-items: start;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(320px, 0.9fr);
+      gap: 20px;
+      align-items: start;
     }
-    .panel {
-      background: var(--panel); border: 1px solid var(--line);
-      border-radius: 12px; overflow: hidden; margin-bottom: 20px;
+    .panel { overflow: hidden; margin-bottom: 20px; }
+    .panel-head {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(21, 31, 51, 0.9);
     }
-    .panel-header {
-      padding: 16px 20px; border-bottom: 1px solid var(--line);
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 12px; flex-wrap: wrap; background: var(--panel-2);
-    }
-    .panel-header h2 {
-      margin: 0; font-size: 18px; font-weight: 700;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .panel-header h2 i { color: var(--gold); }
-    .panel-tools { display: flex; gap: 8px; flex-wrap: wrap; }
-    table { width: 100%; border-collapse: collapse; }
+    .panel-head h2 { margin: 0; font-size: 18px; letter-spacing: 0; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 640px; }
     th, td {
-      padding: 14px 16px; border-bottom: 1px solid var(--line);
-      text-align: left; white-space: nowrap; font-size: 14px;
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      white-space: nowrap;
+      font-size: 14px;
     }
     th {
-      color: var(--muted); font-size: 12px; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      background: #0f172a;
+      color: var(--muted);
+      background: rgba(8, 13, 24, 0.62);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
     }
-    tbody tr:hover { background: var(--panel-2); }
+    tbody tr:hover { background: rgba(56, 189, 248, 0.05); }
     tbody tr:last-child td { border-bottom: 0; }
-    .up { color: var(--green); font-weight: 700; }
-    .down { color: var(--red); font-weight: 700; }
 
-    /* ===== CONVERTER ===== */
-    .converter { padding: 20px; display: grid; gap: 16px; }
-    .converter-row {
-      display: grid; grid-template-columns: 1fr auto 1fr;
-      gap: 12px; align-items: center;
+    .converter {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
     }
-    .converter-row input {
-      width: 100%; height: 44px; padding: 0 14px;
-      border-radius: 8px; border: 1px solid var(--line);
-      background: var(--panel-2); color: var(--text);
-      font-size: 16px; font-weight: 600;
+    .converter-line {
+      display: grid;
+      grid-template-columns: 1fr 110px;
+      gap: 10px;
     }
-    .converter-row select { min-width: 100px; font-weight: 600; }
-    .swap-btn {
-      width: 44px; height: 44px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: var(--panel-2); border: 1px solid var(--line);
-      color: var(--gold); transition: all 0.2s;
-    }
-    .swap-btn:hover {
-      background: var(--gold); color: white; transform: rotate(180deg);
+    .input { width: 100%; padding: 0 12px; }
+    .swap {
+      justify-self: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--gold);
     }
     .result-box {
-      padding: 18px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--panel-2), #0c1220);
-      border: 1px solid var(--line); font-size: 20px; font-weight: 800;
-      color: var(--blue); text-align: center; min-height: 60px;
-      display: flex; align-items: center; justify-content: center;
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #0b1220;
+      color: var(--blue);
+      text-align: center;
+      font-size: 18px;
+      font-weight: 950;
     }
-
-    /* ===== AD UNITS ===== */
-    .ad-unit {
-      display: none; background: var(--panel-2);
-      border: 1px dashed var(--line); border-radius: 10px;
-      padding: 20px; text-align: center; color: var(--muted);
-      font-size: 13px; margin: 20px 0; min-height: 90px;
-      align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+    .notice {
+      padding: 16px 18px;
+      color: #dbe6f8;
     }
-    .ad-unit.ads-active { display: flex !important; }
-    .ad-horizontal { min-height: 100px; }
-    .ad-square { min-height: 250px; }
-    .ad-rectangle { min-height: 600px; }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--footer-bg); border-top: 1px solid var(--line);
-      padding: 40px 24px 24px; margin-top: 40px;
+    .notice p { margin: 0 0 10px; }
+    .warning {
+      border-left: 3px solid var(--red);
+      background: rgba(251, 113, 133, 0.1);
+      color: #fecdd3;
+      padding: 13px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 13px;
     }
-    .footer-grid {
-      max-width: 1400px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 32px; margin-bottom: 32px;
+    .search-input {
+      width: 100%;
+      margin-top: 10px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      padding: 0 11px;
+      outline: 0;
     }
-    .footer-section h3 {
-      margin: 0 0 16px; font-size: 16px; color: var(--gold); font-weight: 700;
+    .footer {
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+      background: rgba(8, 13, 24, 0.74);
     }
-    .footer-section ul { list-style: none; padding: 0; margin: 0; }
-    .footer-section li { margin-bottom: 12px; }
-    .footer-section a {
-      color: var(--muted); text-decoration: none; transition: color 0.2s;
-      font-size: 14px; display: flex; align-items: center; gap: 8px;
+    .footer-inner {
+      width: min(1420px, 100%);
+      margin: 0 auto;
+      padding: 30px 24px;
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 24px;
     }
-    .footer-section a:hover { color: var(--text); }
-    .footer-section a i { width: 16px; text-align: center; }
+    .footer h3 { margin: 0 0 12px; color: var(--gold); font-size: 16px; }
+    .footer p, .footer a { color: var(--muted); font-size: 14px; }
+    .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
     .footer-bottom {
-      text-align: center; padding-top: 24px; border-top: 1px solid var(--line);
-      color: var(--muted); font-size: 14px; max-width: 1400px; margin: 0 auto;
+      border-top: 1px solid var(--line);
+      padding: 16px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
     }
-    .footer-bottom a { color: var(--gold); text-decoration: none; }
-
-    /* ===== MODALS ===== */
     .modal {
-      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.85); z-index: 2000; padding: 20px;
-      overflow-y: auto; backdrop-filter: blur(4px);
+      position: fixed;
+      inset: 0;
+      z-index: 1600;
+      display: none;
+      background: rgba(0, 0, 0, 0.76);
+      padding: 22px;
+      overflow: auto;
     }
-    .modal.active { display: block; animation: fadeIn 0.2s; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal.active { display: block; }
     .modal-content {
-      background: var(--panel); border: 1px solid var(--line);
-      border-radius: 16px; max-width: 720px; margin: 60px auto;
-      padding: 28px; position: relative; animation: slideUp 0.3s;
+      width: min(680px, 100%);
+      margin: 8vh auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
     }
-    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     .modal-close {
-      position: absolute; top: 16px; right: 16px;
-      background: none; border: none; color: var(--muted);
-      font-size: 24px; cursor: pointer; width: 36px; height: 36px;
-      display: grid; place-items: center; border-radius: 8px;
-      transition: all 0.2s;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-2);
+      color: var(--text);
     }
-    .modal-close:hover { background: var(--panel-2); color: var(--text); }
-    .modal h2 {
-      margin: 0 0 24px; color: var(--gold); font-size: 22px;
-      display: flex; align-items: center; gap: 10px;
+    .modal h2 { margin: 0 42px 16px 0; color: var(--gold); }
+    .modal p, .modal li { color: #dbe6f8; }
+    .cookie {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 1500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      padding: 14px;
     }
-    .modal p { margin: 0 0 16px; color: #d7deea; line-height: 1.7; font-size: 15px; }
-    .modal ul { padding-left: 24px; margin: 12px 0; }
-    .modal li { margin-bottom: 10px; color: #d7deea; }
-    .contact-form { display: grid; gap: 14px; margin-top: 20px; }
-    .contact-form input, .contact-form textarea {
-      width: 100%; padding: 12px 16px; border-radius: 8px;
-      border: 1px solid var(--line); background: var(--panel-2);
-      color: var(--text); font: inherit; font-size: 14px;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      outline: none; border-color: var(--gold);
-    }
-    .contact-form textarea { min-height: 120px; resize: vertical; }
-    .contact-form button { align-self: start; padding: 0 28px; height: 44px; }
+    .cookie.show { display: flex; }
+    .cookie p { margin: 0; color: var(--muted); max-width: 760px; font-size: 14px; }
 
-    /* ===== COOKIE BANNER ===== */
-    #cookieBanner {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(135deg, var(--panel-2), var(--panel));
-      border-top: 1px solid var(--line); padding: 16px 24px;
-      display: flex; align-items: center; justify-content: center;
-      gap: 16px; flex-wrap: wrap; z-index: 1001;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
-    }
-    #cookieBanner p {
-      margin: 0; font-size: 14px; color: var(--muted);
-      max-width: 600px; line-height: 1.5;
-    }
-    #cookieBanner a { color: var(--gold); text-decoration: none; }
-    #cookieBanner button {
-      height: 38px; padding: 0 20px; border-radius: 8px;
-      border: none; font-weight: 600; font-size: 14px;
-      cursor: pointer; transition: all 0.2s;
-    }
-    #cookieBanner button.accept {
-      background: linear-gradient(135deg, #de8a0a, #f2a51a); color: #fff;
-    }
-    #cookieBanner button.decline {
-      background: transparent; border: 1px solid var(--line); color: var(--text);
-    }
-    #cookieBanner button:hover { transform: translateY(-1px); }
+    [dir="rtl"] th, [dir="rtl"] td { text-align: right; }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1100px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .google-search input { width: 180px; }
-      .google-search input:focus { width: 220px; }
+    @media (max-width: 1180px) {
+      .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .content-grid, .hero { grid-template-columns: 1fr; }
     }
     @media (max-width: 900px) {
-      .nav-toggle { display: block; }
+      .nav-toggle { display: grid; place-items: center; }
       .nav-menu {
-        position: fixed; top: var(--nav-height); left: -100%;
-        width: 240px; height: calc(100vh - var(--nav-height));
-        background: var(--panel); border-right: 1px solid var(--line);
-        flex-direction: column; align-items: stretch; padding: 20px;
-        transition: left 0.3s; overflow-y: auto;
+        position: fixed;
+        top: var(--nav);
+        left: -280px;
+        width: 260px;
+        height: calc(100vh - var(--nav));
+        align-items: stretch;
+        flex-direction: column;
+        padding: 16px;
+        background: var(--surface);
+        border-right: 1px solid var(--line);
+        transition: left 0.22s ease;
       }
       .nav-menu.active { left: 0; }
-      .nav-menu a { padding: 14px 16px; font-size: 15px; border-radius: 8px; }
-      .google-search { display: none; }
-      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-menu a { width: 100%; }
+      .btn-label { display: none; }
+      .container { padding: 18px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 620px) {
+      body { padding-top: 64px; }
+      :root { --nav: 64px; }
       .navbar { padding: 0 12px; }
-      .brand-title { font-size: 18px; }
-      .controls { gap: 6px; }
-      select, button { height: 36px; font-size: 13px; padding: 0 10px; }
-      .cards-grid { grid-template-columns: 1fr; }
-      .converter-row { grid-template-columns: 1fr; }
-      .converter-row select { min-width: auto; }
-      .panel-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .panel-tools { width: 100%; justify-content: space-between; }
-      table { display: block; overflow-x: auto; }
-      th, td { padding: 12px 14px; font-size: 13px; }
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .footer-section a { justify-content: center; }
+      .brand strong { font-size: 17px; }
+      .brand-mark { width: 36px; height: 36px; }
+      .lang-switcher { display: none; }
+      .cards-grid, .quick-grid, .footer-inner { grid-template-columns: 1fr; }
+      .hero-copy { padding: 22px; }
+      .status { display: grid; }
+      .converter-line { grid-template-columns: 1fr; }
+      .panel-head { align-items: flex-start; flex-direction: column; }
     }
-
-    /* ===== ACCESSIBILITY ===== */
-    .skip-link {
-      position: absolute; top: -40px; left: 0;
-      background: var(--gold); color: #fff;
-      padding: 8px 16px; z-index: 3000;
-      border-radius: 0 0 6px 0; text-decoration: none; font-weight: 600;
-    }
-    .skip-link:focus { top: 0; }
-    [dir="rtl"] { text-align: right; }
-    [dir="rtl"] th, [dir="rtl"] td { text-align: right; }
-    [dir="rtl"] .modal ul { padding-right: 24px; padding-left: 0; }
-    [dir="rtl"] .google-search input { padding: 0 36px 0 12px; }
-    [dir="rtl"] .google-search i { left: auto; right: 14px; }
   </style>
 </head>
-
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  
-  <a href="#main-content" class="skip-link" data-i18n="skip">İçeriğe atla</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip">İçeriğe atla</a>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar" role="navigation" aria-label="Ana menü">
+  <nav class="navbar" aria-label="Ana menü">
     <div class="nav-left">
-      <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <a href="#" class="brand">
-        <div class="brand-icon"><i class="fa-solid fa-coins"></i></div>
-        <span class="brand-title">Altın <span>Piyasa</span></span>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+      <a class="brand" href="#main-content" aria-label="Altın Piyasa">
+        <span class="brand-mark">Au</span>
+        <strong>Altın <span>Piyasa</span></strong>
       </a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#" class="active"><i class="fa-solid fa-house"></i> <span data-i18n="navHome">Ana Sayfa</span></a></li>
-        <li><a href="#gold-prices"><i class="fa-solid fa-chart-line"></i> <span data-i18n="navPrices">Fiyatlar</span></a></li>
-        <li><a href="#converter"><i class="fa-solid fa-arrow-right-arrow-left"></i> <span data-i18n="navConverter">Çevirici</span></a></li>
-        <li><a href="#" onclick="openModal('about')"><i class="fa-solid fa-circle-info"></i> <span data-i18n="navAbout">Hakkında</span></a></li>
-        <li><a href="#" onclick="openModal('contact')"><i class="fa-solid fa-envelope"></i> <span data-i18n="navContact">İletişim</span></a></li>
+        <li><a class="active" href="#main-content" data-i18n="navHome">Ana Sayfa</a></li>
+        <li><a href="#gold-prices" data-i18n="navPrices">Fiyatlar</a></li>
+        <li><a href="#converter" data-i18n="navConverter">Çevirici</a></li>
+        <li><a href="#about" data-i18n="navGuide">Rehber</a></li>
+        <li><a href="#" data-modal="contact" data-i18n="navContact">İletişim</a></li>
       </ul>
     </div>
     <div class="nav-right">
-      <div class="google-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" id="googleSearch" placeholder="Google'da ara..." aria-label="Google arama">
-      </div>
       <div class="controls">
-        <div class="lang-switcher" role="group" aria-label="Dil seçimi">
-          <button class="lang-btn active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
-          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
-          <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">ع</button>
-          <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
-          <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
-          <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
-          <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+        <div class="lang-switcher" aria-label="Dil seçimi">
+          <button class="lang-btn active" type="button" data-lang="tr">TR</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="ar">AR</button>
         </div>
-        <select id="mainCurrency" aria-label="Ana para birimi">
+        <select class="select" id="mainCurrency" aria-label="Ana para birimi">
           <option value="TRY">TRY</option>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
@@ -804,950 +569,232 @@
           <option value="AED">AED</option>
           <option value="EGP">EGP</option>
         </select>
-        <button class="icon-btn secondary" id="refreshBtn" aria-label="Verileri yenile" title="Yenile">
-          <i class="fa-solid fa-rotate"></i>
-        </button>
-        <button class="primary" onclick="scrollToSection('converter')">
-          <i class="fa-solid fa-calculator"></i>
-          <span class="btn-text" data-i18n="convert">Hesapla</span>
-        </button>
+        <button class="btn icon-btn" id="refreshBtn" type="button" aria-label="Verileri yenile" title="Verileri yenile">↻</button>
+        <a class="btn btn-primary" href="#converter"><span>⌁</span><span class="btn-label" data-i18n="calculate">Hesapla</span></a>
       </div>
     </div>
   </nav>
 
-  <!-- ===== BREADCRUMBS ===== -->
-  <div class="breadcrumbs">
-    <a href="#" data-i18n="navHome">Ana Sayfa</a>
-    <span>/</span>
-    <span data-i18n="breadcrumbDashboard">Gösterge Paneli</span>
-  </div>
-
-  <!-- ===== MAIN CONTENT ===== -->
   <main class="container" id="main-content">
-    <div id="status" class="status-bar" role="status" aria-live="polite">
-      <span><span class="live-indicator" data-i18n="statusLive">Canlı veri</span> • <span id="lastUpdate">-</span></span>
-      <strong id="clock">-</strong>
-    </div>
-
-    <!-- Üst Reklam Alanı -->
-    <div class="ad-unit ad-horizontal" aria-label="Reklam">
-      <i class="fa-solid fa-ad" style="font-size:24px;margin-bottom:8px"></i>
-      <span data-i18n="adPlaceholder">Reklam Alanı</span>
-    </div>
-
-    <!-- ===== CARDS ===== -->
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-header">
-          <span class="card-label" data-i18n="cardOunce">Ons Altın</span>
-          <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
+    <section class="hero" aria-label="Piyasa özeti">
+      <div class="hero-copy">
+        <div class="eyebrow" data-i18n="eyebrow">Canlı piyasa paneli</div>
+        <h1 data-i18n="heroTitle">Altın ve döviz verilerini tek ekranda izleyin</h1>
+        <p data-i18n="heroText">Ons altın, gram altın, standart altın ürünleri ve döviz kurları için hızlı, okunabilir ve mobil uyumlu takip paneli.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#gold-prices" data-i18n="viewPrices">Fiyatları Gör</a>
+          <a class="btn" href="#converter" data-i18n="openConverter">Çeviriciyi Aç</a>
         </div>
-        <div id="goldUsd" class="card-value">-</div>
+      </div>
+      <aside class="hero-side" aria-label="Anlık durum">
+        <div class="status" id="status" role="status" aria-live="polite">
+          <span><span class="live" data-i18n="loading">Veri yükleniyor</span></span>
+          <strong id="clock">--:--:--</strong>
+        </div>
+        <div class="quick-grid">
+          <div class="quick-card"><span>XAU/USD</span><strong id="quickOunce">-</strong></div>
+          <div class="quick-card"><span data-i18n="quickGram">Gram 24K</span><strong id="quickGram24">-</strong></div>
+          <div class="quick-card"><span>USD/TRY</span><strong id="quickUsdTry">-</strong></div>
+          <div class="quick-card"><span>EUR/TRY</span><strong id="quickEurTry">-</strong></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="cards-grid" aria-label="Öne çıkan göstergeler">
+      <article class="card">
+        <div class="card-top"><span class="card-label" data-i18n="cardOunce">Ons Altın</span><span class="card-icon">Au</span></div>
+        <div class="card-value" id="goldUsd">-</div>
         <div class="card-sub">XAU/USD</div>
-        <div class="card-change up"><i class="fa-solid fa-arrow-trend-up"></i> <span>+0.42%</span></div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-label" data-i18n="cardGram24">Gram 24 Ayar</span>
-          <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-        </div>
-        <div id="gram24" class="card-value">-</div>
-        <div class="card-sub" data-i18n="cardSubCurrency">Seçili para birimi</div>
-        <div class="card-change up"><i class="fa-solid fa-arrow-trend-up"></i> <span>+0.38%</span></div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-label" data-i18n="cardUSD">Dolar Kuru</span>
-          <div class="card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
-        </div>
-        <div id="usdRate" class="card-value">-</div>
-        <div class="card-sub" data-i18n="cardSubUSD">1 USD karşılığı</div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="card-label" data-i18n="cardEUR">Euro Kuru</span>
-          <div class="card-icon"><i class="fa-solid fa-euro-sign"></i></div>
-        </div>
-        <div id="eurRate" class="card-value">-</div>
-        <div class="card-sub" data-i18n="cardSubEUR">1 EUR karşılığı</div>
-      </div>
-    </div>
+        <span class="change up" data-i18n="liveMarket">Canlı piyasa</span>
+      </article>
+      <article class="card">
+        <div class="card-top"><span class="card-label" data-i18n="cardGram">Gram 24 Ayar</span><span class="card-icon">gr</span></div>
+        <div class="card-value" id="gram24">-</div>
+        <div class="card-sub" data-i18n="selectedCurrency">Seçili para birimi</div>
+      </article>
+      <article class="card">
+        <div class="card-top"><span class="card-label" data-i18n="cardUsd">Dolar Kuru</span><span class="card-icon">$</span></div>
+        <div class="card-value" id="usdRate">-</div>
+        <div class="card-sub" data-i18n="oneUsd">1 USD karşılığı</div>
+      </article>
+      <article class="card">
+        <div class="card-top"><span class="card-label" data-i18n="cardEur">Euro Kuru</span><span class="card-icon">€</span></div>
+        <div class="card-value" id="eurRate">-</div>
+        <div class="card-sub" data-i18n="oneEur">1 EUR karşılığı</div>
+      </article>
+    </section>
 
-    <!-- ===== CONTENT GRID ===== -->
     <div class="content-grid">
-      <div class="main-column">
-        <!-- Altın Fiyatları -->
+      <div>
         <section class="panel" id="gold-prices">
-          <div class="panel-header">
-            <h2><i class="fa-solid fa-gem"></i> <span data-i18n="panelGoldPrices">Altın Fiyatları</span></h2>
-            <div class="panel-tools">
-              <select id="goldCurrency" aria-label="Altın fiyatları para birimi">
-                <option value="TRY">TRY</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="SAR">SAR</option>
-                <option value="AED">AED</option>
-                <option value="EGP">EGP</option>
-              </select>
-            </div>
+          <div class="panel-head">
+            <h2 data-i18n="goldPrices">Altın Fiyatları</h2>
+            <select class="select" id="goldCurrency" aria-label="Altın fiyatları para birimi">
+              <option value="TRY">TRY</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="SAR">SAR</option>
+              <option value="AED">AED</option>
+              <option value="EGP">EGP</option>
+            </select>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th scope="col" data-i18n="tableHeaderKarat">Ayar</th>
-                <th scope="col" data-i18n="tableHeaderPurity">Saflık</th>
-                <th scope="col" data-i18n="tableHeaderGram">Gram</th>
-                <th scope="col" data-i18n="tableHeaderBuy">Alış</th>
-                <th scope="col" data-i18n="tableHeaderSell">Satış</th>
-                <th scope="col" data-i18n="tableHeaderKilo">Kilo</th>
-              </tr>
-            </thead>
-            <tbody id="goldRows"></tbody>
-          </table>
-        </section>
-
-        <!-- Orta Reklam -->
-        <div class="ad-unit ad-square" aria-label="Reklam">
-          <i class="fa-solid fa-ad" style="font-size:24px;margin-bottom:8px"></i>
-          <span data-i18n="adPlaceholder">300x250 Reklam</span>
-        </div>
-
-        <!-- Standart Altınlar -->
-        <section class="panel">
-          <div class="panel-header">
-            <h2><i class="fa-solid fa-medal"></i> <span data-i18n="panelStandardGold">Standart Altınlar</span></h2>
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <th scope="col" data-i18n="tableHeaderProduct">Ürün</th>
-                <th scope="col" data-i18n="tableHeaderKarat">Ayar</th>
-                <th scope="col" data-i18n="tableHeaderWeight">Ağırlık</th>
-                <th scope="col">USD</th>
-                <th scope="col">EUR</th>
-                <th scope="col" data-i18n="tableHeaderSelected">Seçili</th>
-              </tr>
-            </thead>
-            <tbody id="pieceRows"></tbody>
-          </table>
-        </section>
-
-        <!-- SEO İçerik -->
-        <section class="panel">
-          <div class="panel-header"><h2><i class="fa-solid fa-book"></i> <span data-i18n="panelAboutGold">Altın Yatırımı Hakkında</span></h2></div>
-          <div style="padding:20px;font-size:15px;line-height:1.8;color:#d7deea">
-            <p data-i18n="goldInfo1"><strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir. Ekonomik belirsizlik dönemlerinde güvenli liman olarak tercih edilir.</p>
-            <p style="margin-top:12px" data-i18n="goldInfo2"><strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir. Fiyatı, uluslararası ons altın fiyatı ve döviz kurlarına bağlı olarak anlık değişir.</p>
-            <p style="margin-top:16px;padding:12px;background:var(--panel-2);border-radius:8px;font-size:13px;color:var(--muted)" data-i18n="goldWarning">⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em></p>
-          </div>
-        </section>
-      </div>
-
-      <!-- ===== SIDEBAR ===== -->
-      <aside class="sidebar-column">
-        <!-- Döviz Çevirici -->
-        <section class="panel" id="converter">
-          <div class="panel-header">
-            <h2><i class="fa-solid fa-calculator"></i> <span data-i18n="panelConverter">Döviz Çevirici</span></h2>
-          </div>
-          <div class="converter">
-            <div class="converter-row">
-              <input id="convertAmount" type="number" value="100" min="0" step="0.01" aria-label="Miktar">
-              <select id="fromCurrency" aria-label="Kaynak para"></select>
-              <button class="swap-btn" id="swapBtn" aria-label="Değiştir">
-                <i class="fa-solid fa-right-left"></i>
-              </button>
-              <select id="toCurrency" aria-label="Hedef para"></select>
-              <input id="convertResult" type="text" readonly aria-label="Sonuç">
-            </div>
-            <div id="converterText" class="result-box" aria-live="polite">-</div>
-          </div>
-        </section>
-
-        <!-- Yan Reklam -->
-        <div class="ad-unit ad-rectangle" aria-label="Reklam">
-          <i class="fa-solid fa-ad" style="font-size:24px;margin-bottom:8px"></i>
-          <span data-i18n="adPlaceholder">160x600 Reklam</span>
-        </div>
-
-        <!-- Dolar Karşılığı -->
-        <section class="panel">
-          <div class="panel-header">
-            <h2><i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="panelUSDValue">Dolar Karşılığı</span></h2>
-            <input id="currencySearch" data-i18n-placeholder="searchCurrency" placeholder="Para birimi ara" aria-label="Ara" style="width:100%;padding:8px 12px;border-radius:6px;border:1px solid var(--line);background:var(--panel-2);color:var(--text);font-size:13px">
-          </div>
-          <div style="max-height:400px;overflow-y:auto">
+          <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th scope="col" data-i18n="tableHeaderCode">Kod</th>
-                  <th scope="col">1 USD</th>
-                  <th scope="col" data-i18n="tableHeader1UnitUSD">1 Birim</th>
+                  <th data-i18n="karat">Ayar</th>
+                  <th data-i18n="purity">Saflık</th>
+                  <th data-i18n="gram">Gram</th>
+                  <th data-i18n="buy">Alış</th>
+                  <th data-i18n="sell">Satış</th>
+                  <th data-i18n="kilo">Kilo</th>
+                </tr>
+              </thead>
+              <tbody id="goldRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2 data-i18n="standardGold">Standart Altınlar</h2></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="product">Ürün</th>
+                  <th data-i18n="karat">Ayar</th>
+                  <th data-i18n="weight">Ağırlık</th>
+                  <th>USD</th>
+                  <th>EUR</th>
+                  <th data-i18n="selected">Seçili</th>
+                </tr>
+              </thead>
+              <tbody id="pieceRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel" id="about">
+          <div class="panel-head"><h2 data-i18n="guideTitle">Altın Yatırımı Hakkında</h2></div>
+          <div class="notice">
+            <p data-i18n="guideOne"><strong>Gram altın</strong>, ons altın fiyatı ve döviz kuru birlikte hesaplanarak oluşur. Bu yüzden hem XAU/USD hem de yerel para birimi hareketleri önemlidir.</p>
+            <p data-i18n="guideTwo">Alış ve satış fiyatlarında piyasa makası, vergi, likidite ve kurum politikaları nedeniyle fark oluşabilir.</p>
+            <div class="warning" data-i18n="warning">Bu sayfadaki veriler bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.</div>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section class="panel" id="converter">
+          <div class="panel-head"><h2 data-i18n="converterTitle">Döviz Çevirici</h2></div>
+          <div class="converter">
+            <div class="converter-line">
+              <input class="input" id="convertAmount" type="number" min="0" step="0.01" value="100" aria-label="Miktar">
+              <select class="select" id="fromCurrency" aria-label="Kaynak para"></select>
+            </div>
+            <button class="swap" id="swapBtn" type="button" aria-label="Para birimlerini değiştir">⇅</button>
+            <div class="converter-line">
+              <input class="input" id="convertResult" type="text" readonly aria-label="Sonuç">
+              <select class="select" id="toCurrency" aria-label="Hedef para"></select>
+            </div>
+            <div class="result-box" id="converterText">-</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2 data-i18n="currencyTitle">Dolar Karşılığı</h2>
+              <input class="search-input" id="currencySearch" type="search" data-i18n-placeholder="searchCurrency" placeholder="Para birimi ara" aria-label="Para birimi ara">
+            </div>
+          </div>
+          <div class="table-wrap" style="max-height:420px">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="code">Kod</th>
+                  <th>1 USD</th>
+                  <th data-i18n="oneUnit">1 Birim</th>
                 </tr>
               </thead>
               <tbody id="currencyRows"></tbody>
             </table>
           </div>
         </section>
-
-        <!-- Yasal Uyarı -->
-        <section class="panel">
-          <div style="padding:16px;background:linear-gradient(135deg,#2a0715,#1a0510);border-left:3px solid #be123c;border-radius:0 8px 8px 0">
-            <strong style="color:#fecdd3" data-i18n="legalDisclaimerTitle">Yasal Uyarı:</strong>
-            <p style="margin:8px 0 0;color:#fecdd3;font-size:13px;line-height:1.6" data-i18n="legalDisclaimerText">Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.</p>
-          </div>
-        </section>
       </aside>
     </div>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-section">
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
         <h3>Altın Piyasa</h3>
-        <p style="color:var(--muted);font-size:14px;line-height:1.7" data-i18n="footerDesc">
-          Canlı altın ve döviz verileri ile yatırım kararlarınızı destekliyoruz.
-        </p>
-        <div style="display:flex;gap:12px;margin-top:16px">
-          <a href="#" aria-label="Twitter" style="color:var(--muted);font-size:18px"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" aria-label="Instagram" style="color:var(--muted);font-size:18px"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="Telegram" style="color:var(--muted);font-size:18px"><i class="fa-brands fa-telegram"></i></a>
-        </div>
+        <p data-i18n="footerText">Canlı altın ve döviz verileriyle piyasa takibini kolaylaştıran bağımsız bilgi paneli.</p>
       </div>
-      <div class="footer-section">
+      <div>
+        <h3 data-i18n="footerMarket">Piyasa</h3>
+        <ul>
+          <li><a href="#gold-prices" data-i18n="goldPrices">Altın Fiyatları</a></li>
+          <li><a href="#converter" data-i18n="converterTitle">Döviz Çevirici</a></li>
+        </ul>
+      </div>
+      <div>
         <h3 data-i18n="footerLegal">Yasal</h3>
         <ul>
-          <li><a href="#" onclick="openModal('privacy')"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="linkPrivacy">Gizlilik Politikası</span></a></li>
-          <li><a href="#" onclick="openModal('terms')"><i class="fa-solid fa-file-contract"></i> <span data-i18n="linkTerms">Kullanım Şartları</span></a></li>
-          <li><a href="#" onclick="openModal('cookies')"><i class="fa-solid fa-cookie"></i> <span data-i18n="linkCookies">Çerez Politikası</span></a></li>
-          <li><a href="#" onclick="openModal('disclaimer')"><i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="linkDisclaimer">Yasal Uyarı</span></a></li>
+          <li><a href="#" data-modal="privacy" data-i18n="privacy">Gizlilik Politikası</a></li>
+          <li><a href="#" data-modal="terms" data-i18n="terms">Kullanım Şartları</a></li>
+          <li><a href="#" data-modal="disclaimer" data-i18n="disclaimer">Yasal Uyarı</a></li>
         </ul>
       </div>
-      <div class="footer-section">
-        <h3 data-i18n="footerAbout">Hakkımızda</h3>
+      <div>
+        <h3 data-i18n="footerContact">İletişim</h3>
         <ul>
-          <li><a href="#" onclick="openModal('about')"><i class="fa-solid fa-circle-info"></i> <span data-i18n="linkAbout">Biz Kimiz?</span></a></li>
-          <li><a href="#" onclick="openModal('contact')"><i class="fa-solid fa-envelope"></i> <span data-i18n="linkContact">İletişim</span></a></li>
-          <li><a href="#"><i class="fa-solid fa-rss"></i> <span data-i18n="linkBlog">Blog</span></a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3 data-i18n="footerQuick">Hızlı Erişim</h3>
-        <ul>
-          <li><a href="#gold-prices"><i class="fa-solid fa-gem"></i> Altın Fiyatları</a></li>
-          <li><a href="#converter"><i class="fa-solid fa-calculator"></i> Döviz Çevirici</a></li>
-          <li><a href="#"><i class="fa-solid fa-chart-simple"></i> Piyasa Analizi</a></li>
-          <li><a href="#"><i class="fa-solid fa-bell"></i> Fiyat Alarmı</a></li>
+          <li><a href="#" data-modal="contact" data-i18n="contact">İletişim</a></li>
+          <li><a href="mailto:info@altinpiyasa.com">info@altinpiyasa.com</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> <strong>Altın Piyasa</strong>. <span data-i18n="footerRights">Tüm hakları saklıdır.</span> | 
-      <a href="#" onclick="openModal('privacy')" data-i18n="linkPrivacyShort">Gizlilik</a> | 
-      <a href="#" onclick="openModal('contact')" data-i18n="linkContactShort">İletişim</a></p>
-    </div>
+    <div class="footer-bottom">© <span id="year"></span> Altın Piyasa. <span data-i18n="rights">Tüm hakları saklıdır.</span></div>
   </footer>
 
-  <!-- Cookie Banner -->
-  <div id="cookieBanner">
-    <p data-i18n="cookieText">🍪 Bu site deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href="#" onclick="openModal('privacy')">Gizlilik Politikası</a>'nı inceleyebilirsiniz.</p>
-    <button class="accept" onclick="acceptCookies()" data-i18n="cookieAccept">Kabul Et</button>
-    <button class="decline" onclick="declineCookies()" data-i18n="cookieDecline">Reddet</button>
+  <div class="cookie" id="cookieBanner">
+    <p data-i18n="cookieText">Bu site tercihlerinizi hatırlamak için zorunlu olmayan yerel depolama kullanır. Analitik veya IP izleme varsayılan olarak çalıştırılmaz.</p>
+    <button class="btn btn-primary" type="button" id="acceptCookies" data-i18n="accept">Kabul Et</button>
+    <button class="btn" type="button" id="declineCookies" data-i18n="decline">Reddet</button>
   </div>
 
-  <!-- ===== MODALS ===== -->
-  <div id="privacy-modal" class="modal" role="dialog" aria-modal="true">
+  <div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('privacy')" aria-label="Kapat">&times;</button>
-      <h2 data-i18n="modalPrivacyTitle">🔒 Gizlilik Politikası</h2>
-      <p><strong data-i18n="modalLastUpdate">Son Güncelleme:</strong> <span id="privacy-date"></span></p>
-      <h3 data-i18n="modalPrivacy1Title">1. Toplanan Veriler</h3>
-      <ul>
-        <li><strong data-i18n="modalPrivacyCookies">Çerezler:</strong> <span data-i18n="modalPrivacyCookiesDesc">Site deneyimini iyileştirmek için teknik çerezler.</span></li>
-        <li><strong data-i18n="modalPrivacyIP">IP Adresi:</strong> <span data-i18n="modalPrivacyIPDesc">Güvenlik amaçlı anonim kayıtlar.</span></li>
-        <li><strong data-i18n="modalPrivacyUsage">Kullanım Verileri:</strong> <span data-i18n="modalPrivacyUsageDesc">Anonim istatistikler.</span></li>
-      </ul>
-      <p style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
-        <strong data-i18n="modalPrivacyContact">İletişim:</strong> <a href="#" onclick="openModal('contact');closeModal('privacy')" style="color:var(--gold)" data-i18n="modalPrivacyContactLink">İletişim sayfası</a>
-      </p>
+      <button class="modal-close" type="button" data-close="privacy" aria-label="Kapat">×</button>
+      <h2 id="privacy-title" data-i18n="privacy">Gizlilik Politikası</h2>
+      <p data-i18n="privacyText">Altın Piyasa yalnızca tercihleri yerel tarayıcı depolamasında saklar. Kişisel veri gönderen IP izleme kodları kullanılmaz.</p>
+    </div>
+  </div>
+  <div class="modal" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+    <div class="modal-content">
+      <button class="modal-close" type="button" data-close="terms" aria-label="Kapat">×</button>
+      <h2 id="terms-title" data-i18n="terms">Kullanım Şartları</h2>
+      <p data-i18n="termsText">Veriler API kaynaklarından alınır ve gecikmeli ya da hatalı olabilir. Finansal kararlar için tek kaynak olarak kullanılmamalıdır.</p>
+    </div>
+  </div>
+  <div class="modal" id="disclaimer-modal" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+    <div class="modal-content">
+      <button class="modal-close" type="button" data-close="disclaimer" aria-label="Kapat">×</button>
+      <h2 id="disclaimer-title" data-i18n="disclaimer">Yasal Uyarı</h2>
+      <p data-i18n="disclaimerText">Bu sitedeki hiçbir bilgi yatırım tavsiyesi değildir. Alış-satış öncesi lisanslı finans uzmanına danışın.</p>
+    </div>
+  </div>
+  <div class="modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <div class="modal-content">
+      <button class="modal-close" type="button" data-close="contact" aria-label="Kapat">×</button>
+      <h2 id="contact-title" data-i18n="contact">İletişim</h2>
+      <p data-i18n="contactText">Soru, öneri ve iş birliği talepleri için info@altinpiyasa.com adresinden ulaşabilirsiniz.</p>
     </div>
   </div>
 
-  <div id="about-modal" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('about')" aria-label="Kapat">&times;</button>
-      <h2 data-i18n="modalAboutTitle">ℹ️ Hakkımızda</h2>
-      <p data-i18n="modalAboutDesc"><strong>Altın Piyasa</strong>, kullanıcılarına anlık altın ve döviz verileri sunan bağımsız bir finansal bilgi platformudur.</p>
-      <h3 data-i18n="modalAboutMission">Misyonumuz</h3>
-      <p data-i18n="modalAboutMissionDesc">Yatırımcıların güvenilir, şeffaf ve kolay erişilebilir piyasa verilerine ulaşmasını sağlamak.</p>
-    </div>
-  </div>
-
-  <div id="contact-modal" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('contact')" aria-label="Kapat">&times;</button>
-      <h2 data-i18n="modalContactTitle">📬 İletişim</h2>
-      <p data-i18n="modalContactDesc">Soru, öneri veya iş birliği talepleriniz için aşağıdaki formu kullanabilirsiniz.</p>
-      <form class="contact-form" onsubmit="submitContact(event)">
-        <input type="text" id="contact-name" data-i18n-placeholder="formName" placeholder="Adınız *" required>
-        <input type="email" id="contact-email" data-i18n-placeholder="formEmail" placeholder="E-posta *" required>
-        <textarea id="contact-message" data-i18n-placeholder="formMessage" placeholder="Mesajınız *" required></textarea>
-        <button type="submit" data-i18n="formSend">📤 Gönder</button>
-      </form>
-      <p style="margin-top:16px;font-size:13px;color:var(--muted)">
-        <em data-i18n="modalContactNote">Not: Form demo amaçlıdır. Lütfen doğrudan e-posta ile iletişime geçiniz.</em>
-      </p>
-    </div>
-  </div>
-
-  <div id="terms-modal" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('terms')" aria-label="Kapat">&times;</button>
-      <h2 data-i18n="modalTermsTitle">📜 Kullanım Şartları</h2>
-      <p data-i18n="modalTermsIntro">Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz:</p>
-      <ul>
-        <li data-i18n="modalTerms1Item1">Veriler yalnızca bilgilendirme amaçlıdır.</li>
-        <li data-i18n="modalTerms1Item2">Yatırım tavsiyesi değildir.</li>
-        <li data-i18n="modalTerms1Item3">Gecikmeli veya hatalı olabilir.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="cookies-modal" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('cookies')" aria-label="Kapat">&times;</button>
-      <h2 data-i18n="modalCookiesTitle">🍪 Çerez Politikası</h2>
-      <p data-i18n="modalCookiesManageDesc">Tarayıcınızın ayarlarından çerezleri engelleyebilirsiniz.</p>
-    </div>
-  </div>
-
-  <div id="disclaimer-modal" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('disclaimer')" aria-label="Kapat">&times;</button>
-      <h2 data-i18n="modalDisclaimerTitle">⚠️ Yasal Uyarı</h2>
-      <p style="background:#2a0715;border:1px solid #be123c;border-radius:8px;padding:16px;margin:16px 0">
-        <strong data-i18n="modalDisclaimerImportant">ÖNEMLİ:</strong> <span data-i18n="modalDisclaimerText">Bu sitede yer alan hiçbir bilgi yatırım tavsiyesi değildir.</span>
-      </p>
-    </div>
-  </div>
-
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // ===== 🔧 AYARLAR =====
-    const ADS_ENABLED = false;
-    const API_URL = "https://gold-api.alyux.workers.dev/";
-    const OUNCE = 31.1034768;
-    const KARATS = [24, 22, 21, 18, 14, 10];
-    let data = null;
-
-    // ===== GOOGLE SEARCH =====
-    document.getElementById('googleSearch')?.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        const query = this.value.trim();
-        if (query) {
-          const lang = localStorage.getItem('siteLang') || 'tr';
-          const searchTerms = {
-            tr: 'altın döviz fiyatları',
-            en: 'gold forex prices',
-            ar: 'أسعار الذهب والعملات',
-            de: 'gold devisen preise',
-            fr: 'prix or devises',
-            es: 'precio oro divisas',
-            ru: 'цена золото валюта'
-          };
-          window.open(`https://www.google.com/search?q=${encodeURIComponent(query + ' ' + (searchTerms[lang] || ''))}`, '_blank');
-          this.value = '';
-        }
-      }
-    });
-
-    // ===== NAVIGATION =====
-    document.getElementById('navToggle')?.addEventListener('click', function() {
-      document.getElementById('navMenu').classList.toggle('active');
-      this.innerHTML = document.getElementById('navMenu').classList.contains('active') 
-        ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-    });
-
-    function scrollToSection(id) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.getElementById('navMenu')?.classList.remove('active');
-      document.getElementById('navToggle').innerHTML = '<i class="fa-solid fa-bars"></i>';
-    }
-
-    // ===== ÇOK DİLLİ ÇEVİRİLER =====
-    const translations = {
-      tr: {
-        skip: "İçeriğe atla", navHome: "Ana Sayfa", navPrices: "Fiyatlar", navConverter: "Çevirici",
-        navAbout: "Hakkında", navContact: "İletişim", breadcrumbDashboard: "Gösterge Paneli",
-        convert: "Hesapla", cookieText: "🍪 Bu site deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href=\"#\" onclick=\"openModal('privacy')\">Gizlilik Politikası</a>'nı inceleyebilirsiniz.",
-        cookieAccept: "Kabul Et", cookieDecline: "Reddet", statusLive: "Canlı veri",
-        cardOunce: "Ons Altın", cardGram24: "Gram 24 Ayar", cardUSD: "Dolar Kuru", cardEUR: "Euro Kuru",
-        cardSubCurrency: "Seçili para birimi", cardSubUSD: "1 USD karşılığı", cardSubEUR: "1 EUR karşılığı",
-        panelGoldPrices: "Altın Fiyatları", panelStandardGold: "Standart Altınlar",
-        panelAboutGold: "Altın Yatırımı Hakkında", panelConverter: "Döviz Çevirici", panelUSDValue: "Dolar Karşılığı",
-        tableHeaderKarat: "Ayar", tableHeaderPurity: "Saflık", tableHeaderGram: "Gram",
-        tableHeaderBuy: "Alış", tableHeaderSell: "Satış", tableHeaderKilo: "Kilo",
-        tableHeaderProduct: "Ürün", tableHeaderWeight: "Ağırlık", tableHeaderSelected: "Seçili",
-        tableHeaderCode: "Kod", tableHeader1UnitUSD: "1 Birim",
-        goldInfo1: "<strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir.",
-        goldInfo2: "<strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir.",
-        goldWarning: "⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em>",
-        searchCurrency: "Para birimi ara", legalDisclaimerTitle: "Yasal Uyarı:",
-        legalDisclaimerText: "Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.",
-        footerDesc: "Canlı altın ve döviz verileri ile yatırım kararlarınızı destekliyoruz.",
-        footerLegal: "Yasal", footerAbout: "Hakkımızda", footerQuick: "Hızlı Erişim",
-        footerRights: "Tüm hakları saklıdır.", linkPrivacy: "Gizlilik Politikası",
-        linkTerms: "Kullanım Şartları", linkCookies: "Çerez Politikası", linkDisclaimer: "Yasal Uyarı",
-        linkAbout: "Biz Kimiz?", linkContact: "İletişim", linkBlog: "Blog",
-        linkPrivacyShort: "Gizlilik", linkContactShort: "İletişim", adPlaceholder: "Reklam Alanı",
-        modalPrivacyTitle: "🔒 Gizlilik Politikası", modalLastUpdate: "Son Güncelleme:",
-        modalPrivacy1Title: "1. Toplanan Veriler", modalPrivacyCookies: "Çerezler:",
-        modalPrivacyCookiesDesc: "Site deneyimini iyileştirmek için teknik çerezler.",
-        modalPrivacyIP: "IP Adresi:", modalPrivacyIPDesc: "Güvenlik amaçlı anonim kayıtlar.",
-        modalPrivacyUsage: "Kullanım Verileri:", modalPrivacyUsageDesc: "Anonim istatistikler.",
-        modalPrivacyContact: "İletişim:", modalPrivacyContactLink: "İletişim sayfası",
-        modalAboutTitle: "ℹ️ Hakkımızda", modalAboutDesc: "<strong>Altın Piyasa</strong>, kullanıcılarına anlık altın ve döviz verileri sunan bağımsız bir finansal bilgi platformudur.",
-        modalAboutMission: "Misyonumuz", modalAboutMissionDesc: "Yatırımcıların güvenilir, şeffaf ve kolay erişilebilir piyasa verilerine ulaşmasını sağlamak.",
-        modalContactTitle: "📬 İletişim", modalContactDesc: "Soru, öneri veya iş birliği talepleriniz için aşağıdaki formu kullanabilirsiniz.",
-        formName: "Adınız *", formEmail: "E-posta *", formMessage: "Mesajınız *", formSend: "📤 Gönder",
-        modalContactNote: "Not: Form demo amaçlıdır. Lütfen doğrudan e-posta ile iletişime geçiniz.",
-        modalTermsTitle: "📜 Kullanım Şartları", modalTermsIntro: "Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz:",
-        modalTerms1Item1: "Veriler yalnızca bilgilendirme amaçlıdır.", modalTerms1Item2: "Yatırım tavsiyesi değildir.",
-        modalTerms1Item3: "Gecikmeli veya hatalı olabilir.", modalCookiesTitle: "🍪 Çerez Politikası",
-        modalCookiesManageDesc: "Tarayıcınızın ayarlarından çerezleri engelleyebilirsiniz.",
-        modalDisclaimerTitle: "⚠️ Yasal Uyarı", modalDisclaimerImportant: "ÖNEMLİ:",
-        modalDisclaimerText: "Bu sitede yer alan hiçbir bilgi yatırım tavsiyesi değildir."
-      },
-      en: {
-        skip: "Skip to content", navHome: "Home", navPrices: "Prices", navConverter: "Converter",
-        navAbout: "About", navContact: "Contact", breadcrumbDashboard: "Dashboard",
-        convert: "Calculate", cookieText: "🍪 This site uses cookies to improve your experience. See our <a href=\"#\" onclick=\"openModal('privacy')\">Privacy Policy</a> for details.",
-        cookieAccept: "Accept", cookieDecline: "Decline", statusLive: "Live data",
-        cardOunce: "Gold Ounce", cardGram24: "Gram 24K", cardUSD: "USD Rate", cardEUR: "EUR Rate",
-        cardSubCurrency: "Selected currency", cardSubUSD: "1 USD equivalent", cardSubEUR: "1 EUR equivalent",
-        panelGoldPrices: "Gold Prices", panelStandardGold: "Standard Gold",
-        panelAboutGold: "About Gold Investment", panelConverter: "Currency Converter", panelUSDValue: "USD Equivalent",
-        tableHeaderKarat: "Karat", tableHeaderPurity: "Purity", tableHeaderGram: "Gram",
-        tableHeaderBuy: "Buy", tableHeaderSell: "Sell", tableHeaderKilo: "Kilo",
-        tableHeaderProduct: "Product", tableHeaderWeight: "Weight", tableHeaderSelected: "Selected",
-        tableHeaderCode: "Code", tableHeader1UnitUSD: "1 Unit",
-        goldInfo1: "<strong>Gold</strong> has been used as a store of value for thousands of years.",
-        goldInfo2: "<strong>Gram gold</strong> is the 1-gram unit of 24-karat pure gold.",
-        goldWarning: "⚠️ <em>Warning: The data on this site is for informational purposes only. Not investment advice.</em>",
-        searchCurrency: "Search currency", legalDisclaimerTitle: "Legal Notice:",
-        legalDisclaimerText: "Data is automatically fetched from API source. Not investment advice.",
-        footerDesc: "We support your investment decisions with live gold and forex data.",
-        footerLegal: "Legal", footerAbout: "About", footerQuick: "Quick Links",
-        footerRights: "All rights reserved.", linkPrivacy: "Privacy Policy",
-        linkTerms: "Terms of Use", linkCookies: "Cookie Policy", linkDisclaimer: "Legal Notice",
-        linkAbout: "Who Are We?", linkContact: "Contact", linkBlog: "Blog",
-        linkPrivacyShort: "Privacy", linkContactShort: "Contact", adPlaceholder: "Ad Space",
-        modalPrivacyTitle: "🔒 Privacy Policy", modalLastUpdate: "Last Updated:",
-        modalPrivacy1Title: "1. Collected Data", modalPrivacyCookies: "Cookies:",
-        modalPrivacyCookiesDesc: "Technical cookies to improve site experience.",
-        modalPrivacyIP: "IP Address:", modalPrivacyIPDesc: "Anonymous records for security purposes.",
-        modalPrivacyUsage: "Usage Data:", modalPrivacyUsageDesc: "Anonymous statistics.",
-        modalPrivacyContact: "Contact:", modalPrivacyContactLink: "Contact page",
-        modalAboutTitle: "ℹ️ About Us", modalAboutDesc: "<strong>Altın Piyasa</strong> is an independent financial information platform providing real-time gold and forex data.",
-        modalAboutMission: "Our Mission", modalAboutMissionDesc: "To enable investors to access reliable, transparent market data.",
-        modalContactTitle: "📬 Contact", modalContactDesc: "You can use the form below for questions or partnership requests.",
-        formName: "Your Name *", formEmail: "Email *", formMessage: "Your Message *", formSend: "📤 Send",
-        modalContactNote: "Note: Form is for demo purposes. Please contact us directly via email.",
-        modalTermsTitle: "📜 Terms of Use", modalTermsIntro: "By using this site, you agree to the following terms:",
-        modalTerms1Item1: "Data is for informational purposes only.", modalTerms1Item2: "Not investment advice.",
-        modalTerms1Item3: "May be delayed or contain errors.", modalCookiesTitle: "🍪 Cookie Policy",
-        modalCookiesManageDesc: "You can block cookies from your browser settings.",
-        modalDisclaimerTitle: "⚠️ Legal Notice", modalDisclaimerImportant: "IMPORTANT:",
-        modalDisclaimerText: "No information on this site constitutes investment advice."
-      },
-      ar: {
-        skip: "الانتقال إلى المحتوى", navHome: "الرئيسية", navPrices: "الأسعار", navConverter: "محول",
-        navAbout: "من نحن", navContact: "اتصل بنا", breadcrumbDashboard: "لوحة التحكم",
-        convert: "احسب", cookieText: "🍪 يستخدم هذا الموقع ملفات تعريف الارتباط لتحسين تجربتك. راجع <a href=\"#\" onclick=\"openModal('privacy')\">سياسة الخصوصية</a> للتفاصيل.",
-        cookieAccept: "قبول", cookieDecline: "رفض", statusLive: "بيانات مباشرة",
-        cardOunce: "أونصة الذهب", cardGram24: "جرام 24 قيراط", cardUSD: "سعر الدولار", cardEUR: "سعر اليورو",
-        cardSubCurrency: "العملة المحددة", cardSubUSD: "مكافئ 1 دولار", cardSubEUR: "مكافئ 1 يورو",
-        panelGoldPrices: "أسعار الذهب", panelStandardGold: "الذهب القياسي",
-        panelAboutGold: "حول استثمار الذهب", panelConverter: "محول العملات", panelUSDValue: "مكافئ الدولار",
-        tableHeaderKarat: "عيار", tableHeaderPurity: "نقاء", tableHeaderGram: "جرام",
-        tableHeaderBuy: "شراء", tableHeaderSell: "بيع", tableHeaderKilo: "كيلو",
-        tableHeaderProduct: "منتج", tableHeaderWeight: "وزن", tableHeaderSelected: "محدد",
-        tableHeaderCode: "رمز", tableHeader1UnitUSD: "1 وحدة",
-        goldInfo1: "<strong>الذهب</strong> معدن ثمين يُستخدم كوسيلة لحفظ القيمة منذ آلاف السنين.",
-        goldInfo2: "<strong>جرام الذهب</strong> هو وحدة جرام واحدة من الذهب النقي عيار 24.",
-        goldWarning: "⚠️ <em>تحذير: البيانات في هذا الموقع لأغراض إعلامية فقط. ليست نصيحة استثمارية.</em>",
-        searchCurrency: "ابحث عن عملة", legalDisclaimerTitle: "إشعار قانوني:",
-        legalDisclaimerText: "يتم جلب البيانات تلقائياً من مصدر API. ليست نصيحة استثمارية.",
-        footerDesc: "ندعم قراراتك الاستثمارية ببيانات مباشرة للذهب والعملات.",
-        footerLegal: "قانوني", footerAbout: "من نحن", footerQuick: "روابط سريعة",
-        footerRights: "جميع الحقوق محفوظة.", linkPrivacy: "سياسة الخصوصية",
-        linkTerms: "شروط الاستخدام", linkCookies: "سياسة ملفات الارتباط", linkDisclaimer: "إشعار قانوني",
-        linkAbout: "من نكون؟", linkContact: "اتصل بنا", linkBlog: "مدونة",
-        linkPrivacyShort: "خصوصية", linkContactShort: "اتصال", adPlaceholder: "مساحة إعلانية",
-        modalPrivacyTitle: "🔒 سياسة الخصوصية", modalLastUpdate: "آخر تحديث:",
-        modalPrivacy1Title: "1. البيانات المجمعة", modalPrivacyCookies: "ملفات الارتباط:",
-        modalPrivacyCookiesDesc: "ملفات ارتباط تقنية لتحسين تجربة الموقع.",
-        modalPrivacyIP: "عنوان IP:", modalPrivacyIPDesc: "سجلات مجهولة لأغراض الأمان.",
-        modalPrivacyUsage: "بيانات الاستخدام:", modalPrivacyUsageDesc: "إحصائيات مجهولة.",
-        modalPrivacyContact: "اتصل:", modalPrivacyContactLink: "صفحة الاتصال",
-        modalAboutTitle: "ℹ️ من نحن", modalAboutDesc: "<strong>ألتن بياضا</strong> منصة معلومات مالية مستقلة توفر بيانات الذهب والعملات الفورية.",
-        modalAboutMission: "مهمتنا", modalAboutMissionDesc: "تمكين المستثمرين من الوصول إلى بيانات السوق الموثوقة والشفافة.",
-        modalContactTitle: "📬 اتصل بنا", modalContactDesc: "يمكنك استخدام النموذج أدناه للأسئلة أو طلبات الشراكة.",
-        formName: "اسمك *", formEmail: "البريد الإلكتروني *", formMessage: "رسالتك *", formSend: "📤 إرسال",
-        modalContactNote: "ملاحظة: النموذج لأغراض تجريبية. يرجى الاتصال بنا مباشرة عبر البريد الإلكتروني.",
-        modalTermsTitle: "📜 شروط الاستخدام", modalTermsIntro: "باستخدامك لهذا الموقع، فإنك توافق على الشروط التالية:",
-        modalTerms1Item1: "البيانات لأغراض إعلامية فقط.", modalTerms1Item2: "ليست نصيحة استثمارية.",
-        modalTerms1Item3: "قد تكون متأخرة أو تحتوي على أخطاء.", modalCookiesTitle: "🍪 سياسة ملفات الارتباط",
-        modalCookiesManageDesc: "يمكنك حظر ملفات الارتباط من إعدادات متصفحك.",
-        modalDisclaimerTitle: "⚠️ إشعار قانوني", modalDisclaimerImportant: "مهم:",
-        modalDisclaimerText: "لا تشكل أي معلومات في هذا الموقع نصيحة استثمارية."
-      },
-      de: {
-        skip: "Zum Inhalt springen", navHome: "Startseite", navPrices: "Preise", navConverter: "Rechner",
-        navAbout: "Über uns", navContact: "Kontakt", breadcrumbDashboard: "Dashboard",
-        convert: "Berechnen", cookieText: "🍪 Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Details finden Sie in unserer <a href=\"#\" onclick=\"openModal('privacy')\">Datenschutzrichtlinie</a>.",
-        cookieAccept: "Akzeptieren", cookieDecline: "Ablehnen", statusLive: "Live-Daten",
-        cardOunce: "Goldunze", cardGram24: "Gramm 24K", cardUSD: "USD-Kurs", cardEUR: "EUR-Kurs",
-        cardSubCurrency: "Ausgewählte Währung", cardSubUSD: "1 USD entspricht", cardSubEUR: "1 EUR entspricht",
-        panelGoldPrices: "Goldpreise", panelStandardGold: "Standardgold",
-        panelAboutGold: "Über Goldinvestitionen", panelConverter: "Währungsrechner", panelUSDValue: "USD-Äquivalent",
-        tableHeaderKarat: "Karat", tableHeaderPurity: "Reinheit", tableHeaderGram: "Gramm",
-        tableHeaderBuy: "Kauf", tableHeaderSell: "Verkauf", tableHeaderKilo: "Kilo",
-        tableHeaderProduct: "Produkt", tableHeaderWeight: "Gewicht", tableHeaderSelected: "Ausgewählt",
-        tableHeaderCode: "Code", tableHeader1UnitUSD: "1 Einheit",
-        goldInfo1: "<strong>Gold</strong> wird seit Tausenden von Jahren als Wertaufbewahrungsmittel verwendet.",
-        goldInfo2: "<strong>Gramm Gold</strong> ist die 1-Gramm-Einheit von 24-karätigem reinem Gold.",
-        goldWarning: "⚠️ <em>Warnung: Die Daten auf dieser Website dienen nur zu Informationszwecken. Keine Anlageberatung.</em>",
-        searchCurrency: "Währung suchen", legalDisclaimerTitle: "Rechtlicher Hinweis:",
-        legalDisclaimerText: "Daten werden automatisch von API-Quelle abgerufen. Keine Anlageberatung.",
-        footerDesc: "Wir unterstützen Ihre Investitionsentscheidungen mit Live-Gold- und Devisendaten.",
-        footerLegal: "Rechtliches", footerAbout: "Über uns", footerQuick: "Schnellzugriff",
-        footerRights: "Alle Rechte vorbehalten.", linkPrivacy: "Datenschutzrichtlinie",
-        linkTerms: "Nutzungsbedingungen", linkCookies: "Cookie-Richtlinie", linkDisclaimer: "Rechtlicher Hinweis",
-        linkAbout: "Wer sind wir?", linkContact: "Kontakt", linkBlog: "Blog",
-        linkPrivacyShort: "Datenschutz", linkContactShort: "Kontakt", adPlaceholder: "Werbeplatz",
-        modalPrivacyTitle: "🔒 Datenschutzrichtlinie", modalLastUpdate: "Zuletzt aktualisiert:",
-        modalPrivacy1Title: "1. Gesammelte Daten", modalPrivacyCookies: "Cookies:",
-        modalPrivacyCookiesDesc: "Technische Cookies zur Verbesserung der Website-Erfahrung.",
-        modalPrivacyIP: "IP-Adresse:", modalPrivacyIPDesc: "Anonyme Aufzeichnungen für Sicherheitszwecke.",
-        modalPrivacyUsage: "Nutzungsdaten:", modalPrivacyUsageDesc: "Anonyme Statistiken.",
-        modalPrivacyContact: "Kontakt:", modalPrivacyContactLink: "Kontaktseite",
-        modalAboutTitle: "ℹ️ Über uns", modalAboutDesc: "<strong>Altın Piyasa</strong> ist eine unabhängige Finanzinformationsplattform, die ihren Benutzern Echtzeit-Gold- und Devisendaten bereitstellt.",
-        modalAboutMission: "Unsere Mission", modalAboutMissionDesc: "Anlegern den Zugang zu zuverlässigen, transparenten und leicht zugänglichen Marktdaten zu ermöglichen.",
-        modalContactTitle: "📬 Kontakt", modalContactDesc: "Sie können das untenstehende Formular für Fragen, Vorschläge oder Partnerschaftsanfragen verwenden.",
-        formName: "Ihr Name *", formEmail: "E-Mail *", formMessage: "Ihre Nachricht *", formSend: "📤 Senden",
-        modalContactNote: "Hinweis: Formular ist zu Demozwecken. Bitte senden Sie eine E-Mail an info@altinpiyasa.com.",
-        modalTermsTitle: "📜 Nutzungsbedingungen", modalTermsIntro: "Durch die Nutzung dieser Website stimmen Sie den folgenden Bedingungen zu:",
-        modalTerms1Item1: "Daten dienen nur zu Informationszwecken.", modalTerms1Item2: "Keine Anlageberatung.",
-        modalTerms1Item3: "Kann verzögert sein oder Fehler enthalten.", modalCookiesTitle: "🍪 Cookie-Richtlinie",
-        modalCookiesManageDesc: "Sie können Cookies in Ihren Browsereinstellungen blockieren.",
-        modalDisclaimerTitle: "⚠️ Rechtlicher Hinweis", modalDisclaimerImportant: "WICHTIG:",
-        modalDisclaimerText: "Keine Informationen auf dieser Website stellen eine Anlageberatung dar."
-      },
-      fr: {
-        skip: "Aller au contenu", navHome: "Accueil", navPrices: "Prix", navConverter: "Convertisseur",
-        navAbout: "À propos", navContact: "Contact", breadcrumbDashboard: "Tableau de bord",
-        convert: "Calculer", cookieText: "🍪 Ce site utilise des cookies pour améliorer votre expérience. Consultez notre <a href=\"#\" onclick=\"openModal('privacy')\">Politique de confidentialité</a> pour plus de détails.",
-        cookieAccept: "Accepter", cookieDecline: "Refuser", statusLive: "Données en direct",
-        cardOunce: "Once d'Or", cardGram24: "Gramme 24K", cardUSD: "Taux USD", cardEUR: "Taux EUR",
-        cardSubCurrency: "Devise sélectionnée", cardSubUSD: "Équivalent 1 USD", cardSubEUR: "Équivalent 1 EUR",
-        panelGoldPrices: "Prix de l'Or", panelStandardGold: "Or Standard",
-        panelAboutGold: "À propos de l'Investissement en Or", panelConverter: "Convertisseur de Devises", panelUSDValue: "Équivalent USD",
-        tableHeaderKarat: "Carat", tableHeaderPurity: "Pureté", tableHeaderGram: "Gramme",
-        tableHeaderBuy: "Achat", tableHeaderSell: "Vente", tableHeaderKilo: "Kilo",
-        tableHeaderProduct: "Produit", tableHeaderWeight: "Poids", tableHeaderSelected: "Sélectionné",
-        tableHeaderCode: "Code", tableHeader1UnitUSD: "1 Unité",
-        goldInfo1: "<strong>L'or</strong> est utilisé comme réserve de valeur depuis des milliers d'années.",
-        goldInfo2: "<strong>Le gramme d'or</strong> est l'unité de 1 gramme d'or pur 24 carats.",
-        goldWarning: "⚠️ <em>Avertissement : Les données sur ce site sont à titre informatif uniquement. Pas de conseil en investissement.</em>",
-        searchCurrency: "Rechercher une devise", legalDisclaimerTitle: "Avertissement légal :",
-        legalDisclaimerText: "Les données sont récupérées automatiquement depuis une source API. Pas de conseil en investissement.",
-        footerDesc: "Nous soutenons vos décisions d'investissement avec des données en direct sur l'or et les devises.",
-        footerLegal: "Légal", footerAbout: "À propos", footerQuick: "Accès rapide",
-        footerRights: "Tous droits réservés.", linkPrivacy: "Politique de confidentialité",
-        linkTerms: "Conditions d'utilisation", linkCookies: "Politique des cookies", linkDisclaimer: "Avertissement légal",
-        linkAbout: "Qui sommes-nous ?", linkContact: "Contact", linkBlog: "Blog",
-        linkPrivacyShort: "Confidentialité", linkContactShort: "Contact", adPlaceholder: "Espace publicitaire",
-        modalPrivacyTitle: "🔒 Politique de confidentialité", modalLastUpdate: "Dernière mise à jour :",
-        modalPrivacy1Title: "1. Données collectées", modalPrivacyCookies: "Cookies :",
-        modalPrivacyCookiesDesc: "Cookies techniques pour améliorer l'expérience du site.",
-        modalPrivacyIP: "Adresse IP :", modalPrivacyIPDesc: "Enregistrements anonymes à des fins de sécurité.",
-        modalPrivacyUsage: "Données d'utilisation :", modalPrivacyUsageDesc: "Statistiques anonymes.",
-        modalPrivacyContact: "Contact :", modalPrivacyContactLink: "Page de contact",
-        modalAboutTitle: "ℹ️ À propos de nous", modalAboutDesc: "<strong>Altın Piyasa</strong> est une plateforme d'information financière indépendante fournissant des données en temps réel sur l'or et les devises à ses utilisateurs.",
-        modalAboutMission: "Notre Mission", modalAboutMissionDesc: "Permettre aux investisseurs d'accéder à des données de marché fiables, transparentes et facilement accessibles.",
-        modalContactTitle: "📬 Contact", modalContactDesc: "Vous pouvez utiliser le formulaire ci-dessous pour des questions, suggestions ou demandes de partenariat.",
-        formName: "Votre nom *", formEmail: "E-mail *", formMessage: "Votre message *", formSend: "📤 Envoyer",
-        modalContactNote: "Note : Le formulaire est à titre de démonstration. Veuillez nous contacter directement par e-mail.",
-        modalTermsTitle: "📜 Conditions d'utilisation", modalTermsIntro: "En utilisant ce site, vous acceptez les conditions suivantes :",
-        modalTerms1Item1: "Les données sont à titre informatif uniquement.", modalTerms1Item2: "Pas de conseil en investissement.",
-        modalTerms1Item3: "Peut être retardé ou contenir des erreurs.", modalCookiesTitle: "🍪 Politique des cookies",
-        modalCookiesManageDesc: "Vous pouvez bloquer les cookies dans les paramètres de votre navigateur.",
-        modalDisclaimerTitle: "⚠️ Avertissement légal", modalDisclaimerImportant: "IMPORTANT :",
-        modalDisclaimerText: "Aucune information sur ce site ne constitue un conseil en investissement."
-      },
-      es: {
-        skip: "Saltar al contenido", navHome: "Inicio", navPrices: "Precios", navConverter: "Conversor",
-        navAbout: "Acerca de", navContact: "Contacto", breadcrumbDashboard: "Panel de control",
-        convert: "Calcular", cookieText: "🍪 Este sitio utiliza cookies para mejorar su experiencia. Consulte nuestra <a href=\"#\" onclick=\"openModal('privacy')\">Política de privacidad</a> para más detalles.",
-        cookieAccept: "Aceptar", cookieDecline: "Rechazar", statusLive: "Datos en vivo",
-        cardOunce: "Onza de Oro", cardGram24: "Gramo 24K", cardUSD: "Tasa USD", cardEUR: "Tasa EUR",
-        cardSubCurrency: "Moneda seleccionada", cardSubUSD: "Equivalente 1 USD", cardSubEUR: "Equivalente 1 EUR",
-        panelGoldPrices: "Precios del Oro", panelStandardGold: "Oro Estándar",
-        panelAboutGold: "Sobre la Inversión en Oro", panelConverter: "Conversor de Divisas", panelUSDValue: "Equivalente USD",
-        tableHeaderKarat: "Quilate", tableHeaderPurity: "Pureza", tableHeaderGram: "Gramo",
-        tableHeaderBuy: "Compra", tableHeaderSell: "Venta", tableHeaderKilo: "Kilo",
-        tableHeaderProduct: "Producto", tableHeaderWeight: "Peso", tableHeaderSelected: "Seleccionado",
-        tableHeaderCode: "Código", tableHeader1UnitUSD: "1 Unidad",
-        goldInfo1: "<strong>El oro</strong> se ha utilizado como reserva de valor durante miles de años.",
-        goldInfo2: "<strong>El gramo de oro</strong> es la unidad de 1 gramo de oro puro de 24 quilates.",
-        goldWarning: "⚠️ <em>Advertencia: Los datos en este sitio son solo para fines informativos. No es asesoramiento de inversión.</em>",
-        searchCurrency: "Buscar moneda", legalDisclaimerTitle: "Aviso legal:",
-        legalDisclaimerText: "Los datos se obtienen automáticamente de una fuente API. No es asesoramiento de inversión.",
-        footerDesc: "Apoyamos sus decisiones de inversión con datos en vivo de oro y divisas.",
-        footerLegal: "Legal", footerAbout: "Acerca de", footerQuick: "Acceso rápido",
-        footerRights: "Todos los derechos reservados.", linkPrivacy: "Política de privacidad",
-        linkTerms: "Términos de uso", linkCookies: "Política de cookies", linkDisclaimer: "Aviso legal",
-        linkAbout: "¿Quiénes somos?", linkContact: "Contacto", linkBlog: "Blog",
-        linkPrivacyShort: "Privacidad", linkContactShort: "Contacto", adPlaceholder: "Espacio publicitario",
-        modalPrivacyTitle: "🔒 Política de privacidad", modalLastUpdate: "Última actualización:",
-        modalPrivacy1Title: "1. Datos recopilados", modalPrivacyCookies: "Cookies:",
-        modalPrivacyCookiesDesc: "Cookies técnicas para mejorar la experiencia del sitio.",
-        modalPrivacyIP: "Dirección IP:", modalPrivacyIPDesc: "Registros anónimos con fines de seguridad.",
-        modalPrivacyUsage: "Datos de uso:", modalPrivacyUsageDesc: "Estadísticas anónimas.",
-        modalPrivacyContact: "Contacto:", modalPrivacyContactLink: "Página de contacto",
-        modalAboutTitle: "ℹ️ Acerca de nosotros", modalAboutDesc: "<strong>Altın Piyasa</strong> es una plataforma de información financiera independiente que proporciona datos en tiempo real sobre oro y divisas a sus usuarios.",
-        modalAboutMission: "Nuestra Misión", modalAboutMissionDesc: "Permitir a los inversores acceder a datos de mercado confiables, transparentes y de fácil acceso.",
-        modalContactTitle: "📬 Contacto", modalContactDesc: "Puede usar el formulario a continuación para preguntas, sugerencias o solicitudes de asociación.",
-        formName: "Su nombre *", formEmail: "Correo electrónico *", formMessage: "Su mensaje *", formSend: "📤 Enviar",
-        modalContactNote: "Nota: El formulario es para fines de demostración. Por favor contáctenos directamente por correo electrónico.",
-        modalTermsTitle: "📜 Términos de uso", modalTermsIntro: "Al usar este sitio, acepta los siguientes términos:",
-        modalTerms1Item1: "Los datos son solo para fines informativos.", modalTerms1Item2: "No es asesoramiento de inversión.",
-        modalTerms1Item3: "Puede estar retrasado o contener errores.", modalCookiesTitle: "🍪 Política de cookies",
-        modalCookiesManageDesc: "Puede bloquear cookies desde la configuración de su navegador.",
-        modalDisclaimerTitle: "⚠️ Aviso legal", modalDisclaimerImportant: "IMPORTANTE:",
-        modalDisclaimerText: "Ninguna información en este sitio constituye asesoramiento de inversión."
-      },
-      ru: {
-        skip: "Перейти к содержанию", navHome: "Главная", navPrices: "Цены", navConverter: "Конвертер",
-        navAbout: "О нас", navContact: "Контакты", breadcrumbDashboard: "Панель управления",
-        convert: "Рассчитать", cookieText: "🍪 Этот сайт использует файлы cookie для улучшения вашего опыта. Подробности см. в нашей <a href=\"#\" onclick=\"openModal('privacy')\">Политике конфиденциальности</a>.",
-        cookieAccept: "Принять", cookieDecline: "Отклонить", statusLive: "Актуальные данные",
-        cardOunce: "Унция золота", cardGram24: "Грамм 24K", cardUSD: "Курс USD", cardEUR: "Курс EUR",
-        cardSubCurrency: "Выбранная валюта", cardSubUSD: "Эквивалент 1 USD", cardSubEUR: "Эквивалент 1 EUR",
-        panelGoldPrices: "Цены на золото", panelStandardGold: "Стандартное золото",
-        panelAboutGold: "Об инвестициях в золото", panelConverter: "Конвертер валют", panelUSDValue: "Эквивалент в USD",
-        tableHeaderKarat: "Проба", tableHeaderPurity: "Чистота", tableHeaderGram: "Грамм",
-        tableHeaderBuy: "Покупка", tableHeaderSell: "Продажа", tableHeaderKilo: "Кило",
-        tableHeaderProduct: "Продукт", tableHeaderWeight: "Вес", tableHeaderSelected: "Выбрано",
-        tableHeaderCode: "Код", tableHeader1UnitUSD: "1 Единица",
-        goldInfo1: "<strong>Золото</strong> используется как средство сохранения стоимости на протяжении тысячелетий.",
-        goldInfo2: "<strong>Грамм золота</strong> — это единица в 1 грамм чистого золота 24 пробы.",
-        goldWarning: "⚠️ <em>Предупреждение: Данные на этом сайте предназначены только для информационных целей. Не является инвестиционной рекомендацией.</em>",
-        searchCurrency: "Поиск валюты", legalDisclaimerTitle: "Юридическое уведомление:",
-        legalDisclaimerText: "Данные автоматически получаются из источника API. Не является инвестиционной рекомендацией.",
-        footerDesc: "Мы поддерживаем ваши инвестиционные решения актуальными данными о золоте и валюте.",
-        footerLegal: "Юридическая информация", footerAbout: "О нас", footerQuick: "Быстрый доступ",
-        footerRights: "Все права защищены.", linkPrivacy: "Политика конфиденциальности",
-        linkTerms: "Условия использования", linkCookies: "Политика cookie", linkDisclaimer: "Юридическое уведомление",
-        linkAbout: "Кто мы?", linkContact: "Контакты", linkBlog: "Блог",
-        linkPrivacyShort: "Конфиденциальность", linkContactShort: "Контакт", adPlaceholder: "Рекламное место",
-        modalPrivacyTitle: "🔒 Политика конфиденциальности", modalLastUpdate: "Последнее обновление:",
-        modalPrivacy1Title: "1. Собираемые данные", modalPrivacyCookies: "Файлы cookie:",
-        modalPrivacyCookiesDesc: "Технические cookie для улучшения работы сайта.",
-        modalPrivacyIP: "IP-адрес:", modalPrivacyIPDesc: "Анонимные записи в целях безопасности.",
-        modalPrivacyUsage: "Данные об использовании:", modalPrivacyUsageDesc: "Анонимная статистика.",
-        modalPrivacyContact: "Контакт:", modalPrivacyContactLink: "Страница контактов",
-        modalAboutTitle: "ℹ️ О нас", modalAboutDesc: "<strong>Altın Piyasa</strong> — это независимая финансовая информационная платформа, предоставляющая пользователям актуальные данные о золоте и валюте.",
-        modalAboutMission: "Наша миссия", modalAboutMissionDesc: "Обеспечить инвесторам доступ к надежным, прозрачным и легко доступным рыночным данным.",
-        modalContactTitle: "📬 Контакты", modalContactDesc: "Вы можете использовать форму ниже для вопросов, предложений или запросов о сотрудничестве.",
-        formName: "Ваше имя *", formEmail: "Электронная почта *", formMessage: "Ваше сообщение *", formSend: "📤 Отправить",
-        modalContactNote: "Примечание: Форма предназначена для демонстрационных целей. Пожалуйста, свяжитесь с нами напрямую по электронной почте.",
-        modalTermsTitle: "📜 Условия использования", modalTermsIntro: "Используя этот сайт, вы соглашаетесь со следующими условиями:",
-        modalTerms1Item1: "Данные предназначены только для информационных целей.", modalTerms1Item2: "Не является инвестиционной рекомендацией.",
-        modalTerms1Item3: "Может быть задержано или содержать ошибки.", modalCookiesTitle: "🍪 Политика cookie",
-        modalCookiesManageDesc: "Вы можете блокировать cookie в настройках вашего браузера.",
-        modalDisclaimerTitle: "⚠️ Юридическое уведомление", modalDisclaimerImportant: "ВАЖНО:",
-        modalDisclaimerText: "Никакая информация на этом сайте не является инвестиционной рекомендацией."
-      }
-    };
-
-    // ===== COOKIE MANAGEMENT =====
-    function acceptCookies() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookieBanner').style.display = 'none';
-      if (ADS_ENABLED) initAdSense();
-    }
-    function declineCookies() {
-      localStorage.setItem('cookiesAccepted', 'false');
-      document.getElementById('cookieBanner').style.display = 'none';
-    }
-
-    // ===== ADSENSE INIT =====
-    function initAdSense() {
-      if (!ADS_ENABLED) return;
-      document.querySelectorAll('.ad-unit').forEach(ad => ad.classList.add('ads-active'));
-      if (document.getElementById('adsense-script')) return;
-      const script = document.createElement('script');
-      script.id = 'adsense-script'; script.async = true; script.crossOrigin = 'anonymous';
-      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX';
-      document.head.appendChild(script);
-      script.onload = function() { setTimeout(() => { (adsbygoogle = window.adsbygoogle || []).push({}); }, 1000); };
-    }
-
-    // ===== MODAL FUNCTIONS =====
-    function openModal(name) {
-      document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
-      const modal = document.getElementById(name + '-modal');
-      if (modal) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    }
-    function closeModal(name) {
-      const modal = document.getElementById(name + '-modal');
-      if (modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
-    }
-    document.querySelectorAll('.modal').forEach(modal => {
-      modal.addEventListener('click', function(e) {
-        if (e.target === this) { this.classList.remove('active'); document.body.style.overflow = ''; }
-      });
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
-        document.body.style.overflow = '';
-      }
-    });
-
-    // ===== CONTACT FORM =====
-    function submitContact(e) {
-      e.preventDefault();
-      const lang = localStorage.getItem('siteLang') || 'tr';
-      const msg = {
-        tr: '✅ Mesajınız alındı! (Demo modu)',
-        en: '✅ Message received! (Demo mode)',
-        ar: '✅ تم استلام رسالتك! (وضع تجريبي)',
-        de: '✅ Nachricht erhalten! (Demo-Modus)',
-        fr: '✅ Message reçu ! (Mode démo)',
-        es: '✅ ¡Mensaje recibido! (Modo demo)',
-        ru: '✅ Сообщение получено! (Демо-режим)'
-      }[lang] || '✅ Message received!';
-      alert(msg);
-      e.target.reset();
-      closeModal('contact');
-    }
-
-    // ===== LANGUAGE SUPPORT =====
-    function setLanguage(lang) {
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
-      const t = translations[lang] || translations.tr;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-          if (key.includes('Info') || key.includes('Desc') || key.includes('Text')) {
-            el.innerHTML = t[key];
-          } else { el.textContent = t[key]; }
-        }
-      });
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (t[key]) el.placeholder = t[key];
-      });
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-      document.documentElement.lang = lang;
-      localStorage.setItem('siteLang', lang);
-      
-      // ✅ SEO Meta güncelle
-      if (typeof updateSEOMeta === 'function') updateSEOMeta(lang);
-      
-      // ✅ Google Analytics event
-      if (typeof gtag === 'function') {
-        gtag('event', 'language_change', { 'language': lang, 'page_location': window.location.href });
-      }
-      
-      if (data) render();
-    }
-
-    // ===== CLOCK & DATE =====
-    function updateClock() {
-      const clock = document.getElementById('clock');
-      const lastUpdate = document.getElementById('lastUpdate');
-      if (clock) clock.textContent = new Date().toLocaleTimeString('tr-TR');
-      if (lastUpdate) lastUpdate.textContent = new Date().toLocaleDateString('tr-TR');
-    }
-
-    // ===== DOM READY =====
-    document.addEventListener('DOMContentLoaded', function() {
-      const cookieAccepted = localStorage.getItem('cookiesAccepted');
-      if (cookieAccepted === 'true') {
-        document.getElementById('cookieBanner').style.display = 'none';
-        if (ADS_ENABLED) initAdSense();
-      }
-      document.getElementById('year').textContent = new Date().getFullYear();
-      document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('tr-TR');
-      updateClock();
-      setInterval(updateClock, 1000);
-      const savedLang = localStorage.getItem('siteLang') || 'tr';
-      setLanguage(savedLang);
-      loadData();
-      setInterval(loadData, 60000);
-    });
-
-    // ===== API & DATA LOGIC (UNCHANGED) =====
-    let data = null;
-    document.getElementById("refreshBtn").onclick = loadData;
-    document.getElementById("mainCurrency").onchange = function () {
-      document.getElementById("goldCurrency").value = this.value;
-      render();
-    };
-    document.getElementById("goldCurrency").onchange = render;
-    document.getElementById("currencySearch").oninput = renderCurrencies;
-
-    async function loadData() {
-      try {
-        const t = translations[localStorage.getItem('siteLang') || 'tr'] || translations.tr;
-        setStatus(t.statusLive, false);
-        const res = await fetch(API_URL, { cache: "no-store" });
-        data = await res.json();
-        if (!data.goldUSD || !data.rates) throw new Error("API verisi eksik");
-        fillConverter();
-        render();
-      } catch (e) {
-        console.error('API Hatası:', e);
-        setStatus("Hata: " + e.message, true);
-      }
-    }
-
-    function render() {
-      if (!data) return;
-      const currency = document.getElementById("mainCurrency").value;
-      const goldCurrency = document.getElementById("goldCurrency").value;
-
-      document.getElementById("goldUsd").textContent = money(data.goldUSD, "USD");
-      document.getElementById("gram24").textContent = money(gramPrice(24, currency), currency);
-      document.getElementById("usdRate").textContent = money(data.rates[currency] || 1, currency);
-      document.getElementById("eurRate").textContent = money(convert(1, "EUR", currency), currency);
-
-      document.getElementById("goldRows").innerHTML = KARATS.map(function (karat) {
-        const gram = gramPrice(karat, goldCurrency);
-        return `<tr>
-          <td>${karat}</td>
-          <td>${Math.round(karat / 24 * 1000)}‰</td>
-          <td>${money(gram, goldCurrency)}</td>
-          <td class="down">${money(gram * 0.992, goldCurrency)}</td>
-          <td class="up">${money(gram * 1.015, goldCurrency)}</td>
-          <td>${money(gram * 1000, goldCurrency)}</td>
-        </tr>`;
-      }).join("");
-
-      renderPieces();
-      renderCurrencies();
-      renderConverter();
-    }
-
-    function renderPieces() {
-      const currency = document.getElementById("goldCurrency").value;
-      const pieces = [
-        { name: "Çeyrek Altın", weight: 1.75, karat: 22 },
-        { name: "Yarım Altın", weight: 3.5, karat: 22 },
-        { name: "Tam Altın", weight: 7, karat: 22 },
-        { name: "Cumhuriyet Altını", weight: 7.216, karat: 22 },
-        { name: "Ons Altın", weight: OUNCE, karat: 24 },
-        { name: "1 KG Altın", weight: 1000, karat: 24 }
-      ];
-      document.getElementById("pieceRows").innerHTML = pieces.map(function (item) {
-        const selected = gramPrice(item.karat, currency) * item.weight;
-        const usd = gramPrice(item.karat, "USD") * item.weight;
-        const eur = gramPrice(item.karat, "EUR") * item.weight;
-        return `<tr>
-          <td>${item.name}</td>
-          <td>${item.karat}</td>
-          <td>${format(item.weight)} gr</td>
-          <td>${money(usd, "USD")}</td>
-          <td>${money(eur, "EUR")}</td>
-          <td>${money(selected, currency)}</td>
-        </tr>`;
-      }).join("");
-    }
-
-    function renderCurrencies() {
-      const search = document.getElementById("currencySearch").value.toLowerCase();
-      document.getElementById("currencyRows").innerHTML =
-        Object.entries(data.rates)
-          .filter(([code]) => code.toLowerCase().includes(search))
-          .sort((a, b) => a[0].localeCompare(b[0]))
-          .map(([code, rate]) => `<tr>
-            <td><strong>${code}</strong></td>
-            <td>${format(rate)}</td>
-            <td>${money(1 / rate, "USD")}</td>
-          </tr>`).join("");
-    }
-
-    function fillConverter() {
-      const codes = Object.keys(data.rates).sort();
-      fillSelect("fromCurrency", codes, "USD");
-      fillSelect("toCurrency", codes, "TRY");
-      document.getElementById("convertAmount").oninput = renderConverter;
-      document.getElementById("fromCurrency").onchange = renderConverter;
-      document.getElementById("toCurrency").onchange = renderConverter;
-      document.getElementById("swapBtn").onclick = function () {
-        const from = document.getElementById("fromCurrency");
-        const to = document.getElementById("toCurrency");
-        [from.value, to.value] = [to.value, from.value];
-        renderConverter();
-      };
-    }
-
-    function fillSelect(id, codes, selected) {
-      const select = document.getElementById(id);
-      if (select.options.length) return;
-      select.innerHTML = codes.map(code => `<option value="${code}">${code}</option>`).join("");
-      select.value = codes.includes(selected) ? selected : codes[0];
-    }
-
-    function renderConverter() {
-      if (!data) return;
-      const amount = Number(document.getElementById("convertAmount").value || 0);
-      const from = document.getElementById("fromCurrency").value;
-      const to = document.getElementById("toCurrency").value;
-      const result = convert(amount, from, to);
-      document.getElementById("convertResult").value = format(result);
-      document.getElementById("converterText").textContent = `${format(amount)} ${from} = ${format(result)} ${to}`;
-    }
-
-    function gramPrice(karat, currency) {
-      const gramUSD = data.goldUSD / OUNCE * karat / 24;
-      return convert(gramUSD, "USD", currency);
-    }
-
-    function convert(amount, from, to) {
-      const fromRate = data.rates[from] || 1;
-      const toRate = data.rates[to] || 1;
-      return amount / fromRate * toRate;
-    }
-
-    function money(value, currency) {
-      try {
-        return new Intl.NumberFormat("tr-TR", {
-          style: "currency", currency: currency, maximumFractionDigits: 2
-        }).format(value || 0);
-      } catch(e) {
-        return (value || 0).toFixed(2) + " " + currency;
-      }
-    }
-
-    function format(value) {
-      return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 4 }).format(value || 0);
-    }
-
-    function setStatus(text, error) {
-      const box = document.getElementById("status");
-      box.className = error ? "status-bar error" : "status-bar";
-      box.querySelector("span").innerHTML = error ? text : `<span class="live-indicator">${text}</span> • <span id="lastUpdate">${new Date().toLocaleDateString('tr-TR')}</span>`;
-      document.getElementById("clock").textContent = new Date().toLocaleTimeString("tr-TR");
-    }
+    window.GOLD_API_URL = "https://gold-api.alyux.workers.dev/";
   </script>
+  <script src="app.js" defer></script>
 </body>
 </html>
