@@ -3,55 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canlı Altın Fiyatları | Altın Piyasa</title>
-  <meta name="description" content="Anlık altın fiyatları, gram altın, ons altın, döviz kurları ve para birimi çevirici. Güvenilir piyasa takibi için modern finans paneli.">
-  <meta name="keywords" content="altın fiyatları, gram altın, ons altın, döviz kurları, dolar kuru, euro kuru, altın hesaplama, currency converter, gold price">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#0b1220">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Canlı Altın ve Döviz Fiyatları | Altın Piyasa">
-  <meta property="og:description" content="Gram altın, ons altın ve döviz kurlarını canlı takip edin.">
-  <meta property="og:url" content="https://altinpiyasa.com">
-  <meta property="og:site_name" content="Altın Piyasa">
-  <meta property="og:locale" content="tr_TR">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://altinpiyasa.com">
-  <link rel="alternate" hreflang="tr" href="https://altinpiyasa.com/tr">
-  <link rel="alternate" hreflang="en" href="https://altinpiyasa.com/en">
-  <link rel="alternate" hreflang="ar" href="https://altinpiyasa.com/ar">
-  <link rel="alternate" hreflang="x-default" href="https://altinpiyasa.com">
-  <link rel="preconnect" href="https://gold-api.alyux.workers.dev">
-  <link rel="dns-prefetch" href="//api.gold-api.com">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Altın Piyasa",
-    "url": "https://altinpiyasa.com",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Web",
-    "description": "Canlı altın fiyatları, döviz kurları ve para birimi çevirici.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-  }
-  </script>
+  <title>Altın Piyasa | Canlı Altın ve Döviz Paneli</title>
+  <meta name="description" content="Canlı ons altın, gram altın, standart altın ürünleri, döviz kurları ve pratik para birimi çevirici.">
+  <meta name="theme-color" content="#0b1020">
   <style>
     :root {
       color-scheme: dark;
-      --bg: #080d18;
-      --surface: #0f172a;
-      --surface-2: #151f33;
-      --surface-3: #1d2940;
-      --line: #26344e;
-      --text: #eef4ff;
-      --muted: #98a7bd;
-      --gold: #f5b342;
-      --gold-2: #d98919;
-      --green: #22c55e;
-      --red: #fb7185;
-      --blue: #38bdf8;
-      --shadow: 0 18px 60px rgba(0, 0, 0, 0.32);
-      --radius: 8px;
-      --nav: 72px;
+      --bg: #080b12;
+      --surface: #101724;
+      --surface-2: #151f2f;
+      --surface-3: #1c2a3f;
+      --line: #2a3a55;
+      --text: #edf4ff;
+      --muted: #9badc6;
+      --gold: #f5b642;
+      --gold-dark: #b86f12;
+      --green: #20c997;
+      --red: #ff6b7a;
+      --cyan: #42c8f5;
+      --violet: #a78bfa;
+      --shadow: 0 18px 54px rgba(0, 0, 0, .32);
+    }
+
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f3f6fb;
+      --surface: #ffffff;
+      --surface-2: #f7f9fc;
+      --surface-3: #edf2f8;
+      --line: #d8e1ee;
+      --text: #111827;
+      --muted: #64748b;
+      --shadow: 0 18px 48px rgba(15, 23, 42, .12);
     }
 
     * { box-sizing: border-box; }
@@ -60,118 +43,93 @@
       margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(circle at top left, rgba(245, 179, 66, 0.15), transparent 34rem),
-        linear-gradient(180deg, #09111f 0, var(--bg) 42rem);
+        radial-gradient(circle at 12% 0%, rgba(245, 182, 66, .16), transparent 28rem),
+        radial-gradient(circle at 90% 8%, rgba(66, 200, 245, .12), transparent 30rem),
+        var(--bg);
       color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.55;
-      padding-top: var(--nav);
     }
 
-    a { color: inherit; text-decoration: none; }
     button, input, select { font: inherit; }
     button, select { cursor: pointer; }
-    .skip-link {
-      position: fixed;
-      top: -48px;
-      left: 12px;
-      z-index: 2000;
-      background: var(--gold);
-      color: #111827;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      font-weight: 800;
-    }
-    .skip-link:focus { top: 12px; }
+    a { color: inherit; text-decoration: none; }
 
-    .navbar {
-      position: fixed;
-      inset: 0 0 auto;
-      height: var(--nav);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 0 22px;
-      background: rgba(15, 23, 42, 0.9);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(16px);
+    .shell {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 18px;
     }
-    .brand, .nav-left, .nav-right, .nav-menu, .controls, .market-state {
-      display: flex;
-      align-items: center;
-    }
-    .nav-left { gap: 18px; min-width: 0; }
-    .brand { gap: 10px; font-weight: 900; white-space: nowrap; }
-    .brand-mark {
-      width: 40px;
-      height: 40px;
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       display: grid;
-      place-items: center;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--gold-2), var(--gold));
-      color: #111827;
-      box-shadow: 0 12px 30px rgba(245, 179, 66, 0.22);
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 70px;
+      margin: -18px -18px 18px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      backdrop-filter: blur(18px);
     }
-    .brand strong { font-size: 20px; letter-spacing: 0; }
-    .brand span span { color: var(--gold); }
-    .nav-toggle {
-      display: none;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface-2);
-      color: var(--text);
-    }
-    .nav-menu {
-      gap: 4px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-menu a {
+
+    .brand {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 10px 12px;
-      border-radius: var(--radius);
+      gap: 11px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #111827;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      font-weight: 950;
+      box-shadow: 0 12px 28px rgba(245, 182, 66, .24);
+    }
+
+    .brand strong { display: block; font-size: 18px; }
+    .brand span:last-child { display: block; color: var(--muted); font-size: 12px; font-weight: 700; }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .nav a {
       color: var(--muted);
+      border-radius: 8px;
+      padding: 9px 12px;
       font-size: 14px;
       font-weight: 750;
     }
-    .nav-menu a:hover, .nav-menu a.active { color: var(--text); background: var(--surface-2); }
-    .nav-right { gap: 10px; }
-    .controls { gap: 8px; }
-    .lang-switcher {
+
+    .nav a:hover, .nav a.active { color: var(--text); background: var(--surface-2); }
+
+    .actions {
       display: flex;
-      gap: 3px;
-      padding: 3px;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      align-items: center;
+      gap: 8px;
     }
-    .lang-btn {
-      min-width: 36px;
-      height: 30px;
-      border: 0;
-      border-radius: 6px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 850;
-    }
-    .lang-btn.active, .lang-btn:hover { background: var(--gold); color: #111827; }
-    .select, .btn, .input {
+
+    .btn, .select, .input {
       height: 40px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 8px;
       background: var(--surface-2);
       color: var(--text);
-      outline: 0;
+      outline: none;
     }
-    .select { padding: 0 10px; }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -180,170 +138,201 @@
       padding: 0 13px;
       font-weight: 850;
     }
-    .btn:hover, .select:focus, .input:focus { border-color: var(--gold); }
-    .btn-primary {
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--gold-2), var(--gold));
-      color: #111827;
-    }
-    .icon-btn { width: 40px; padding: 0; }
 
-    .container { width: min(1420px, 100%); margin: 0 auto; padding: 24px; }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-      gap: 24px;
-      align-items: stretch;
-      margin-bottom: 20px;
-    }
-    .hero-copy {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(21, 31, 51, 0.96), rgba(15, 23, 42, 0.88));
-      box-shadow: var(--shadow);
-      padding: 28px;
-      overflow: hidden;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 14px;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
-    }
-    h1 {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(34px, 6vw, 68px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-    .hero-copy p {
-      margin: 16px 0 0;
-      max-width: 700px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
-    .hero-side {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      display: grid;
-      gap: 14px;
-    }
-    .status {
+    .btn:hover, .select:focus, .input:focus { border-color: var(--gold); }
+    .btn-primary { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); border-color: transparent; color: #111827; }
+    .icon-btn { width: 40px; padding: 0; }
+    .select { padding: 0 10px; }
+    .input { width: 100%; padding: 0 12px; }
+
+    .status-strip {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
       color: var(--muted);
       font-size: 14px;
     }
-    .status strong { color: var(--text); }
-    .status.error { color: #fecdd3; }
-    .live {
+
+    .live-dot {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       color: var(--green);
       font-weight: 850;
     }
-    .live::before {
+
+    .live-dot::before {
       content: "";
       width: 8px;
       height: 8px;
-      border-radius: 999px;
+      border-radius: 50%;
       background: currentColor;
+      box-shadow: 0 0 0 6px color-mix(in srgb, currentColor 14%, transparent);
       animation: pulse 1.8s infinite;
     }
-    @keyframes pulse { 50% { opacity: 0.45; transform: scale(0.88); } }
 
-    .quick-grid {
+    @keyframes pulse { 50% { opacity: .45; transform: scale(.88); } }
+
+    .dashboard {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-    .quick-card, .card, .panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(15, 23, 42, 0.88);
-    }
-    .quick-card { padding: 14px; }
-    .quick-card span, .card-label, .muted { color: var(--muted); }
-    .quick-card strong {
-      display: block;
-      margin-top: 5px;
-      font-size: 22px;
-      line-height: 1.18;
-      overflow-wrap: anywhere;
+      grid-template-columns: minmax(0, 1.3fr) minmax(330px, .7fr);
+      gap: 18px;
+      align-items: start;
     }
 
-    .cards-grid {
+    .panel, .metric, .tool-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .market-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .headline {
+      padding: 22px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .headline::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 46px solid rgba(245, 182, 66, .08);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .headline p {
+      margin: 14px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .spark-panel {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .spark-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    #sparkline {
+      width: 100%;
+      height: 160px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--surface-3) 84%, transparent), transparent);
+    }
+
+    .metrics {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 18px;
     }
-    .card { padding: 18px; min-width: 0; }
-    .card-top {
+
+    .metric {
+      padding: 16px;
+      min-width: 0;
+      box-shadow: none;
+    }
+
+    .metric-top {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 10px;
       margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
     }
-    .card-icon {
-      width: 34px;
-      height: 34px;
+
+    .metric-icon {
+      width: 32px;
+      height: 32px;
       display: grid;
       place-items: center;
-      border-radius: var(--radius);
-      background: rgba(245, 179, 66, 0.12);
-      color: var(--gold);
-      font-weight: 900;
-    }
-    .card-value {
-      font-size: 27px;
+      border-radius: 8px;
+      color: #111827;
+      background: var(--gold);
       font-weight: 950;
-      line-height: 1.1;
+    }
+
+    .metric-value {
+      font-size: 27px;
+      line-height: 1.12;
+      font-weight: 950;
       overflow-wrap: anywhere;
     }
-    .card-sub { margin-top: 5px; color: var(--muted); font-size: 13px; }
-    .change { display: inline-block; margin-top: 9px; font-size: 13px; font-weight: 850; }
-    .up { color: var(--green); }
-    .down { color: var(--red); }
 
-    .content-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(320px, 0.9fr);
-      gap: 20px;
-      align-items: start;
-    }
-    .panel { overflow: hidden; margin-bottom: 20px; }
+    .metric-sub { margin-top: 7px; color: var(--muted); font-size: 13px; }
+    .positive { color: var(--green); }
+    .negative { color: var(--red); }
+
     .panel-head {
       min-height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 16px 18px;
+      padding: 15px 16px;
       border-bottom: 1px solid var(--line);
-      background: rgba(21, 31, 51, 0.9);
+      background: var(--surface-2);
     }
-    .panel-head h2 { margin: 0; font-size: 18px; letter-spacing: 0; }
+
+    .panel-head h2 { margin: 0; font-size: 18px; }
+    .panel-tools { display: flex; gap: 8px; align-items: center; }
     .table-wrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    table { width: 100%; min-width: 680px; border-collapse: collapse; }
     th, td {
       padding: 13px 15px;
       border-bottom: 1px solid var(--line);
@@ -351,28 +340,34 @@
       white-space: nowrap;
       font-size: 14px;
     }
+
     th {
       color: var(--muted);
-      background: rgba(8, 13, 24, 0.62);
       font-size: 12px;
-      font-weight: 900;
       text-transform: uppercase;
+      letter-spacing: .04em;
+      background: color-mix(in srgb, var(--bg) 46%, transparent);
     }
-    tbody tr:hover { background: rgba(56, 189, 248, 0.05); }
+
+    tbody tr:hover { background: color-mix(in srgb, var(--cyan) 7%, transparent); }
     tbody tr:last-child td { border-bottom: 0; }
 
-    .converter {
-      padding: 18px;
+    .side-stack { display: grid; gap: 18px; }
+    .tool-card { padding: 16px; }
+    .tool-card h2 { margin: 0 0 14px; font-size: 18px; }
+
+    .converter-grid {
       display: grid;
-      gap: 12px;
-    }
-    .converter-line {
-      display: grid;
-      grid-template-columns: 1fr 110px;
       gap: 10px;
     }
-    .input { width: 100%; padding: 0 12px; }
-    .swap {
+
+    .converter-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 108px;
+      gap: 10px;
+    }
+
+    .swap-btn {
       justify-self: center;
       width: 42px;
       height: 42px;
@@ -380,187 +375,132 @@
       border: 1px solid var(--line);
       background: var(--surface-2);
       color: var(--gold);
+      font-weight: 950;
     }
+
     .result-box {
       min-height: 58px;
       display: grid;
       place-items: center;
       padding: 14px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #0b1220;
-      color: var(--blue);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--cyan) 8%, var(--surface));
+      color: var(--cyan);
       text-align: center;
       font-size: 18px;
       font-weight: 950;
     }
-    .notice {
-      padding: 16px 18px;
-      color: #dbe6f8;
+
+    .rate-list {
+      display: grid;
+      gap: 9px;
+      max-height: 420px;
+      overflow: auto;
+      padding-right: 4px;
     }
-    .notice p { margin: 0 0 10px; }
+
+    .rate-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-2);
+    }
+
+    .rate-row strong { display: block; }
+    .rate-row span { color: var(--muted); font-size: 12px; }
+
+    .guide {
+      margin-top: 18px;
+      padding: 18px;
+      color: var(--muted);
+    }
+
+    .guide h2 { margin: 0 0 10px; color: var(--text); font-size: 18px; }
+    .guide p { margin: 0 0 10px; }
     .warning {
+      margin-top: 12px;
+      padding: 12px;
       border-left: 3px solid var(--red);
-      background: rgba(251, 113, 133, 0.1);
-      color: #fecdd3;
-      padding: 13px;
-      border-radius: 0 var(--radius) var(--radius) 0;
+      border-radius: 0 8px 8px 0;
+      background: color-mix(in srgb, var(--red) 11%, transparent);
+      color: color-mix(in srgb, var(--red) 45%, var(--text));
       font-size: 13px;
     }
-    .search-input {
-      width: 100%;
-      margin-top: 10px;
-      height: 38px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      color: var(--text);
-      padding: 0 11px;
-      outline: 0;
-    }
+
     .footer {
-      margin-top: 28px;
-      border-top: 1px solid var(--line);
-      background: rgba(8, 13, 24, 0.74);
-    }
-    .footer-inner {
-      width: min(1420px, 100%);
-      margin: 0 auto;
-      padding: 30px 24px;
-      display: grid;
-      grid-template-columns: 1.4fr repeat(3, 1fr);
-      gap: 24px;
-    }
-    .footer h3 { margin: 0 0 12px; color: var(--gold); font-size: 16px; }
-    .footer p, .footer a { color: var(--muted); font-size: 14px; }
-    .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
-    .footer-bottom {
-      border-top: 1px solid var(--line);
-      padding: 16px 24px;
-      text-align: center;
+      margin-top: 22px;
+      padding: 18px 0 8px;
       color: var(--muted);
       font-size: 13px;
+      text-align: center;
     }
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 1600;
-      display: none;
-      background: rgba(0, 0, 0, 0.76);
-      padding: 22px;
-      overflow: auto;
-    }
-    .modal.active { display: block; }
-    .modal-content {
-      width: min(680px, 100%);
-      margin: 8vh auto;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface-2);
-      color: var(--text);
-    }
-    .modal h2 { margin: 0 42px 16px 0; color: var(--gold); }
-    .modal p, .modal li { color: #dbe6f8; }
-    .cookie {
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      z-index: 1500;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      padding: 14px;
-    }
-    .cookie.show { display: flex; }
-    .cookie p { margin: 0; color: var(--muted); max-width: 760px; font-size: 14px; }
 
-    [dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+    .skeleton {
+      position: relative;
+      overflow: hidden;
+      color: transparent !important;
+      border-radius: 6px;
+      background: var(--surface-3);
+    }
+
+    .skeleton::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .16), transparent);
+      animation: shimmer 1.2s infinite;
+    }
+
+    @keyframes shimmer { 100% { transform: translateX(100%); } }
 
     @media (max-width: 1180px) {
-      .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .content-grid, .hero { grid-template-columns: 1fr; }
+      .dashboard, .market-head { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-    @media (max-width: 900px) {
-      .nav-toggle { display: grid; place-items: center; }
-      .nav-menu {
-        position: fixed;
-        top: var(--nav);
-        left: -280px;
-        width: 260px;
-        height: calc(100vh - var(--nav));
-        align-items: stretch;
-        flex-direction: column;
-        padding: 16px;
-        background: var(--surface);
-        border-right: 1px solid var(--line);
-        transition: left 0.22s ease;
+
+    @media (max-width: 760px) {
+      .shell { padding: 12px; }
+      .topbar {
+        margin: -12px -12px 14px;
+        grid-template-columns: 1fr auto;
       }
-      .nav-menu.active { left: 0; }
-      .nav-menu a { width: 100%; }
-      .btn-label { display: none; }
-      .container { padding: 18px; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 620px) {
-      body { padding-top: 64px; }
-      :root { --nav: 64px; }
-      .navbar { padding: 0 12px; }
-      .brand strong { font-size: 17px; }
-      .brand-mark { width: 36px; height: 36px; }
-      .lang-switcher { display: none; }
-      .cards-grid, .quick-grid, .footer-inner { grid-template-columns: 1fr; }
-      .hero-copy { padding: 22px; }
-      .status { display: grid; }
-      .converter-line { grid-template-columns: 1fr; }
+      .nav {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+      .hide-mobile { display: none; }
+      .metrics { grid-template-columns: 1fr; }
+      .status-strip { display: grid; }
       .panel-head { align-items: flex-start; flex-direction: column; }
+      .panel-tools, .select { width: 100%; }
+      .converter-line { grid-template-columns: 1fr; }
+      h1 { font-size: 36px; }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content" data-i18n="skip">İçeriğe atla</a>
-
-  <nav class="navbar" aria-label="Ana menü">
-    <div class="nav-left">
-      <button class="nav-toggle" id="navToggle" type="button" aria-label="Menüyü aç" aria-expanded="false">☰</button>
-      <a class="brand" href="#main-content" aria-label="Altın Piyasa">
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Altın Piyasa">
         <span class="brand-mark">Au</span>
-        <strong>Altın <span>Piyasa</span></strong>
+        <span><strong>Altın Piyasa</strong><span>Canlı finans paneli</span></span>
       </a>
-      <ul class="nav-menu" id="navMenu">
-        <li><a class="active" href="#main-content" data-i18n="navHome">Ana Sayfa</a></li>
-        <li><a href="#gold-prices" data-i18n="navPrices">Fiyatlar</a></li>
-        <li><a href="#converter" data-i18n="navConverter">Çevirici</a></li>
-        <li><a href="#about" data-i18n="navGuide">Rehber</a></li>
-        <li><a href="#" data-modal="contact" data-i18n="navContact">İletişim</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <div class="controls">
-        <div class="lang-switcher" aria-label="Dil seçimi">
-          <button class="lang-btn active" type="button" data-lang="tr">TR</button>
-          <button class="lang-btn" type="button" data-lang="en">EN</button>
-          <button class="lang-btn" type="button" data-lang="ar">AR</button>
-        </div>
+      <nav class="nav" aria-label="Ana menü">
+        <a class="active" href="#top">Özet</a>
+        <a href="#gold-table">Altın</a>
+        <a href="#converter">Çevirici</a>
+        <a href="#rates">Döviz</a>
+        <a href="#guide">Rehber</a>
+      </nav>
+      <div class="actions">
         <select class="select" id="mainCurrency" aria-label="Ana para birimi">
           <option value="TRY">TRY</option>
           <option value="USD">USD</option>
@@ -569,232 +509,151 @@
           <option value="AED">AED</option>
           <option value="EGP">EGP</option>
         </select>
-        <button class="btn icon-btn" id="refreshBtn" type="button" aria-label="Verileri yenile" title="Verileri yenile">↻</button>
-        <a class="btn btn-primary" href="#converter"><span>⌁</span><span class="btn-label" data-i18n="calculate">Hesapla</span></a>
+        <button class="btn icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir">◐</button>
+        <button class="btn btn-primary" id="refreshBtn" type="button"><span>↻</span><span class="hide-mobile">Yenile</span></button>
       </div>
-    </div>
-  </nav>
+    </header>
 
-  <main class="container" id="main-content">
-    <section class="hero" aria-label="Piyasa özeti">
-      <div class="hero-copy">
-        <div class="eyebrow" data-i18n="eyebrow">Canlı piyasa paneli</div>
-        <h1 data-i18n="heroTitle">Altın ve döviz verilerini tek ekranda izleyin</h1>
-        <p data-i18n="heroText">Ons altın, gram altın, standart altın ürünleri ve döviz kurları için hızlı, okunabilir ve mobil uyumlu takip paneli.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#gold-prices" data-i18n="viewPrices">Fiyatları Gör</a>
-          <a class="btn" href="#converter" data-i18n="openConverter">Çeviriciyi Aç</a>
+    <main id="top">
+      <div class="status-strip" id="status">
+        <span class="live-dot">Canlı veri hazırlanıyor</span>
+        <span id="lastUpdate">Son güncelleme bekleniyor</span>
+      </div>
+
+      <section class="market-head">
+        <div class="panel headline">
+          <div class="eyebrow">Anlık altın ve döviz takibi</div>
+          <h1>Piyasayı hızlı okuyun, hesaplamayı tek ekranda yapın</h1>
+          <p>Ons altın, gram altın, çeyrek, yarım, tam altın ve döviz kurları için sade, hızlı ve mobil uyumlu takip paneli.</p>
         </div>
-      </div>
-      <aside class="hero-side" aria-label="Anlık durum">
-        <div class="status" id="status" role="status" aria-live="polite">
-          <span><span class="live" data-i18n="loading">Veri yükleniyor</span></span>
-          <strong id="clock">--:--:--</strong>
+        <div class="panel spark-panel" aria-label="Piyasa mini grafiği">
+          <div class="spark-top">
+            <span>Ons altın hareketi</span>
+            <strong id="sparkLabel">XAU/USD</strong>
+          </div>
+          <canvas id="sparkline" width="640" height="260"></canvas>
         </div>
-        <div class="quick-grid">
-          <div class="quick-card"><span>XAU/USD</span><strong id="quickOunce">-</strong></div>
-          <div class="quick-card"><span data-i18n="quickGram">Gram 24K</span><strong id="quickGram24">-</strong></div>
-          <div class="quick-card"><span>USD/TRY</span><strong id="quickUsdTry">-</strong></div>
-          <div class="quick-card"><span>EUR/TRY</span><strong id="quickEurTry">-</strong></div>
+      </section>
+
+      <section class="metrics" aria-label="Öne çıkan değerler">
+        <article class="metric">
+          <div class="metric-top"><span>Ons Altın</span><span class="metric-icon">oz</span></div>
+          <div class="metric-value skeleton" id="goldUsd">0000</div>
+          <div class="metric-sub">XAU/USD</div>
+        </article>
+        <article class="metric">
+          <div class="metric-top"><span>Gram 24 Ayar</span><span class="metric-icon">gr</span></div>
+          <div class="metric-value skeleton" id="gram24">0000</div>
+          <div class="metric-sub" id="gramSub">Seçili para birimi</div>
+        </article>
+        <article class="metric">
+          <div class="metric-top"><span>Dolar Kuru</span><span class="metric-icon">$</span></div>
+          <div class="metric-value skeleton" id="usdRate">0000</div>
+          <div class="metric-sub">1 USD karşılığı</div>
+        </article>
+        <article class="metric">
+          <div class="metric-top"><span>Euro Kuru</span><span class="metric-icon">€</span></div>
+          <div class="metric-value skeleton" id="eurRate">0000</div>
+          <div class="metric-sub">1 EUR karşılığı</div>
+        </article>
+      </section>
+
+      <div class="dashboard">
+        <div>
+          <section class="panel" id="gold-table">
+            <div class="panel-head">
+              <h2>Altın Fiyatları</h2>
+              <div class="panel-tools">
+                <select class="select" id="goldCurrency" aria-label="Altın fiyat para birimi">
+                  <option value="TRY">TRY</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="SAR">SAR</option>
+                  <option value="AED">AED</option>
+                  <option value="EGP">EGP</option>
+                </select>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ayar</th>
+                    <th>Saflık</th>
+                    <th>Gram</th>
+                    <th>Alış</th>
+                    <th>Satış</th>
+                    <th>Kilo</th>
+                  </tr>
+                </thead>
+                <tbody id="goldRows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel" style="margin-top:18px">
+            <div class="panel-head">
+              <h2>Standart Altınlar</h2>
+              <div class="panel-tools">
+                <input class="input" id="productSearch" type="search" placeholder="Ürün ara" aria-label="Ürün ara">
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ürün</th>
+                    <th>Ayar</th>
+                    <th>Ağırlık</th>
+                    <th>USD</th>
+                    <th>EUR</th>
+                    <th>Seçili</th>
+                  </tr>
+                </thead>
+                <tbody id="pieceRows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel guide" id="guide">
+            <h2>Altın fiyatı nasıl hesaplanır?</h2>
+            <p>Gram altın fiyatı temel olarak ons altın fiyatının grama bölünmesi ve ilgili döviz kuruyla çarpılmasıyla hesaplanır.</p>
+            <p>Alış ve satış fiyatlarında kuyumcu makası, vergi, likidite ve piyasa hareketleri nedeniyle fark oluşabilir.</p>
+            <div class="warning">Bu panel bilgilendirme amaçlıdır. Buradaki hiçbir veri yatırım tavsiyesi değildir.</div>
+          </section>
         </div>
-      </aside>
-    </section>
 
-    <section class="cards-grid" aria-label="Öne çıkan göstergeler">
-      <article class="card">
-        <div class="card-top"><span class="card-label" data-i18n="cardOunce">Ons Altın</span><span class="card-icon">Au</span></div>
-        <div class="card-value" id="goldUsd">-</div>
-        <div class="card-sub">XAU/USD</div>
-        <span class="change up" data-i18n="liveMarket">Canlı piyasa</span>
-      </article>
-      <article class="card">
-        <div class="card-top"><span class="card-label" data-i18n="cardGram">Gram 24 Ayar</span><span class="card-icon">gr</span></div>
-        <div class="card-value" id="gram24">-</div>
-        <div class="card-sub" data-i18n="selectedCurrency">Seçili para birimi</div>
-      </article>
-      <article class="card">
-        <div class="card-top"><span class="card-label" data-i18n="cardUsd">Dolar Kuru</span><span class="card-icon">$</span></div>
-        <div class="card-value" id="usdRate">-</div>
-        <div class="card-sub" data-i18n="oneUsd">1 USD karşılığı</div>
-      </article>
-      <article class="card">
-        <div class="card-top"><span class="card-label" data-i18n="cardEur">Euro Kuru</span><span class="card-icon">€</span></div>
-        <div class="card-value" id="eurRate">-</div>
-        <div class="card-sub" data-i18n="oneEur">1 EUR karşılığı</div>
-      </article>
-    </section>
-
-    <div class="content-grid">
-      <div>
-        <section class="panel" id="gold-prices">
-          <div class="panel-head">
-            <h2 data-i18n="goldPrices">Altın Fiyatları</h2>
-            <select class="select" id="goldCurrency" aria-label="Altın fiyatları para birimi">
-              <option value="TRY">TRY</option>
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="SAR">SAR</option>
-              <option value="AED">AED</option>
-              <option value="EGP">EGP</option>
-            </select>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th data-i18n="karat">Ayar</th>
-                  <th data-i18n="purity">Saflık</th>
-                  <th data-i18n="gram">Gram</th>
-                  <th data-i18n="buy">Alış</th>
-                  <th data-i18n="sell">Satış</th>
-                  <th data-i18n="kilo">Kilo</th>
-                </tr>
-              </thead>
-              <tbody id="goldRows"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="panel">
-          <div class="panel-head"><h2 data-i18n="standardGold">Standart Altınlar</h2></div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th data-i18n="product">Ürün</th>
-                  <th data-i18n="karat">Ayar</th>
-                  <th data-i18n="weight">Ağırlık</th>
-                  <th>USD</th>
-                  <th>EUR</th>
-                  <th data-i18n="selected">Seçili</th>
-                </tr>
-              </thead>
-              <tbody id="pieceRows"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="panel" id="about">
-          <div class="panel-head"><h2 data-i18n="guideTitle">Altın Yatırımı Hakkında</h2></div>
-          <div class="notice">
-            <p data-i18n="guideOne"><strong>Gram altın</strong>, ons altın fiyatı ve döviz kuru birlikte hesaplanarak oluşur. Bu yüzden hem XAU/USD hem de yerel para birimi hareketleri önemlidir.</p>
-            <p data-i18n="guideTwo">Alış ve satış fiyatlarında piyasa makası, vergi, likidite ve kurum politikaları nedeniyle fark oluşabilir.</p>
-            <div class="warning" data-i18n="warning">Bu sayfadaki veriler bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.</div>
-          </div>
-        </section>
-      </div>
-
-      <aside>
-        <section class="panel" id="converter">
-          <div class="panel-head"><h2 data-i18n="converterTitle">Döviz Çevirici</h2></div>
-          <div class="converter">
-            <div class="converter-line">
-              <input class="input" id="convertAmount" type="number" min="0" step="0.01" value="100" aria-label="Miktar">
-              <select class="select" id="fromCurrency" aria-label="Kaynak para"></select>
+        <aside class="side-stack">
+          <section class="tool-card" id="converter">
+            <h2>Döviz Çevirici</h2>
+            <div class="converter-grid">
+              <div class="converter-line">
+                <input class="input" id="convertAmount" type="number" min="0" step="0.01" value="100" aria-label="Miktar">
+                <select class="select" id="fromCurrency" aria-label="Kaynak para birimi"></select>
+              </div>
+              <button class="swap-btn" id="swapBtn" type="button" aria-label="Para birimlerini değiştir">⇅</button>
+              <div class="converter-line">
+                <input class="input" id="convertResult" type="text" readonly aria-label="Sonuç">
+                <select class="select" id="toCurrency" aria-label="Hedef para birimi"></select>
+              </div>
+              <div class="result-box" id="converterText">-</div>
             </div>
-            <button class="swap" id="swapBtn" type="button" aria-label="Para birimlerini değiştir">⇅</button>
-            <div class="converter-line">
-              <input class="input" id="convertResult" type="text" readonly aria-label="Sonuç">
-              <select class="select" id="toCurrency" aria-label="Hedef para"></select>
-            </div>
-            <div class="result-box" id="converterText">-</div>
-          </div>
-        </section>
+          </section>
 
-        <section class="panel">
-          <div class="panel-head">
-            <div>
-              <h2 data-i18n="currencyTitle">Dolar Karşılığı</h2>
-              <input class="search-input" id="currencySearch" type="search" data-i18n-placeholder="searchCurrency" placeholder="Para birimi ara" aria-label="Para birimi ara">
-            </div>
-          </div>
-          <div class="table-wrap" style="max-height:420px">
-            <table>
-              <thead>
-                <tr>
-                  <th data-i18n="code">Kod</th>
-                  <th>1 USD</th>
-                  <th data-i18n="oneUnit">1 Birim</th>
-                </tr>
-              </thead>
-              <tbody id="currencyRows"></tbody>
-            </table>
-          </div>
-        </section>
-      </aside>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>
-        <h3>Altın Piyasa</h3>
-        <p data-i18n="footerText">Canlı altın ve döviz verileriyle piyasa takibini kolaylaştıran bağımsız bilgi paneli.</p>
+          <section class="tool-card" id="rates">
+            <h2>Döviz Kurları</h2>
+            <input class="input" id="currencySearch" type="search" placeholder="Para birimi ara" aria-label="Para birimi ara" style="margin-bottom:12px">
+            <div class="rate-list" id="rateList"></div>
+          </section>
+        </aside>
       </div>
-      <div>
-        <h3 data-i18n="footerMarket">Piyasa</h3>
-        <ul>
-          <li><a href="#gold-prices" data-i18n="goldPrices">Altın Fiyatları</a></li>
-          <li><a href="#converter" data-i18n="converterTitle">Döviz Çevirici</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 data-i18n="footerLegal">Yasal</h3>
-        <ul>
-          <li><a href="#" data-modal="privacy" data-i18n="privacy">Gizlilik Politikası</a></li>
-          <li><a href="#" data-modal="terms" data-i18n="terms">Kullanım Şartları</a></li>
-          <li><a href="#" data-modal="disclaimer" data-i18n="disclaimer">Yasal Uyarı</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 data-i18n="footerContact">İletişim</h3>
-        <ul>
-          <li><a href="#" data-modal="contact" data-i18n="contact">İletişim</a></li>
-          <li><a href="mailto:info@altinpiyasa.com">info@altinpiyasa.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">© <span id="year"></span> Altın Piyasa. <span data-i18n="rights">Tüm hakları saklıdır.</span></div>
-  </footer>
+    </main>
 
-  <div class="cookie" id="cookieBanner">
-    <p data-i18n="cookieText">Bu site tercihlerinizi hatırlamak için zorunlu olmayan yerel depolama kullanır. Analitik veya IP izleme varsayılan olarak çalıştırılmaz.</p>
-    <button class="btn btn-primary" type="button" id="acceptCookies" data-i18n="accept">Kabul Et</button>
-    <button class="btn" type="button" id="declineCookies" data-i18n="decline">Reddet</button>
+    <footer class="footer">
+      <p>© <span id="year"></span> Altın Piyasa. Veriler üçüncü taraf API kaynaklarından alınır ve gecikmeli olabilir.</p>
+    </footer>
   </div>
 
-  <div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
-    <div class="modal-content">
-      <button class="modal-close" type="button" data-close="privacy" aria-label="Kapat">×</button>
-      <h2 id="privacy-title" data-i18n="privacy">Gizlilik Politikası</h2>
-      <p data-i18n="privacyText">Altın Piyasa yalnızca tercihleri yerel tarayıcı depolamasında saklar. Kişisel veri gönderen IP izleme kodları kullanılmaz.</p>
-    </div>
-  </div>
-  <div class="modal" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-title">
-    <div class="modal-content">
-      <button class="modal-close" type="button" data-close="terms" aria-label="Kapat">×</button>
-      <h2 id="terms-title" data-i18n="terms">Kullanım Şartları</h2>
-      <p data-i18n="termsText">Veriler API kaynaklarından alınır ve gecikmeli ya da hatalı olabilir. Finansal kararlar için tek kaynak olarak kullanılmamalıdır.</p>
-    </div>
-  </div>
-  <div class="modal" id="disclaimer-modal" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
-    <div class="modal-content">
-      <button class="modal-close" type="button" data-close="disclaimer" aria-label="Kapat">×</button>
-      <h2 id="disclaimer-title" data-i18n="disclaimer">Yasal Uyarı</h2>
-      <p data-i18n="disclaimerText">Bu sitedeki hiçbir bilgi yatırım tavsiyesi değildir. Alış-satış öncesi lisanslı finans uzmanına danışın.</p>
-    </div>
-  </div>
-  <div class="modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-    <div class="modal-content">
-      <button class="modal-close" type="button" data-close="contact" aria-label="Kapat">×</button>
-      <h2 id="contact-title" data-i18n="contact">İletişim</h2>
-      <p data-i18n="contactText">Soru, öneri ve iş birliği talepleri için info@altinpiyasa.com adresinden ulaşabilirsiniz.</p>
-    </div>
-  </div>
-
-  <script>
-    window.GOLD_API_URL = "https://gold-api.alyux.workers.dev/";
-  </script>
   <script src="app.js" defer></script>
 </body>
 </html>
