@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="tr" dir="ltr" data-theme="dark">
 <head>
+  <!-- =========================================================
+       ALTIN PİYASA | PREMIUM FINANCIAL DASHBOARD V5.0
+       Tek Dosya Yapı | Production Ready | 1000+ Satır
+       ========================================================= -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#0b0f19">
+  <meta name="msapplication-TileColor" content="#0b0f19">
   
-  <!-- SEO & META -->
-  <title id="seoTitle">Canlı Altın Fiyatları | Gram Altın, Döviz & Çevirici - Altın Piyasa</title>
-  <meta name="description" id="seoDesc" content="Anlık altın fiyatları, gram altın, ons, dolar, euro ve 15+ döviz kuru. Yatırım takibi ve ücretsiz çevirici.">
-  <meta name="keywords" id="seoKeywords" content="altın fiyatları,gram altın,ons altın,dolar kuru,euro kuru,döviz çevirici,forex,gold price,usd try">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- ===== SEO & META TAGS ===== -->
+  <title id="seoTitle">Canlı Altın Fiyatları | Gram Altın, Döviz Kurları & Çevirici - Altın Piyasa</title>
+  <meta name="description" id="seoDesc" content="Anlık altın fiyatları, gram altın, ons altın, dolar, euro, çeyrek altın ve 15+ döviz kuru. Yatırım takibi, canlı piyasa verileri ve ücretsiz döviz çevirici.">
+  <meta name="keywords" id="seoKeywords" content="altın fiyatları,gram altın,ons altın,dolar kuru,euro kuru,çeyrek altın,yarım altın,tam altın,cumhuriyet altını,döviz çevirici,canlı altın,forex,gold price,live gold,usd try,eur usd,currency converter">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
+  <meta name="yandex" content="index, follow">
   <meta name="author" content="Altın Piyasa">
-  
-  <!-- HREFLANG & CANONICAL -->
-  <link rel="canonical" href="https://altinpiyasa.com/" id="canonical">
+  <meta name="geo.region" content="TR">
+  <meta name="geo.placename" content="Turkey">
+  <meta name="currency" content="TRY,USD,EUR,GBP,SAR,AED,EGP,RUB,JPY,CHF,CAD,AUD,INR,CNY,SYP">
+
+  <!-- ===== HREFLANG & CANONICAL (Çok Dilli SEO) ===== -->
+  <link rel="canonical" href="https://altinpiyasa.com/" id="canonicalLink">
   <link rel="alternate" hreflang="tr" href="https://altinpiyasa.com/tr/">
   <link rel="alternate" hreflang="en" href="https://altinpiyasa.com/en/">
   <link rel="alternate" hreflang="ar" href="https://altinpiyasa.com/ar/">
@@ -24,221 +35,504 @@
   <link rel="alternate" hreflang="ru" href="https://altinpiyasa.com/ru/">
   <link rel="alternate" hreflang="x-default" href="https://altinpiyasa.com/">
 
-  <!-- OG & TWITTER -->
-  <meta property="og:type" content="website"><meta property="og:url" content="https://altinpiyasa.com/">
-  <meta property="og:title" id="ogTitle" content="Canlı Altın Fiyatları | Altın Piyasa">
-  <meta property="og:description" id="ogDesc" content="Anlık piyasa verileri ve ücretsiz araçlar.">
+  <!-- ===== OPEN GRAPH & TWITTER CARD ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://altinpiyasa.com/">
+  <meta property="og:site_name" content="Altın Piyasa">
+  <meta property="og:title" id="ogTitle" content="Canlı Altın ve Döviz Fiyatları | Altın Piyasa">
+  <meta property="og:description" id="ogDesc" content="Anlık piyasa verileri, 15+ para birimi, ücretsiz çevirici.">
+  <meta property="og:image" content="https://altinpiyasa.com/images/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Altın Piyasa Dashboard">
   <meta property="og:locale" id="ogLocale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ar_SA">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ru_RU">
+
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@altinpiyasa">
+  <meta name="twitter:creator" content="@altinpiyasa">
+  <meta name="twitter:title" id="twTitle" content="Canlı Altın ve Döviz Fiyatları | Altın Piyasa">
+  <meta name="twitter:description" id="twDesc" content="Anlık piyasa verileri, 15+ para birimi, ücretsiz çevirici.">
+  <meta name="twitter:image" content="https://altinpiyasa.com/images/twitter-cover.jpg">
 
-  <!-- STRUCTURED DATA -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Altın Piyasa","url":"https://altinpiyasa.com/","serviceType":"Real-time Gold & Forex Rates","provider":{"@type":"Organization","name":"Altın Piyasa","url":"https://altinpiyasa.com/"}}</script>
+  <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FinancialService","name":"Altın Piyasa","url":"https://altinpiyasa.com/","description":"Real-time gold & forex rates, currency converter, investment tracker.","provider":{"@type":"Organization","name":"Altın Piyasa","url":"https://altinpiyasa.com/","logo":"https://altinpiyasa.com/logo.png","sameAs":["https://twitter.com/altinpiyasa","https://instagram.com/altinpiyasa"]},"serviceType":["Gold Prices","Forex Rates","Currency Converter"],"areaServed":"Worldwide","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Altın Piyasa","url":"https://altinpiyasa.com/","potentialAction":{"@type":"SearchAction","target":"https://altinpiyasa.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
+  </script>
 
-  <!-- VERIFICATIONS & ANALYTICS -->
+  <!-- ===== VERIFICATIONS & ANALYTICS ===== -->
   <meta name="google-site-verification" content="Um3QVCshxHBHrrwsdvXugSMxkP0Tqfi5CazFBBKEyzc">
+  <meta name="msvalidate.01" content="PLACEHOLDER_BING">
+  <meta name="yandex-verification" content="PLACEHOLDER_YANDEX">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BYC0GCZDBB"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BYC0GCZDBB');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BYC0GCZDBB',{'linker':{'domains':['altinpiyasa.com']},'send_page_view':true});</script>
 
-  <!-- FONTS & ICONS -->
+  <!-- ===== PERFORMANCE & ASSETS ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//gold-api.alyux.workers.dev">
+  <link rel="dns-prefetch" href="//api.gold-api.com">
+  <link rel="dns-prefetch" href="//open.er-api.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+  <!-- ===== COMPREHENSIVE CSS ===== -->
   <style>
-    :root{--bg:#0b0f19;--card:#151b2b;--hover:#1e293b;--line:#2d3748;--text:#e2e8f0;--muted:#94a3b8;--gold:#f59e0b;--green:#10b981;--red:#ef4444;--blue:#3b82f6;--radius:12px;--nav-h:72px;--font:Inter,system-ui,sans-serif;--trans:.2s cubic-bezier(.4,0,.2,1)}
-    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font:15px/1.5 var(--font);padding-top:var(--nav-h);-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}ul{list-style:none}input,select,button{font:inherit;color:inherit}
+    /* =========================================================
+       GLOBAL VARIABLES & RESET
+       ========================================================= */
+    :root{
+      --bg:#0b0f19;--card:#151b2b;--hover:#1e293b;--line:#2d3748;--text:#e2e8f0;--muted:#94a3b8;
+      --gold:#f59e0b;--gold-hover:#d97706;--green:#10b981;--red:#ef4444;--blue:#3b82f6;--purple:#8b5cf6;
+      --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--shadow:0 4px 20px rgba(0,0,0,.25);
+      --nav-h:72px;--font:'Inter',system-ui,-apple-system,sans-serif;--trans:.25s cubic-bezier(.4,0,.2,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;outline:none}
+    html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;padding-top:var(--nav-h);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none;transition:var(--trans)}
+    ul,ol{list-style:none}
+    button,input,select,textarea{font:inherit;color:inherit;border:none;background:none}
     :focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
     ::selection{background:var(--gold);color:#fff}
+    .skip{position:absolute;top:-40px;left:0;background:var(--gold);color:#fff;padding:10px 16px;z-index:4000;border-radius:0 0 8px 0;font-weight:600;transition:top .2s}.skip:focus{top:0}
 
-    /* NAV */
-    .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(15,23,42,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+    /* =========================================================
+       NAVBAR
+       ========================================================= */
+    .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(15,23,42,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
     [data-theme="light"].nav{background:rgba(255,255,255,.9)}
     .logo{font-size:22px;font-weight:800;display:flex;align-items:center;gap:8px;cursor:pointer}.logo i{color:var(--gold)}
-    .menu{display:flex;gap:6px}.menu a{padding:8px 12px;border-radius:8px;font-weight:500;color:var(--muted);transition:var(--trans)}.menu a:hover,.menu a.active{color:var(--text);background:var(--hover)}
-    .controls{display:flex;gap:10px;align-items:center}.nav-toggle{display:none;background:var(--hover);padding:8px;border-radius:6px;cursor:pointer}
-    select{background:var(--card);border:1px solid var(--line);padding:6px 28px 6px 10px;border-radius:8px;font-size:13px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:12px}
-    .btn{padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer;border:none;background:linear-gradient(135deg,var(--gold),#d97706);color:#fff;transition:var(--trans);display:inline-flex;align-items:center;gap:6px}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,158,11,.3)}
-    .theme-btn{width:36px;height:36px;border-radius:8px;background:var(--card);border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;color:var(--muted);transition:var(--trans)}
-    .theme-btn:hover{color:var(--gold);border-color:var(--gold)}
+    .menu{display:flex;gap:6px;align-items:center}
+    .menu a{padding:8px 14px;border-radius:8px;font-weight:500;color:var(--muted);transition:var(--trans);position:relative}
+    .menu a::after{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:2px;background:var(--gold);transition:var(--trans);transform:translateX(-50%)}
+    .menu a:hover,.menu a.active{color:var(--text);background:var(--hover)}.menu a:hover::after,.menu a.active::after{width:65%}
+    .controls{display:flex;gap:10px;align-items:center}
+    .nav-toggle{display:none;background:var(--hover);padding:8px;border-radius:6px;cursor:pointer}
+    select{background:var(--card);border:1px solid var(--line);padding:6px 28px 6px 10px;border-radius:8px;font-size:13px;cursor:pointer;appearance:none;background-image:url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:12px}
+    select:focus{border-color:var(--gold)}
+    .btn{padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-hover));color:#fff;transition:var(--trans);display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(245,158,11,.2)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,158,11,.35)}
+    .btn-ghost{background:var(--card);border:1px solid var(--line);color:var(--text);box-shadow:none}.btn-ghost:hover{border-color:var(--gold);transform:none}
+    .theme-btn{width:36px;height:36px;border-radius:8px;background:var(--card);border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;color:var(--muted);transition:var(--trans)}.theme-btn:hover{color:var(--gold);border-color:var(--gold)}
 
-    /* LAYOUT */
-    .wrap{max-width:1280px;margin:0 auto;padding:24px 20px}
-    .status{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);padding:12px 16px;border-radius:10px;margin-bottom:24px;font-size:14px;color:var(--muted)}.status.err{border-color:var(--red);color:var(--red)}.status.ok{border-color:var(--green);color:var(--green)}
-    .pulse{width:8px;height:8px;background:var(--green);border-radius:50%;margin-right:8px;animation:b 1.5s infinite}@keyframes b{0%,100%{opacity:1}50%{opacity:.4}}
-    .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:28px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:var(--trans);position:relative;overflow:hidden}.card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-    .card h4{color:var(--muted);font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px;font-weight:500}.card h4 i{color:var(--gold)}
-    .card .val{font-size:28px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px}.card .sub{color:var(--muted);font-size:12px}
-    .trend{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:600;margin-top:8px;background:rgba(16,185,129,.1);color:var(--green)}.trend.down{background:rgba(239,68,68,.1);color:var(--red)}
+    /* =========================================================
+       LAYOUT & SECTIONS
+       ========================================================= */
+    .container{max-width:1280px;margin:0 auto;padding:24px 20px}
+    .hero{text-align:center;padding:32px 0 20px}.hero h1{font-size:clamp(30px,5vw,46px);margin-bottom:12px;background:linear-gradient(135deg,var(--text),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{color:var(--muted);margin-bottom:20px;font-size:16px;max-width:700px;margin-inline:auto}
+    .status-bar{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);padding:14px 20px;border-radius:10px;margin-bottom:28px;font-size:14px;color:var(--muted);transition:var(--trans)}
+    .status-bar.err{border-color:var(--red);background:rgba(239,68,68,.1);color:var(--red)}
+    .status-bar.succ{border-color:var(--green);background:rgba(16,185,129,.1);color:var(--green)}
+    .pulse{width:9px;height:9px;background:var(--green);border-radius:50%;margin-right:10px;animation:blink 1.5s infinite}
+    @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(16,185,129,.4)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(16,185,129,0)}}
+
+    /* CARDS */
+    .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-bottom:32px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:20px;transition:var(--trans);position:relative;overflow:hidden}
+    .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--gold),var(--blue));opacity:0;transition:var(--trans)}
+    .card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .card:hover::before{opacity:1}
+    .card h4{color:var(--muted);font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:8px;font-weight:500;letter-spacing:.3px}
+    .card h4 i{color:var(--gold);font-size:16px}
+    .card .val{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px}
+    .card .sub{color:var(--muted);font-size:13px;display:flex;align-items:center;gap:6px}
+    .trend{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:600;margin-top:10px;background:rgba(16,185,129,.12);color:var(--green)}
+    .trend.down{background:rgba(239,68,68,.12);color:var(--red)}
 
     /* TABLES & PANELS */
-    .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:24px}.panel-h{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.05)}.panel-h h3{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700}.panel-h h3 i{color:var(--gold)}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;margin-bottom:28px;transition:var(--trans)}
+    .panel:hover{box-shadow:0 2px 16px rgba(0,0,0,.15)}
+    .panel-h{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.05)}
+    .panel-h h3{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700}.panel-h h3 i{color:var(--gold)}
     .scroll-x{overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--gold) var(--hover)}
-    table{width:100%;border-collapse:collapse;min-width:500px}th{padding:12px;text-align:left;font-size:12px;text-transform:uppercase;font-weight:600;color:var(--muted);background:var(--bg);border-bottom:1px solid var(--line)}
-    td{padding:14px 12px;border-bottom:1px solid var(--line);font-size:14px;transition:var(--trans)}tr:last-child td{border-bottom:none}tr:hover td{background:var(--hover)}
-    .up{color:var(--green);font-weight:700}.down{color:var(--red);font-weight:700}.b{background:var(--bg);padding:3px 6px;border-radius:4px;font-weight:700;font-family:monospace;font-size:13px}
-
-    /* CONVERTER */
-    .conv{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;position:sticky;top:96px}
-    .conv h3{margin-bottom:16px;display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700}
-    .row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:end;margin-bottom:14px}
-    .fld label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
-    .inp{width:100%;padding:10px;background:var(--bg);border:1px solid var(--line);border-radius:8px;transition:var(--trans)}.inp:focus{border-color:var(--gold)}
-    .swap{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;color:var(--gold);transition:var(--trans);margin-bottom:24px}.swap:hover{transform:rotate(180deg);background:var(--gold);color:#fff}
-    .res{background:var(--bg);border-radius:8px;padding:12px;text-align:center;margin-top:12px;border:1px dashed var(--line);font-weight:700;color:var(--blue);min-height:44px;display:flex;align-items:center;justify-content:center}
-
-    /* FOOTER & MODALS */
-    footer{background:var(--card);border-top:1px solid var(--line);padding:40px 20px 24px;margin-top:48px;text-align:center;color:var(--muted);font-size:14px}
-    .f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:24px;text-align:left}
-    .f-col h4{margin-bottom:12px;color:var(--gold)}.f-col ul li{margin-bottom:8px}.f-col ul li a:hover{color:var(--text)}
-    .modal-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}.modal-bg.show{display:flex;animation:f .2s}@keyframes f{from{opacity:0}to{opacity:1}}
-    .modal-box{background:var(--card);border:1px solid var(--line);border-radius:16px;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;padding:28px;position:relative;animation:s .3s}@keyframes s{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
-    .close-btn{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;background:var(--hover);cursor:pointer;display:grid;place-items:center;transition:var(--trans)}.close-btn:hover{background:var(--red);color:#fff}
-    .modal-box h2{margin-bottom:16px;color:var(--gold)}.modal-box p,.modal-box ul li{margin-bottom:10px;line-height:1.6;color:#cbd5e1}
-    .cookie-bar{position:fixed;bottom:20px;left:20px;right:20px;max-width:450px;background:var(--card);border:1px solid var(--gold);padding:16px;border-radius:12px;z-index:150;display:none;box-shadow:0 8px 24px rgba(0,0,0,.4)}.cookie-bar.show{display:block;animation:s .4s}
-    .toast-wrap{position:fixed;top:84px;right:20px;z-index:300;display:flex;flex-direction:column;gap:10px;pointer-events:none}
-    .toast{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:280px;box-shadow:0 6px 16px rgba(0,0,0,.35);display:flex;align-items:center;gap:10px;pointer-events:auto;animation:sl .3s;font-size:14px}@keyframes sl{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
-    .toast.s{border-left:4px solid var(--green)}.toast.e{border-left:4px solid var(--red)}.toast.i{border-left:4px solid var(--blue)}
-    #scrollTop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--gold);color:#fff;border:none;border-radius:50%;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 12px rgba(245,158,11,.3);transition:var(--trans);opacity:0;visibility:hidden;transform:translateY(10px);z-index:90}#scrollTop.vis{opacity:1;visibility:visible;transform:translateY(0)}
+    .scroll-x::-webkit-scrollbar{height:6px}.scroll-x::-webkit-scrollbar-track{background:var(--hover)}.scroll-x::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
+    table{width:100%;border-collapse:collapse;min-width:540px}
+    th{padding:14px 18px;text-align:left;font-size:12px;text-transform:uppercase;font-weight:600;color:var(--muted);background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}
+    td{padding:16px 18px;border-bottom:1px solid var(--line);font-size:14px;transition:var(--trans)}
+    tr:last-child td{border-bottom:none}tr:hover td{background:var(--hover)}
+    .up{color:var(--green);font-weight:700}.down{color:var(--red);font-weight:700}
+    .badge{background:var(--bg);padding:4px 8px;border-radius:6px;font-weight:700;font-family:monospace;font-size:13px}
 
     /* CHART */
-    .chart-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:24px;height:320px}
-    canvas{width:100%!important;height:100%!important}
+    .chart-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:20px;margin-bottom:28px;height:340px}
 
-    /* LIGHT THEME & RTL */
-    [data-theme="light"]{--bg:#f8fafc;--card:#ffffff;--hover:#f1f5f9;--line:#e2e8f0;--text:#0f172a;--muted:#475569}
-    [dir="rtl"]{text-align:right}[dir="rtl"] th,[dir="rtl"] td{text-align:right}[dir="rtl"] .toast-wrap{right:auto;left:20px}[dir="rtl"] #scrollTop{right:auto;left:24px}
-    @media(max-width:900px){.content-grid{grid-template-columns:1fr}.conv{position:static}.menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--card);flex-direction:column;padding:16px;border-bottom:1px solid var(--line)}.menu.open{display:flex}.nav-toggle{display:block}}
-    @media(max-width:600px){.grid-cards{grid-template-columns:1fr}.row{grid-template-columns:1fr}.swap{margin:8px auto;transform:rotate(90deg)}.panel-h{flex-direction:column;align-items:flex-start;gap:10px}.f-grid{text-align:center}.f-col ul li a{justify-content:center}}
+    /* CONVERTER */
+    .conv{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:24px;position:sticky;top:96px}
+    .conv h3{margin-bottom:18px;display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700}.conv h3 i{color:var(--gold)}
+    .row{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end;margin-bottom:16px}
+    .fld label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:500;letter-spacing:.2px}
+    .inp{width:100%;padding:11px 14px;background:var(--bg);border:1px solid var(--line);border-radius:8px;transition:var(--trans);font-size:15px}
+    .inp:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,158,11,.15)}
+    .swap{width:44px;height:44px;border-radius:50%;background:var(--bg);border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;color:var(--gold);transition:var(--trans);margin-bottom:26px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+    .swap:hover{transform:rotate(180deg) scale(1.05);background:var(--gold);color:#fff;border-color:var(--gold);box-shadow:0 4px 14px rgba(245,158,11,.35)}
+    .res-box{background:var(--bg);border-radius:8px;padding:16px;text-align:center;margin-top:14px;border:1px dashed var(--line);font-weight:700;color:var(--blue);min-height:48px;display:flex;align-items:center;justify-content:center;font-size:15px;letter-spacing:-.2px}
+
+    /* SEO CONTENT & DISCLAIMER */
+    .seo-p{font-size:15px;line-height:1.85;color:#cbd5e1}.seo-p strong{color:var(--text)}
+    .warn{background:rgba(239,68,68,.08);border:1px solid var(--red);border-left:4px solid var(--red);padding:16px;border-radius:8px;margin-top:18px;font-size:13px;color:#fecaca}
+
+    /* FOOTER */
+    footer{background:var(--card);border-top:1px solid var(--line);padding:48px 20px 28px;margin-top:56px}
+    .f-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;margin-bottom:36px}
+    .f-col h4{margin-bottom:18px;color:var(--gold);font-size:18px;font-weight:700}
+    .f-col ul li{margin-bottom:12px}.f-col ul li a{color:var(--muted);transition:var(--trans);display:flex;align-items:center;gap:6px}
+    .f-col ul li a:hover{color:var(--text);transform:translateX(3px)}
+    .f-col ul li a i{width:18px;color:var(--gold)}
+    .f-bot{max-width:1280px;margin:0 auto;border-top:1px solid var(--line);padding-top:24px;text-align:center;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+    .f-bot a{color:var(--gold)}.f-bot a:hover{text-decoration:underline}
+
+    /* MODALS */
+    .modal-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+    .modal-bg.show{display:flex;animation:fade .25s}@keyframes fade{from{opacity:0}to{opacity:1}}
+    .modal-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);width:100%;max-width:640px;max-height:85vh;overflow-y:auto;padding:32px;position:relative;animation:slide .35s}
+    @keyframes slide{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .close-btn{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:8px;background:var(--hover);cursor:pointer;display:grid;place-items:center;color:var(--muted);transition:var(--trans)}
+    .close-btn:hover{background:var(--red);color:#fff;transform:rotate(90deg)}
+    .modal-box h2{margin-bottom:22px;color:var(--gold);font-size:23px;display:flex;align-items:center;gap:12px}
+    .modal-box p,.modal-box ul li{margin-bottom:14px;line-height:1.7;font-size:15px;color:#cbd5e1}
+    .modal-box ul{padding-left:22px;list-style:disc}
+    .modal-box .action-btn{margin-top:18px}
+
+    /* COOKIE & TOAST */
+    .cookie-bar{position:fixed;bottom:24px;left:24px;right:24px;max-width:480px;background:var(--card);border:1px solid var(--gold);padding:18px 22px;border-radius:12px;z-index:150;display:none;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+    .cookie-bar.show{display:block;animation:slide .45s}
+    .cookie-bar p{font-size:14px;color:var(--muted);margin-bottom:14px;line-height:1.55}
+    .cookie-btns{display:flex;gap:12px}
+    .toast-wrap{position:fixed;top:86px;right:24px;z-index:300;display:flex;flex-direction:column;gap:12px;pointer-events:none}
+    .toast{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;min-width:300px;box-shadow:0 8px 20px rgba(0,0,0,.4);display:flex;align-items:center;gap:12px;pointer-events:auto;animation:slideRight .35s;font-size:14px}
+    @keyframes slideRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+    .toast.s{border-left:4px solid var(--green)}.toast.e{border-left:4px solid var(--red)}.toast.i{border-left:4px solid var(--blue)}
+    .toast i{font-size:18px}.toast.s i{color:var(--green)}.toast.e i{color:var(--red)}.toast.i i{color:var(--blue)}
+    .toast-msg{flex:1}.toast-title{font-weight:600;margin-bottom:3px}.toast-desc{color:var(--muted);font-size:13px;line-height:1.4}
+    .toast-x{background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;transition:var(--trans)}.toast-x:hover{color:var(--text)}
+
+    /* SCROLL TOP */
+    #scrollTop{position:fixed;bottom:26px;right:26px;width:48px;height:48px;background:var(--gold);color:#fff;border:none;border-radius:50%;display:grid;place-items:center;font-size:18px;cursor:pointer;box-shadow:0 4px 14px rgba(245,158,11,.3);transition:var(--trans);opacity:0;visibility:hidden;transform:translateY(12px);z-index:90}
+    #scrollTop.vis{opacity:1;visibility:visible;transform:translateY(0)}
+    #scrollTop:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(245,158,11,.4)}
+
+    /* RESPONSIVE & ACCESSIBILITY */
+    @media(max-width:1040px){.content-grid{grid-template-columns:1fr}.conv{position:static}}
+    @media(max-width:880px){.menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--card);flex-direction:column;padding:18px;border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(0,0,0,.25)}.menu.open{display:flex}.menu a{padding:12px 16px;font-size:15px}.nav-toggle{display:block}}
+    @media(max-width:620px){.grid-cards{grid-template-columns:1fr}.row{grid-template-columns:1fr}.swap{transform:rotate(90deg);margin:10px auto}.swap:hover{transform:rotate(270deg)}.panel-h{flex-direction:column;align-items:flex-start;gap:12px}.table-wrap{border-radius:0;margin:0 -20px 28px}.f-grid{grid-template-columns:1fr;text-align:center}.f-col ul li a{justify-content:center}.f-bot{flex-direction:column}.hero h1{font-size:28px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+    
+    /* LIGHT THEME */
+    [data-theme="light"]{--bg:#f8fafc;--card:#ffffff;--hover:#f1f5f9;--line:#e2e8f0;--text:#0f172a;--muted:#475569;--shadow:0 4px 16px rgba(0,0,0,.06)}
+    [data-theme="light"] .toast,[data-theme="light"] .modal-box,[data-theme="light"] .panel,[data-theme="light"] .card,[data-theme="light"] .conv{background:var(--card);color:var(--text)}
+    [data-theme="light"] .inp{background:var(--bg)}.seo-p{color:var(--text)}.warn{background:rgba(239,68,68,.04);color:#b91c1c}
+    
+    /* RTL SUPPORT */
+    [dir="rtl"]{text-align:right}[dir="rtl"] th,[dir="rtl"] td{text-align:right}
+    [dir="rtl"] .menu a::after{left:auto;right:50%;transform:translateX(50%)}
+    [dir="rtl"] .f-col ul li a i{margin-right:0;margin-left:4px}
+    [dir="rtl"] .toast-wrap{right:auto;left:24px}[dir="rtl"] #scrollTop{right:auto;left:26px}[dir="rtl"] .cookie-bar{left:24px;right:24px}
+    
+    /* PRINT STYLES */
+    @media print{.nav,.cookie-bar,.toast-wrap,#scrollTop,.swap,.btn,.theme-btn,.controls{display:none!important}body{background:#fff;color:#000;padding:0}.card,.panel,.conv{border:1px solid #ccc;box-shadow:none;break-inside:avoid}a{color:#000;text-decoration:underline}.status-bar{border:1px solid #ccc}}
   </style>
 </head>
 <body>
-  <a href="#main" class="skip" style="position:absolute;top:-40px;left:0;background:var(--gold);color:#fff;padding:10px 16px;z-index:4000;border-radius:0 0 8px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">İçeriğe atla</a>
+  <a href="#main-content" class="skip">İçeriğe atla</a>
   <div class="toast-wrap" id="toastWrap"></div>
-  <button id="scrollTop" aria-label="Yukarı"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="scrollTop" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
 
-  <nav class="nav"><a href="#" class="logo"><i class="fa-solid fa-coins"></i> Altın<span style="color:var(--gold)">Piyasa</span></a>
-    <button class="nav-toggle" onclick="document.getElementById('menu').classList.toggle('open')"><i class="fa-solid fa-bars"></i></button>
-    <ul class="menu" id="menu"><li><a href="#" class="active" data-i18n="navHome">Ana Sayfa</a></li><li><a href="#prices" data-i18n="navPrices">Fiyatlar</a></li><li><a href="#conv" data-i18n="navConv">Çevirici</a></li><li><a href="#" onclick="openModal('about')" data-i18n="navAbout">Hakkında</a></li></ul>
+  <!-- NAVBAR -->
+  <nav class="nav" role="navigation" aria-label="Ana menü">
+    <a href="#" class="logo"><i class="fa-solid fa-coins"></i> Altın<span style="color:var(--gold)">Piyasa</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç"><i class="fa-solid fa-bars"></i></button>
+    <ul class="menu" id="menu">
+      <li><a href="#" class="active" data-i18n="navHome">Ana Sayfa</a></li>
+      <li><a href="#prices" data-i18n="navPrices">Fiyatlar</a></li>
+      <li><a href="#conv" data-i18n="navConv">Çevirici</a></li>
+      <li><a href="#" onclick="openModal('about')" data-i18n="navAbout">Hakkında</a></li>
+      <li><a href="#" onclick="openModal('contact')" data-i18n="navContact">İletişim</a></li>
+    </ul>
     <div class="controls">
-      <select id="lang" onchange="setLang(this.value)"><option value="tr">🇹🇷 TR</option><option value="en">🇺🇸 EN</option><option value="ar">🇸🇦 AR</option><option value="de">🇩🇪 DE</option><option value="fr">🇫🇷 FR</option><option value="es">🇪🇸 ES</option><option value="ru">🇷🇺 RU</option></select>
-      <select id="curr" onchange="setCurr(this.value)"><option value="TRY">TRY ₺</option><option value="USD">USD $</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="SAR">SAR ﷼</option><option value="AED">AED د.إ</option></select>
-      <button class="theme-btn" onclick="toggleTheme()" aria-label="Tema"><i class="fa-solid fa-moon"></i></button>
-      <button class="btn" onclick="fetchData()"><i class="fa-solid fa-rotate"></i></button>
+      <select id="lang" onchange="setLang(this.value)" aria-label="Dil seçimi"><option value="tr">🇹🇷 TR</option><option value="en">🇺🇸 EN</option><option value="ar">🇸🇦 AR</option><option value="de">🇩🇪 DE</option><option value="fr">🇫🇷 FR</option><option value="es">🇪🇸 ES</option><option value="ru">🇷🇺 RU</option></select>
+      <select id="curr" onchange="setCurr(this.value)" aria-label="Para birimi"><option value="TRY">TRY ₺</option><option value="USD">USD $</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="SAR">SAR ﷼</option><option value="AED">AED د.إ</option><option value="EGP">EGP ج.م</option><option value="RUB">RUB ₽</option><option value="JPY">JPY ¥</option><option value="CHF">CHF Fr</option></select>
+      <button class="theme-btn" id="themeBtn" aria-label="Tema değiştir"><i class="fa-solid fa-moon"></i></button>
+      <button class="btn" onclick="fetchData()"><i class="fa-solid fa-rotate"></i> <span data-i18n="refresh">Yenile</span></button>
     </div>
   </nav>
 
-  <main id="main" class="wrap">
-    <div class="status" id="status"><span><span class="pulse"></span><span id="stxt">Veriler hazırlanıyor...</span></span><span id="clock">--:--</span></div>
-    <div class="grid-cards">
-      <div class="card"><h4 data-i18n="cOns">ONS ALTIN</h4><div class="val" id="vOns">-</div><div class="sub">XAU/USD</div><div class="trend up"><i class="fa-solid fa-arrow-trend-up"></i> +0.4%</div></div>
-      <div class="card"><h4 data-i18n="cGram">GRAM 24K</h4><div class="val" id="vGram">-</div><div class="sub" id="vSub">Seçili Birim</div><div class="trend up"><i class="fa-solid fa-arrow-trend-up"></i> +0.2%</div></div>
-      <div class="card"><h4 data-i18n="cUsd">DOLAR</h4><div class="val" id="vUsd">-</div><div class="sub">1 USD =</div></div>
-      <div class="card"><h4 data-i18n="cEur">EURO</h4><div class="val" id="vEur">-</div><div class="sub">1 EUR =</div></div>
+  <main id="main-content" class="container">
+    <!-- HERO & STATUS -->
+    <header class="hero">
+      <h1 data-i18n="heroTitle">Global Altın ve Döviz Piyasası</h1>
+      <p data-i18n="heroSub">15+ para birimi, 7 dil desteği, canlı API verileri, anlık çevirici ve detaylı piyasa analizi tek ekranda.</p>
+      <div class="status-bar" id="statusBar">
+        <span><span class="pulse"></span><span id="statusTxt" data-i18n="statusLive">Piyasa Açık • Canlı Veri</span></span>
+        <span id="lastUpd" style="color:var(--muted)">-</span>
+      </div>
+    </header>
+
+    <!-- CARDS -->
+    <div class="grid-cards" id="cardsContainer">
+      <div class="card"><h4 data-i18n="cardOns">ONS ALTIN</h4><div class="val" id="cOns">-</div><div class="sub">XAU/USD</div><div class="trend up"><i class="fa-solid fa-arrow-trend-up"></i> <span>+0.4%</span></div></div>
+      <div class="card"><h4 data-i18n="cardGram">GRAM 24K</h4><div class="val" id="cGram">-</div><div class="sub" id="cSub" data-i18n="cardSub">Seçili Para Birimi</div><div class="trend up"><i class="fa-solid fa-arrow-trend-up"></i> <span>+0.2%</span></div></div>
+      <div class="card"><h4 data-i18n="cardUsd">DOLAR</h4><div class="val" id="cUsd">-</div><div class="sub" data-i18n="cardUsdSub">1 USD =</div></div>
+      <div class="card"><h4 data-i18n="cardEur">EURO</h4><div class="val" id="cEur">-</div><div class="sub" data-i18n="cardEurSub">1 EUR =</div></div>
     </div>
 
-    <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px" class="content-grid">
+    <div class="content-grid" style="display:grid;grid-template-columns:2fr 1fr;gap:28px" id="prices">
       <div>
-        <div class="chart-wrap"><canvas id="chart"></canvas></div>
-        <div class="panel"><div class="panel-h"><h3><i class="fa-solid fa-gem"></i> <span data-i18n="tGold">Altın Fiyatları</span></h3></div><div class="scroll-x"><table><thead><tr><th data-i18n="thKarat">Ayar</th><th data-i18n="thPurity">Saflık</th><th data-i18n="thGram">Gram</th><th data-i18n="thBuy">Alış</th><th data-i18n="thSell">Satış</th><th data-i18n="thKilo">Kilo</th></tr></thead><tbody id="tGold"></tbody></table></div></div>
-        <div class="panel"><div class="panel-h"><h3><i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="tForex">Döviz Kurları</span></h3></div><div class="scroll-x"><table><thead><tr><th>Kod</th><th>1 USD</th><th>1 Birim (USD)</th></tr></thead><tbody id="tForex"></tbody></table></div></div>
+        <!-- CHART -->
+        <section class="chart-wrap" aria-label="Grafik"><canvas id="chart"></canvas></section>
+        
+        <!-- GOLD TABLE -->
+        <section class="panel" aria-labelledby="goldH">
+          <div class="panel-h"><h3 id="goldH"><i class="fa-solid fa-gem"></i> <span data-i18n="tblGold">Altın Fiyatları</span></h3></div>
+          <div class="scroll-x"><table><thead><tr><th data-i18n="thKarat">Ayar</th><th data-i18n="thPurity">Saflık</th><th data-i18n="thGram">Gram</th><th data-i18n="thBuy">Alış</th><th data-i18n="thSell">Satış</th><th data-i18n="thKilo">Kilo</th></tr></thead><tbody id="tGold"></tbody></table></div>
+        </section>
+        
+        <!-- FOREX TABLE -->
+        <section class="panel" aria-labelledby="forexH">
+          <div class="panel-h"><h3 id="forexH"><i class="fa-solid fa-money-bill-wave"></i> <span data-i18n="tblForex">Döviz Kurları</span></h3></div>
+          <div class="scroll-x"><table><thead><tr><th>Kod</th><th>1 USD</th><th>1 Birim (USD)</th></tr></thead><tbody id="tForex"></tbody></table></div>
+        </section>
+        
+        <!-- SEO CONTENT -->
+        <section class="panel" aria-labelledby="seoH">
+          <div class="panel-h"><h3 id="seoH"><i class="fa-solid fa-book"></i> <span data-i18n="seoTitleH">Altın Yatırımı Hakkında</span></h3></div>
+          <div style="padding:24px" class="seo-p">
+            <p data-i18n="seo1"><strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir. Ekonomik belirsizlik dönemlerinde güvenli liman olarak tercih edilir.</p>
+            <p style="margin-top:12px" data-i18n="seo2"><strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir. Fiyatı, uluslararası ons altın fiyatı ve döviz kurlarına bağlı olarak anlık değişir.</p>
+            <div class="warn" data-i18n="seoWarn">⚠️ <em>Uyarı: Bu sitede yer alan veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em></div>
+          </div>
+        </section>
       </div>
-      <aside id="conv"><div class="conv"><h3><i class="fa-solid fa-calculator"></i> <span data-i18n="convTitle">Döviz Çevirici</span></h3>
-        <div class="row"><div class="fld"><label data-i18n="lblAmt">Miktar</label><input type="number" id="amt" class="inp" value="100"></div><select id="from" class="inp"></select><button class="swap" onclick="swap()"><i class="fa-solid fa-right-left"></i></button><select id="to" class="inp"></select></div>
-        <div class="fld"><label data-i18n="lblRes">Sonuç</label><input type="text" id="res" class="inp" readonly></div>
-        <button class="btn" style="width:100%;margin-top:12px;justify-content:center" onclick="calc()"><i class="fa-solid fa-bolt"></i> <span data-i18n="convBtn">Çevir</span></button>
-        <div id="disp" class="res">-</div>
-      </div></aside>
+
+      <!-- SIDEBAR / CONVERTER -->
+      <aside>
+        <section class="conv" id="conv" aria-labelledby="convH">
+          <h3 id="convH"><i class="fa-solid fa-calculator"></i> <span data-i18n="convTitle">Döviz Çevirici</span></h3>
+          <div class="row">
+            <div class="fld"><label data-i18n="lblAmt">Miktar</label><input type="number" id="cvAmt" class="inp" value="100" min="0" step="0.01" aria-label="Miktar"></div>
+            <select id="cvFrom" class="inp" aria-label="Kaynak para"></select>
+            <button class="swap" id="swapBtn" aria-label="Değiştir"><i class="fa-solid fa-right-left"></i></button>
+            <select id="cvTo" class="inp" aria-label="Hedef para"></select>
+          </div>
+          <div class="fld"><label data-i18n="lblRes">Sonuç</label><input type="text" id="cvRes" class="inp" readonly aria-label="Sonuç" placeholder="..."></div>
+          <button class="btn" style="width:100%;margin-top:14px;justify-content:center" onclick="calcConv()"><i class="fa-solid fa-bolt"></i> <span data-i18n="convBtn">Çevir</span></button>
+          <div id="cvDisp" class="res-box" aria-live="polite">-</div>
+        </section>
+        <div class="warn" style="margin-top:22px;text-align:center">
+          <strong><i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="warnTitle">Yasal Uyarı:</span></strong>
+          <p style="margin-top:10px;margin-bottom:0" data-i18n="warnText">Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.</p>
+        </div>
+      </aside>
     </div>
   </main>
 
-  <footer><div class="f-grid"><div class="f-col"><div class="logo" style="margin-bottom:8px"><i class="fa-solid fa-coins" style="color:var(--gold)"></i> Altın<span style="color:var(--gold)">Piyasa</span></div><p style="color:var(--muted);font-size:13px">Global piyasaları anlık takip edin. Güvenilir, hızlı ve şeffaf.</p></div>
-    <div class="f-col"><h4 data-i18n="fLinks">Bağlantılar</h4><ul><li><a href="#" onclick="openModal('about')">Hakkımızda</a></li><li><a href="#" onclick="openModal('contact')">İletişim</a></li><li><a href="#" onclick="openModal('privacy')">Gizlilik</a></li></ul></div>
-    <div class="f-col"><h4>Desteklenen</h4><div style="display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--muted)">USD EUR TRY GBP SAR AED EGP RUB JPY CHF CAD AUD INR CNY</div></div></div>
-    <div style="border-top:1px solid var(--line);padding-top:20px;font-size:13px">© <span id="y"></span> Altın Piyasa. Tüm hakları saklıdır.</div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-grid">
+      <div class="f-col">
+        <div class="logo" style="margin-bottom:14px"><i class="fa-solid fa-coins" style="color:var(--gold)"></i> Altın<span style="color:var(--gold)">Piyasa</span></div>
+        <p style="color:var(--muted);font-size:14px;line-height:1.65" data-i18n="footerDesc">Global piyasaları anlık takip edin. Güvenilir, hızlı ve şeffaf finansal veri platformu.</p>
+        <div style="display:flex;gap:14px;margin-top:14px;font-size:18px">
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4 data-i18n="footerLinks">Bağlantılar</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('about')"><i class="fa-solid fa-circle-info"></i> <span data-i18n="navAbout">Hakkında</span></a></li>
+          <li><a href="#" onclick="openModal('contact')"><i class="fa-solid fa-envelope"></i> <span data-i18n="navContact">İletişim</span></a></li>
+          <li><a href="#" onclick="openModal('privacy')"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="footerPrivacy">Gizlilik Politikası</span></a></li>
+          <li><a href="#" onclick="openModal('terms')"><i class="fa-solid fa-file-contract"></i> <span data-i18n="footerTerms">Kullanım Şartları</span></a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 data-i18n="footerCurrencies">Desteklenen Para Birimleri</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted)">
+          <span>USD</span><span>EUR</span><span>TRY</span><span>GBP</span><span>SAR</span><span>AED</span><span>EGP</span><span>RUB</span><span>JPY</span><span>CHF</span><span>CAD</span><span>AUD</span><span>INR</span><span>CNY</span>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="year"></span> Altın Piyasa. <span data-i18n="footerRights">Tüm hakları saklıdır.</span></span>
+      <a href="#" onclick="openModal('privacy')" data-i18n="footerPrivacyShort">Gizlilik</a> | <a href="#" onclick="openModal('contact')" data-i18n="footerContactShort">İletişim</a> | <span data-i18n="footerDev">SEO Optimized & Multi-Language Ready</span>
+    </div>
   </footer>
 
-  <div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()"><div class="modal-box" onclick="event.stopPropagation()"><button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button><div id="modalBody"></div></div></div>
-  <div class="cookie-bar" id="cookieBar"><p style="font-size:14px;margin-bottom:12px" data-i18n="cookieTxt">Çerezler deneyiminizi iyileştirmek için kullanılır.</p><div style="display:flex;gap:10px"><button class="btn" onclick="closeCookie()"><span data-i18n="cookAcc">Kabul Et</span></button><button class="btn" style="background:var(--card);border:1px solid var(--line)" onclick="closeCookie()"><span data-i18n="cookDec">Reddet</span></button></div></div>
+  <!-- COOKIE BANNER -->
+  <div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite">
+    <p data-i18n="cookieText">Sizin için en iyi deneyimi sunmak adına çerezler kullanıyoruz. Kabul ederseniz veri analizimize yardımcı olursunuz.</p>
+    <div class="cookie-btns">
+      <button class="btn" onclick="closeCookie()"><span data-i18n="cookAcc">Kabul Et</span></button>
+      <button class="btn btn-ghost" onclick="closeCookie()"><span data-i18n="cookDec">Reddet</span></button>
+    </div>
+  </div>
 
+  <!-- MODAL CONTAINER -->
+  <div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()" role="dialog" aria-modal="true">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeModal()" aria-label="Kapat"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== CORE JAVASCRIPT ENGINE ===== -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    /* =========================================================
-       ALTIN PİYASA | PRODUCTION SUITE V4.0
-       - 7 Dil | 15+ Para Birimi | Dinamik SEO | Chart.js
-       - API + Retry + Fallback | Tema | Toast | Modal
-       ========================================================= */
-    const CFG = { API: "https://gold-api.alyux.workers.dev/", RETRY: 2 };
+    /**
+     * ALTIN PİYASA CORE ENGINE V5.0
+     * - 7 Dil Tam Çeviri | 15+ Para Birimi | Dinamik SEO
+     * - API + Retry + Fallback | Chart.js | Tema | Toast | Modal
+     */
+    const CFG = { API: "https://gold-api.alyux.workers.dev/", REFRESH: 60000, RETRY: 2 };
     const S = {  null, lang: localStorage.getItem('lang')||'tr', curr: localStorage.getItem('curr')||'TRY', theme: localStorage.getItem('theme')||'dark', loading: false, retry: 0 };
 
-    // ===== i18n & SEO =====
+    // ===== COMPLETE i18n DICTIONARY =====
     const i18n = {
-      tr:{navHome:"Ana Sayfa",navPrices:"Fiyatlar",navConv:"Çevirici",navAbout:"Hakkında",cOns:"ONS ALTIN",cGram:"GRAM 24K",vSub:"Seçili Birim",cUsd:"DOLAR",cEur:"EURO",tGold:"Altın Fiyatları",tForex:"Döviz Kurları",thKarat:"Ayar",thPurity:"Saflık",thGram:"Gram",thBuy:"Alış",thSell:"Satış",thKilo:"Kilo",convTitle:"Döviz Çevirici",lblAmt:"Miktar",lblRes:"Sonuç",convBtn:"Çevir",fLinks:"Bağlantılar",cookieTxt:"Çerezler deneyiminizi iyileştirmek için kullanılır.",cookAcc:"Kabul",cookDec:"Reddet",stOk:"Piyasa Açık • Canlı Veri",stErr:"Bağlantı Hatası (Yedek)",toastOk:"Veriler güncellendi!",toastErr:"Hata: Yedek veriler yükleniyor.",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> Hakkımızda</h2><p>Altın Piyasa, yatırımcılar için en güncel ve doğru veriyi sunan bağımsız bir finans platformudur.</p>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> İletişim</h2><p>info@altinpiyasa.com</p>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Gizlilik</h2><p>Verileriniz KVKK kapsamında korunmaktadır.</p>"},
-      en:{navHome:"Home",navPrices:"Prices",navConv:"Converter",navAbout:"About",cOns:"GOLD OUNCE",cGram:"GRAM 24K",vSub:"Selected Currency",cUsd:"USD",cEur:"EUR",tGold:"Gold Prices",tForex:"Forex Rates",thKarat:"Karat",thPurity:"Purity",thGram:"Gram",thBuy:"Buy",thSell:"Sell",thKilo:"Kilo",convTitle:"Currency Converter",lblAmt:"Amount",lblRes:"Result",convBtn:"Convert",fLinks:"Quick Links",cookieTxt:"Cookies improve your experience.",cookAcc:"Accept",cookDec:"Decline",stOk:"Market Open • Live Data",stErr:"Connection Error (Fallback)",toastOk:"Data updated!",toastErr:"Error: Fallback loaded.",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> About Us</h2><p>Independent financial platform providing real-time market data.</p>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> Contact</h2><p>info@altinpiyasa.com</p>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Privacy</h2><p>Your data is protected under GDPR.</p>"},
-      ar:{navHome:"الرئيسية",navPrices:"الأسعار",navConv:"محول",navAbout:"حول",cOns:"أونصة الذهب",cGram:"جرام 24",vSub:"العملة المختارة",cUsd:"الدولار",cEur:"اليورو",tGold:"أسعار الذهب",tForex:"أسعار الصرف",thKarat:"عيار",thPurity:"نقاء",thGram:"جرام",thBuy:"شراء",thSell:"بيع",thKilo:"كيلو",convTitle:"محول العملات",lblAmt:"المبلغ",lblRes:"النتيجة",convBtn:"تحويل",fLinks:"روابط سريعة",cookieTxt:"تستخدم ملفات تعريف الارتباط.",cookAcc:"قبول",cookDec:"رفض",stOk:"السوق مفتوح • بيانات حية",stErr:"خطأ الاتصال (بيانات بديلة)",toastOk:"تم التحديث!",toastErr:"خطأ: تحميل البيانات البديلة.",modalAbout:"<h2>من نحن</h2><p>منصة مالية مستقلة تقدم أحدث بيانات السوق.</p>",modalContact:"<h2>اتصل بنا</h2><p>info@altinpiyasa.com</p>",modalPrivacy:"<h2>الخصوصية</h2><p>بياناتك محمية بموجب القوانين.</p>"},
-      de:{navHome:"Startseite",navPrices:"Preise",navConv:"Rechner",navAbout:"Über uns",cOns:"GOLDUNZE",cGram:"GRAMM 24K",vSub:"Gewählte Währung",cUsd:"USD",cEur:"EUR",tGold:"Goldpreise",tForex:"Devisenkurse",thKarat:"Karat",thPurity:"Reinheit",thGram:"Gramm",thBuy:"Kauf",thSell:"Verkauf",thKilo:"Kilo",convTitle:"Währungsrechner",lblAmt:"Menge",lblRes:"Ergebnis",convBtn:"Umrechnen",fLinks:"Schnelllinks",cookieTxt:"Cookies verbessern die Nutzung.",cookAcc:"Akzeptieren",cookDec:"Ablehnen",stOk:"Markt Offen • Live",stErr:"Verbindungsfehler (Fallback)",toastOk:"Aktualisiert!",toastErr:"Fehler: Fallback geladen.",modalAbout:"<h2>Über uns</h2><p>Unabhängige Finanzplattform für Live-Daten.</p>",modalContact:"<h2>Kontakt</h2><p>info@altinpiyasa.com</p>",modalPrivacy:"<h2>Datenschutz</h2><p>Daten gemäß DSGVO geschützt.</p>"},
-      fr:{navHome:"Accueil",navPrices:"Prix",navConv:"Convertisseur",navAbout:"À propos",cOns:"ONCE D'OR",cGram:"GRAMME 24K",vSub:"Devise Sélectionnée",cUsd:"USD",cEur:"EUR",tGold:"Prix de l'Or",tForex:"Cours des Devises",thKarat:"Carat",thPurity:"Pureté",thGram:"Gramme",thBuy:"Achat",thSell:"Vente",thKilo:"Kilo",convTitle:"Convertisseur",lblAmt:"Montant",lblRes:"Résultat",convBtn:"Convertir",fLinks:"Liens Rapides",cookieTxt:"Les cookies améliorent l'expérience.",cookAcc:"Accepter",cookDec:"Refuser",stOk:"Marché Ouvert • Live",stErr:"Erreur Connexion (Repli)",toastOk:"Mis à jour!",toastErr:"Erreur: Repli chargé.",modalAbout:"<h2>À propos</h2><p>Plateforme indépendante pour données live.</p>",modalContact:"<h2>Contact</h2><p>info@altinpiyasa.com</p>",modalPrivacy:"<h2>Confidentialité</h2><p>Données protégées par le RGPD.</p>"},
-      es:{navHome:"Inicio",navPrices:"Precios",navConv:"Conversor",navAbout:"Acerca",cOns:"ONZA ORO",cGram:"GRAMO 24K",vSub:"Moneda Seleccionada",cUsd:"USD",cEur:"EUR",tGold:"Precios Oro",tForex:"Tipos Cambio",thKarat:"Quilate",thPurity:"Pureza",thGram:"Gramo",thBuy:"Compra",thSell:"Venta",thKilo:"Kilo",convTitle:"Conversor",lblAmt:"Cantidad",lblRes:"Resultado",convBtn:"Convertir",fLinks:"Enlaces",cookieTxt:"Las cookies mejoran la experiencia.",cookAcc:"Aceptar",cookDec:"Rechazar",stOk:"Mercado Abierto • Live",stErr:"Error Conexión (Respaldo)",toastOk:"¡Actualizado!",toastErr:"Error: Respaldo cargado.",modalAbout:"<h2>Acerca</h2><p>Plataforma independiente para datos live.</p>",modalContact:"<h2>Contacto</h2><p>info@altinpiyasa.com</p>",modalPrivacy:"<h2>Privacidad</h2><p>Datos protegidos por RGPD.</p>"},
-      ru:{navHome:"Главная",navPrices:"Цены",navConv:"Конвертер",navAbout:"О нас",cOns:"УНЦИЯ ЗОЛОТА",cGram:"ГРАММ 24K",vSub:"Выбранная Валюта",cUsd:"USD",cEur:"EUR",tGold:"Цены Золото",tForex:"Курсы Валют",thKarat:"Проба",thPurity:"Чистота",thGram:"Грамм",thBuy:"Покупка",thSell:"Продажа",thKilo:"Кило",convTitle:"Конвертер",lblAmt:"Сумма",lblRes:"Результат",convBtn:"Конвертировать",fLinks:"Ссылки",cookieTxt:"Cookies улучшают опыт.",cookAcc:"Принять",cookDec:"Отклонить",stOk:"Рынок Открыт • Live",stErr:"Ошибка Соединения (Резерв)",toastOk:"Обновлено!",toastErr:"Ошибка: Резерв загружен.",modalAbout:"<h2>О нас</h2><p>Независимая платформа для live данных.</p>",modalContact:"<h2>Контакты</h2><p>info@altinpiyasa.com</p>",modalPrivacy:"<h2>Конфиденциальность</h2><p>Данные защищены по GDPR.</p>"}
+      tr:{navHome:"Ana Sayfa",navPrices:"Fiyatlar",navConv:"Çevirici",navAbout:"Hakkında",navContact:"İletişim",heroTitle:"Global Altın ve Döviz Piyasası",heroSub:"15+ para birimi, 7 dil desteği, canlı API verileri, anlık çevirici ve detaylı piyasa analizi tek ekranda.",statusLive:"Piyasa Açık • Canlı Veri",cardOns:"ONS ALTIN",cardGram:"GRAM 24K",cardSub:"Seçili Para Birimi",cardUsd:"DOLAR",cardUsdSub:"1 USD =",cardEur:"EURO",cardEurSub:"1 EUR =",tblGold:"Altın Fiyatları",tblForex:"Döviz Kurları",thKarat:"Ayar",thPurity:"Saflık",thGram:"Gram",thBuy:"Alış",thSell:"Satış",thKilo:"Kilo",seoTitleH:"Altın Yatırımı Hakkında",seo1:"<strong>Altın</strong>, binlerce yıldır değer saklama aracı olarak kullanılan kıymetli bir madendir.",seo2:"<strong>Gram altın</strong>, 24 ayar saf altının 1 gramlık birimidir.",seoWarn:"⚠️ <em>Uyarı: Veriler bilgilendirme amaçlıdır. Yatırım tavsiyesi değildir.</em>",convTitle:"Döviz Çevirici",lblAmt:"Miktar",lblRes:"Sonuç",convBtn:"Çevir",warnTitle:"Yasal Uyarı:",warnText:"Veriler API kaynağından otomatik alınır. Yatırım tavsiyesi değildir.",footerDesc:"Global piyasaları anlık takip edin.",footerLinks:"Bağlantılar",footerCurrencies:"Desteklenen Para Birimleri",footerRights:"Tüm hakları saklıdır.",footerDev:"SEO Optimized & Multi-Language Ready",footerPrivacy:"Gizlilik Politikası",footerTerms:"Kullanım Şartları",footerPrivacyShort:"Gizlilik",footerContactShort:"İletişim",cookieText:"Sizin için en iyi deneyimi sunmak adına çerezler kullanıyoruz.",cookAcc:"Kabul Et",cookDec:"Reddet",refresh:"Yenile",toastOk:"Veriler güncellendi!",toastErr:"Bağlantı hatası. Yedek veriler yükleniyor...",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> Hakkımızda</h2><p>Altın Piyasa, yatırımcılar için en güncel, şeffaf ve güvenilir veriyi sunmayı hedefleyen bağımsız bir finans platformudur.</p><ul><li>✅ Gerçek zamanlı piyasa verileri</li><li>✅ 15+ para birimi desteği</li><li>✅ 7 dilde yerelleştirilmiş arayüz</li><li>✅ Ücretsiz döviz çevirici</li></ul>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> İletişim</h2><p>Sorularınız, önerileriniz veya iş birliği talepleriniz için bize ulaşın.</p><ul><li>📧 E-posta: info@altinpiyasa.com</li><li>📍 Konum: İstanbul, Türkiye</li><li>⏰ Destek: 7/24</li></ul><p style='margin-top:16px;font-size:13px;color:var(--muted)'>Not: Form demo amaçlıdır. Lütfen doğrudan e-posta ile iletişime geçiniz.</p>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Gizlilik Politikası</h2><p>Verileriniz 6698 sayılı KVKK ve GDPR kapsamında korunmaktadır.</p><ul><li>🔐 Toplanan veriler sadece site performansı ve güvenlik içindir.</li><li>📊 Anonim analiz çerezleri kullanılır.</li><li>🌐 IP adresleri güvenlik amaçlı anonimleştirilir.</li></ul>",modalTerms:"<h2><i class='fa-solid fa-file-contract'></i> Kullanım Şartları</h2><p>Bu siteyi kullanarak aşağıdaki şartları kabul edersiniz:</p><ul><li>⚖️ Veriler bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.</li><li>📉 Piyasa verileri gecikmeli veya hatalı olabilir.</li><li>🔒 İçerik izinsiz kopyalanamaz.</li></ul>"},
+      en:{navHome:"Home",navPrices:"Prices",navConv:"Converter",navAbout:"About",navContact:"Contact",heroTitle:"Global Gold & Forex Market",heroSub:"15+ currencies, 7 languages, live API data, instant converter & detailed market analysis.",statusLive:"Market Open • Live Data",cardOns:"GOLD OUNCE",cardGram:"GRAM 24K",cardSub:"Selected Currency",cardUsd:"USD",cardUsdSub:"1 USD =",cardEur:"EUR",cardEurSub:"1 EUR =",tblGold:"Gold Prices",tblForex:"Forex Rates",thKarat:"Karat",thPurity:"Purity",thGram:"Gram",thBuy:"Buy",thSell:"Sell",thKilo:"Kilo",seoTitleH:"About Gold Investment",seo1:"<strong>Gold</strong> has been used as a store of value for thousands of years.",seo2:"<strong>Gram gold</strong> is the 1-gram unit of 24-karat pure gold.",seoWarn:"⚠️ <em>Warning: Data is for informational purposes only. Not investment advice.</em>",convTitle:"Currency Converter",lblAmt:"Amount",lblRes:"Result",convBtn:"Convert",warnTitle:"Legal Notice:",warnText:"Data is automatically fetched from API. Not investment advice.",footerDesc:"Track global markets instantly. Reliable & transparent.",footerLinks:"Quick Links",footerCurrencies:"Supported Currencies",footerRights:"All rights reserved.",footerDev:"SEO Optimized & Multi-Language Ready",footerPrivacy:"Privacy Policy",footerTerms:"Terms of Use",footerPrivacyShort:"Privacy",footerContactShort:"Contact",cookieText:"We use cookies to provide the best experience.",cookAcc:"Accept",cookDec:"Decline",refresh:"Refresh",toastOk:"Data updated!",toastErr:"Connection error. Loading fallback data...",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> About Us</h2><p>Independent financial platform aiming to provide current & accurate data for investors.</p><ul><li>✅ Real-time market data</li><li>✅ 15+ currency support</li><li>✅ 7 languages interface</li><li>✅ Free currency converter</li></ul>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> Contact</h2><p>Write to us for questions or partnerships.</p><ul><li>📧 Email: info@altinpiyasa.com</li><li>📍 Location: Istanbul, Turkey</li><li>⏰ Support: 24/7</li></ul>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Privacy Policy</h2><p>Your data is protected under GDPR & privacy laws.</p><ul><li>🔐 Data used for performance & security only.</li><li>📊 Anonymous analytics cookies.</li><li>🌐 IPs anonymized.</li></ul>",modalTerms:"<h2><i class='fa-solid fa-file-contract'></i> Terms of Use</h2><p>By using this site you agree:</p><ul><li>⚖️ Data is informational, not advice.</li><li>📉 Data may be delayed.</li><li>🔒 Content cannot be copied without permission.</li></ul>"},
+      ar:{navHome:"الرئيسية",navPrices:"الأسعار",navConv:"محول",navAbout:"حول",navContact:"اتصل بنا",heroTitle:"سوق الذهب والعملات العالمي",heroSub:"أكثر من 15 عملة، دعم 7 لغات، بيانات حية ومحول فوري.",statusLive:"السوق مفتوح • بيانات حية",cardOns:"أونصة الذهب",cardGram:"جرام 24",cardSub:"العملة المختارة",cardUsd:"الدولار",cardUsdSub:"1 دولار =",cardEur:"اليورو",cardEurSub:"1 يورو =",tblGold:"أسعار الذهب",tblForex:"أسعار الصرف",thKarat:"عيار",thPurity:"نقاء",thGram:"جرام",thBuy:"شراء",thSell:"بيع",thKilo:"كيلو",seoTitleH:"حول استثمار الذهب",seo1:"<strong>الذهب</strong> معدن ثمين لحفظ القيمة منذ آلاف السنين.",seo2:"<strong>جرام الذهب</strong> وحدة جرام واحد من الذهب الخالص عيار 24.",seoWarn:"⚠️ <em>تحذير: البيانات لأغراض إعلامية فقط.</em>",convTitle:"محول العملات",lblAmt:"المبلغ",lblRes:"النتيجة",convBtn:"تحويل",warnTitle:"إشعار قانوني:",warnText:"البيانات من مصدر API تلقائياً. ليست نصيحة استثمارية.",footerDesc:"تتبع الأسواق العالمية لحظياً.",footerLinks:"روابط سريعة",footerCurrencies:"العملات المدعومة",footerRights:"جميع الحقوق محفوظة.",footerDev:"محسن لمحركات البحث ومتعدد اللغات",footerPrivacy:"سياسة الخصوصية",footerTerms:"شروط الاستخدام",footerPrivacyShort:"خصوصية",footerContactShort:"اتصل بنا",cookieText:"نستخدم ملفات تعريف الارتباط لتحسين تجربتك.",cookAcc:"قبول",cookDec:"رفض",refresh:"تحديث",toastOk:"تم تحديث البيانات!",toastErr:"خطأ في الاتصال. جاري تحميل البيانات البديلة...",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> من نحن</h2><p>منصة مالية مستقلة تقدم أحدث بيانات السوق للمستثمرين.</p><ul><li>✅ بيانات سوقية حية</li><li>✅ دعم 15+ عملة</li><li>✅ واجهة 7 لغات</li><li>✅ محول عملات مجاني</li></ul>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> اتصل بنا</h2><p>تواصل معنا للأسئلة أو الشراكات.</p><ul><li>📧 البريد: info@altinpiyasa.com</li><li>📍 الموقع: إسطنبول، تركيا</li><li>⏰ الدعم: 24/7</li></ul>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> سياسة الخصوصية</h2><p>بياناتك محمية بموجب قوانين الخصوصية.</p><ul><li>🔐 البيانات للأداء والأمان فقط.</li><li>📊 ملفات تعريف ارتباط تحليلية مجهولة.</li><li>🌐 عناوين IP مجهولة.</li></ul>",modalTerms:"<h2><i class='fa-solid fa-file-contract'></i> شروط الاستخدام</h2><p>باستخدامك الموقع توافق:</p><ul><li>⚖️ البيانات إعلامية وليست نصيحة.</li><li>📉 قد تتأخر البيانات.</li><li>🔒 لا يمكن نسخ المحتوى دون إذن.</li></ul>"},
+      de:{navHome:"Startseite",navPrices:"Preise",navConv:"Rechner",navAbout:"Über uns",navContact:"Kontakt",heroTitle:"Globaler Gold- & Devisenmarkt",heroSub:"15+ Währungen, 7 Sprachen, Live-Daten & Sofort-Konverter.",statusLive:"Markt Offen • Live-Daten",cardOns:"GOLDUNZE",cardGram:"GRAMM 24K",cardSub:"Gewählte Währung",cardUsd:"USD",cardUsdSub:"1 USD =",cardEur:"EUR",cardEurSub:"1 EUR =",tblGold:"Goldpreise",tblForex:"Devisenkurse",thKarat:"Karat",thPurity:"Reinheit",thGram:"Gramm",thBuy:"Kauf",thSell:"Verkauf",thKilo:"Kilo",seoTitleH:"Über Goldinvestitionen",seo1:"<strong>Gold</strong> wird seit Jahrtausenden als Wertspeicher genutzt.",seo2:"<strong>Gramm Gold</strong> ist die 1-Gramm-Einheit von 24-Karat-Gold.",seoWarn:"⚠️ <em>Warnung: Nur zu Informationszwecken. Keine Anlageberatung.</em>",convTitle:"Währungsrechner",lblAmt:"Menge",lblRes:"Ergebnis",convBtn:"Umrechnen",warnTitle:"Rechtlicher Hinweis:",warnText:"Daten von API automatisch. Keine Anlageberatung.",footerDesc:"Globale Märkte sofort verfolgen.",footerLinks:"Schnelllinks",footerCurrencies:"Unterstützte Währungen",footerRights:"Alle Rechte vorbehalten.",footerDev:"SEO-Optimiert & Mehrsprachig",footerPrivacy:"Datenschutz",footerTerms:"Nutzungsbedingungen",footerPrivacyShort:"Datenschutz",footerContactShort:"Kontakt",cookieText:"Cookies verbessern Ihr Nutzererlebnis.",cookAcc:"Akzeptieren",cookDec:"Ablehnen",refresh:"Aktualisieren",toastOk:"Daten aktualisiert!",toastErr:"Verbindungsfehler. Lade Ersatz...",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> Über uns</h2><p>Unabhängige Finanzplattform für aktuelle Marktdaten.</p><ul><li>✅ Echtzeit-Marktdaten</li><li>✅ 15+ Währungen</li><li>✅ 7 Sprachen</li></ul>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> Kontakt</h2><p>Kontaktieren Sie uns für Fragen oder Partnerschaften.</p><ul><li>📧 info@altinpiyasa.com</li><li>📍 Istanbul, Türkei</li></ul>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Datenschutz</h2><p>Ihre Daten sind gemäß DSGVO geschützt.</p>",modalTerms:"<h2><i class='fa-solid fa-file-contract'></i> Nutzungsbedingungen</h2><p>Daten nur informativ, keine Beratung. Verzögerungen möglich."},
+      fr:{navHome:"Accueil",navPrices:"Prix",navConv:"Convertisseur",navAbout:"À propos",navContact:"Contact",heroTitle:"Marché Mondial de l'Or & Devises",heroSub:"15+ devises, 7 langues, données live & convertisseur instantané.",statusLive:"Marché Ouvert • Données Live",cardOns:"ONCE D'OR",cardGram:"GRAMME 24K",cardSub:"Devise Sélectionnée",cardUsd:"USD",cardUsdSub:"1 USD =",cardEur:"EUR",cardEurSub:"1 EUR =",tblGold:"Prix de l'Or",tblForex:"Cours des Devises",thKarat:"Carat",thPurity:"Pureté",thGram:"Gramme",thBuy:"Achat",thSell:"Vente",thKilo:"Kilo",seoTitleH:"À propos de l'Investissement en Or",seo1:"<strong>L'or</strong> est utilisé comme réserve de valeur depuis des millénaires.",seo2:"<strong>Le gramme d'or</strong> est l'unité de 1g d'or pur 24 carats.",seoWarn:"⚠️ <em>Avertissement : Données informatives uniquement.</em>",convTitle:"Convertisseur de Devises",lblAmt:"Montant",lblRes:"Résultat",convBtn:"Convertir",warnTitle:"Avertissement légal :",warnText:"Données de l'API automatiques. Pas de conseil en investissement.",footerDesc:"Suivez les marchés mondiaux instantanément.",footerLinks:"Liens Rapides",footerCurrencies:"Devises Supportées",footerRights:"Tous droits réservés.",footerDev:"Optimisé SEO & Multilingue",footerPrivacy:"Confidentialité",footerTerms:"Conditions",footerPrivacyShort:"Confidentialité",footerContactShort:"Contact",cookieText:"Les cookies améliorent votre expérience.",cookAcc:"Accepter",cookDec:"Refuser",refresh:"Actualiser",toastOk:"Données mises à jour !",toastErr:"Erreur de connexion. Chargement du repli...",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> À propos</h2><p>Plateforme financière indépendante pour des données actualisées.</p>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> Contact</h2><p>Écrivez-nous pour toute question.</p><ul><li>📧 info@altinpiyasa.com</li><li>📍 Istanbul, Turquie</li></ul>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Confidentialité</h2><p>Vos données protégées par le RGPD.</p>",modalTerms:"<h2><i class='fa-solid fa-file-contract'></i> Conditions</h2><p>Données informatives uniquement. Délais possibles."},
+      es:{navHome:"Inicio",navPrices:"Precios",navConv:"Conversor",navAbout:"Acerca",navContact:"Contacto",heroTitle:"Mercado Global de Oro & Divisas",heroSub:"15+ monedas, 7 idiomas, datos en vivo & conversor instantáneo.",statusLive:"Mercado Abierto • Datos Live",cardOns:"ONZA DE ORO",cardGram:"GRAMO 24K",cardSub:"Moneda Seleccionada",cardUsd:"USD",cardUsdSub:"1 USD =",cardEur:"EUR",cardEurSub:"1 EUR =",tblGold:"Precios del Oro",tblForex:"Tipos de Cambio",thKarat:"Quilate",thPurity:"Pureza",thGram:"Gramo",thBuy:"Compra",thSell:"Venta",thKilo:"Kilo",seoTitleH:"Acerca de la Inversión en Oro",seo1:"<strong>El oro</strong> se ha usado como reserva de valor durante milenios.",seo2:"<strong>El gramo de oro</strong> es la unidad de 1g de oro puro de 24 quilates.",seoWarn:"⚠️ <em>Advertencia: Solo informativo. No es asesoramiento.</em>",convTitle:"Conversor de Divisas",lblAmt:"Cantidad",lblRes:"Resultado",convBtn:"Convertir",warnTitle:"Aviso legal:",warnText:"Datos de API automáticos. No es consejo de inversión.",footerDesc:"Siga los mercados globales al instante.",footerLinks:"Enlaces Rápidos",footerCurrencies:"Divisas Soportadas",footerRights:"Todos los derechos reservados.",footerDev:"Optimizado SEO & Multilingüe",footerPrivacy:"Privacidad",footerTerms:"Términos",footerPrivacyShort:"Privacidad",footerContactShort:"Contacto",cookieText:"Las cookies mejoran su experiencia.",cookAcc:"Aceptar",cookDec:"Rechazar",refresh:"Actualizar",toastOk:"¡Datos actualizados!",toastErr:"Error de conexión. Cargando respaldo...",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> Acerca de</h2><p>Plataforma financiera independiente para datos actualizados.</p>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> Contacto</h2><p>Escríbanos para cualquier consulta.</p><ul><li>📧 info@altinpiyasa.com</li><li>📍 Estambul, Turquía</li></ul>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Privacidad</h2><p>Sus datos protegidos por el RGPD.</p>",modalTerms:"<h2><i class='fa-solid fa-file-contract'></i> Términos</h2><p>Datos solo informativos. Posibles retrasos."},
+      ru:{navHome:"Главная",navPrices:"Цены",navConv:"Конвертер",navAbout:"О нас",navContact:"Контакты",heroTitle:"Глобальный Рынок Золота & Валют",heroSub:"15+ валют, 7 языков, live данные & мгновенный конвертер.",statusLive:"Рынок Открыт • Live Данные",cardOns:"УНЦИЯ ЗОЛОТА",cardGram:"ГРАММ 24K",cardSub:"Выбранная Валюта",cardUsd:"USD",cardUsdSub:"1 USD =",cardEur:"EUR",cardEurSub:"1 EUR =",tblGold:"Цены на Золото",tblForex:"Курсы Валют",thKarat:"Проба",thPurity:"Чистота",thGram:"Грамм",thBuy:"Покупка",thSell:"Продажа",thKilo:"Кило",seoTitleH:"Об Инвестициях в Золото",seo1:"<strong>Золото</strong> используется как средство сохранения стоимости тысячелетиями.",seo2:"<strong>Грамм золота</strong> — единица в 1г чистого золота 24 пробы.",seoWarn:"⚠️ <em>Предупреждение: Только для информации. Не совет.</em>",convTitle:"Конвертер Валют",lblAmt:"Сумма",lblRes:"Результат",convBtn:"Конвертировать",warnTitle:"Юридическое уведомление:",warnText:"Данные из API автоматически. Не инвестиционная рекомендация.",footerDesc:"Отслеживайте глобальные рынки мгновенно.",footerLinks:"Ссылки",footerCurrencies:"Поддерживаемые Валюты",footerRights:"Все права защищены.",footerDev:"SEO Оптимизировано & Многоязычно",footerPrivacy:"Конфиденциальность",footerTerms:"Условия",footerPrivacyShort:"Конфиденциальность",footerContactShort:"Контакты",cookieText:"Файлы cookie улучшают ваш опыт.",cookAcc:"Принять",cookDec:"Отклонить",refresh:"Обновить",toastOk:"Данные обновлены!",toastErr:"Ошибка соединения. Загрузка резерва...",modalAbout:"<h2><i class='fa-solid fa-circle-info'></i> О нас</h2><p>Независимая финансовая платформа для актуальных данных.</p>",modalContact:"<h2><i class='fa-solid fa-envelope'></i> Контакты</h2><p>Пишите нам для любых вопросов.</p><ul><li>📧 info@altinpiyasa.com</li><li>📍 Стамбул, Турция</li></ul>",modalPrivacy:"<h2><i class='fa-solid fa-shield-halved'></i> Конфиденциальность</h2><p>Ваши данные защищены в соответствии с GDPR.</p>",modalTerms:"<h2><i class='fa-solid fa-file-contract'></i> Условия</h2><p>Данные только для информации. Возможны задержки."}
     };
+
+    // ===== SEO & META DICTIONARY =====
     const SEO = {
-      tr:{t:"Canlı Altın Fiyatları | Gram Altın, Döviz & Çevirici",d:"Anlık altın fiyatları, gram altın, ons, dolar, euro ve 15+ döviz kuru.",k:"altın fiyatları,gram altın,ons altın,dolar,euro,döviz çevirici"},
-      en:{t:"Live Gold Prices | Gram Gold, Forex & Converter",d:"Real-time gold prices, ounce, USD, EUR, GBP rates. Investment tracker.",k:"gold price,live gold,gram gold,forex rates,currency converter"},
-      ar:{t:"أسعار الذهب المباشرة | جرام الذهب، أسعار الصرف",d:"أسعار الذهب لحظياً، أونصة، دولار، يورو. محول عملات مجاني.",k:"سعر الذهب,جرام الذهب,أونصة,دولار,يورو,محول العملات"},
-      de:{t:"Live Goldpreise | Gramm Gold, Devisen & Rechner",d:"Echtzeit-Goldpreise, Unze, USD, EUR Kurse. Anlage-Tracker.",k:"goldpreis,gramm gold,unze,devisenkurse,währungsrechner"},
-      fr:{t:"Prix de l'Or en Direct | Or, Devises & Convertisseur",d:"Prix or temps réel, once, USD, EUR. Suivi investissement.",k:"prix or,gramme or,once,dollar,euro,convertisseur"},
-      es:{t:"Precio Oro en Vivo | Oro, Divisas y Conversor",d:"Precios oro tiempo real, onza, USD, EUR. Seguimiento.",k:"precio oro,gramo oro,onza,dolar,euro,conversor"},
-      ru:{t:"Цена Золота Онлайн | Золото, Валюты, Конвертер",d:"Цены на золото, унция, USD, EUR. Инвестиционный трекер.",k:"цена золота,грамм золота,унция,доллар,евро,конвертер"}
+      tr:{t:"Canlı Altın Fiyatları | Gram Altın, Ons, Döviz Kurları & Çevirici",d:"Anlık altın fiyatları, gram altın, ons altın, dolar, euro, çeyrek altın ve 15+ döviz kuru. Yatırım takibi.",k:"altın fiyatları,gram altın,ons altın,dolar kuru,euro kuru,döviz çevirici,forex,gold price,usd try"},
+      en:{t:"Live Gold Prices | Gram Gold, Forex Rates & Converter",d:"Real-time gold prices, ounce, USD, EUR, GBP rates. Investment tracker & free currency converter.",k:"gold price today,live gold,gram gold,forex rates,currency converter,usd try,eur usd,investment"},
+      ar:{t:"أسعار الذهب المباشرة | جرام الذهب، أسعار الصرف ومحول",d:"أسعار الذهب لحظياً، أونصة، دولار، يورو. محول عملات مجاني وبيانات سوقية.",k:"سعر الذهب,جرام الذهب,أونصة,دولار,يورو,محول العملات,استثمار"},
+      de:{t:"Live Goldpreise | Gramm Gold, Devisenkurse & Rechner",d:"Echtzeit-Goldpreise, Unze, USD, EUR Kurse. Anlage-Tracker & Währungsrechner.",k:"goldpreis,gramm gold,unze,devisenkurse,währungsrechner,forex,usd eur"},
+      fr:{t:"Prix de l'Or en Direct | Or, Devises & Convertisseur",d:"Prix or temps réel, once, USD, EUR. Suivi investissement & convertisseur gratuit.",k:"prix or,gramme or,once,dollar,euro,convertisseur,forex,investissement"},
+      es:{t:"Precio Oro en Vivo | Oro, Divisas y Conversor",d:"Precios oro tiempo real, onza, USD, EUR. Seguimiento inversiones & conversor.",k:"precio oro,gramo oro,onza,dolar,euro,conversor,forex,inversion"},
+      ru:{t:"Цена Золота Онлайн | Золото, Валюты, Конвертер",d:"Цены на золото, унция, USD, EUR. Инвестиционный трекер & конвертер.",k:"цена золота,грамм золота,унция,доллар,евро,конвертер,форекс,инвестиции"}
     };
 
-    const $=id=>document.getElementById(id);
-    const fmt=(v,c)=>{try{return new Intl.NumberFormat(S.lang==='ar'?'ar-SA':S.lang,{style:'currency',currency:c}).format(v||0)}catch{return `${(v||0).toFixed(2)} ${c}`}};
-    const toast=(m,t='s')=>{const c=$('toastWrap'),e=document.createElement('div');e.className=`toast ${t}`;e.innerHTML=`<i class="fa-solid fa-${t==='s'?'check':t==='e'?'xmark':'info'}" style="color:var(--${t==='s'?'green':t==='e'?'red':'blue'})"></i><span>${m}</span>`;c.appendChild(e);setTimeout(()=>e.remove(),4000)};
+    // ===== CORE UTILS =====
+    const $ = id => document.getElementById(id);
+    const fmt = (v, c='TRY') => { try { return new Intl.NumberFormat(S.lang==='ar'?'ar-SA':S.lang, {style:'currency',currency:c}).format(v||0); } catch { return `${(v||0).toFixed(2)} ${c}`; } };
+    const toast = (title, desc, type='i') => {
+      const c=$('toastWrap'), e=document.createElement('div'); e.className=`toast ${type}`;
+      e.innerHTML=`<i class="fa-solid fa-${type==='s'?'check':type==='e'?'xmark':'info'}"></i><div class="toast-msg"><div class="toast-title">${title}</div><div class="toast-desc">${desc}</div></div><button class="toast-x" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>`;
+      c.appendChild(e); setTimeout(()=>e.remove(), 4500);
+    };
 
-    function setLang(l){S.lang=l;localStorage.setItem('lang',l);$('lang').value=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';document.documentElement.lang=l;
-      const t=i18n[l]||i18n.tr,s=SEO[l]||SEO.tr;document.title=s.t;$('seoDesc').content=s.d;$('seoKeywords').content=s.k;$('ogTitle').content=s.t;$('ogDesc').content=s.d;$('ogLocale').content=l==='tr'?'tr_TR':l==='en'?'en_US':l==='ar'?'ar_SA':l==='de'?'de_DE':l==='fr'?'fr_FR':l==='es'?'es_ES':'ru_RU';
-      document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.innerHTML=t[k]});if(S.data)render()}
-
-    function setCurr(c){S.curr=c;localStorage.setItem('curr',c);$('curr').value=c;if(S.data)render()}
-    function toggleTheme(){S.theme=S.theme==='dark'?'light':'dark';localStorage.setItem('theme',S.theme);document.documentElement.setAttribute('data-theme',S.theme);document.querySelector('.theme-btn i').className=S.theme==='dark'?'fa-solid fa-moon':'fa-solid fa-sun'}
-
-    let chart;
-    function initChart(){if(typeof Chart==='undefined')return;const ctx=$('chart').getContext('2d');chart=new Chart(ctx,{type:'line',data:{labels:['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'],datasets:[{label:'USD/TRY',data:[32.1,32.3,32.25,32.4,32.5,32.45,32.6,32.55],borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,.1)',fill:true,tension:.4,pointRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,.05)'}},y:{grid:{color:'rgba(255,255,255,.05)'}}}})}
-    function updateChart(){if(!chart)return;const base=32.5;chart.data.datasets[0].data=Array.from({length:8},()=>base+(Math.random()-0.5)*1.2);chart.update()}
-
-    async function fetchData(){
-      if(S.loading)return;S.loading=true;$('stxt').textContent='⏳ Bağlanıyor...';$('status').classList.remove('err','ok');
-      try{const res=await fetch(CFG.API,{cache:'no-store',signal:AbortSignal.timeout(5000)});if(!res.ok)throw new Error(res.status);const j=await res.json();if(!j.goldUSD||!j.rates)throw new Error('Invalid');S.data=j;S.retry=0;$('stxt').textContent=i18n[S.lang]?.stOk||'Live';$('status').classList.add('ok');toast(i18n[S.lang]?.toastOk||'Güncellendi','s');render()}
-      catch(e){S.retry++;if(S.retry<=CFG.RETRY){await new Promise(r=>setTimeout(r,1000));return fetchData()}
-        S.data={goldUSD:2385.50,rates:{USD:1,TRY:32.50,EUR:0.93,GBP:0.79,SAR:3.75,AED:3.67,EGP:47.50,RUB:90.50,JPY:149.20,CHF:0.88,CAD:1.36,AUD:1.53,INR:83.10,CNY:7.15},goldPrices:[{karat:24,purity:1000,gramTRY:2492,buyTRY:2479,sellTRY:2504,kiloTRY:2492000},{karat:22,purity:916,gramTRY:2284,buyTRY:2272,sellTRY:2295,kiloTRY:2284000},{karat:18,purity:750,gramTRY:1869,buyTRY:1860,sellTRY:1878,kiloTRY:1869000}]};$('stxt').textContent=`⚠️ ${i18n[S.lang]?.stErr||'Yedek'}`;$('status').classList.add('err');toast(i18n[S.lang]?.toastErr||'Yedek yüklendi','e');render()}
-      finally{S.loading=false}
+    // ===== THEME & LANGUAGE MANAGEMENT =====
+    function setLang(lang) {
+      S.lang = lang; localStorage.setItem('lang', lang); $('lang').value = lang;
+      document.documentElement.dir = lang==='ar'?'rtl':'ltr'; document.documentElement.lang = lang;
+      const t = i18n[lang]||i18n.tr, s = SEO[lang]||SEO.tr;
+      document.title = s.t; $('seoDesc').content = s.d; $('seoKeywords').content = s.k;
+      $('ogTitle').content = s.t; $('ogDesc').content = s.d; $('twTitle').content = s.t; $('twDesc').content = s.d;
+      $('ogLocale').content = lang==='tr'?'tr_TR':lang==='en'?'en_US':lang==='ar'?'ar_SA':lang==='de'?'de_DE':lang==='fr'?'fr_FR':lang==='es'?'es_ES':'ru_RU';
+      $('canonicalLink').href = lang==='tr'?'https://altinpiyasa.com/':`https://altinpiyasa.com/${lang}/`;
+      document.querySelectorAll('[data-i18n]').forEach(el => { const k=el.getAttribute('data-i18n'); if(t[k]) el.innerHTML = t[k]; });
+      if(S.data) render();
     }
 
+    function setCurr(curr) { S.curr = curr; localStorage.setItem('curr', curr); $('curr').value = curr; if(S.data) render(); }
+    function toggleTheme() { S.theme = S.theme==='dark'?'light':'dark'; localStorage.setItem('theme', S.theme); document.documentElement.setAttribute('data-theme', S.theme); $('themeBtn').innerHTML = S.theme==='dark'?'<i class="fa-solid fa-moon"></i>':'<i class="fa-solid fa-sun"></i>'; }
+
+    // ===== CHART INITIALIZATION =====
+    let chartInstance;
+    function initChart(){
+      if(typeof Chart==='undefined') return;
+      const ctx=$('chart').getContext('2d');
+      chartInstance=new Chart(ctx,{
+        type:'line',
+        data:{
+          labels:['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'],
+          datasets:[{label:'USD/TRY',data:[32.1,32.3,32.25,32.4,32.5,32.45,32.6,32.55],borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,.1)',fill:true,tension:.4,pointRadius:4,pointHoverRadius:6}]
+        },
+        options:{
+          responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
+          scales:{x:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#94a3b8'}},y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#94a3b8'}}}
+        }
+      });
+    }
+    function updateChart(){
+      if(!chartInstance) return;
+      const base=32.5;
+      chartInstance.data.datasets[0].data=Array.from({length:8},()=>base+(Math.random()-0.5)*1.2);
+      chartInstance.update();
+    }
+
+    // ===== API CLIENT WITH RETRY & FALLBACK =====
+    async function fetchData(){
+      if(S.loading) return; S.loading=true; 
+      $('statusTxt').innerHTML = '<span class="pulse"></span> Bağlanıyor...'; $('statusBar').classList.remove('err','succ');
+      try {
+        const res = await fetch(CFG.API, {cache:'no-store',signal:AbortSignal.timeout(5000)});
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        const j = await res.json();
+        if(!j.goldUSD || !j.rates) throw new Error('Invalid JSON');
+        S.data = j; S.retry = 0;
+        $('statusTxt').innerHTML = `<span class="pulse"></span> ${i18n[S.lang].statusLive}`; $('statusBar').classList.add('succ');
+        $('lastUpd').textContent = new Date().toLocaleTimeString();
+        toast('✅ Başarılı', i18n[S.lang].toastOk, 's'); render();
+      } catch(e) {
+        console.warn('API Hatası:', e.message);
+        S.retry = (S.retry||0)+1;
+        if(S.retry <= CFG.RETRY) { toast('🔄 Deneniyor', `${S.retry}/${CFG.RETRY}`, 'i'); await new Promise(r=>setTimeout(r,1500)); return fetchData(); }
+        // Fallback Generation
+        S.data = { goldUSD:2385.50, rates:{USD:1,TRY:32.50,EUR:0.93,GBP:0.79,SAR:3.75,AED:3.67,EGP:47.50,RUB:90.50,JPY:149.20,CHF:0.88,CAD:1.36,AUD:1.53,INR:83.10,CNY:7.15,SYP:13000}, goldPrices:[{karat:24,purity:1000,gramTRY:2492,buyTRY:2479,sellTRY:2504,kiloTRY:2492000},{karat:22,purity:916,gramTRY:2284,buyTRY:2272,sellTRY:2295,kiloTRY:2284000},{karat:18,purity:750,gramTRY:1869,buyTRY:1860,sellTRY:1878,kiloTRY:1869000}] };
+        $('statusTxt').innerHTML = `<span style="color:var(--red);margin-right:8px">⚠</span> ${i18n[S.lang]?.toastErr?.split('.')[0]||'Yedek'}`; $('statusBar').classList.add('err');
+        toast('❌ Hata', i18n[S.lang].toastErr, 'e'); render();
+      } finally { S.loading = false; }
+    }
+
+    // ===== UI RENDERER =====
     function render(){
-      if(!S.data)return;const c=S.curr,d=S.data;
-      $('vOns').textContent=fmt(d.goldUSD,'USD');$('vGram').textContent=fmt(d[`gram24${c}`]||((d.goldUSD/31.1035)*(d.rates[c]||1)),c);$('vSub').textContent=i18n[S.lang]?.vSub||'Selected';$('vUsd').textContent=fmt(d.rates[c]||1,c);$('vEur').textContent=fmt((d.rates.EUR||0.93)/(d.rates[c]||1),c);
-      $('tGold').innerHTML=(d.goldPrices||[]).map(p=>`<tr><td><span class="b">${p.karat}</span></td><td>${p.purity}‰</td><td>${fmt(p[`gram${c}`]||0,c)}</td><td class="down">${fmt(p[`buy${c}`]||0,c)}</td><td class="up">${fmt(p[`sell${c}`]||0,c)}</td><td>${fmt(p[`kilo${c}`]||0,c)}</td></tr>`).join('');
-      $('tForex').innerHTML=Object.entries(d.rates).slice(0,10).map(([k,v])=>`<tr><td><b>${k}</b></td><td>${v.toFixed(4)}</td><td>${(1/v).toFixed(4)}</td></tr>`).join('');
-      const opts=Object.keys(d.rates).map(k=>`<option>${k}</option>`).join('');if(!$('from').options.length)$('from').innerHTML=opts;if(!$('to').options.length)$('to').innerHTML=opts;$('to').value=c;calc();updateChart()}
+      if(!S.data) return; const c = S.curr, d = S.data;
+      $('cOns').textContent = fmt(d.goldUSD,'USD'); $('cGram').textContent = fmt(d[`gram24${c}`]||((d.goldUSD/31.1035)*(d.rates[c]||1)),c); $('cSub').textContent = i18n[S.lang].cardSub;
+      $('cUsd').textContent = fmt(d.rates[c]||1,c); $('cEur').textContent = fmt((d.rates.EUR||0.93)/(d.rates[c]||1),c);
+      $('tGold').innerHTML = (d.goldPrices||[]).map(p=>`<tr><td><span class="badge">${p.karat}</span></td><td>${p.purity}‰</td><td>${fmt(p[`gram${c}`]||0,c)}</td><td class="down">${fmt(p[`buy${c}`]||0,c)}</td><td class="up">${fmt(p[`sell${c}`]||0,c)}</td><td>${fmt(p[`kilo${c}`]||0,c)}</td></tr>`).join('');
+      $('tForex').innerHTML = Object.entries(d.rates).slice(0,12).map(([k,v])=>`<tr><td><b>${k}</b></td><td>${v.toFixed(4)}</td><td>${(1/v).toFixed(4)}</td></tr>`).join('');
+      
+      // Converter Init
+      const opts = Object.keys(d.rates).map(k=>`<option value="${k}">${k}</option>`).join('');
+      if(!$('cvFrom').options.length) $('cvFrom').innerHTML=opts; if(!$('cvTo').options.length) $('cvTo').innerHTML=opts; $('cvTo').value=c;
+      calcConv(); $('lastUpd').textContent=new Date().toLocaleTimeString(); updateChart();
+    }
 
-    function calc(){const a=parseFloat($('amt').value)||0,f=$('from').value,t=$('to').value,r=S.data?.rates;if(!r||!f||!t)return;const res=(a/r[f])*r[t];$('res').value=res.toFixed(4);$('disp').innerHTML=`${fmt(a,f)} = <span style="color:var(--green)">${fmt(res,t)}</span>`}
-    function swap(){const a=$('from').value,b=$('to').value;$('from').value=b;$('to').value=a;calc()}
+    function calcConv(){
+      const a=parseFloat($('cvAmt').value)||0,f=$('cvFrom').value,t=$('cvTo').value,r=S.data?.rates; if(!r||!f||!t) return;
+      const res=(a/r[f])*r[t]; $('cvRes').value=res.toFixed(4); $('cvDisp').innerHTML=`${fmt(a,f)} = <span style="color:var(--green);font-weight:800">${fmt(res,t)}</span>`;
+    }
 
-    window.openModal=t=>{const b=i18n[S.lang]||i18n.tr;$('modalBody').innerHTML=(b[`modal${t.charAt(0).toUpperCase()+t.slice(1)}`]||'<h2>Yapım Aşamasında</h2>')+`<div style="text-align:right;margin-top:16px"><button class="btn" style="background:var(--card);border:1px solid var(--line)" onclick="closeModal()">Kapat</button></div>`;$('modalBg').classList.add('show')}
-    window.closeModal=()=>$('modalBg').classList.remove('show');
-    window.closeCookie=()=>{localStorage.setItem('cookie','1');$('cookieBar').classList.remove('show');toast('Kaydedildi','s')};
+    // ===== MODALS, COOKIES, UI EVENTS =====
+    window.openModal = type => { const t=i18n[S.lang]||i18n.tr; const key = `modal${type.charAt(0).toUpperCase()+type.slice(1)}`; $('modalBody').innerHTML = (t[key]||'<h2>Yapım Aşamasında</h2>')+`<div style="text-align:right;margin-top:22px"><button class="btn btn-ghost" onclick="closeModal()">${type==='terms'?'Kapat':'Kapat'}</button></div>`; $('modalBg').classList.add('show'); document.body.style.overflow='hidden'; };
+    window.closeModal = () => { $('modalBg').classList.remove('show'); document.body.style.overflow=''; };
+    window.closeCookie = () => { localStorage.setItem('cookie','1'); $('cookieBar').classList.remove('show'); toast('Tercih Kaydedildi', 'Çerez ayarlarınız güncellendi.', 's'); };
+    window.calcConv = calcConv; 
+    window.swap = () => { const a=$('cvFrom').value,b=$('cvTo').value; $('cvFrom').value=b; $('cvTo').value=a; calcConv(); };
+    window.setLang = setLang; window.setCurr = setCurr;
 
-    document.addEventListener('DOMContentLoaded',()=>{
-      $('y').textContent=new Date().getFullYear();setLang(S.lang);setCurr(S.curr);document.documentElement.setAttribute('data-theme',S.theme);
-      setInterval(()=>$('clock').textContent=new Date().toLocaleTimeString(),1000);
-      if(!localStorage.getItem('cookie'))setTimeout(()=>$('cookieBar').classList.add('show'),2000);
-      initChart();fetchData();setInterval(fetchData,60000);
-      window.addEventListener('scroll',()=>$('scrollTop').classList.toggle('vis',window.scrollY>300),{passive:true});$('scrollTop').onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
-      $('amt').oninput=calc;$('from').onchange=calc;$('to').onchange=calc;
+    // ===== INITIALIZATION =====
+    document.addEventListener('DOMContentLoaded', () => {
+      $('year').textContent = new Date().getFullYear(); $('themeBtn').innerHTML = S.theme==='dark'?'<i class="fa-solid fa-moon"></i>':'<i class="fa-solid fa-sun"></i>'; document.documentElement.setAttribute('data-theme', S.theme);
+      setLang(S.lang); setCurr(S.curr);
+      setInterval(()=>$('clock')&&( $('clock') || {textContent:''}).textContent=new Date().toLocaleTimeString(),1000);
+      if(!localStorage.getItem('cookie')) setTimeout(()=>$('cookieBar').classList.add('show'), 2000);
+      initChart(); fetchData(); setInterval(fetchData, CFG.REFRESH);
+      window.addEventListener('scroll', ()=>$('scrollTop').classList.toggle('vis',window.scrollY>350),{passive:true}); $('scrollTop').onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+      $('navToggle').onclick=()=>$('menu').classList.toggle('open');
+      document.addEventListener('click', e => { if(e.target.closest('.nav-menu') && !e.target.closest('.nav-menu a')) $('menu').classList.remove('open'); });
     });
-    document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement===$('amt'))calc();if(e.key==='Escape')closeModal()});
+    document.addEventListener('keydown', e => { if(e.key==='Enter' && document.activeElement===$('cvAmt')) calcConv(); if(e.key==='Escape') closeModal(); });
   </script>
 </body>
 </html>
